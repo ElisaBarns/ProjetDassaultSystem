@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -57,6 +58,7 @@ public class Client implements Serializable {
         return "Entity.Client[ id=" + id + " ]";
     }
     
+     @Column (nullable=false, unique = true)
     private int id_client;
 
     /**
@@ -76,7 +78,8 @@ public class Client implements Serializable {
     public void setId_client(int id_client) {
         this.id_client = id_client;
     }
-
+    
+ @Column (nullable=false, unique = false)
     private String nom_client;
 
     /**
@@ -97,6 +100,7 @@ public class Client implements Serializable {
         this.nom_client = nom_client;
     }
 
+     @Column (nullable=false, unique = true)
     private String siret;
 
     /**
@@ -116,7 +120,8 @@ public class Client implements Serializable {
     public void setSiret(String siret) {
         this.siret = siret;
     }
-
+    
+ @Column (nullable=true)
     private boolean inactif;
 
     /**
@@ -136,7 +141,8 @@ public class Client implements Serializable {
     public void setInactif(boolean inactif) {
         this.inactif = inactif;
     }
-
+    
+ @Column (nullable=false, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_creation_client;
 
@@ -158,6 +164,7 @@ public class Client implements Serializable {
         this.date_creation_client = date_creation_client;
     }
 
+     @Column (nullable=true, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_modif_client;
 
@@ -179,6 +186,7 @@ public class Client implements Serializable {
         this.date_modif_client = date_modif_client;
     }
 
+     @Column (nullable=true, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_inactiv_client;
 

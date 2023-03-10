@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -56,6 +57,8 @@ public class Utilisateur implements Serializable {
     public String toString() {
         return "Entity.Utilisateur[ id=" + id + " ]";
     }
+    
+    @Column(nullable=false, unique=true)
    
     private int id_utilisateur;
 
@@ -77,6 +80,7 @@ public class Utilisateur implements Serializable {
         this.id_utilisateur = id_utilisateur;
     }
 
+    @Column(nullable=false, unique=false)
     private String nom_utilisateur;
 
     /**
@@ -97,6 +101,7 @@ public class Utilisateur implements Serializable {
         this.nom_utilisateur = nom_utilisateur;
     }
 
+    @Column(nullable=false, unique=false)
     private String prenom_utilisateur;
 
     /**
@@ -117,6 +122,7 @@ public class Utilisateur implements Serializable {
         this.prenom_utilisateur = prenom_utilisateur;
     }
 
+    @Column(nullable=false, unique=true)
     private String login_utilisateur;
 
     /**
@@ -137,6 +143,7 @@ public class Utilisateur implements Serializable {
         this.login_utilisateur = login_utilisateur;
     }
 
+    @Column(nullable=false, unique=true)
     private String mdp_utilisateur;
 
     /**
@@ -156,6 +163,8 @@ public class Utilisateur implements Serializable {
     public void setMdp_utilisateur(String mdp_utilisateur) {
         this.mdp_utilisateur = mdp_utilisateur;
     }
+    
+    @Column(nullable=false, unique=true)
 
     private String mail_utilisateur;
 
@@ -177,6 +186,7 @@ public class Utilisateur implements Serializable {
         this.mail_utilisateur = mail_utilisateur;
     }
 
+    @Column(nullable=false, unique=false)
     private String tel_utilisateur;
 
     /**
@@ -197,6 +207,7 @@ public class Utilisateur implements Serializable {
         this.tel_utilisateur = tel_utilisateur;
     }
 
+    @Column(nullable=true)
     private boolean inactif;
 
     /**
@@ -217,6 +228,7 @@ public class Utilisateur implements Serializable {
         this.inactif = inactif;
     }
 
+    @Column(nullable=false, unique=false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_creation_utilisateur;
 
@@ -238,6 +250,7 @@ public class Utilisateur implements Serializable {
         this.date_creation_utilisateur = date_creation_utilisateur;
     }
 
+    @Column(nullable=true)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_inactivation_utilisateur;
 
@@ -260,6 +273,7 @@ public class Utilisateur implements Serializable {
         this.date_inactivation_utilisateur = date_inactivation_utilisateur;
     }
 
+    @Column(nullable=true)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_modification_utilisateur;
 

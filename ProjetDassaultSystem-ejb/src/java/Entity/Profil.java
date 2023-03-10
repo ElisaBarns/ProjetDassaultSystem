@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -57,6 +58,7 @@ public class Profil implements Serializable {
         return "Entity.Profil[ id=" + id + " ]";
     }
     
+    @Column(nullable=false, unique=true)
     private int id_profil;
 
     /**
@@ -117,6 +119,7 @@ public class Profil implements Serializable {
         this.inactif = inactif;
     }
 
+    @Column(nullable=false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_creation_profil;
 
@@ -138,6 +141,7 @@ public class Profil implements Serializable {
         this.date_creation_profil = date_creation_profil;
     }
 
+    @Column(nullable=false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_inactif_profil;
 

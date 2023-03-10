@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -18,6 +19,9 @@ import javax.persistence.Id;
  */
 @Entity
 public class Enregistrement implements Serializable {
+
+    @OneToOne(mappedBy = "enregistrement")
+    private Piste_opportunite piste_opportunite;
 
     private static final long serialVersionUID = 1L;
     @Id

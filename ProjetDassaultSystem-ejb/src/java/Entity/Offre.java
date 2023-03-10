@@ -12,6 +12,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -20,6 +22,9 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Offre implements Serializable {
+
+    @OneToMany(mappedBy = "uneOffre")
+    private List<Detail_offre> lesDetail_offres;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -163,6 +168,27 @@ public class Offre implements Serializable {
      */
     public void setContenu(List<Detail_offre> contenu) {
         this.contenu = contenu;
+    }
+
+    @ManyToMany
+    private List<Piste_opportunite> lesPistes_opportunites;
+
+    /**
+     * Get the value of lesPistes_opportunites
+     *
+     * @return the value of lesPistes_opportunites
+     */
+    public List<Piste_opportunite> getLesPistes_opportunites() {
+        return lesPistes_opportunites;
+    }
+
+    /**
+     * Set the value of lesPistes_opportunites
+     *
+     * @param lesPistes_opportunites new value of lesPistes_opportunites
+     */
+    public void setLesPistes_opportunites(List<Piste_opportunite> lesPistes_opportunites) {
+        this.lesPistes_opportunites = lesPistes_opportunites;
     }
 
 

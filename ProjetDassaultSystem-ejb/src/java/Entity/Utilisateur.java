@@ -6,11 +6,13 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -296,4 +298,26 @@ public class Utilisateur implements Serializable {
         this.date_modification_utilisateur = date_modification_utilisateur;
     }
  
+    @ManyToMany
+        private List<Profil> lesProfils;
+
+    /**
+     * Get the value of lesProfils
+     *
+     * @return the value of lesProfils
+     */
+    public List<Profil> getLesProfils() {
+        return lesProfils;
+    }
+
+    /**
+     * Set the value of lesProfils
+     *
+     * @param lesProfils new value of lesProfils
+     */
+    public void setLesProfils(List<Profil> lesProfils) {
+        this.lesProfils = lesProfils;
+    }
+
+    
 }

@@ -6,11 +6,15 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -19,6 +23,12 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Piste_opportunite implements Serializable {
+
+    @ManyToMany(mappedBy = "lesPistes_opportunites")
+    private List<Offre> lesOffres;
+
+    @ManyToMany(mappedBy = "lesPistes_opportunites")
+    private List<Profil> lesProfils;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -310,6 +320,48 @@ public class Piste_opportunite implements Serializable {
      */
     public void setExpert_technique(Profil expert_technique) {
         this.expert_technique = expert_technique;
+    }
+
+    @OneToOne
+    private Enregistrement enregistrement;
+
+    /**
+     * Get the value of enregistrement
+     *
+     * @return the value of enregistrement
+     */
+    public Enregistrement getEnregistrement() {
+        return enregistrement;
+    }
+
+    /**
+     * Set the value of enregistrement
+     *
+     * @param enregistrement new value of enregistrement
+     */
+    public void setEnregistrement(Enregistrement enregistrement) {
+        this.enregistrement = enregistrement;
+    }
+
+    @ManyToOne
+    private Client leClient;
+
+    /**
+     * Get the value of leClient
+     *
+     * @return the value of leClient
+     */
+    public Client getLeClient() {
+        return leClient;
+    }
+
+    /**
+     * Set the value of leClient
+     *
+     * @param leClient new value of leClient
+     */
+    public void setLeClient(Client leClient) {
+        this.leClient = leClient;
     }
 
 }

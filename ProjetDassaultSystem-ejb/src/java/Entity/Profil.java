@@ -6,11 +6,13 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -19,6 +21,9 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Profil implements Serializable {
+
+    @ManyToMany(mappedBy = "lesProfils")
+    private List<Utilisateur> lesUtilisateurs;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -161,6 +166,27 @@ public class Profil implements Serializable {
      */
     public void setDate_inactif_profil(Date date_inactif_profil) {
         this.date_inactif_profil = date_inactif_profil;
+    }
+
+    @ManyToMany
+    private List<Piste_opportunite> lesPistes_opportunites;
+
+    /**
+     * Get the value of lesPistes_opportunites
+     *
+     * @return the value of lesPistes_opportunites
+     */
+    public List<Piste_opportunite> getLesPistes_opportunites() {
+        return lesPistes_opportunites;
+    }
+
+    /**
+     * Set the value of lesPistes_opportunites
+     *
+     * @param lesPistes_opportunites new value of lesPistes_opportunites
+     */
+    public void setLesPistes_opportunites(List<Piste_opportunite> lesPistes_opportunites) {
+        this.lesPistes_opportunites = lesPistes_opportunites;
     }
 
 }

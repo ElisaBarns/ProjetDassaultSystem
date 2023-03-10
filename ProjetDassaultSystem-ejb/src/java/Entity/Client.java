@@ -6,11 +6,13 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -19,6 +21,12 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Client implements Serializable {
+
+    @OneToMany(mappedBy = "leClient")
+    private List<Contact> lesContacts;
+
+    @OneToMany(mappedBy = "leClient")
+    private List<Piste_opportunite> lesPiste_opportunites;
 
     private static final long serialVersionUID = 1L;
     @Id

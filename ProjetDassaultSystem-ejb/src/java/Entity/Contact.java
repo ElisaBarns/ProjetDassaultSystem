@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -248,6 +249,27 @@ public class Contact implements Serializable {
      */
     public void setDate_inactiv_contact(Date date_inactiv_contact) {
         this.date_inactiv_contact = date_inactiv_contact;
+    }
+
+    @ManyToOne
+    private Client leClient;
+
+    /**
+     * Get the value of leClient
+     *
+     * @return the value of leClient
+     */
+    public Client getLeClient() {
+        return leClient;
+    }
+
+    /**
+     * Set the value of leClient
+     *
+     * @param leClient new value of leClient
+     */
+    public void setLeClient(Client leClient) {
+        this.leClient = leClient;
     }
 
 }

@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 
 /**
  *
@@ -116,6 +118,48 @@ public class Detail_offre implements Serializable {
      */
     public void setProduit(Produit produit) {
         this.produit = produit;
+    }
+
+    @ManyToOne
+    private Produit leProduit;
+
+    /**
+     * Get the value of leProduit
+     *
+     * @return the value of leProduit
+     */
+    public Produit getLeProduit() {
+        return leProduit;
+    }
+
+    /**
+     * Set the value of leProduit
+     *
+     * @param leProduit new value of leProduit
+     */
+    public void setLeProduit(Produit leProduit) {
+        this.leProduit = leProduit;
+    }
+
+    @ManyToOne
+    private Offre uneOffre;
+
+    /**
+     * Get the value of uneOffre
+     *
+     * @return the value of uneOffre
+     */
+    public Offre getUneOffre() {
+        return uneOffre;
+    }
+
+    /**
+     * Set the value of uneOffre
+     *
+     * @param uneOffre new value of uneOffre
+     */
+    public void setUneOffre(Offre uneOffre) {
+        this.uneOffre = uneOffre;
     }
 
 }

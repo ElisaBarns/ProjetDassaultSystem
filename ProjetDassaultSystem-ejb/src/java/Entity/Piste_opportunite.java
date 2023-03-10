@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -57,6 +58,7 @@ public class Piste_opportunite implements Serializable {
         return "Entity.Piste_opportunite[ id=" + id + " ]";
     }
    
+     @Column (nullable=false, unique = true)
     private int id_piste_opp;
 
     /**
@@ -77,6 +79,7 @@ public class Piste_opportunite implements Serializable {
         this.id_piste_opp = id_piste_opp;
     }
 
+     @Column (nullable=false, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_creation_popp;
 
@@ -98,6 +101,7 @@ public class Piste_opportunite implements Serializable {
         this.date_creation_popp = date_creation_popp;
     }
 
+     @Column (nullable=true, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_modif_popp;
 
@@ -119,6 +123,7 @@ public class Piste_opportunite implements Serializable {
         this.date_modif_popp = date_modif_popp;
     }
  
+     @Column (nullable=true, unique = false)
     private Niveau niveau_interet;
 
     /**
@@ -139,6 +144,7 @@ public class Piste_opportunite implements Serializable {
         this.niveau_interet = niveau_interet;
     }
 
+     @Column (nullable=true, unique = false)
     private int tx_reussite;
 
     /**
@@ -159,6 +165,7 @@ public class Piste_opportunite implements Serializable {
         this.tx_reussite = tx_reussite;
     }
 
+     @Column (nullable=true, unique = false)
     private Niveau niveau_risque;
 
     /**
@@ -179,6 +186,7 @@ public class Piste_opportunite implements Serializable {
         this.niveau_risque = niveau_risque;
     }
 
+     @Column (nullable=true, unique = false)
     private double budget_estime;
 
     /**
@@ -199,6 +207,7 @@ public class Piste_opportunite implements Serializable {
         this.budget_estime = budget_estime;
     }
 
+     @Column (nullable=false, unique = false)
     private PisteOpp type;
 
     /**
@@ -219,6 +228,7 @@ public class Piste_opportunite implements Serializable {
         this.type = type;
     }
 
+     @Column (nullable=false, unique = false)
     private Statut statut;
 
     /**
@@ -239,6 +249,7 @@ public class Piste_opportunite implements Serializable {
         this.statut = statut;
     }
 
+     @Column (nullable=false, unique = false)
     private Profil marketeur;
 
     /**
@@ -259,6 +270,7 @@ public class Piste_opportunite implements Serializable {
         this.marketeur = marketeur;
     }
 
+     @Column (nullable=true, unique = false)
     private Profil vendeur;
 
     /**
@@ -279,6 +291,7 @@ public class Piste_opportunite implements Serializable {
         this.vendeur = vendeur;
     }
 
+     @Column (nullable=true, unique = false)
     private Profil expert_technique;
 
     /**

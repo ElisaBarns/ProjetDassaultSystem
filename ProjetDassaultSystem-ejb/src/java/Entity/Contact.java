@@ -6,6 +6,7 @@ package Entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -57,6 +58,7 @@ public class Contact implements Serializable {
         return "Entity.Contact[ id=" + id + " ]";
     }
     
+     @Column (nullable=false, unique = true)
     private int id_contact;
 
     /**
@@ -77,6 +79,7 @@ public class Contact implements Serializable {
         this.id_contact = id_contact;
     }
 
+     @Column (nullable=false, unique = false)
     private String nom_contact;
 
     /**
@@ -97,6 +100,7 @@ public class Contact implements Serializable {
         this.nom_contact = nom_contact;
     }
 
+     @Column (nullable=false, unique = false)
     private String prenom_contact;
 
     /**
@@ -117,6 +121,7 @@ public class Contact implements Serializable {
         this.prenom_contact = prenom_contact;
     }
 
+     @Column (nullable=false, unique = false)
     private String mail_contact;
 
     /**
@@ -137,6 +142,7 @@ public class Contact implements Serializable {
         this.mail_contact = mail_contact;
     }
 
+     @Column (nullable=false, unique = false)
     private String tel_contact;
 
     /**
@@ -157,6 +163,7 @@ public class Contact implements Serializable {
         this.tel_contact = tel_contact;
     }
 
+     @Column (nullable=true)
     private boolean inactif;
 
     /**
@@ -177,6 +184,7 @@ public class Contact implements Serializable {
         this.inactif = inactif;
     }
 
+     @Column (nullable=false, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_creation_contact;
 
@@ -198,6 +206,7 @@ public class Contact implements Serializable {
         this.date_creation_contact = date_creation_contact;
     }
 
+     @Column (nullable=true, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_modif_contact;
 
@@ -219,6 +228,7 @@ public class Contact implements Serializable {
         this.date_modif_contact = date_modif_contact;
     }
 
+     @Column (nullable=true, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_inactiv_contact;
 

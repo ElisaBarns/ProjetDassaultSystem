@@ -5,6 +5,7 @@
 package Facade;
 
 import Entity.Offre;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -28,5 +29,9 @@ public interface OffreFacadeLocal {
     List<Offre> findRange(int[] range);
 
     int count();
+
+    void CreerOffre(int remise, Date date_creation_offre, float p_somme, float p_total);
+
+    void ModifierOffre(Offre o, int remise, Date date_modif_offre, float p_somme, float p_total);
     
 }

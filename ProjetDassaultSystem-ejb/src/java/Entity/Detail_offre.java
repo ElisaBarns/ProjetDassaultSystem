@@ -99,26 +99,6 @@ public class Detail_offre implements Serializable {
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
-  
-    private Produit produit;
-
-    /**
-     * Get the value of produit
-     *
-     * @return the value of produit
-     */
-    public Produit getProduit() {
-        return produit;
-    }
-
-    /**
-     * Set the value of produit
-     *
-     * @param produit new value of produit
-     */
-    public void setProduit(Produit produit) {
-        this.produit = produit;
-    }
 
     @ManyToOne
     private Produit leProduit;

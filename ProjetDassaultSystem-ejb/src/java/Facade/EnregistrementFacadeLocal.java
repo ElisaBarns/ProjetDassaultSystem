@@ -28,5 +28,7 @@ public interface EnregistrementFacadeLocal {
     List<Enregistrement> findRange(int[] range);
 
     int count();
+
+    //void CreerEnregistrement();
     
 }

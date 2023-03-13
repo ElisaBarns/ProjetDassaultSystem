@@ -4,7 +4,9 @@
  */
 package Facade;
 
+import Entity.Fonction;
 import Entity.Profil;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -28,5 +30,11 @@ public interface ProfilFacadeLocal {
     List<Profil> findRange(int[] range);
 
     int count();
+
+    void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil, Date date_inactif_profil);
+
+    void ModifierProfil(Profil p, Fonction f);
+
+    void InactiverProfil(Profil p, boolean inactif, Date date_inactif_profil);
     
 }

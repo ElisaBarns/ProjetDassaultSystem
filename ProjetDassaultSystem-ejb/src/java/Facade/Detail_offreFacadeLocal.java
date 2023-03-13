@@ -5,6 +5,8 @@
 package Facade;
 
 import Entity.Detail_offre;
+import Entity.Offre;
+import Entity.Produit;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -28,5 +30,11 @@ public interface Detail_offreFacadeLocal {
     List<Detail_offre> findRange(int[] range);
 
     int count();
+
+    void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre, float p_detail);
+
+    void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre, float p_detail);
+
+    void SupprimerDetailOffre(Detail_offre d);
     
 }

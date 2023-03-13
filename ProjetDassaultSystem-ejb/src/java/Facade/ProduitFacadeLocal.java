@@ -5,6 +5,7 @@
 package Facade;
 
 import Entity.Produit;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -28,5 +29,11 @@ public interface ProduitFacadeLocal {
     List<Produit> findRange(int[] range);
 
     int count();
+
+    void CreerProduit(String nom_produit, String description_commerciale, float pu_produit, Date date_creation_produit, Date date_inactivation_produit, boolean inactif);
+
+    void ModifierProduit(Produit p, String nom_produit, String description_commerciale, float pu_produit, Date date_modif_produit, Date date_inactivation_produit, boolean inactif);
+
+    void InactiverProduit(Produit p, Date date_inactivation_produit, boolean inactif);
     
 }

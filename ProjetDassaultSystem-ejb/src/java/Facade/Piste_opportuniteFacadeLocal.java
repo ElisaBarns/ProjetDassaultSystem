@@ -4,7 +4,12 @@
  */
 package Facade;
 
+import Entity.Niveau;
+import Entity.PisteOpp;
 import Entity.Piste_opportunite;
+import Entity.Profil;
+import Entity.Statut;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -28,5 +33,7 @@ public interface Piste_opportuniteFacadeLocal {
     List<Piste_opportunite> findRange(int[] range);
 
     int count();
+
+    void creerPisteOpportunite(int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique);
     
 }

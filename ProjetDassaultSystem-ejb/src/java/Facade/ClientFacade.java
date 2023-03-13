@@ -5,9 +5,12 @@
 package Facade;
 
 import Entity.Client;
+import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -29,10 +32,55 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     }
     
     //Créer client
+    @Override
+    public void creerClient(int id_client, String nom_client, String siret, boolean inactif, Date date_creation_client, Date date_modification_client, Date date_inactiv_client) 
+    {
+        Client c = new Client();
+        c.setId_client(id_client);
+        c.setNom_client(nom_client);
+        c.setSiret(siret);
+        c.setInactif(inactif);
+        c.setDate_creation_client(date_creation_client);
+        c.setDate_modif_client(date_inactiv_client);
+        c.setDate_inactiv_client(date_inactiv_client);
+        getEntityManager().persist(c);
+    }
     
+       
     //Modifier client
+    @Override
+    public void modifierClient(Client c, String nom_client, String siret, Date date_modif_client) {
+        c.setNom_client(nom_client);
+        c.setSiret(siret);
+        c.setDate_modif_client(date_modif_client);
+        getEntityManager().merge(c);
+    }
     
-    //Inactiver client
+    //Inactiver  client
+
+    @Override
+    public void inactiverClient(Client c, boolean inactif, Date date_inactiv_client) {
+        c.setInactif(inactif);
+        c.setDate_inactiv_client(date_inactiv_client);
+        getEntityManager().merge(c);
+    }
+
+    //Rechercher client 
+
+    @Override
+    public Client rechercherClient(String nom_client) {
+    Client c=null;
+    List<Client>result;
+    String txt="SELECT c FROM Client AS c WHERE c.nom_client=:nom_client";
+    Query req=getEntityManager().createQuery(txt);
+    req=req.setParameter("nom_client", nom_client);
+    result=req.getResultList();
+    if(result.size()==1){
+        c=(Client)result.get(0);
+    }
+    return c; 
+               
+    }
     
     
 }

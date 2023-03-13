@@ -5,6 +5,7 @@
 package Facade;
 
 import Entity.Contact;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -28,5 +29,13 @@ public interface ContactFacadeLocal {
     List<Contact> findRange(int[] range);
 
     int count();
+
+    void creerContact(int id_contact, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, boolean inactif, Date date_creation_contact, Date date_modif_contact, Date date_inactiv_contact);
+
+    void modifierContact(Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact);
+
+    void inactiverContact(Contact co, boolean inactif, Date date_inactiv_contact);
+
+    Contact rechercherContact(int id_contact);
     
 }

@@ -5,6 +5,8 @@
 package Facade;
 
 import Entity.Enregistrement;
+import Entity.Piste_opportunite;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -30,6 +32,13 @@ public class EnregistrementFacade extends AbstractFacade<Enregistrement> impleme
     
     
     //Créer enregistrement
+/*
+    public void CreerEnregistrement(Piste_opportunite p) {
+    List<Piste_opportunite> liste_modifications = new List();
+    liste_modifications=liste_modifications.add(p);
+    //Pensez à l'intégrer dans la méthode Creer Piste_opportunite !!!
+    }
+*/
     
     //Modifier enregistrement
     

@@ -4,6 +4,8 @@
  */
 package Facade;
 
+import Entity.Client;
+import Entity.Enregistrement;
 import Entity.Niveau;
 import Entity.PisteOpp;
 import Entity.Piste_opportunite;
@@ -35,5 +37,20 @@ public interface Piste_opportuniteFacadeLocal {
     int count();
 
     void creerPisteOpportunite(int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique);
+
+    void ModifierPisteOpportunite(Piste_opportunite p, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique, Enregistrement enregistrement, Client leClient);
+
+    Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite);
+
+    Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type);
     
+    Piste_opportunite RechercherPisteOpportuniteParStatut(Statut statut);
+    
+    Piste_opportunite RechercherPisteOpportuniteParMarketeur(Profil marketeur);
+    
+    Piste_opportunite RechercherPisteOpportuniteParVendeur(Profil vendeur);
+    
+    Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique);
+    
+    Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient);
 }

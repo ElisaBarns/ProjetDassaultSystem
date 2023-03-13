@@ -214,5 +214,25 @@ public class Produit implements Serializable {
         this.date_inactivation_produit = date_inactivation_produit;
     }
     
-    
+    @Column (nullable = true)
+       private boolean inactif;
+
+    /**
+     * Get the value of inactif
+     *
+     * @return the value of inactif
+     */
+    public boolean isInactif() {
+        return inactif;
+    }
+
+    /**
+     * Set the value of inactif
+     *
+     * @param inactif new value of inactif
+     */
+    public void setInactif(boolean inactif) {
+        this.inactif = inactif;
+    }
+ 
 }

@@ -162,4 +162,24 @@ public class Detail_offre implements Serializable {
         this.uneOffre = uneOffre;
     }
 
+    private float p_detail;
+
+    /**
+     * Get the value of p_detail
+     *
+     * @return the value of p_detail
+     */
+    public float getP_detail() {
+        return p_detail;
+    }
+
+    /**
+     * Set the value of p_detail
+     *
+     * @param p_detail new value of p_detail
+     */
+    public void setP_detail(float p_detail) {
+        this.p_detail = p_detail;
+    }
+
 }

@@ -191,6 +191,45 @@ public class Offre implements Serializable {
         this.lesPistes_opportunites = lesPistes_opportunites;
     }
 
+    private float p_somme;
+
+    /**
+     * Get the value of p_somme
+     *
+     * @return the value of p_somme
+     */
+    public float getP_somme() {
+        return p_somme;
+    }
+
+    /**
+     * Set the value of p_somme
+     *
+     * @param p_somme new value of p_somme
+     */
+    public void setP_somme(float p_somme) {
+        this.p_somme = p_somme;
+    }
+
+        private float p_total;
+
+    /**
+     * Get the value of p_total
+     *
+     * @return the value of p_total
+     */
+    public float getP_total() {
+        return p_total;
+    }
+
+    /**
+     * Set the value of p_total
+     *
+     * @param p_total new value of p_total
+     */
+    public void setP_total(float p_total) {
+        this.p_total = p_total;
+    }
 
     
 }

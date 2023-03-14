@@ -75,6 +75,20 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     getEntityManager().merge(p);
     }
 
+    //Affecter un vendeur à une piste
+    @Override
+    public void AffecterVendeur(Piste_opportunite p, Profil vendeur) {
+        p.setVendeur(vendeur);
+        getEntityManager().merge(p);
+    }
+    
+    //Affecter un expert technique à une piste
+    @Override
+    public void AffecterExpert(Piste_opportunite p, Profil expert_technique) {
+        p.setExpert_technique(expert_technique);
+        getEntityManager().merge(p);
+    }
+    
     //Recherche piste_opportunite par Id
     @Override
     public Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite) {
@@ -179,5 +193,6 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     return p;        
     }
+
     
 }

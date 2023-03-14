@@ -40,6 +40,10 @@ public interface Piste_opportuniteFacadeLocal {
 
     void ModifierPisteOpportunite(Piste_opportunite p, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique, Enregistrement enregistrement, Client leClient);
 
+    void AffecterVendeur(Piste_opportunite p, Profil vendeur);
+    
+    void AffecterExpert(Piste_opportunite p, Profil expert_technique);
+    
     Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite);
 
     Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type);
@@ -53,4 +57,6 @@ public interface Piste_opportuniteFacadeLocal {
     Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique);
     
     Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient);
+
+    
 }

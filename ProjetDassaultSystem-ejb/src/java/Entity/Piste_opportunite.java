@@ -24,8 +24,9 @@ import javax.persistence.Temporal;
 @Entity
 public class Piste_opportunite implements Serializable {
 
-    @ManyToMany(mappedBy = "lesPistes_opportunites")
-    private List<Offre> lesOffres;
+    @OneToOne(mappedBy = "laPisteOpportunite")
+    private Offre uneOffre;
+
 
     @ManyToMany(mappedBy = "lesPistes_opportunites")
     private List<Profil> lesProfils;

@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -169,28 +170,7 @@ public class Offre implements Serializable {
     public void setContenu(List<Detail_offre> contenu) {
         this.contenu = contenu;
     }
-
-    @ManyToMany
-    private List<Piste_opportunite> lesPistes_opportunites;
-
-    /**
-     * Get the value of lesPistes_opportunites
-     *
-     * @return the value of lesPistes_opportunites
-     */
-    public List<Piste_opportunite> getLesPistes_opportunites() {
-        return lesPistes_opportunites;
-    }
-
-    /**
-     * Set the value of lesPistes_opportunites
-     *
-     * @param lesPistes_opportunites new value of lesPistes_opportunites
-     */
-    public void setLesPistes_opportunites(List<Piste_opportunite> lesPistes_opportunites) {
-        this.lesPistes_opportunites = lesPistes_opportunites;
-    }
-
+    
     private float p_somme;
 
     /**
@@ -229,6 +209,27 @@ public class Offre implements Serializable {
      */
     public void setP_total(float p_total) {
         this.p_total = p_total;
+    }
+
+    @OneToOne
+        private Piste_opportunite laPisteOpportunite;
+
+    /**
+     * Get the value of laPisteOpportunite
+     *
+     * @return the value of laPisteOpportunite
+     */
+    public Piste_opportunite getLaPisteOpportunite() {
+        return laPisteOpportunite;
+    }
+
+    /**
+     * Set the value of laPisteOpportunite
+     *
+     * @param laPisteOpportunite new value of laPisteOpportunite
+     */
+    public void setLaPisteOpportunite(Piste_opportunite laPisteOpportunite) {
+        this.laPisteOpportunite = laPisteOpportunite;
     }
 
     

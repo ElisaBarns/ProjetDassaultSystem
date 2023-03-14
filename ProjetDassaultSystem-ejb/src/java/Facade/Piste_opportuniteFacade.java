@@ -58,6 +58,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     
     //Modifier piste
+    @Override
     public void ModifierPisteOpportunite(Piste_opportunite p, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique, Enregistrement enregistrement, Client leClient) {
     p.setDate_modif_popp(date_modif_popp);
     p.setNiveau_interet(niveau_interet);
@@ -75,6 +76,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
 
     //Recherche piste_opportunite par Id
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
@@ -89,6 +91,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
 
     //Recherche piste_opportunite par Type
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
@@ -103,6 +106,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     
     //Recherche piste_opportunite par Statut
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParStatut(Statut statut) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
@@ -117,6 +121,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     
     //Recherche piste_opportunite par Marketeur
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParMarketeur(Profil marketeur) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
@@ -131,6 +136,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     
     //Recherche piste_opportunite par Vendeur
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParVendeur(Profil vendeur) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
@@ -145,6 +151,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     
     //Recherche piste_opportunite par Expert technique
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
@@ -159,6 +166,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     
     //Recherche piste_opportunite par Client
+    @Override
     public Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;

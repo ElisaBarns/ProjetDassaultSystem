@@ -31,6 +31,7 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     
     
     //Créer offre
+    @Override
     public void CreerOffre(int remise, Date date_creation_offre, float p_somme, float p_total) {
     Offre o=new Offre();
     o.setRemise(remise);
@@ -42,6 +43,7 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     
     //Modifier offre
 
+    @Override
     public void ModifierOffre(Offre o, int remise, Date date_modif_offre, float p_somme, float p_total) {
     o.setRemise(remise);
     o.setDate_modif_offre(date_modif_offre);

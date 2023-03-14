@@ -31,6 +31,7 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     
     
     //Créer produit
+    @Override
     public void CreerProduit(String nom_produit, String description_commerciale, float pu_produit, Date date_creation_produit, Date date_inactivation_produit, boolean inactif) {
     Produit p=new Produit();
     p.setNom_produit(nom_produit);
@@ -43,6 +44,7 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     }
     
     //Modifier produit
+    @Override
     public void ModifierProduit(Produit p, String nom_produit, String description_commerciale, float pu_produit, Date date_modif_produit, Date date_inactivation_produit, boolean inactif) {
     p.setNom_produit(nom_produit);
     p.setDescription_commerciale(description_commerciale);
@@ -54,6 +56,7 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     }
     
     //Inactiver produit
+    @Override
     public void InactiverProduit(Produit p, Date date_inactivation_produit, boolean inactif) {
     p.setDate_inactivation_produit(date_inactivation_produit);
     p.setInactif(inactif);

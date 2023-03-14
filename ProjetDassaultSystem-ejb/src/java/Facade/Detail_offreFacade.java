@@ -32,6 +32,7 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
  
     
     //Créer détail offre
+    @Override
     public void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre, float p_detail) {
     Detail_offre d = new Detail_offre();
     d.setQuantite(quantite);
@@ -42,6 +43,7 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     }
     
     //Modifier détail offre
+    @Override
     public void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre, float p_detail) {
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);

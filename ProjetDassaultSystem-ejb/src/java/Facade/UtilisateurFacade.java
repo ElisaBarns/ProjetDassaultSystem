@@ -32,6 +32,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     }
  
     //Authentification
+    @Override
     public Utilisateur Authentification(String login_utilisateur, String mdp_utilisateur) {
     Utilisateur u=null;
     String txt="SELECT u FROM Utilisateur AS u WHERE u.login_utilisateur=:login and u.mdp_utilisateur=:mdp";
@@ -46,6 +47,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     }
     
     //Créer utilisateur
+    @Override
     public void CreerUtilisateur(String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur, boolean inactif, Date date_creation_utilisateur, Date date_inactivation_utilisateur, Date date_modification_utilisateur) {
     Utilisateur u=new Utilisateur();
     u.setNom_utilisateur(nom_utilisateur);
@@ -62,6 +64,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
 }
     
     //Modifier utilisateur
+    @Override
     public void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String mail_utilisateur, String tel_utilisateur, Date date_modification_utilisateur) {
     u.setNom_utilisateur(nom_utilisateur);
     u.setPrenom_utilisateur(prenom_utilisateur);
@@ -87,12 +90,14 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     }
     
     //Modifier mot de passe
+    @Override
     public void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur) {
     u.setMdp_utilisateur(mdp_utilisateur);
     getEntityManager().merge(u);
     }
     
     //Inactiver l'utilisateur
+    @Override
     public void InactiverUtilisateur(Utilisateur u, boolean inactif, Date date_inactivation_utilisateur) {
     u.setInactif(inactif);
     u.setDate_inactivation_utilisateur(date_inactivation_utilisateur);
@@ -100,6 +105,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     }
     
     //Rechercher Utilisateur
+    @Override
     public Utilisateur RechercherUtilisateur(String login_utilisateur) {
     Utilisateur u=null;
     List<Utilisateur> result;

@@ -15,4 +15,11 @@ public class OperateurVentesSession implements OperateurVentesSessionLocal {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    
+    
+    //Consulter l'historique des actions effectuées sur un prospect ou une opportunité spécifique
+    //Afficher un rapport (x5, cf sujet)
+    
+    
+    
 }

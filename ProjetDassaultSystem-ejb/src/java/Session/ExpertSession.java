@@ -15,4 +15,15 @@ public class ExpertSession implements ExpertSessionLocal {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
+    
+    
+    
+    // Consulter l'historique des actions effectuées sur un prospect ou une opportunité spécifique
+    //Afficher tous les leads et opportunités qui me sont attribués
+    //MAJ un episte sur laquelle je suis assignée pour ajouter ou modifier l'offre
+    //Rechercher ou parcourir le catalogue et choisir des éléments afin de remplir l'offre
+    //Joindre un document de proposition à une piste et à une opportunité qui m'ont été attribuées
+    
+    
+    
 }

@@ -4,6 +4,8 @@
  */
 package Session;
 
+import Entity.Fonction;
+import Entity.Profil;
 import java.util.Date;
 import javax.ejb.Local;
 
@@ -14,10 +16,14 @@ import javax.ejb.Local;
 @Local
 public interface AdministrateurSessionLocal {
 
-    void CreerUtilisateur(String l, String mdp, String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur, boolean inactif, Date date_creation_utilisateur, Date date_inactivation_utilisateur, Date date_modification_utilisateur);
+    void CreerUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel, boolean inactif, Date date_creation, Date date_inactivation, Date date_modification);
 
-    void ModifierUtilisateur();
+    void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel, Date date_modification);
 
-    void InactiverUtilisateur();
+    void InactiverUtilisateur(String l, String mdp, boolean inactif, Date date_inactivation);
+
+    void ModifierMdpUtilisateur(String l, String mdp);
+
+    void AttribuerRolesUtilisateur(String l, String mdp, Profil p, Fonction f);
     
 }

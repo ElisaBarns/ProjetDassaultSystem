@@ -4,6 +4,7 @@
  */
 package Facade;
 
+import Entity.Fonction;
 import Entity.Utilisateur;
 import java.util.Date;
 import java.util.List;
@@ -119,5 +120,6 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     return u;        
     }
     
-
+    
+    
 }

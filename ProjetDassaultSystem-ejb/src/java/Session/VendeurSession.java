@@ -30,8 +30,9 @@ public class VendeurSession implements VendeurSessionLocal {
     // "Insert Code > Add Business Method")
     
     //Accepter une piste qui m'a été attribuée
-    
     //Refuser une piste qui m'a été affectée
+    
+    
     
     //Assigner un expert technique
     @Override
@@ -54,5 +55,11 @@ public class VendeurSession implements VendeurSessionLocal {
         }
         
     }
+    
+    //Afficher toutes les pistes et opportunités qui me sont attribuées
+    //MAJ de la piste/opportunité qui m'a été attribué pour ajouter ou modifier des informations sur le client, le contact, le prospect, l'opportunité et l'offre
+    //Soumettre une prposition pour une piste qui m'a été assignée, le document doit être envoyé au contact par mail (Soumis)
+    //Suivre la réponse du client sur un prospect ou une opportunité qui m'a été attribué (Gagné ou Perdu)
+    
     
 }

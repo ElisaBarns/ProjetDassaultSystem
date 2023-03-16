@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 
 /**
@@ -21,6 +22,17 @@ import javax.persistence.Temporal;
  */
 @Entity
 public class Utilisateur implements Serializable {
+
+    @OneToMany(mappedBy = "unUtilisateur")
+    private List<Profil> lesProfils;
+
+    public List<Profil> getLesProfils() {
+        return lesProfils;
+    }
+
+    public void setLesProfils(List<Profil> lesProfils) {
+        this.lesProfils = lesProfils;
+    }
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -298,26 +310,6 @@ public class Utilisateur implements Serializable {
         this.date_modification_utilisateur = date_modification_utilisateur;
     }
  
-    @ManyToMany
-        private List<Profil> lesProfils;
-
-    /**
-     * Get the value of lesProfils
-     *
-     * @return the value of lesProfils
-     */
-    public List<Profil> getLesProfils() {
-        return lesProfils;
-    }
-
-    /**
-     * Set the value of lesProfils
-     *
-     * @param lesProfils new value of lesProfils
-     */
-    public void setLesProfils(List<Profil> lesProfils) {
-        this.lesProfils = lesProfils;
-    }
 
     
 }

@@ -5,8 +5,10 @@
 package Facade;
 
 import Entity.Client;
+import Entity.Contact;
 import Entity.Enregistrement;
 import Entity.Niveau;
+import Entity.Offre;
 import Entity.PisteOpp;
 import Entity.Piste_opportunite;
 import Entity.Profil;
@@ -50,7 +52,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         po.setNiveau_interet(niveau_interet);
         po.setBudget_estime(budget_estime);
         po.setType(type);
-        po.setStatut(statut);
+        po.setStatut(statut.OUVERTE);
         po.setMarketeur(marketeur);
         po.setVendeur(vendeur);
         po.setExpert_technique(expert_technique);
@@ -78,7 +80,70 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     //Affecter un vendeur à une piste
     @Override
     public void AffecterVendeur(Piste_opportunite p, Profil vendeur) {
+        p.setStatut(Statut.QUALIFIE);
         p.setVendeur(vendeur);
+        getEntityManager().merge(p);
+    }
+    
+    //Accepter la piste par le vendeur
+    @Override
+    public void AccepterParVendeur(Piste_opportunite p, Profil vendeur) {
+        p.setType(PisteOpp.OPPORTUNITE);
+        p.setStatut(Statut.ACCEPTEE);
+        p.setVendeur(vendeur);
+        getEntityManager().merge(p);
+    }
+    
+    //Refuser la piste par le vendeur
+    @Override
+    public void RefuserParVendeur(Piste_opportunite p, Profil vendeur) {
+        p.setStatut(Statut.REJETEE);
+        //TROUVER UNE SOLUTION POUR VIDER LE CHAMP VENDEUR
+        //p.delete(p.getVendeur());
+        getEntityManager().merge(p);
+    }
+    
+    //MAJ de la piste pour ajouter ou modifier des infos sur le client et/ou les contacts
+    @Override
+    public void MajPoParVendeur(Piste_opportunite p, Date date_modif_popp, Client c, String nom_client, String siret, boolean inactif, Date date_inactiv_client, Date date_modif_client, Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact, Date date_inactiv_contact) {
+    p.setDate_modif_popp(date_modif_popp);
+    p.setLeClient(c);
+    c.setNom_client(nom_client);
+    c.setSiret(siret);
+    c.setInactif(inactif);
+    c.setDate_inactiv_client(date_inactiv_client);
+    co.setNom_contact(nom_contact);
+    co.setPrenom_contact(prenom_contact);
+    co.setMail_contact(tel_contact);
+    co.setTel_contact(tel_contact);
+    co.setInactif(inactif);
+    co.setDate_modif_contact(date_modif_contact);
+    co.setDate_inactiv_contact(date_inactiv_contact);
+    getEntityManager().merge(p);
+    getEntityManager().merge(c);
+    getEntityManager().merge(co);
+    }
+    
+    //Modifier le statut de l'opportunité pour la mettre sous le statut gagné
+    @Override
+    public void PisteGagne(Piste_opportunite p, Date date_modif_popp, Statut statut) {
+        p.setDate_modif_popp(date_modif_popp);
+        p.setStatut(Statut.GAGNE);
+        getEntityManager().merge(p);
+    }
+    
+    //Modifier le statut de l'opportunité pour la mettre sous le statut perdu
+    @Override
+    public void PistePerdu(Piste_opportunite p, Date date_modif_popp, Statut statut) {
+        p.setDate_modif_popp(date_modif_popp);
+        p.setStatut(Statut.PERDU);
+        getEntityManager().merge(p);
+    }
+    
+    //Rouvrir la piste par le marketeur
+    @Override
+    public void RouvrirPiste(Piste_opportunite p) {
+        p.setStatut(Statut.OUVERTE);
         getEntityManager().merge(p);
     }
     
@@ -89,12 +154,20 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         getEntityManager().merge(p);
     }
     
+    //MAJ d'une offre pour une PO; fait pas l'expert technique
+    @Override
+    public void MajOffreParExpert(Piste_opportunite p, Date date_modif_popp, Offre offre) {
+        p.setDate_modif_popp(date_modif_popp);
+        p.setUneOffre(offre);
+        getEntityManager().merge(p);
+    }
+    
     //Recherche piste_opportunite par Id
     @Override
     public Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.id_piste_opportunite=:id_piste_opportunite";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.id_piste_opportunite=:id_piste_opportunite";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("id_piste_opportunite", id_piste_opportunite);
     result=req.getResultList();
@@ -109,7 +182,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     public Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.type=:type";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.type=:type";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("type", type);
     result=req.getResultList();
@@ -124,7 +197,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     public Piste_opportunite RechercherPisteOpportuniteParStatut(Statut statut) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.statut=:statut";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.statut=:statut";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("statut", statut);
     result=req.getResultList();
@@ -139,7 +212,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     public Piste_opportunite RechercherPisteOpportuniteParMarketeur(Profil marketeur) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.marketeur=:marketeur";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.marketeur=:marketeur";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("marketeur", marketeur);
     result=req.getResultList();
@@ -154,7 +227,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     public Piste_opportunite RechercherPisteOpportuniteParVendeur(Profil vendeur) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.vendeur=:vendeur";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.vendeur=:vendeur";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("vendeur", vendeur);
     result=req.getResultList();
@@ -169,7 +242,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     public Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.expert_technique=:expert_technique";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.expert_technique=:expert_technique";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("expert_technique", expert_technique);
     result=req.getResultList();
@@ -184,7 +257,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     public Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Couturier AS p WHERE p.leClient=:leClient";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.leClient=:leClient";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("leClient", leClient);
     result=req.getResultList();
@@ -193,6 +266,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
     return p;        
     }
+
 
     
 }

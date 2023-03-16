@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -22,8 +23,6 @@ import javax.persistence.Temporal;
 @Entity
 public class Profil implements Serializable {
 
-    @ManyToMany(mappedBy = "lesProfils")
-    private List<Utilisateur> lesUtilisateurs;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -187,6 +186,28 @@ public class Profil implements Serializable {
      */
     public void setLesPistes_opportunites(List<Piste_opportunite> lesPistes_opportunites) {
         this.lesPistes_opportunites = lesPistes_opportunites;
+    }
+
+    
+    @ManyToOne
+        private Utilisateur unUtilisateur;
+
+    /**
+     * Get the value of unUtilisateur
+     *
+     * @return the value of unUtilisateur
+     */
+    public Utilisateur getUnUtilisateur() {
+        return unUtilisateur;
+    }
+
+    /**
+     * Set the value of unUtilisateur
+     *
+     * @param unUtilisateur new value of unUtilisateur
+     */
+    public void setUnUtilisateur(Utilisateur unUtilisateur) {
+        this.unUtilisateur = unUtilisateur;
     }
 
 }

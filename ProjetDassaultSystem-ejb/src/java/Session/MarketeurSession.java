@@ -30,6 +30,10 @@ public class MarketeurSession implements MarketeurSessionLocal {
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
 
+    // Add business logic below. (Right-click in editor and choose
+    // "Insert Code > Add Business Method")
+    
+    
     //Créer une piste ou opportunité
     @Override
     public void CreerPiste(String l, String mdp, int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique) {
@@ -68,11 +72,20 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Consulter l'historique des actions effectuées sur un prospect ou une opportunité spécifique
 
-    
-    
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    //Rouvrir la piste (car le vendeur a refusé son affectation à la piste)
 
-
+    @Override
+    public void RouvrirPiste(String l, String mdp, Piste_opportunite p) {
+        Utilisateur u = null;
+        u = utilisateurFacade.Authentification(l,mdp);
+        if(u!=null)
+        {
+            piste_opportuniteFacade.RouvrirPiste(p);
+        }
+        else
+        {
+            System.out.println("Vous avez saisi un mauvais login et/ou mot de passe. Veuillez réessayer.");
+        }
+    }
     
 }

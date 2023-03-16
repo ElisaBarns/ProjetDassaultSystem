@@ -27,6 +27,22 @@ public class Piste_opportunite implements Serializable {
     @OneToOne(mappedBy = "laPisteOpportunite")
     private Offre uneOffre;
 
+    public Offre getUneOffre() {
+        return uneOffre;
+    }
+
+    public void setUneOffre(Offre uneOffre) {
+        this.uneOffre = uneOffre;
+    }
+
+    public List<Profil> getLesProfils() {
+        return lesProfils;
+    }
+
+    public void setLesProfils(List<Profil> lesProfils) {
+        this.lesProfils = lesProfils;
+    }
+
 
     @ManyToMany(mappedBy = "lesPistes_opportunites")
     private List<Profil> lesProfils;
@@ -365,4 +381,8 @@ public class Piste_opportunite implements Serializable {
         this.leClient = leClient;
     }
 
+    //TEST POUR SUPPRIMER LE VENDEUR AFFECTE A LA PISTE (LORSQU'IL REFUSE)
+    /*public void ViderVendeur(Piste_opportunite p){
+        p.delete();
+    }*/
 }

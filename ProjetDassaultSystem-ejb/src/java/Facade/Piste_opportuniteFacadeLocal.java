@@ -5,8 +5,10 @@
 package Facade;
 
 import Entity.Client;
+import Entity.Contact;
 import Entity.Enregistrement;
 import Entity.Niveau;
+import Entity.Offre;
 import Entity.PisteOpp;
 import Entity.Piste_opportunite;
 import Entity.Profil;
@@ -42,7 +44,21 @@ public interface Piste_opportuniteFacadeLocal {
 
     void AffecterVendeur(Piste_opportunite p, Profil vendeur);
     
+    void AccepterParVendeur(Piste_opportunite p, Profil vendeur);
+    
+    void RefuserParVendeur(Piste_opportunite p, Profil vendeur);
+    
+    void MajPoParVendeur(Piste_opportunite p, Date date_modif_popp, Client c, String nom_client, String siret, boolean inactif, Date date_inactiv_client, Date date_modif_client, Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact, Date date_inactiv_contact);
+    
+    void PisteGagne(Piste_opportunite p, Date date_modif_popp, Statut statut);
+    
+    void PistePerdu(Piste_opportunite p, Date date_modif_popp, Statut statut);
+    
+    void RouvrirPiste(Piste_opportunite p);
+    
     void AffecterExpert(Piste_opportunite p, Profil expert_technique);
+    
+    void MajOffreParExpert(Piste_opportunite p, Date date_modif_popp, Offre offre);
     
     Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite);
 
@@ -57,6 +73,8 @@ public interface Piste_opportuniteFacadeLocal {
     Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique);
     
     Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient);
+
+    
 
     
 }

@@ -232,5 +232,22 @@ public class Offre implements Serializable {
         this.laPisteOpportunite = laPisteOpportunite;
     }
 
+    /* A VOIR ENSEMBLE OU ALORS DEMANDER A TALENS COMMENT L'INTEGRER DANS LE SET ET/OU LE GET ???
+    public float calculerMontant(){
+        float p_somme=0;
+        for(Detail_offre detail_offre :lesDetail_offres)
+        {
+            Produit produit =detail_offre.getLeProduit();
+            float montant = detail_offre.getP_detail();
+            p_somme +=montant;
+        }
+        return p_somme;
+    }
+    
+    public float calculerTotal(){
+        float p_total = p_somme*(1-remise/100);
+        return p_total;
+    }
+    */
     
 }

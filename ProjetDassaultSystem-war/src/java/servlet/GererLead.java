@@ -51,7 +51,7 @@ public class GererLead extends HttpServlet {
         String act=request.getParameter("action");
         if((act==null)||(act.equals("vide")))
         {
-            jspDassault="/Menu.jsp";
+            jspDassault="/MenuAdmin.jsp";
             request.setAttribute("message", "pas d'information");
             
         }
@@ -109,7 +109,7 @@ public class GererLead extends HttpServlet {
            dateCreation = Date.valueOf(creation);
            date_inactivation = Date.valueOf(inactivation);
            date_modification = Date.valueOf(modification);
-           administrateurSession.CreerUtilisateur(tel, mdp, nom, prenom, mail, tel, true, dateCreation, date_inactivation, date_modification);
+           administrateurSession.CreerUtilisateur(tel, mdp, nom, prenom, mail, tel, false, dateCreation, date_inactivation, date_modification);
            message = "Utilisateur créé avec succès!";
         }
         

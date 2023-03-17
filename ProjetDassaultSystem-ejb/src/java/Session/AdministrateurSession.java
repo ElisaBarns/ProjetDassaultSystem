@@ -50,7 +50,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             int i=0;
             while(i<=listeProfils.size())
             {
-                if(listeProfils.get(i).getFonction().equals("administrateur"))
+                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
                     utilisateurFacade.CreerUtilisateur(nom, prenom, l, mdp, mail, tel, inactif, date_creation, date_inactivation, date_modification);
                 }
@@ -74,7 +74,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             int i=0;
             while(i<=listeProfils.size())
             {
-                if(listeProfils.get(i).getFonction().equals("administrateur"))
+                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
                     utilisateurFacade.ModifierUtilisateur(u, nom, prenom, mail, tel, date_modification);
                 }
@@ -98,7 +98,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             int i=0;
             while(i<=listeProfils.size())
             {
-                if(listeProfils.get(i).getFonction().equals("administrateur"))
+                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
                     utilisateurFacade.InactiverUtilisateur(u, inactif, date_inactivation);
                 }
@@ -122,7 +122,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             int i=0;
             while(i<=listeProfils.size())
             {
-                if(listeProfils.get(i).getFonction().equals("administrateur"))
+                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
                     utilisateurFacade.RechercherUtilisateur(l);
                     profilFacade.ModifierProfil(p,f);
@@ -147,7 +147,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             int i=0;
             while(i<=listeProfils.size())
             {
-                if(listeProfils.get(i).getFonction().equals("administrateur"))
+                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
                     utilisateurFacade.ModifierMdpUtilisateur(u, mdp);
                 }

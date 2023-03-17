@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -276,7 +277,7 @@ public class Piste_opportunite implements Serializable {
         this.statut = statut;
     }
 
-     @Column (nullable=false, unique = false)
+     @JoinColumn (nullable=false, unique = false)
     private Profil marketeur;
 
     /**
@@ -297,7 +298,7 @@ public class Piste_opportunite implements Serializable {
         this.marketeur = marketeur;
     }
 
-     @Column (nullable=true, unique = false)
+     @JoinColumn (nullable=true, unique = false)
     private Profil vendeur;
 
     /**
@@ -318,7 +319,7 @@ public class Piste_opportunite implements Serializable {
         this.vendeur = vendeur;
     }
 
-     @Column (nullable=true, unique = false)
+     @JoinColumn (nullable=true, unique = false)
     private Profil expert_technique;
 
     /**

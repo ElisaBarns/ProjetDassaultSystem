@@ -3,7 +3,7 @@
     Created on : 16 mars 2023, 15:01:22
     Author     : Mel
 --%>
-
+<%@page import="Entity.Utilisateur"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -17,10 +17,10 @@
         <h1>Création utilisateur</h1>
         
         <div>
-            <form method="post" action="Acces">
+            <form method="post" action="GererLead">
                 <fieldset>
                     <legend>Informations de l'utilisateur</legend>
-                    
+                    <br/><!-- comment -->          
                     <label for="nom_utilisateur">Nom <span class="requis"></span></label>
                     <input type="text" id="nom_utilisateur" name="nom_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
@@ -43,14 +43,14 @@
                     <input type="checkbox" id="inactif" name="inactif" value="non">
                     <br/>
                     
-                    <input type="hidden" name="action" value="creerUtilisateur">
+                    <input type="hidden" name="action" value="CreerUtilisateur">
                     
                 </fieldset>
                 <input type="submit" value="Valider" /> 
                 <input type="reset" value="Remettre à zéro" /> <br />
                         
                 <hr>
-                <td Width=25%><A HREF="AccesDefiles?action=vide"> Retour Menu</A></td>
+                <td Width=25%><A HREF="GererLead?action=vide"> Retour Menu</A></td>
                 <hr>
             </form>
         </div>

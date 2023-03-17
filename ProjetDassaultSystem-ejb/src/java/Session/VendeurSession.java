@@ -86,15 +86,15 @@ public class VendeurSession implements VendeurSessionLocal {
     
     //Assigner un expert technique
     @Override
-    public void AffecterExpert(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil expert_technique) {
+    public void AffecterExpert(String l, String mdp, int id_piste_opportunite, Profil v, Piste_opportunite p, Profil expert_technique) {
         Utilisateur u=null;
         u=utilisateurFacade.Authentification(l, mdp);
         if(u!=null)
         {
             List<Profil> listeProfils=u.getLesProfils();
             Piste_opportunite po=piste_opportuniteFacade.RechercherPisteOpportuniteParId(id_piste_opportunite);
-            m=po.getMarketeur();
-            if(listeProfils.contains(m))
+            v=po.getVendeur();
+            if(listeProfils.contains(v))
             {
                 piste_opportuniteFacade.AffecterExpert(p,expert_technique);
             }

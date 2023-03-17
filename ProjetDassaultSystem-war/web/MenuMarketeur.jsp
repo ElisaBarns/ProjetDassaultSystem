@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Menu
-    Created on : 16 mars 2023, 17:01:57
+    Document   : MenuMarketeur
+    Created on : 17 mars 2023, 14:46:32
     Author     : Mel
 --%>
 
@@ -22,13 +22,11 @@
         <h1>Que voulez-vous faire?</h1>
        
         <table><tr>
-           <td Width =15%><A HREF ="Authentification.jsp">Authentification</A></td></tr>
-             
-               
-            <tr>
-            
-           <td Width =15%><A HREF ="CreerUtilisateur.jsp">Créer un utilisateur</A></td>
-           <!--<td Width =15%><A HREF ="creerOrganisateur.jsp">Creer organisateur</A></td>
+                
+           <tr>
+           <td Width =15%><A HREF ="CreerPiste.jsp">Créer une piste</A></td>
+           <!--
+           <td Width =15%><A HREF ="creerOrganisateur.jsp">Creer organisateur</A></td>
            <td Width =15%><A HREF ="CreerLieu.jsp">Creer lieu</A></td>  
            <td Width =15%><A HREF ="CreerCouturier.jsp">Creer couturier</A></td> 
            <td Width =15%><A HREF ="AccesDefiles?action=CreerVetement">Creer vetement</A></td> 
@@ -40,8 +38,9 @@
           
            
           <tr> 
-           <td Width =15%><A HREF ="ModifierUtilisateur.jsp">Modifier un utilisateur</A></td> 
-           <!--<td Width =15%><A HREF ="ModifierMannequin.jsp">Modifier Mannequin</A></td> 
+           <td Width =15%><A HREF ="AffecterVendeur.jsp">Affecter un vendeur</A></td> 
+           <td Width =15%><A HREF ="RouvrirPiste.jsp">Réouvrir une piste</A></td> 
+           <!--
            <td Width =15%><A HREF ="ModifierVetement.jsp">Modifier Vetement</A></td>
            <td Width =15%><A HREF ="ModifierAccessoire.jsp">Modifier Accessoire</A></td>
            </tr>

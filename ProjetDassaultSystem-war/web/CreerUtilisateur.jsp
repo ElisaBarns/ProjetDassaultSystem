@@ -39,9 +39,12 @@
                     <label for="tel_utilisateur">Téléphone <span class=""></span></label>
                     <input type="text" id="tel_utilisateur" name="tel_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
+                    
+                    <!-- PAS BESOIN CAR FALSE PAR DEFAUT DANS LA METHODE
                     <label for="inactif">Inactiver <span class=""></span></label>
                     <input type="checkbox" id="inactif" name="inactif" value="non">
                     <br/>
+                    -->
                     
                     <input type="hidden" name="action" value="CreerUtilisateur">
                     

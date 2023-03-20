@@ -51,7 +51,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
-                    utilisateurFacade.CreerUtilisateur(nom, prenom, l, mdp, mail, tel, inactif, date_creation, date_inactivation, date_modification);
+                    utilisateurFacade.CreerUtilisateur(nom, prenom, l, mdp, mail, tel);
                 }
                 else
                 {
@@ -64,7 +64,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
 
     //Modifier un utilisateur
     @Override
-    public void ModifierUtilisateur(String l, String nom, String prenom, String mail, String tel) {
+    public void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel) {
         Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
@@ -75,7 +75,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
-                    utilisateurFacade.ModifierUtilisateur(u, nom, prenom, mail, tel, date_modification);
+                    utilisateurFacade.ModifierUtilisateur(u, nom, prenom, mail, tel);
                 }
                 else
                 {

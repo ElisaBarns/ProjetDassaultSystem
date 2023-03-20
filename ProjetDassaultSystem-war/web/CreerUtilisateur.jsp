@@ -34,7 +34,7 @@
                     <input type="text" id="mdp_utilisateur" name="mdp_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
                     <label for="mail_utilisateur">Mail <span class="requis"></span></label>
-                    <input type="text" id="mail_utilisateur" name="mail_utilisateur" value="" size"20" maxlength="20"/>
+                    <input type="text" id="mail_utilisateur" name="mail_utilisateur" value="" size"50" maxlength="50"/>
                     <br/>
                     <label for="tel_utilisateur">Téléphone <span class=""></span></label>
                     <input type="text" id="tel_utilisateur" name="tel_utilisateur" value="" size"20" maxlength="20"/>

@@ -36,8 +36,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
 
     
     //Consulter l'historique des actions effectuées sur un prospect ou une opportunité spécifique
-    //Charger un catalogue dans le système à partir d'un fichier
-    
+    //Charger un catalogue dans le système à partir d'un fichier   
     
     //Creer un utilisateur
     @Override
@@ -163,6 +162,8 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     //MAJ la configuration du système à partir des fichiers de propriétés
     //Accéder aux journaux du système pour enquêter sur les rpoblèmes
     //Consulter les journaux d'accès pour savoir qui accèse au système
+
+
     
     
 }

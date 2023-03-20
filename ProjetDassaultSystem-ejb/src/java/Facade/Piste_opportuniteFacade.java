@@ -98,8 +98,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     @Override
     public void RefuserParVendeur(Piste_opportunite p, Profil vendeur) {
         p.setStatut(Statut.REJETEE);
-        //TROUVER UNE SOLUTION POUR VIDER LE CHAMP VENDEUR
-        //p.delete(p.getVendeur());
+        p.setVendeur(null);
         getEntityManager().merge(p);
     }
     

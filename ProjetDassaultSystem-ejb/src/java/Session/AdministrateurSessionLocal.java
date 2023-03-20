@@ -6,6 +6,7 @@ package Session;
 
 import Entity.Fonction;
 import Entity.Profil;
+import Entity.Utilisateur;
 import java.util.Date;
 import javax.ejb.Local;
 

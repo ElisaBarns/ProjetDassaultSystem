@@ -277,7 +277,7 @@ public class Piste_opportunite implements Serializable {
         this.statut = statut;
     }
 
-     @JoinColumn (nullable=false, unique = false)
+
     private Profil marketeur;
 
     /**
@@ -298,7 +298,7 @@ public class Piste_opportunite implements Serializable {
         this.marketeur = marketeur;
     }
 
-     @JoinColumn (nullable=true, unique = false)
+
     private Profil vendeur;
 
     /**
@@ -319,7 +319,7 @@ public class Piste_opportunite implements Serializable {
         this.vendeur = vendeur;
     }
 
-     @JoinColumn (nullable=true, unique = false)
+
     private Profil expert_technique;
 
     /**

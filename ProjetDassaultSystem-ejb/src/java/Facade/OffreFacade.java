@@ -46,7 +46,9 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     @Override
     public void ModifierOffre(Offre o, int remise, Date date_modif_offre, float p_somme, float p_total) {
     o.setRemise(remise);
-    o.setDate_modif_offre(date_modif_offre);
+    date_modif_offre=new Date(); //On récupère la date du système
+        o.calculerMontant();
+        o.calculerTotal();
     o.setP_somme(p_somme);
     o.setP_total(p_total);
     getEntityManager().merge(o);

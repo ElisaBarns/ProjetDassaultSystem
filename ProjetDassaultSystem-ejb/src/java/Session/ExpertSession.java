@@ -45,6 +45,7 @@ public class ExpertSession implements ExpertSessionLocal {
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
         {
+            // A REVOIR !!! p=piste_opportuniteFacade.RechercherPisteOpportuniteParId(p.getId_piste_opp());
             
             piste_opportuniteFacade.MajOffreParExpert(p, date_modif_popp, offre);
         }

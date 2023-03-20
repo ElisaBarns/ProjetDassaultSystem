@@ -16,7 +16,7 @@
         <h1>Authentification</h1>
         
         <div>
-            <form method="get" action="Acces">
+            <form method="get" action="GererLead">
                 <fieldset>
                     <legend>Veuillez vous authentifier</legend>
                     
@@ -30,8 +30,8 @@
                     <input type="hidden" name="action" value="Authentification">
                 </fieldset>
                 
-                <input type="submit" value="Entrer" /> 
-                <input type="reset" value="Remettre à zéro" /> <br />
+                <input type="button" value="Entrer" onclick="location.href='MenuGeneral.jsp'" /> 
+                <input type="button" value="Remettre à zéro"> <br />
                        
             </form>
         </div>

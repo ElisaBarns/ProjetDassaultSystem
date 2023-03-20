@@ -5,6 +5,7 @@
 package servlet;
 
 
+import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
 import Facade.ContactFacadeLocal;
 import Facade.Detail_offreFacadeLocal;
@@ -14,6 +15,7 @@ import Facade.Piste_opportuniteFacadeLocal;
 import Facade.ProduitFacadeLocal;
 import Facade.ProfilFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
+import Session.AdministrateurSession;
 import Session.AdministrateurSessionLocal;
 import Session.ExpertSessionLocal;
 import java.io.IOException;
@@ -40,7 +42,7 @@ import javax.servlet.http.HttpServletResponse;
 public class GererLead extends HttpServlet {
 
     AdministrateurSessionLocal administrateurSession = lookupAdministrateurSessionLocal();
-    ExpertSessionLocal expertSession = lookupExpertSessionLocal();
+
 
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
@@ -96,6 +98,12 @@ public class GererLead extends HttpServlet {
             jspDassault="/CreerUtilisateur.jsp";
             doActionCreerUtilisateur(request, response);
         }
+        
+        else if(act.equals("ModifierUtilisateur"))
+        {
+            jspDassault="/ModifierUtilisateur.jsp";
+            doActionModifierUtilisateur(request, response);
+        }
     /*mettre les else if ici*/
 
     
@@ -145,8 +153,34 @@ public class GererLead extends HttpServlet {
            dateCreation = Date.valueOf(creation);
            date_inactivation = Date.valueOf(inactivation);
            date_modification = Date.valueOf(modification);
-           administrateurSession.CreerUtilisateur(tel, mdp, nom, prenom, mail, tel, false, dateCreation, date_inactivation, date_modification);
+           administrateurSession.CreerUtilisateur(login, mdp, nom, prenom, mail, tel, false, dateCreation, date_inactivation, date_modification);
            message = "Utilisateur créé avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
+
+    protected void doActionModifierUtilisateur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String login = request.getParameter("login_utilisateur");
+        String mdp = request.getParameter("mdp_utilisateur");
+        String nom = request.getParameter("nom_utilisateur");
+        String prenom = request.getParameter("prenom_utilisateur");
+        String mail = request.getParameter("mail_utilisateur");
+        String tel = request.getParameter("tel_utilisateur");
+        String modification=request.getParameter("date_modification");
+        Date date_modification;
+        String message;
+        
+        if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| mail.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un organisateur.";
+        }
+        else 
+        {
+           date_modification = Date.valueOf(modification);
+           administrateurSession.ModifierUtilisateur(login, mdp, nom, prenom, mail, tel, date_modification);
+           message = "Utilisateur modifié avec succès!";
         }
         
         request.setAttribute("message", message);

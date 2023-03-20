@@ -30,7 +30,7 @@
                     <input type="hidden" name="action" value="Authentification">
                 </fieldset>
                 
-                <input type="button" value="Entrer" onclick="location.href='MenuGeneral.jsp'" /> 
+                <input type="button" value="Entrer" /> 
                 <input type="button" value="Remettre à zéro"> <br />
                        
             </form>

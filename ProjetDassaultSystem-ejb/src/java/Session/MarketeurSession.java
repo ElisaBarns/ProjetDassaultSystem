@@ -10,6 +10,7 @@ import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
 import Entity.Utilisateur;
+import Facade.ClientFacadeLocal;
 import Facade.Piste_opportuniteFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import java.util.Date;
@@ -29,6 +30,9 @@ public class MarketeurSession implements MarketeurSessionLocal {
 
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
+    
+    @EJB
+    private ClientFacadeLocal clientFacade;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
@@ -47,6 +51,13 @@ public class MarketeurSession implements MarketeurSessionLocal {
         {
             System.out.println("Vous n'avez pas les droits d'accès nécessaires pour pouvoir créer une piste. Veuillez vous rapprocher de votre administrateur.");
         }
+    }
+    
+    @Override
+    public void CreerClient(String nom, String siret) {
+        
+            clientFacade.creerClient(nom, siret);
+       
     }
     
     //Affecter un vendeur (+ vérifier si je suis assigné à cette piste, sinon jpp affecter un vendeur)

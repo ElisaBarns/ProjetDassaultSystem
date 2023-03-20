@@ -12,5 +12,7 @@ import javax.ejb.Local;
  */
 @Local
 public interface UtilisateurSessionLocal {
+
+    int authentification(String login, String mdp);
     
 }

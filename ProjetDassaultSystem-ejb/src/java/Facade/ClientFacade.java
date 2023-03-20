@@ -33,14 +33,14 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     
     //Créer client
     @Override
-    public void creerClient(int id_client, String nom_client, String siret, boolean inactif, Date date_creation_client, Date date_modification_client, Date date_inactiv_client) 
+    public void creerClient(String nom_client, String siret) 
     {
         Client c = new Client();
         c.setId_client(id_client);
         c.setNom_client(nom_client);
         c.setSiret(siret);
         c.setInactif(false);
-        c.setDate_creation_client(date_creation_client);
+        c.setDate_creation_client(new Date());
         c.setDate_modif_client(null);
         c.setDate_inactiv_client(null);
         getEntityManager().persist(c);

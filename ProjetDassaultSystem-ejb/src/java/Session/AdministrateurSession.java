@@ -64,7 +64,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
 
     //Modifier un utilisateur
     @Override
-    public void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel, Date date_modification) {
+    public void ModifierUtilisateur(String l, String nom, String prenom, String mail, String tel) {
         Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)

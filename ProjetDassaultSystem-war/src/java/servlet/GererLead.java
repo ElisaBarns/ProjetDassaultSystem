@@ -18,6 +18,10 @@ import Facade.UtilisateurFacadeLocal;
 import Session.AdministrateurSession;
 import Session.AdministrateurSessionLocal;
 import Session.ExpertSessionLocal;
+import Session.MarketeurSessionLocal;
+import Session.OperateurVentesSessionLocal;
+import Session.UtilisateurSessionLocal;
+import Session.VendeurSessionLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -42,7 +46,11 @@ import javax.servlet.http.HttpServletResponse;
 public class GererLead extends HttpServlet {
 
     AdministrateurSessionLocal administrateurSession = lookupAdministrateurSessionLocal();
-
+    UtilisateurSessionLocal utilisateurSession = lookupUtilisateurSessionLocal();
+    ExpertSessionLocal expertSession = lookupExpertSessionLocal();
+    MarketeurSessionLocal marketeurSession = lookupMarketeurSessionLocal();
+    OperateurVentesSessionLocal operateurVentesSession = lookupOperateurVentesSessionLocal();
+    VendeurSessionLocal VendeurSession = lookupVendeurSessionLocal();
 
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
@@ -104,6 +112,12 @@ public class GererLead extends HttpServlet {
             jspDassault="/ModifierUtilisateur.jsp";
             doActionModifierUtilisateur(request, response);
         }
+        
+        else if(act.equals("CréerClient"))
+        {
+            jspDassault="/CreerClient.jsp";
+            doActionCreerClient(request, response);
+        }
     /*mettre les else if ici*/
 
     
@@ -134,13 +148,6 @@ public class GererLead extends HttpServlet {
         String mdp = request.getParameter("mdp_utilisateur");
         String mail = request.getParameter("mail_utilisateur");
         String tel = request.getParameter("tel_utilisateur");
-        String inactif =request.getParameter("inactif");
-        String creation=request.getParameter("date_creation");
-        String inactivation=request.getParameter("date_inactivation");
-        String modification=request.getParameter("date_modification");
-        Date dateCreation;
-        Date date_inactivation;
-        Date date_modification;
         String message;
         
         if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| login.trim().isEmpty()|| mdp.trim().isEmpty()|| mail.trim().isEmpty())
@@ -150,10 +157,7 @@ public class GererLead extends HttpServlet {
         }
         else 
         {
-           dateCreation = Date.valueOf(creation);
-           date_inactivation = Date.valueOf(inactivation);
-           date_modification = Date.valueOf(modification);
-           administrateurSession.CreerUtilisateur(login, mdp, nom, prenom, mail, tel, false, dateCreation, date_inactivation, date_modification);
+           administrateurSession.CreerUtilisateur(login, mdp, nom, prenom, mail, tel);
            message = "Utilisateur créé avec succès!";
         }
         
@@ -167,8 +171,6 @@ public class GererLead extends HttpServlet {
         String prenom = request.getParameter("prenom_utilisateur");
         String mail = request.getParameter("mail_utilisateur");
         String tel = request.getParameter("tel_utilisateur");
-        String modification=request.getParameter("date_modification");
-        Date date_modification;
         String message;
         
         if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| mail.trim().isEmpty())
@@ -178,9 +180,50 @@ public class GererLead extends HttpServlet {
         }
         else 
         {
-           date_modification = Date.valueOf(modification);
-           administrateurSession.ModifierUtilisateur(login, mdp, nom, prenom, mail, tel, date_modification);
+           
+           administrateurSession.ModifierUtilisateur(login, nom, prenom, mail, tel);
            message = "Utilisateur modifié avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
+    
+    
+        protected void doActionAuthentification (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String login = request.getParameter("login_utilisateur");
+        String mdp = request.getParameter("mdp_utilisateur");
+        String message;
+        
+        if (login.trim().isEmpty()|| mdp.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"Authentification.jsp\" > Cliquez ici </a> pour vous connecter.";
+        }
+        else 
+        {
+           
+           utilisateurSession.authentification(login, mdp); //renvoie l'id en int pour récupérer la liste des profils associés
+           message = "Connexion réussie";
+        }
+        
+        request.setAttribute("message", message);
+    }
+        
+            protected void doActionCreerClient (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String nom = request.getParameter("login_utilisateur");
+        String siret = request.getParameter("mdp_utilisateur");
+        String message;
+        
+        if (nom.trim().isEmpty()|| siret.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"CreerClient.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un organisateur.";
+        }
+        else 
+        {
+           
+           marketeurSession.CreerClient(nom, siret);
+           message = "Client créé avec succès!";
         }
         
         request.setAttribute("message", message);
@@ -235,4 +278,53 @@ public class GererLead extends HttpServlet {
         }
     }
 
+    private UtilisateurSessionLocal lookupUtilisateurSessionLocal() {
+        try {
+            Context c = new InitialContext();
+            return (UtilisateurSessionLocal) c.lookup("java:global/ProjetDassaultSystem/ProjetDassaultSystem-ejb/UtilisateurSession!Session.UtilisateurSessionLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+    
+        private ExpertSessionLocal lookupExpertSessionLocal() {
+        try {
+            Context c = new InitialContext();
+            return (ExpertSessionLocal) c.lookup("java:global/ProjetDassaultSystem/ProjetDassaultSystem-ejb/ExpertSession!Session.ExpertSessionLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+        
+        private MarketeurSessionLocal lookupMarketeurSessionLocal() {
+        try {
+            Context c = new InitialContext();
+            return (MarketeurSessionLocal) c.lookup("java:global/ProjetDassaultSystem/ProjetDassaultSystem-ejb/MarketeurSession!Session.MarketeurSessionLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+        
+        private OperateurVentesSessionLocal lookupOperateurVentesSessionLocal() {
+        try {
+            Context c = new InitialContext();
+            return (OperateurVentesSessionLocal) c.lookup("java:global/ProjetDassaultSystem/ProjetDassaultSystem-ejb/OperateurVentesSession!Session.OperateurVentesSessionLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
+    
+        private VendeurSessionLocal lookupVendeurSessionLocal() {
+        try {
+            Context c = new InitialContext();
+            return (VendeurSessionLocal) c.lookup("java:global/ProjetDassaultSystem/ProjetDassaultSystem-ejb/VendeurSession!Session.VendeurSessionLocal");
+        } catch (NamingException ne) {
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", ne);
+            throw new RuntimeException(ne);
+        }
+    }
 }

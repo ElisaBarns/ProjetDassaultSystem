@@ -24,5 +24,7 @@ public interface MarketeurSessionLocal {
     void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur, Date date_modif_popp);
 
     void RouvrirPiste(String l, String mdp, Piste_opportunite p, Date date_modif_popp);
+
+    public void CreerClient(String nom, String siret);
     
 }

@@ -30,8 +30,8 @@
                     <label for="login_utilisateur">Login <span class=""requis"></span></label>
                     <input type="text" id="login_utilisateur" name="login_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
-                    <label for="msp_utilisateur">Mot de passe <span class="requis"></span></label>
-                    <input type="text" id="mdp_utilisateur" name="msp_utilisateur" value="" size"20" maxlength="20"/>
+                    <label for="mdp_utilisateur">Mot de passe <span class="requis"></span></label>
+                    <input type="text" id="mdp_utilisateur" name="mdp_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
                     <label for="mail_utilisateur">Mail <span class="requis"></span></label>
                     <input type="text" id="mail_utilisateur" name="mail_utilisateur" value="" size"20" maxlength="20"/>

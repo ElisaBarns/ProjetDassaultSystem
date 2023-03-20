@@ -5,8 +5,17 @@
 package servlet;
 
 
+import Facade.ClientFacadeLocal;
+import Facade.ContactFacadeLocal;
+import Facade.Detail_offreFacadeLocal;
+import Facade.EnregistrementFacadeLocal;
+import Facade.OffreFacadeLocal;
+import Facade.Piste_opportuniteFacadeLocal;
+import Facade.ProduitFacadeLocal;
+import Facade.ProfilFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import Session.AdministrateurSessionLocal;
+import Session.ExpertSessionLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
@@ -31,9 +40,36 @@ import javax.servlet.http.HttpServletResponse;
 public class GererLead extends HttpServlet {
 
     AdministrateurSessionLocal administrateurSession = lookupAdministrateurSessionLocal();
+    ExpertSessionLocal expertSession = lookupExpertSessionLocal();
 
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
+    
+    @EJB
+    private ClientFacadeLocal clientFacade;
+
+    @EJB
+    private ContactFacadeLocal contactFacade;
+    
+    @EJB
+    private Detail_offreFacadeLocal detail_offreFacade;
+    
+    @EJB
+    private EnregistrementFacadeLocal enregistrementFacade;
+    
+    @EJB
+    private OffreFacadeLocal offreFacade;
+    
+    @EJB
+    private Piste_opportuniteFacadeLocal piste_opportuniteFacade;
+    
+    @EJB
+    private ProduitFacadeLocal produitFacade;
+    
+    @EJB
+    private ProfilFacadeLocal profilFacade;
+    
+
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -51,7 +87,7 @@ public class GererLead extends HttpServlet {
         String act=request.getParameter("action");
         if((act==null)||(act.equals("vide")))
         {
-            jspDassault="/MenuAdmin.jsp";
+            jspDassault="/Authentification.jsp";
             request.setAttribute("message", "pas d'information");
             
         }

@@ -41,10 +41,10 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
     co.setPrenom_contact(prenom_contact);
     co.setMail_contact(mail_contact);
     co.setTel_contact(tel_contact);
-    co.setInactif(inactif);
-    co.setDate_creation_contact(date_creation_contact);
-    co.setDate_modif_contact(date_modif_contact);
-    co.setDate_inactiv_contact(date_inactiv_contact);
+    co.setInactif(false);
+    date_creation_contact=new Date();
+    co.setDate_modif_contact(null);
+    co.setDate_inactiv_contact(null);
     getEntityManager().persist(co);    
     }
     
@@ -57,7 +57,7 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
         co.setPrenom_contact(prenom_contact);
         co.setMail_contact(mail_contact);
         co.setTel_contact(tel_contact);
-        co.setDate_modif_contact(date_modif_contact);
+        date_modif_contact=new Date();
         getEntityManager().merge(co);
     }
     
@@ -66,8 +66,8 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
 
     @Override
     public void inactiverContact(Contact co, boolean inactif, Date date_inactiv_contact) {
-        co.setInactif(inactif);
-        co.setDate_inactiv_contact(date_inactiv_contact);
+        co.setInactif(true);
+        date_inactiv_contact=new Date();
         getEntityManager().merge(co);
     }
 

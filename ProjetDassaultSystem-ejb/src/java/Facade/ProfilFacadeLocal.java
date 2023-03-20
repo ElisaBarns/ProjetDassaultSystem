@@ -31,7 +31,7 @@ public interface ProfilFacadeLocal {
 
     int count();
 
-    void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil, Date date_inactif_profil);
+    void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil);
 
     void ModifierProfil(Profil p, Fonction f);
 

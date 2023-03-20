@@ -38,6 +38,7 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);
     d.setUneOffre(uneOffre);
+        d.CalculerP_detail(leProduit);
     d.setP_detail(p_detail);
     getEntityManager().persist(d);
     }
@@ -48,6 +49,7 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);
     d.setUneOffre(uneOffre);
+        d.CalculerP_detail(leProduit);
     d.setP_detail(p_detail);
     getEntityManager().merge(d);
     }

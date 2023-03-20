@@ -162,12 +162,10 @@ public class Detail_offre implements Serializable {
         this.p_detail = p_detail;
     }
     
-    /* A VOIR ENSEMBLE OU ALORS DEMANDER A TALENS COMMENT L'INTEGRER DANS LE SET ET/OU LE GET ???
-    public float p_detail(Produit produit){
+    public float CalculerP_detail(Produit produit){
     float prixunitaire = leProduit.getPu_produit();
     p_detail = prixunitaire * quantite;
     return p_detail;
     }
-    */
 
 }

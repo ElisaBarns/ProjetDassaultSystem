@@ -39,10 +39,10 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
         c.setId_client(id_client);
         c.setNom_client(nom_client);
         c.setSiret(siret);
-        c.setInactif(inactif);
+        c.setInactif(false);
         c.setDate_creation_client(date_creation_client);
-        c.setDate_modif_client(date_inactiv_client);
-        c.setDate_inactiv_client(date_inactiv_client);
+        c.setDate_modif_client(null);
+        c.setDate_inactiv_client(null);
         getEntityManager().persist(c);
     }
     
@@ -52,7 +52,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     public void modifierClient(Client c, String nom_client, String siret, Date date_modif_client) {
         c.setNom_client(nom_client);
         c.setSiret(siret);
-        c.setDate_modif_client(date_modif_client);
+        date_modif_client=new Date();
         getEntityManager().merge(c);
     }
     
@@ -60,8 +60,8 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
 
     @Override
     public void inactiverClient(Client c, boolean inactif, Date date_inactiv_client) {
-        c.setInactif(inactif);
-        c.setDate_inactiv_client(date_inactiv_client);
+        c.setInactif(true);
+        date_inactiv_client=new Date();
         getEntityManager().merge(c);
     }
 

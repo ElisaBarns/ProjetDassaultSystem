@@ -32,34 +32,31 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     
     //Créer produit
     @Override
-    public void CreerProduit(String nom_produit, String description_commerciale, float pu_produit, Date date_creation_produit, Date date_inactivation_produit, boolean inactif) {
+    public void CreerProduit(String nom_produit, String description_commerciale, float pu_produit, Date date_creation_produit, boolean inactif) {
     Produit p=new Produit();
     p.setNom_produit(nom_produit);
     p.setDescription_commerciale(description_commerciale);
     p.setPu_produit(pu_produit);
-    p.setDate_creation_produit(date_creation_produit);
-    p.setDate_inactivation_produit(date_inactivation_produit);    
-    p.setInactif(inactif);
+    date_creation_produit=new Date();  
+    p.setInactif(false);
     getEntityManager().persist(p);
     }
     
     //Modifier produit
     @Override
-    public void ModifierProduit(Produit p, String nom_produit, String description_commerciale, float pu_produit, Date date_modif_produit, Date date_inactivation_produit, boolean inactif) {
+    public void ModifierProduit(Produit p, String nom_produit, String description_commerciale, float pu_produit, Date date_modif_produit) {
     p.setNom_produit(nom_produit);
     p.setDescription_commerciale(description_commerciale);
     p.setPu_produit(pu_produit);
-    p.setDate_modif_produit(date_modif_produit);
-    p.setDate_inactivation_produit(date_inactivation_produit);    
-    p.setInactif(inactif);
+    date_modif_produit=new Date();
     getEntityManager().merge(p);
     }
     
     //Inactiver produit
     @Override
     public void InactiverProduit(Produit p, Date date_inactivation_produit, boolean inactif) {
-    p.setDate_inactivation_produit(date_inactivation_produit);
-    p.setInactif(inactif);
+    date_inactivation_produit=new Date();
+    p.setInactif(true);
     getEntityManager().merge(p);
     }
     

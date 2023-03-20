@@ -23,7 +23,7 @@ public interface AdministrateurSessionLocal {
 
     void InactiverUtilisateur(String l, String mdp, boolean inactif, Date date_inactivation);
 
-    void ModifierMdpUtilisateur(String l, String mdp);
+    void ModifierMdpUtilisateur(String l, String mdp, Date date_modification_utilisateur);
 
     void AttribuerRolesUtilisateur(String l, String mdp, Profil p, Fonction f);
     

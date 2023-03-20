@@ -33,12 +33,11 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     
     //Créer profil
     @Override
-    public void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil, Date date_inactif_profil) {
+    public void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil) {
     Profil p=new Profil();
     p.setFonction(f);
-    p.setInactif(inactif);
-    p.setDate_creation_profil(date_creation_profil);
-    p.setDate_inactif_profil(date_inactif_profil);
+    p.setInactif(false);
+    date_creation_profil=new Date();
     getEntityManager().persist(p);
     }
     
@@ -52,8 +51,8 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     //Inactiver profil
     @Override
     public void InactiverProfil(Profil p, boolean inactif, Date date_inactif_profil) {
-    p.setInactif(inactif);
-    p.setDate_inactif_profil(date_inactif_profil);
+    p.setInactif(false);
+    date_inactif_profil=new Date();
     getEntityManager().merge(p);
     }
 

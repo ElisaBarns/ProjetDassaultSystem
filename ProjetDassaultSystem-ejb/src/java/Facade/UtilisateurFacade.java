@@ -49,18 +49,20 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     
     //Créer utilisateur
     @Override
-    public void CreerUtilisateur(String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur, boolean inactif, Date date_creation_utilisateur, Date date_inactivation_utilisateur, Date date_modification_utilisateur) {
+    public void CreerUtilisateur(String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur) {
     Utilisateur u=new Utilisateur();
+    u.setId_utilisateur(); //A VOIR CE QU4ON EN FAIT, QUESTION A POSER A MME TALENS
     u.setNom_utilisateur(nom_utilisateur);
     u.setPrenom_utilisateur(prenom_utilisateur);
     u.setLogin_utilisateur(login_utilisateur);
     u.setMdp_utilisateur(mdp_utilisateur);
     u.setMail_utilisateur(mail_utilisateur);
     u.setTel_utilisateur(tel_utilisateur);
-    u.setInactif(inactif);
-    u.setDate_creation_utilisateur(date_creation_utilisateur);
-    u.setDate_inactivation_utilisateur(date_inactivation_utilisateur);
-    u.setDate_modification_utilisateur(date_modification_utilisateur);
+    u.setInactif(false);
+    u.setDate_creation_utilisateur(new Date()); //A CONFIRMER !!!
+    u.setDate_inactivation_utilisateur(null);
+    u.setDate_modification_utilisateur(null);
+    
     getEntityManager().persist(u);
 }
     
@@ -86,22 +88,23 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     u.setDate_creation_utilisateur(date_creation_utilisateur);
     u.setDate_inactivation_utilisateur(date_inactivation_utilisateur);
     */
-    u.setDate_modification_utilisateur(date_modification_utilisateur);
+    date_modification_utilisateur=new Date();
     getEntityManager().merge(u);
     }
     
     //Modifier mot de passe
     @Override
-    public void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur) {
+    public void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur, Date date_modification_utilisateur) {
     u.setMdp_utilisateur(mdp_utilisateur);
+    date_modification_utilisateur=new Date();
     getEntityManager().merge(u);
     }
     
     //Inactiver l'utilisateur
     @Override
     public void InactiverUtilisateur(Utilisateur u, boolean inactif, Date date_inactivation_utilisateur) {
-    u.setInactif(inactif);
-    u.setDate_inactivation_utilisateur(date_inactivation_utilisateur);
+    u.setInactif(true);
+    date_inactivation_utilisateur=new Date();
     getEntityManager().merge(u);
     }
     

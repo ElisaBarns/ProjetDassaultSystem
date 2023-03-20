@@ -35,7 +35,9 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     public void CreerOffre(int remise, Date date_creation_offre, float p_somme, float p_total) {
     Offre o=new Offre();
     o.setRemise(remise);
-    o.setDate_creation_offre(date_creation_offre);
+    date_creation_offre=new Date();
+        o.calculerMontant();
+        o.calculerTotal();
     o.setP_somme(p_somme);
     o.setP_total(p_total);
     getEntityManager().persist(o);

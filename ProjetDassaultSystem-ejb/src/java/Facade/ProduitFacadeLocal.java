@@ -30,9 +30,9 @@ public interface ProduitFacadeLocal {
 
     int count();
 
-    void CreerProduit(String nom_produit, String description_commerciale, float pu_produit, Date date_creation_produit, Date date_inactivation_produit, boolean inactif);
+    void CreerProduit(String nom_produit, String description_commerciale, float pu_produit, Date date_creation_produit, boolean inactif);
 
-    void ModifierProduit(Produit p, String nom_produit, String description_commerciale, float pu_produit, Date date_modif_produit, Date date_inactivation_produit, boolean inactif);
+    void ModifierProduit(Produit p, String nom_produit, String description_commerciale, float pu_produit, Date date_modif_produit);
 
     void InactiverProduit(Produit p, Date date_inactivation_produit, boolean inactif);
     

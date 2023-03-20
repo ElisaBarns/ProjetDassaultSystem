@@ -21,8 +21,8 @@ public interface MarketeurSessionLocal {
 
     void CreerPiste(String l, String mdp, int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique);
 
-    void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur);
+    void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur, Date date_modif_popp);
 
-    void RouvrirPiste(String l, String mdp, Piste_opportunite p);
+    void RouvrirPiste(String l, String mdp, Piste_opportunite p, Date date_modif_popp);
     
 }

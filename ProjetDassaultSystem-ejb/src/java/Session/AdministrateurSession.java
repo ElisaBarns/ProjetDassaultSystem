@@ -137,7 +137,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     
     //Gérer les mots de passe des utilisateurs (définir ou réinitialiser)
     @Override
-    public void ModifierMdpUtilisateur(String l, String mdp) {
+    public void ModifierMdpUtilisateur(String l, String mdp, Date date_modification_utilisateur) {
         Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
@@ -148,7 +148,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {
-                    utilisateurFacade.ModifierMdpUtilisateur(u, mdp);
+                    utilisateurFacade.ModifierMdpUtilisateur(u, mdp, date_modification_utilisateur);
                 }
                 else
                 {

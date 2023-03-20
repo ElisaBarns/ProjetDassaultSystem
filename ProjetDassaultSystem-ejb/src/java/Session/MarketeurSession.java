@@ -51,7 +51,7 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Affecter un vendeur (+ vérifier si je suis assigné à cette piste, sinon jpp affecter un vendeur)
     @Override
-    public void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur) {
+    public void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur, Date date_modif_popp) {
         Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
@@ -61,7 +61,7 @@ public class MarketeurSession implements MarketeurSessionLocal {
             m=po.getMarketeur();
             if(listeProfils.contains(m))
             {
-                piste_opportuniteFacade.AffecterVendeur(p, vendeur);
+                piste_opportuniteFacade.AffecterVendeur(p, vendeur, date_modif_popp);
             }
             else
             {
@@ -75,12 +75,12 @@ public class MarketeurSession implements MarketeurSessionLocal {
     //Rouvrir la piste (car le vendeur a refusé son affectation à la piste)
 
     @Override
-    public void RouvrirPiste(String l, String mdp, Piste_opportunite p) {
+    public void RouvrirPiste(String l, String mdp, Piste_opportunite p, Date date_modif_popp) {
         Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
         {
-            piste_opportuniteFacade.RouvrirPiste(p);
+            piste_opportuniteFacade.RouvrirPiste(p, date_modif_popp);
         }
         else
         {

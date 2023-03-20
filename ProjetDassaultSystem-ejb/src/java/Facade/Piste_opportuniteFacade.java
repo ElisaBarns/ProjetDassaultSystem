@@ -45,8 +45,8 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     {
         Piste_opportunite po = new Piste_opportunite();
         po.setId_piste_opp(id_piste_opp);
-        po.setDate_creation_popp(date_creation_popp);
-        po.setDate_modif_popp(date_modif_popp);
+        date_creation_popp=new Date();
+        po.setDate_modif_popp(null);
         po.setNiveau_risque(niveau_risque);
         po.setTx_reussite(tx_reussite);
         po.setNiveau_interet(niveau_interet);
@@ -54,15 +54,15 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         po.setType(type);
         po.setStatut(statut.OUVERTE);
         po.setMarketeur(marketeur);
-        po.setVendeur(vendeur);
-        po.setExpert_technique(expert_technique);
+        po.setVendeur(null);
+        po.setExpert_technique(null);
         getEntityManager().persist(po);
     }
     
     //Modifier piste
     @Override
     public void ModifierPisteOpportunite(Piste_opportunite p, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique, Enregistrement enregistrement, Client leClient) {
-    p.setDate_modif_popp(date_modif_popp);
+    date_modif_popp=new Date();
     p.setNiveau_interet(niveau_interet);
     p.setTx_reussite(tx_reussite);
     p.setNiveau_risque(niveau_risque);
@@ -79,9 +79,10 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
 
     //Affecter un vendeur à une piste
     @Override
-    public void AffecterVendeur(Piste_opportunite p, Profil vendeur) {
+    public void AffecterVendeur(Piste_opportunite p, Profil vendeur, Date date_modif_popp) {
         p.setStatut(Statut.QUALIFIE);
         p.setVendeur(vendeur);
+        date_modif_popp=new Date();
         getEntityManager().merge(p);
     }
     
@@ -104,20 +105,18 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //MAJ de la piste pour ajouter ou modifier des infos sur le client et/ou les contacts
     @Override
-    public void MajPoParVendeur(Piste_opportunite p, Date date_modif_popp, Client c, String nom_client, String siret, boolean inactif, Date date_inactiv_client, Date date_modif_client, Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact, Date date_inactiv_contact) {
-    p.setDate_modif_popp(date_modif_popp);
+    public void MajPoParVendeur(Piste_opportunite p, Date date_modif_popp, Client c, String nom_client, String siret, Date date_modif_client, Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact) {
+    date_modif_popp=new Date();
     p.setLeClient(c);
+    
     c.setNom_client(nom_client);
     c.setSiret(siret);
-    c.setInactif(inactif);
-    c.setDate_inactiv_client(date_inactiv_client);
+    
     co.setNom_contact(nom_contact);
     co.setPrenom_contact(prenom_contact);
     co.setMail_contact(tel_contact);
     co.setTel_contact(tel_contact);
-    co.setInactif(inactif);
-    co.setDate_modif_contact(date_modif_contact);
-    co.setDate_inactiv_contact(date_inactiv_contact);
+    date_modif_contact=new Date();
     getEntityManager().merge(p);
     getEntityManager().merge(c);
     getEntityManager().merge(co);
@@ -126,7 +125,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     //Modifier le statut de l'opportunité pour la mettre sous le statut gagné
     @Override
     public void PisteGagne(Piste_opportunite p, Date date_modif_popp, Statut statut) {
-        p.setDate_modif_popp(date_modif_popp);
+        date_modif_popp=new Date();
         p.setStatut(Statut.GAGNE);
         getEntityManager().merge(p);
     }
@@ -134,29 +133,31 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     //Modifier le statut de l'opportunité pour la mettre sous le statut perdu
     @Override
     public void PistePerdu(Piste_opportunite p, Date date_modif_popp, Statut statut) {
-        p.setDate_modif_popp(date_modif_popp);
+        date_modif_popp=new Date();
         p.setStatut(Statut.PERDU);
         getEntityManager().merge(p);
     }
     
     //Rouvrir la piste par le marketeur
     @Override
-    public void RouvrirPiste(Piste_opportunite p) {
+    public void RouvrirPiste(Piste_opportunite p, Date date_modif_popp) {
         p.setStatut(Statut.OUVERTE);
+        date_modif_popp=new Date();
         getEntityManager().merge(p);
     }
     
     //Affecter un expert technique à une piste
     @Override
-    public void AffecterExpert(Piste_opportunite p, Profil expert_technique) {
+    public void AffecterExpert(Piste_opportunite p, Profil expert_technique, Date date_modif_popp) {
         p.setExpert_technique(expert_technique);
+        date_modif_popp=new Date();
         getEntityManager().merge(p);
     }
     
     //MAJ d'une offre pour une PO; fait pas l'expert technique
     @Override
     public void MajOffreParExpert(Piste_opportunite p, Date date_modif_popp, Offre offre) {
-        p.setDate_modif_popp(date_modif_popp);
+        date_modif_popp=new Date();
         p.setUneOffre(offre);
         getEntityManager().merge(p);
     }

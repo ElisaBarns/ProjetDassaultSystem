@@ -7,9 +7,11 @@ package Facade;
 import Entity.Detail_offre;
 import Entity.Offre;
 import Entity.Produit;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -33,24 +35,24 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     
     //Créer détail offre
     @Override
-    public void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre, float p_detail) {
+    public void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre) {
     Detail_offre d = new Detail_offre();
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);
     d.setUneOffre(uneOffre);
-        d.CalculerP_detail(leProduit);
-    d.setP_detail(p_detail);
+        float prix = d.CalculerP_detail(leProduit);
+    d.setP_detail(prix);
     getEntityManager().persist(d);
     }
     
     //Modifier détail offre
     @Override
-    public void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre, float p_detail) {
+    public void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre) {
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);
     d.setUneOffre(uneOffre);
-        d.CalculerP_detail(leProduit);
-    d.setP_detail(p_detail);
+        float prix = d.CalculerP_detail(leProduit);
+    d.setP_detail(prix);
     getEntityManager().merge(d);
     }
     
@@ -61,5 +63,17 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     getEntityManager().remove(d);
     }
     
-    
+    @Override
+    public Detail_offre RechercherDetail_offreParId(long id) {
+    Detail_offre d=null;
+    List<Detail_offre> result;
+    String txt="SELECT d FROM Deatil_offre AS d WHERE d.id=:id";
+    Query req=getEntityManager().createQuery(txt);
+    req=req.setParameter("id", id);
+    result=req.getResultList();
+    if(result.size()==1){
+        d=(Detail_offre)result.get(0);
+    }
+    return d;        
+    }
 }

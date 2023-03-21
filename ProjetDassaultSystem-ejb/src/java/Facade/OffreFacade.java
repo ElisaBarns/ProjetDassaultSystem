@@ -83,12 +83,12 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     }
     
         @Override
-    public Offre RechercherOffreParId(int id_offre) {
+    public Offre RechercherOffreParId(long id) {
     Offre o=null;
     List<Offre> result;
-    String txt="SELECT o FROM Offre AS o WHERE o.id_offre=:id_offre";
+    String txt="SELECT o FROM Offre AS o WHERE o.id=:id";
     Query req=getEntityManager().createQuery(txt);
-    req=req.setParameter("id_offre", id_offre);
+    req=req.setParameter("id", id);
     result=req.getResultList();
     if(result.size()==1){
         o=(Offre)result.get(0);

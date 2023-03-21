@@ -36,7 +36,7 @@ public interface OffreFacadeLocal {
 
     void ModifierOffre(Offre o, int remise, String conditions);
     
-    Offre RechercherOffreParId(int id_offre);
+    Offre RechercherOffreParId(long id);
 
     ArrayList<Detail_offre> ModifierContenu(Offre offre);
     

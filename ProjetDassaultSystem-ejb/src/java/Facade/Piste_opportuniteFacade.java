@@ -164,12 +164,12 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Recherche piste_opportunite par Id
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite) {
+    public Piste_opportunite RechercherPisteOpportuniteParId(long id_piste_opportunite) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
-    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.id_piste_opportunite=:id_piste_opportunite";
+    String txt="SELECT p FROM Piste_opportunite AS p WHERE p.id=:id";
     Query req=getEntityManager().createQuery(txt);
-    req=req.setParameter("id_piste_opportunite", id_piste_opportunite);
+    req=req.setParameter("id", id_piste_opportunite);
     result=req.getResultList();
     if(result.size()==1){
         p=(Piste_opportunite)result.get(0);

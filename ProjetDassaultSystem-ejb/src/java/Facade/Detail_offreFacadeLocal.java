@@ -31,10 +31,11 @@ public interface Detail_offreFacadeLocal {
 
     int count();
 
-    void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre, float p_detail);
+    void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre);
 
-    void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre, float p_detail);
+    void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre);
 
     void SupprimerDetailOffre(Detail_offre d);
     
+    Detail_offre RechercherDetail_offreParId(long id);
 }

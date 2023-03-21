@@ -4,11 +4,14 @@
  */
 package Facade;
 
+import Entity.Piste_opportunite;
 import Entity.Produit;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -60,5 +63,17 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     getEntityManager().merge(p);
     }
     
-
+    @Override
+    public Produit RechercherProduitParId(long id) {
+    Produit p=null;
+    List<Produit> result;
+    String txt="SELECT p FROM Produit AS p WHERE p.id=:id";
+    Query req=getEntityManager().createQuery(txt);
+    req=req.setParameter("id", id);
+    result=req.getResultList();
+    if(result.size()==1){
+        p=(Produit)result.get(0);
+    }
+    return p;        
+    }
 }

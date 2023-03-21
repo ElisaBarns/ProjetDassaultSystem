@@ -4,12 +4,17 @@
  */
 package Session;
 
+
+import Entity.Detail_offre;
 import Entity.Offre;
 import Entity.Piste_opportunite;
+import Entity.Produit;
 import Entity.Profil;
 import Entity.Utilisateur;
+import Facade.Detail_offreFacadeLocal;
 import Facade.OffreFacadeLocal;
 import Facade.Piste_opportuniteFacadeLocal;
+import Facade.ProduitFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import java.util.Date;
 import javax.ejb.EJB;
@@ -30,6 +35,12 @@ public class ExpertSession implements ExpertSessionLocal {
     
     @EJB 
     private OffreFacadeLocal offreFacade;    
+    
+    @EJB
+    private Detail_offreFacadeLocal detail_offreFacade;
+    
+    @EJB
+    private ProduitFacadeLocal produitFacade;
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
@@ -70,10 +81,35 @@ public class ExpertSession implements ExpertSessionLocal {
         Offre offre = offreFacade.RechercherOffreParId(id_offre);
         offreFacade.ModifierOffre(offre, remise, conditions);
     }
+    
+    
     //Rechercher ou parcourir le catalogue et choisir des éléments afin de remplir l'offre
     
     
     //Joindre un document de proposition à une piste et à une opportunité qui m'ont été attribuées
+
+    
+    
+    @Override
+    public void CreerDetail_offre(long id_produit, long id_offre, int quantite) {
+        Produit leProduit = produitFacade.RechercherProduitParId(id_produit);
+        Offre uneOffre = offreFacade.RechercherOffreParId(id_offre);
+        detail_offreFacade.CreerDetailOffre(quantite, leProduit, uneOffre);
+    }
+
+    @Override
+    public void ModifierDetail_offre(long id_detail, long id_produit, long id_offre, int quantite) {
+        Detail_offre detail = detail_offreFacade.RechercherDetail_offreParId(id_detail);
+        Produit leProduit = produitFacade.RechercherProduitParId(id_produit);
+        Offre uneOffre = offreFacade.RechercherOffreParId(id_offre);
+        detail_offreFacade.ModifierDetailOffre(detail, quantite, leProduit, uneOffre);
+    }
+
+    @Override
+    public void SupprimerDetailOffre(long id_detail) {
+        Detail_offre detail = detail_offreFacade.RechercherDetail_offreParId(id_detail);
+        detail_offreFacade.SupprimerDetailOffre(detail);
+    }
     
     
     

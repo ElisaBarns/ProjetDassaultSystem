@@ -21,4 +21,10 @@ public interface ExpertSessionLocal {
     void CréerOffre(int remise, String conditions);
     
     void ModifierOffre(int id_offre, int remise, String conditions);
+
+    void CreerDetail_offre(long id_produit, long id_offre, int quantite);
+
+    void ModifierDetail_offre(long id_detail, long id_produit, long id_offre, int quantite);
+
+    void SupprimerDetailOffre(long id_detail);
 }

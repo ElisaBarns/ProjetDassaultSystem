@@ -36,4 +36,6 @@ public interface ProduitFacadeLocal {
 
     void InactiverProduit(Produit p, Date date_inactivation_produit, boolean inactif);
     
+    Produit RechercherProduitParId(long id);
+    
 }

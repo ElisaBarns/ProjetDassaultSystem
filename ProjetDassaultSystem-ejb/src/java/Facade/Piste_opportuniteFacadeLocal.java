@@ -60,7 +60,7 @@ public interface Piste_opportuniteFacadeLocal {
     
     void MajOffreParExpert(Piste_opportunite p, Date date_modif_popp, Offre offre);
     
-    Piste_opportunite RechercherPisteOpportuniteParId(int id_piste_opportunite);
+    Piste_opportunite RechercherPisteOpportuniteParId(long id_piste_opportunite);
 
     Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type);
     

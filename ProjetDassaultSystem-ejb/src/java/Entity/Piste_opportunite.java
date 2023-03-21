@@ -86,26 +86,6 @@ public class Piste_opportunite implements Serializable {
         return "Entity.Piste_opportunite[ id=" + id + " ]";
     }
    
-     @Column (nullable=false, unique = true)
-    private int id_piste_opp;
-
-    /**
-     * Get the value of id_piste_opp
-     *
-     * @return the value of id_piste_opp
-     */
-    public int getId_piste_opp() {
-        return id_piste_opp;
-    }
-
-    /**
-     * Set the value of id_piste_opp
-     *
-     * @param id_piste_opp new value of id_piste_opp
-     */
-    public void setId_piste_opp(int id_piste_opp) {
-        this.id_piste_opp = id_piste_opp;
-    }
 
      @Column (nullable=false, unique = false)
     @Temporal(javax.persistence.TemporalType.DATE)

@@ -65,27 +65,7 @@ public class Offre implements Serializable {
         return "Entity.Offre[ id=" + id + " ]";
     }
     
-    @Column(nullable= false, unique=true)
-        private int id_offre;
-
-    /**
-     * Get the value of id_offre
-     *
-     * @return the value of id_offre
-     */
-    public int getId_offre() {
-        return id_offre;
-    }
-
-    /**
-     * Set the value of id_offre
-     *
-     * @param id_offre new value of id_offre
-     */
-    public void setId_offre(int id_offre) {
-        this.id_offre = id_offre;
-    }
-
+   
     @Column(nullable = false)
         private int remise;
 

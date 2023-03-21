@@ -58,26 +58,6 @@ public class Detail_offre implements Serializable {
         return "Entity.Detail_offre[ id=" + id + " ]";
     }
     
-    @Column (nullable=false)   
-    private int id_detail;
-
-    /**
-     * Get the value of id_detail
-     *
-     * @return the value of id_detail
-     */
-    public int getId_detail() {
-        return id_detail;
-    }
-
-    /**
-     * Set the value of id_detail
-     *
-     * @param id_detail new value of id_detail
-     */
-    public void setId_detail(int id_detail) {
-        this.id_detail = id_detail;
-    }
 
     @Column (nullable= false)
         private int quantite;

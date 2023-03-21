@@ -63,27 +63,7 @@ public class Produit implements Serializable {
         return "Entity.Produit[ id=" + id + " ]";
     }
     
-    @Column(nullable=false, unique=true)
-    private int id_produit;
-
-    /**
-     * Get the value of id_produit
-     *
-     * @return the value of id_produit
-     */
-    public int getId_produit() {
-        return id_produit;
-    }
-
-    /**
-     * Set the value of id_produit
-     *
-     * @param id_produit new value of id_produit
-     */
-    public void setId_produit(int id_produit) {
-        this.id_produit = id_produit;
-    }
-
+    
     @Column(nullable=false, unique=true)
     private String nom_produit;
 

@@ -59,27 +59,7 @@ public class Contact implements Serializable {
         return "Entity.Contact[ id=" + id + " ]";
     }
     
-     @Column (nullable=false, unique = true)
-    private int id_contact;
-
-    /**
-     * Get the value of id_contact
-     *
-     * @return the value of id_contact
-     */
-    public int getId_contact() {
-        return id_contact;
-    }
-
-    /**
-     * Set the value of id_contact
-     *
-     * @param id_contact new value of id_contact
-     */
-    public void setId_contact(int id_contact) {
-        this.id_contact = id_contact;
-    }
-
+   
      @Column (nullable=false, unique = false)
     private String nom_contact;
 

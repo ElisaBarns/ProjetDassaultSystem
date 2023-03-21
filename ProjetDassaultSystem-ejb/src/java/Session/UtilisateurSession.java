@@ -20,11 +20,11 @@ public class UtilisateurSession implements UtilisateurSessionLocal {
     private UtilisateurFacadeLocal utilisateurFacade;
 
     @Override
-    public int authentification(String login, String mdp) {
-        int id;
+    public long authentification(String login, String mdp) {
+        long id;
         Utilisateur u;
         u=utilisateurFacade.Authentification(login, mdp);
-        id=u.getId_utilisateur();
+        id=u.getId();
         return id;
     }
 

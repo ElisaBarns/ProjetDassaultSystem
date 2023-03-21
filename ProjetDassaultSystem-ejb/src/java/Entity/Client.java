@@ -66,26 +66,7 @@ public class Client implements Serializable {
         return "Entity.Client[ id=" + id + " ]";
     }
     
-     @Column (nullable=false, unique = true)
-    private int id_client;
 
-    /**
-     * Get the value of id_client
-     *
-     * @return the value of id_client
-     */
-    public int getId_client() {
-        return id_client;
-    }
-
-    /**
-     * Set the value of id_client
-     *
-     * @param id_client new value of id_client
-     */
-    public void setId_client(int id_client) {
-        this.id_client = id_client;
-    }
     
  @Column (nullable=false, unique = false)
     private String nom_client;

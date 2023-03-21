@@ -36,7 +36,6 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     public void creerClient(String nom_client, String siret) 
     {
         Client c = new Client();
-        c.setId_client(id_client);
         c.setNom_client(nom_client);
         c.setSiret(siret);
         c.setInactif(false);

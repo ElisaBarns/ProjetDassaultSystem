@@ -61,26 +61,6 @@ public class Enregistrement implements Serializable {
         return "Entity.Enregistrement[ id=" + id + " ]";
     }
     
-     @Column (nullable=false, unique = true)
-    private int id_enregistrement;
-
-    /**
-     * Get the value of id_enregistrement
-     *
-     * @return the value of id_enregistrement
-     */
-    public int getId_enregistrement() {
-        return id_enregistrement;
-    }
-
-    /**
-     * Set the value of id_enregistrement
-     *
-     * @param id_enregistrement new value of id_enregistrement
-     */
-    public void setId_enregistrement(int id_enregistrement) {
-        this.id_enregistrement = id_enregistrement;
-    }
     
     private List<Piste_opportunite> liste_modifications;
 

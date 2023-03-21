@@ -72,28 +72,7 @@ public class Utilisateur implements Serializable {
         return "Entity.Utilisateur[ id=" + id + " ]";
     }
     
-    @Column(nullable=false, unique=true)
    
-    private int id_utilisateur;
-
-    /**
-     * Get the value of id_utilisateur
-     *
-     * @return the value of id_utilisateur
-     */
-    public int getId_utilisateur() {
-        return id_utilisateur;
-    }
-
-    /**
-     * Set the value of id_utilisateur
-     *
-     * @param id_utilisateur new value of id_utilisateur
-     */
-    public void setId_utilisateur(int id_utilisateur) {
-        this.id_utilisateur = id_utilisateur;
-    }
-
     @Column(nullable=false, unique=false)
     private String nom_utilisateur;
 

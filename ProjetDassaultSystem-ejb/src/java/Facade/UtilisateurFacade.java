@@ -51,7 +51,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     @Override
     public void CreerUtilisateur(String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur) {
     Utilisateur u=new Utilisateur();
-    u.setId_utilisateur(); //A VOIR CE QU4ON EN FAIT, QUESTION A POSER A MME TALENS
+    //u.setId_utilisateur(); //A VOIR CE QU4ON EN FAIT, QUESTION A POSER A MME TALENS
     u.setNom_utilisateur(nom_utilisateur);
     u.setPrenom_utilisateur(prenom_utilisateur);
     u.setLogin_utilisateur(login_utilisateur);
@@ -68,7 +68,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     
     //Modifier utilisateur
     @Override
-    public void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String mail_utilisateur, String tel_utilisateur, Date date_modification_utilisateur) {
+    public void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String mail_utilisateur, String tel_utilisateur) {
     u.setNom_utilisateur(nom_utilisateur);
     u.setPrenom_utilisateur(prenom_utilisateur);
     /*
@@ -88,7 +88,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     u.setDate_creation_utilisateur(date_creation_utilisateur);
     u.setDate_inactivation_utilisateur(date_inactivation_utilisateur);
     */
-    date_modification_utilisateur=new Date();
+    u.setDate_modification_utilisateur(new Date());
     getEntityManager().merge(u);
     }
     

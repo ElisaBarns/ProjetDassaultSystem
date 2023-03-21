@@ -4,6 +4,7 @@
  */
 package Session;
 
+import Entity.Utilisateur;
 import javax.ejb.Local;
 
 /**
@@ -13,6 +14,6 @@ import javax.ejb.Local;
 @Local
 public interface UtilisateurSessionLocal {
 
-    long authentification(String login, String mdp);
+    Utilisateur authentification(String login, String mdp);
     
 }

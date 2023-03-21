@@ -37,6 +37,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -99,8 +100,36 @@ public class GererLead extends HttpServlet {
         {
             jspDassault="/Authentification.jsp";
             request.setAttribute("message", "pas d'information");
-            
         }
+        else if(act.equals("authentification"))
+        {
+            HttpSession sess=request.getSession(true);
+            String login_utilisateur = request.getParameter( "login_utilisateur" ); 
+            String mdp_utilisateur = request.getParameter( "mdp_utilisateur" );
+            //Integer id; 
+            Utilisateur u; 
+            if (!(login_utilisateur.trim().isEmpty()) && !(mdp_utilisateur.trim().isEmpty()) ) 
+            { 
+            //login = Integer.valueOf(login); 
+            //mdp=Integer.valueOf(mdp);
+            u = utilisateurSession.authentification(login_utilisateur, mdp_utilisateur); 
+                if (u!=null){
+                jspDassault="/MenuGeneral.jsp"; 
+                sess.setAttribute("session", u); 
+                } 
+                else
+                {
+                    jspDassault="/MenuAdmin.jsp"; //LIGNE A RENDRE INACTIVE UNE FOIS AVOIR CREER DES UTILISATEURS
+                    //jspDassault="/MauvaisLoginMdp.jsp"; LIGNE A RENDRE ACTIF UNE FOIS AVOIR CREER DES UTILISATEURS
+                }
+            }
+            else 
+            { 
+            jspDassault="/RenseignerTousChamps.jsp"; 
+            } 
+        }    
+
+        
         else if(act.equals("CreerUtilisateur"))
         {
             jspDassault="/CreerUtilisateur.jsp";
@@ -142,22 +171,22 @@ public class GererLead extends HttpServlet {
     
     /* mettre les doaction ici*/
     protected void doActionCreerUtilisateur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-        String nom = request.getParameter("nom_utilisateur");
-        String prenom = request.getParameter("prenom_utilisateur");
-        String login = request.getParameter("login_utilisateur");
-        String mdp = request.getParameter("mdp_utilisateur");
-        String mail = request.getParameter("mail_utilisateur");
-        String tel = request.getParameter("tel_utilisateur");
+        String nom_utilisateur = request.getParameter("nom_utilisateur");
+        String prenom_utilisateur = request.getParameter("prenom_utilisateur");
+        String login_utilisateur = request.getParameter("login_utilisateur");
+        String mdp_utilisateur = request.getParameter("mdp_utilisateur");
+        String mail_utilisateur = request.getParameter("mail_utilisateur");
+        String tel_utilisateur = request.getParameter("tel_utilisateur");
         String message;
         
-        if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| login.trim().isEmpty()|| mdp.trim().isEmpty()|| mail.trim().isEmpty())
+        if (nom_utilisateur.trim().isEmpty()|| prenom_utilisateur.trim().isEmpty()|| login_utilisateur.trim().isEmpty()|| mdp_utilisateur.trim().isEmpty()|| mail_utilisateur.trim().isEmpty()|| tel_utilisateur.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un utilisateur.";
         }
         else 
         {
-           administrateurSession.CreerUtilisateur(login, mdp, nom, prenom, mail, tel);
+           administrateurSession.CreerUtilisateur( nom_utilisateur, prenom_utilisateur,login_utilisateur, mdp_utilisateur, mail_utilisateur, tel_utilisateur);
            message = "Utilisateur créé avec succès!";
         }
         
@@ -202,7 +231,7 @@ public class GererLead extends HttpServlet {
         else 
         {
            
-           utilisateurSession.authentification(login, mdp); //renvoie l'id en int pour récupérer la liste des profils associés
+           utilisateurSession.authentification(login, mdp); //renvoie l'id en long pour récupérer la liste des profils associés
            message = "Connexion réussie";
         }
         

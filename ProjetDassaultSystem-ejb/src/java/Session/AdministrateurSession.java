@@ -40,8 +40,8 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     
     //Creer un utilisateur
     @Override
-    public void CreerUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel) {
-        Utilisateur u = null;
+    public void CreerUtilisateur(String nom, String prenom, String login, String mdp, String mail, String tel) {
+        /*Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
         {
@@ -50,16 +50,17 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             while(i<=listeProfils.size())
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
-                {
-                    utilisateurFacade.CreerUtilisateur(nom, prenom, l, mdp, mail, tel);
-                }
+                {*/
+                    utilisateurFacade.CreerUtilisateur(nom, prenom, login, mdp, mail, tel);
+       
+                /*}
                 else
                 {
                 System.out.println ("Vous n'êtes pas administrateur");
                 }
                 i++;
             }
-        }
+        }*/
     }
 
     //Modifier un utilisateur

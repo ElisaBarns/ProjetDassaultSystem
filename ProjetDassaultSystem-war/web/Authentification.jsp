@@ -27,11 +27,11 @@
                     <input type="text" id="mdp_utilisateur" name="mdp_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
                     
-                    <input type="hidden" name="action" value="Authentification">
+                    <input type="hidden" name="action" value="authentification">
                 </fieldset>
                 
-                <input type="button" value="Entrer" /> 
-                <input type="button" value="Remettre à zéro"> <br />
+                <input type="submit" value="Entrer"/>
+                <input type="reset" value="Remettre à zéro" <!--onclick="location.href='MenuGeneral.jsp'"--> <br />
                        
             </form>
         </div>

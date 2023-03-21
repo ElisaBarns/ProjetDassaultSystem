@@ -21,8 +21,10 @@
         </p>
         <h1>Que voulez-vous faire?</h1>
        
-        <table><tr>
-           <td Width =15%><A HREF ="Authentification.jsp">Authentification</A></td></tr>
+        <table>
+            <!--<tr>
+           <td Width =15%><A HREF ="Authentification.jsp">Authentification</A></td>
+            </tr>-->
              
                
            <tr>
@@ -34,13 +36,14 @@
            <td Width =15%><A HREF ="AccesDefiles?action=CreerVetement">Creer vetement</A></td> 
            <td Width =15%><A HREF ="CreerAccessoire.jsp">Creer accessoire</A></td> 
            <td Width =15%><A HREF ="CreerMannequin.jsp">Creer mannequin</A></td>
-           </tr>
            -->
+           </tr>
+           
         
           
            
           <tr> 
-           <td Width =15%><A HREF ="ModifierUtilisateur.jsp">Modifier un utilisateur</A></td> 
+              <td Width =15%><A HREF ="ModifierUtilisateur.jsp">Modifier un utilisateur</A></td> </br>
            <td Width =15%><A HREF ="InactiverUtilisateur.jsp">Désactiver un utilisateur</A></td> 
            <td Width =15%><A HREF ="AttribuerRolesUtilisateur.jsp">Attribuer un ou plusieurs rôles à un utilisateur</A></td>
            <td Width =15%><A HREF ="ModifierMdpUtilisateur.jsp">Modifier le mot de passe d'un utilisateur</A></td>

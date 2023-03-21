@@ -17,9 +17,9 @@ import javax.ejb.Local;
 @Local
 public interface AdministrateurSessionLocal {
 
-    void CreerUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel, boolean inactif, Date date_creation, Date date_inactivation, Date date_modification);
+    void CreerUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel);
 
-    void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel, Date date_modification);
+    void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel);
 
     void InactiverUtilisateur(String l, String mdp, boolean inactif, Date date_inactivation);
 

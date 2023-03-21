@@ -11,6 +11,7 @@ import Entity.Profil;
 import Entity.Statut;
 import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
+import Facade.ContactFacadeLocal;
 import Facade.Piste_opportuniteFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import java.util.Date;
@@ -33,6 +34,9 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     @EJB
     private ClientFacadeLocal clientFacade;
+    
+    @EJB
+    private ContactFacadeLocal contactFacade;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
@@ -58,6 +62,11 @@ public class MarketeurSession implements MarketeurSessionLocal {
         
             clientFacade.creerClient(nom, siret);
        
+    }
+    
+    public void CreerContact(String nom, String prenom, String mail, String tel)
+    {
+        contactFacade.creerContact(nom, prenom, mail, tel);
     }
     
     //Affecter un vendeur (+ vérifier si je suis assigné à cette piste, sinon jpp affecter un vendeur)

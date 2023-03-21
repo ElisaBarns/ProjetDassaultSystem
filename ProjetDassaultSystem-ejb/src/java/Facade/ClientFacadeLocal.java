@@ -30,7 +30,7 @@ public interface ClientFacadeLocal {
 
     int count();
 
-    void creerClient(int id_client, String nom_client, String siret, boolean inactif, Date date_creation_client, Date date_modification_client, Date date_inactiv_client);
+    void creerClient(String nom_client, String siret);
 
     void modifierClient(Client c, String nom_client, String siret, Date date_modif_client);
 

@@ -34,7 +34,7 @@ public interface UtilisateurFacadeLocal {
 
     void CreerUtilisateur(String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur);
 
-    void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String mail_utilisateur, String tel_utilisateur, Date date_modification_utilisateur);
+    void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String mail_utilisateur, String tel_utilisateur);
     
     void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur, Date date_modification_utilisateur);
 

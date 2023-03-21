@@ -34,7 +34,7 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
     //Créer contact
     
     @Override
-    public void creerContact(int id_contact, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, boolean inactif, Date date_creation_contact, Date date_modif_contact, Date date_inactiv_contact) {
+    public void creerContact(String nom_contact, String prenom_contact, String mail_contact, String tel_contact) {
     Contact co= new Contact();
     co.setId_contact(id_contact);
     co.setNom_contact(nom_contact);
@@ -42,7 +42,7 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
     co.setMail_contact(mail_contact);
     co.setTel_contact(tel_contact);
     co.setInactif(false);
-    date_creation_contact=new Date();
+    co.setDate_creation_contact(new Date());
     co.setDate_modif_contact(null);
     co.setDate_inactiv_contact(null);
     getEntityManager().persist(co);    

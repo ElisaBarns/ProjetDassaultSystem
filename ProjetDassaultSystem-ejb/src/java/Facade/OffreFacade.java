@@ -4,8 +4,10 @@
  */
 package Facade;
 
+import Entity.Detail_offre;
 import Entity.Offre;
 import Entity.Piste_opportunite;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -39,6 +41,8 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     Offre o=new Offre();
     o.setRemise(0);
     o.setConditions(conditions);
+    ArrayList<Detail_offre> contenu = new ArrayList();
+    o.setContenu(contenu);
     o.setDate_creation_offre(new Date());
         o.calculerMontant();
         o.calculerTotal();
@@ -53,6 +57,23 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     public void ModifierOffre(Offre o, int remise, String conditions) {
     o.setRemise(remise);
     o.setConditions(conditions);
+    ArrayList<Detail_offre> contenu = o.getContenu();
+    List<Detail_offre> lesdetails = o.getLesDetail_offres();
+        //rechercher les instances de detail pour alimenter la liste
+        int i = 1;
+        Offre of = lesdetails.get(i).getUneOffre();
+        while (i<lesdetails.size()) 
+        {
+            if (of==o)
+            {
+                contenu.add(lesdetails.get(i));
+            }
+            else
+            {
+                i++;
+            }
+        }
+    o.setContenu(contenu);
     o.setDate_modif_offre(new Date()); //On récupère la date du système
         float p1 = o.calculerMontant();
         float p2 = o.calculerTotal();
@@ -74,5 +95,14 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     }
     return o;        
     }
+
+    @Override
+    public ArrayList<Detail_offre> ModifierContenu(Offre offre) {
+       ArrayList<Detail_offre> contenu = new ArrayList();
+        
+        return contenu;
+    }
+    
+    
     
 }

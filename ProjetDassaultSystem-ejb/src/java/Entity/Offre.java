@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
@@ -131,14 +132,14 @@ public class Offre implements Serializable {
         this.date_modif_offre = date_modif_offre;
     }
 
-         private List<Detail_offre> contenu;
+         private ArrayList<Detail_offre> contenu;
 
     /**
      * Get the value of contenu
      *
      * @return the value of contenu
      */
-    public List<Detail_offre> getContenu() {
+    public ArrayList<Detail_offre> getContenu() {
         return contenu;
     }
 
@@ -147,7 +148,7 @@ public class Offre implements Serializable {
      *
      * @param contenu new value of contenu
      */
-    public void setContenu(List<Detail_offre> contenu) {
+    public void setContenu(ArrayList<Detail_offre> contenu) {
         this.contenu = contenu;
     }
     
@@ -249,4 +250,10 @@ public class Offre implements Serializable {
         this.conditions = conditions;
     }
 
+    public List<Detail_offre> getLesDetail_offres() {
+        return lesDetail_offres;
+    }
+
+    
+    
 }

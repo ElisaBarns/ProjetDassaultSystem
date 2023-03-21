@@ -4,7 +4,9 @@
  */
 package Facade;
 
+import Entity.Detail_offre;
 import Entity.Offre;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
@@ -35,5 +37,7 @@ public interface OffreFacadeLocal {
     void ModifierOffre(Offre o, int remise, String conditions);
     
     Offre RechercherOffreParId(int id_offre);
+
+    ArrayList<Detail_offre> ModifierContenu(Offre offre);
     
 }

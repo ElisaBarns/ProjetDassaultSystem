@@ -40,7 +40,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     
     //Creer un utilisateur
     @Override
-    public void CreerUtilisateur(String nom, String prenom, String login, String mdp, String mail, String tel) {
+    public void CreerUtilisateur(String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mdp_utilisateur, String mail_utilisateur, String tel_utilisateur) {
         /*Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
@@ -51,7 +51,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
                 {*/
-                    utilisateurFacade.CreerUtilisateur(nom, prenom, login, mdp, mail, tel);
+                    utilisateurFacade.CreerUtilisateur(nom_utilisateur, prenom_utilisateur, login_utilisateur, mdp_utilisateur, mail_utilisateur, tel_utilisateur);
        
                 /*}
                 else

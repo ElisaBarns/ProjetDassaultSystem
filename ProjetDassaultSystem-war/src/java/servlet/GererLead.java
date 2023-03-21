@@ -153,7 +153,7 @@ public class GererLead extends HttpServlet {
         if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| login.trim().isEmpty()|| mdp.trim().isEmpty()|| mail.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
-                    + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un organisateur.";
+                    + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un utilisateur.";
         }
         else 
         {
@@ -176,12 +176,12 @@ public class GererLead extends HttpServlet {
         if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| mail.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
-                    + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un organisateur.";
+                    + "<br /> <a href =\"ModifierUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un utilisateur.";
         }
         else 
         {
            
-           administrateurSession.ModifierUtilisateur(login, nom, prenom, mail, tel);
+           administrateurSession.ModifierUtilisateur(login, mdp, nom, prenom, mail, tel);
            message = "Utilisateur modifié avec succès!";
         }
         

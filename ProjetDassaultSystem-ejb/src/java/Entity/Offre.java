@@ -249,4 +249,24 @@ public class Offre implements Serializable {
         return p_total;
     }
     
+        private String conditions;
+
+    /**
+     * Get the value of conditions
+     *
+     * @return the value of conditions
+     */
+    public String getConditions() {
+        return conditions;
+    }
+
+    /**
+     * Set the value of conditions
+     *
+     * @param conditions new value of conditions
+     */
+    public void setConditions(String conditions) {
+        this.conditions = conditions;
+    }
+
 }

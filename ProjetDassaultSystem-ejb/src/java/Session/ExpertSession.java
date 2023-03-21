@@ -8,6 +8,7 @@ import Entity.Offre;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Utilisateur;
+import Facade.OffreFacadeLocal;
 import Facade.Piste_opportuniteFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import java.util.Date;
@@ -27,6 +28,8 @@ public class ExpertSession implements ExpertSessionLocal {
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
     
+    @EJB 
+    private OffreFacadeLocal offreFacade;    
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     
@@ -55,6 +58,18 @@ public class ExpertSession implements ExpertSessionLocal {
         }
     }
     
+    @Override
+    public void CréerOffre(int remise, String conditions)
+    {
+        offreFacade.CreerOffre(remise, conditions);
+    }
+    
+    @Override
+    public void ModifierOffre(int id_offre, int remise, String conditions)
+    {
+        Offre offre = offreFacade.RechercherOffreParId(id_offre);
+        offreFacade.ModifierOffre(offre, remise, conditions);
+    }
     //Rechercher ou parcourir le catalogue et choisir des éléments afin de remplir l'offre
     
     

@@ -18,4 +18,7 @@ public interface ExpertSessionLocal {
 
     void MajOffreParExpert(String l, String mdp, Piste_opportunite p, Date date_modif_popp, Offre offre);
     
+    void CréerOffre(int remise, String conditions);
+    
+    void ModifierOffre(int id_offre, int remise, String conditions);
 }

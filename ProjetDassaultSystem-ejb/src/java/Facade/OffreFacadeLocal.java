@@ -30,8 +30,10 @@ public interface OffreFacadeLocal {
 
     int count();
 
-    void CreerOffre(int remise, Date date_creation_offre, float p_somme, float p_total);
+    void CreerOffre(int remise, String conditions);
 
-    void ModifierOffre(Offre o, int remise, Date date_modif_offre, float p_somme, float p_total);
+    void ModifierOffre(Offre o, int remise, String conditions);
+    
+    Offre RechercherOffreParId(int id_offre);
     
 }

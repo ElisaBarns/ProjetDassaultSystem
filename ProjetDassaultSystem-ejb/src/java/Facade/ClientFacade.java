@@ -5,6 +5,8 @@
 package Facade;
 
 import Entity.Client;
+import Entity.Contact;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -18,8 +20,8 @@ import javax.persistence.Query;
  */
 @Stateless
 public class ClientFacade extends AbstractFacade<Client> implements ClientFacadeLocal {
-
-    @PersistenceContext(unitName = "ProjetDassaultSystem-ejbPU")
+    
+   @PersistenceContext(unitName = "ProjetDassaultSystem-ejbPU")
     private EntityManager em;
 
     @Override
@@ -41,26 +43,26 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
         c.setInactif(false);
         c.setDate_creation_client(new Date());
         c.setDate_modif_client(null);
-        c.setDate_inactiv_client(null);
+        c.setDate_inactiv_client(null);   
         getEntityManager().persist(c);
     }
     
        
     //Modifier client
     @Override
-    public void modifierClient(Client c, String nom_client, String siret, Date date_modif_client) {
+    public void modifierClient(Client c, String nom_client, String siret) {
         c.setNom_client(nom_client);
         c.setSiret(siret);
-        date_modif_client=new Date();
+        c.setDate_modif_client(new Date());
         getEntityManager().merge(c);
     }
     
     //Inactiver  client
 
     @Override
-    public void inactiverClient(Client c, boolean inactif, Date date_inactiv_client) {
+    public void inactiverClient(Client c, boolean inactif) {
         c.setInactif(true);
-        date_inactiv_client=new Date();
+        c.setDate_inactiv_client(new Date());
         getEntityManager().merge(c);
     }
 
@@ -73,6 +75,20 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     String txt="SELECT c FROM Client AS c WHERE c.nom_client=:nom_client";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("nom_client", nom_client);
+    result=req.getResultList();
+    if(result.size()==1){
+        c=(Client)result.get(0);
+    }
+    return c; 
+    }
+    
+     @Override
+    public Client rechercherClientparId(long id) {
+    Client c=null;
+    List<Client>result;
+    String txt="SELECT c FROM Client AS c WHERE c.id=:id";
+    Query req=getEntityManager().createQuery(txt);
+    req=req.setParameter("id", id);
     result=req.getResultList();
     if(result.size()==1){
         c=(Client)result.get(0);

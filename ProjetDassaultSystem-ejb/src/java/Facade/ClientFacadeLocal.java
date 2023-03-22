@@ -32,11 +32,11 @@ public interface ClientFacadeLocal {
 
     void creerClient(String nom_client, String siret);
 
-    void modifierClient(Client c, String nom_client, String siret, Date date_modif_client);
+    void modifierClient(Client c, String nom_client, String siret);
 
-    void inactiverClient(Client c, boolean inactif, Date date_inactiv_client);
+    void inactiverClient(Client c, boolean inactif);
 
     Client rechercherClient(String nom_client);
 
-    
+    Client rechercherClientparId(long id);
 }

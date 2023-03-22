@@ -4,6 +4,8 @@
  */
 package Session;
 
+import Entity.Client;
+import Entity.Contact;
 import Entity.Niveau;
 import Entity.PisteOpp;
 import Entity.Piste_opportunite;
@@ -13,6 +15,7 @@ import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
 import Facade.ContactFacadeLocal;
 import Facade.Piste_opportuniteFacadeLocal;
+import Facade.ProfilFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import java.util.Date;
 import java.util.List;
@@ -37,6 +40,9 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     @EJB
     private ContactFacadeLocal contactFacade;
+    
+    @EJB
+    private ProfilFacadeLocal profilFacade;
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
@@ -58,12 +64,14 @@ public class MarketeurSession implements MarketeurSessionLocal {
     }
     
     @Override
-    public void CreerClient(String nom, String siret) {
-        
+    public void CreerClient(String nom, String siret, String nom_contact, String prenom, String mail, String tel) {
             clientFacade.creerClient(nom, siret);
-       
+            contactFacade.creerContact(nom_contact, prenom, mail, tel);
     }
     
+    
+    
+    @Override
     public void CreerContact(String nom, String prenom, String mail, String tel)
     {
         contactFacade.creerContact(nom, prenom, mail, tel);
@@ -71,23 +79,28 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Affecter un vendeur (+ vérifier si je suis assigné à cette piste, sinon jpp affecter un vendeur)
     @Override
-    public void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur, Date date_modif_popp) {
-        Utilisateur u = null;
-        u = utilisateurFacade.Authentification(l,mdp);
-        if(u!=null)
-        {
-            List <Profil> listeProfils =u.getLesProfils();
-            Piste_opportunite po=piste_opportuniteFacade.RechercherPisteOpportuniteParId(id_piste_opportunite);
-            m=po.getMarketeur();
-            if(listeProfils.contains(m))
+    public void AffecterVendeur(long id, long id_profil) {
+        //Utilisateur u = null;
+        //u = utilisateurFacade.Authentification(l,mdp);
+        //if(u!=null)
+        //{
+            //List <Profil> listeProfils =u.getLesProfils();
+            Piste_opportunite po=piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
+            //m=po.getMarketeur();
+            //if(listeProfils.contains(m))
+            //{
+            Profil vendeur = profilFacade.RechercherProfilparID(id);
+            if(vendeur.getFonction().equals("Vendeur"))
             {
-                piste_opportuniteFacade.AffecterVendeur(p, vendeur, date_modif_popp);
+                piste_opportuniteFacade.AffecterVendeur(po, vendeur);
             }
             else
             {
-                System.out.println("Vous n'avez pas les droits d'accès nécessaires pour affecter un vendeur à une piste. Veuillez vous rapprocher de votre administrateur.");
+                System.out.println("Le profil indiqué ne correspond pas à un vendeur");
             }
-        }
+            //    System.out.println("Vous n'avez pas les droits d'accès nécessaires pour affecter un vendeur à une piste. Veuillez vous rapprocher de votre administrateur.");
+            //}
+       // }
     }
     
     //Consulter l'historique des actions effectuées sur un prospect ou une opportunité spécifique
@@ -95,17 +108,54 @@ public class MarketeurSession implements MarketeurSessionLocal {
     //Rouvrir la piste (car le vendeur a refusé son affectation à la piste)
 
     @Override
-    public void RouvrirPiste(String l, String mdp, Piste_opportunite p, Date date_modif_popp) {
-        Utilisateur u = null;
-        u = utilisateurFacade.Authentification(l,mdp);
-        if(u!=null)
+    public void RouvrirPiste(long id) {
+        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
+            piste_opportuniteFacade.RouvrirPiste(p);
+        
+    }
+
+    @Override
+    public void ModifierClient(long id_client, String nom, String siret) {
+        Client c = clientFacade.rechercherClientparId(id_client);
+        clientFacade.modifierClient(c, nom, siret);
+        
+    }
+
+    @Override
+    public void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel) {
+        Contact c = contactFacade.rechercherContact(id_contact);
+        contactFacade.modifierContact(c, nom, prenom, mail, tel);
+    }
+
+    @Override
+    public void InactiverContact(long id) {
+        Contact c = contactFacade.rechercherContact(id);
+        contactFacade.inactiverContact(c, true);
+    }
+
+    @Override
+    public void InactiverClient(long id) {
+        Client c = clientFacade.rechercherClientparId(id);
+        clientFacade.inactiverClient(c, true);
+        List<Contact> listecontacts = contactFacade.RechercherContactsClient(c);
+        int i =1;
+        while (i<listecontacts.size())
         {
-            piste_opportuniteFacade.RouvrirPiste(p, date_modif_popp);
-        }
-        else
-        {
-            System.out.println("Vous avez saisi un mauvais login et/ou mot de passe. Veuillez réessayer.");
+            listecontacts.get(i).setInactif(true);
+            i++;
         }
     }
+
+    @Override
+    public List<Contact> RechercherContactsClient(long id) {
+        Client c = clientFacade.rechercherClientparId(id);
+        List<Contact> listecontacts = contactFacade.RechercherContactsClient(c);
+        return listecontacts;
+    }
+    
+    
+    
+    
+    
     
 }

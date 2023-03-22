@@ -79,10 +79,10 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
 
     //Affecter un vendeur à une piste
     @Override
-    public void AffecterVendeur(Piste_opportunite p, Profil vendeur, Date date_modif_popp) {
+    public void AffecterVendeur(Piste_opportunite p, Profil vendeur) {
         p.setStatut(Statut.QUALIFIE);
         p.setVendeur(vendeur);
-        date_modif_popp=new Date();
+        p.setDate_modif_popp(new Date());
         getEntityManager().merge(p);
     }
     
@@ -97,7 +97,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Refuser la piste par le vendeur
     @Override
-    public void RefuserParVendeur(Piste_opportunite p, Profil vendeur) {
+    public void RefuserParVendeur(Piste_opportunite p) {
         p.setStatut(Statut.REJETEE);
         p.setVendeur(null);
         getEntityManager().merge(p);
@@ -124,25 +124,25 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Modifier le statut de l'opportunité pour la mettre sous le statut gagné
     @Override
-    public void PisteGagne(Piste_opportunite p, Date date_modif_popp, Statut statut) {
-        date_modif_popp=new Date();
+    public void PisteGagne(Piste_opportunite p) {
+        p.setDate_modif_popp(new Date());
         p.setStatut(Statut.GAGNE);
         getEntityManager().merge(p);
     }
     
     //Modifier le statut de l'opportunité pour la mettre sous le statut perdu
     @Override
-    public void PistePerdu(Piste_opportunite p, Date date_modif_popp, Statut statut) {
-        date_modif_popp=new Date();
+    public void PistePerdu(Piste_opportunite p) {
+        p.setDate_modif_popp(new Date());
         p.setStatut(Statut.PERDU);
         getEntityManager().merge(p);
     }
     
     //Rouvrir la piste par le marketeur
     @Override
-    public void RouvrirPiste(Piste_opportunite p, Date date_modif_popp) {
+    public void RouvrirPiste(Piste_opportunite p) {
         p.setStatut(Statut.OUVERTE);
-        date_modif_popp=new Date();
+        p.setDate_modif_popp(new Date());
         getEntityManager().merge(p);
     }
     

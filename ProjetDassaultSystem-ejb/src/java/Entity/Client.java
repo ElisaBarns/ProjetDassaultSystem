@@ -197,4 +197,21 @@ public class Client implements Serializable {
         this.date_inactiv_client = date_inactiv_client;
     }
 
+    public List<Contact> getLesContacts() {
+        return lesContacts;
+    }
+
+    public void setLesContacts(List<Contact> lesContacts) {
+        this.lesContacts = lesContacts;
+    }
+
+    public List<Piste_opportunite> getLesPiste_opportunites() {
+        return lesPiste_opportunites;
+    }
+
+    public void setLesPiste_opportunites(List<Piste_opportunite> lesPiste_opportunites) {
+        this.lesPiste_opportunites = lesPiste_opportunites;
+    }
+
+    
 }

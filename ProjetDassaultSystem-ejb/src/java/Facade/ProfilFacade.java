@@ -4,12 +4,15 @@
  */
 package Facade;
 
+import Entity.Contact;
 import Entity.Fonction;
 import Entity.Profil;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -33,11 +36,11 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     
     //Créer profil
     @Override
-    public void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil) {
+    public void CreerProfil(Fonction f) {
     Profil p=new Profil();
     p.setFonction(f);
     p.setInactif(false);
-    date_creation_profil=new Date();
+    p.setDate_creation_profil(new Date());
     getEntityManager().persist(p);
     }
     
@@ -50,10 +53,22 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     
     //Inactiver profil
     @Override
-    public void InactiverProfil(Profil p, boolean inactif, Date date_inactif_profil) {
-    p.setInactif(false);
-    date_inactif_profil=new Date();
+    public void InactiverProfil(Profil p) {
+    p.setInactif(true);
+    p.setDate_inactif_profil(new Date());
     getEntityManager().merge(p);
     }
 
+    @Override
+    public Profil RechercherProfilparID(long id) {
+        Profil p=null;
+        String txt=" SELECT p FROM Profil AS p WHERE p.id=:id";
+        Query req=getEntityManager().createQuery(txt);
+        req=req.setParameter("id", id);
+        p=(Profil)req.getSingleResult();
+        return p;
+    }
+
+    
+    
 }

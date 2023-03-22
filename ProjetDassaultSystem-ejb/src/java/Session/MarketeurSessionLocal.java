@@ -4,12 +4,14 @@
  */
 package Session;
 
+import Entity.Contact;
 import Entity.Niveau;
 import Entity.PisteOpp;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -19,12 +21,24 @@ import javax.ejb.Local;
 @Local
 public interface MarketeurSessionLocal {
 
-    void CreerPiste(String l, String mdp, int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique);
+    void CreerPiste(String l, String mdp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut);
 
-    void AffecterVendeur(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil vendeur, Date date_modif_popp);
+    void AffecterVendeur(long id, long id_profil);
 
-    void RouvrirPiste(String l, String mdp, Piste_opportunite p, Date date_modif_popp);
+    void RouvrirPiste(long id);
 
-    public void CreerClient(String nom, String siret);
+    void CreerClient(String nom, String siret, String nom_contact, String prenom, String mail, String tel);
+    
+    void CreerContact(String nom, String prenom, String mail, String tel);
+
+    void ModifierClient(long id_client, String nom, String siret);
+
+    void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel);
+
+    void InactiverContact(long id);
+
+    void InactiverClient(long id);
+
+    List<Contact> RechercherContactsClient(long id);
     
 }

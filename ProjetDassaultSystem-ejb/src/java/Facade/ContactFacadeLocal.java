@@ -4,6 +4,7 @@
  */
 package Facade;
 
+import Entity.Client;
 import Entity.Contact;
 import java.util.Date;
 import java.util.List;
@@ -32,10 +33,12 @@ public interface ContactFacadeLocal {
 
     void creerContact(String nom_contact, String prenom_contact, String mail_contact, String tel_contact);
 
-    void modifierContact(Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact);
+    void modifierContact(Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact);
 
-    void inactiverContact(Contact co, boolean inactif, Date date_inactiv_contact);
+    void inactiverContact(Contact co, boolean inactif);
 
-    Contact rechercherContact(int id_contact);
+    Contact rechercherContact(long id);
+
+    List<Contact> RechercherContactsClient(Client leClient);
     
 }

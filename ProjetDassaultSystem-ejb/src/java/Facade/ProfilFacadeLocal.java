@@ -31,10 +31,12 @@ public interface ProfilFacadeLocal {
 
     int count();
 
-    void CreerProfil(Fonction f, boolean inactif, Date date_creation_profil);
+    void CreerProfil(Fonction f);
 
     void ModifierProfil(Profil p, Fonction f);
 
-    void InactiverProfil(Profil p, boolean inactif, Date date_inactif_profil);
+    void InactiverProfil(Profil p);
+
+    Profil RechercherProfilparID(long id);
     
 }

@@ -56,7 +56,7 @@ public interface Piste_opportuniteFacadeLocal {
     
     void RouvrirPiste(Piste_opportunite p);
     
-    void AffecterExpert(Piste_opportunite p, Profil expert_technique, Date date_modif_popp);
+    void AffecterExpert(Piste_opportunite p, Profil expert_technique);
     
     void MajOffreParExpert(Piste_opportunite p, Date date_modif_popp, Offre offre);
     

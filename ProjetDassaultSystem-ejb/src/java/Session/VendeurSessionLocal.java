@@ -6,6 +6,7 @@ package Session;
 
 import Entity.Client;
 import Entity.Contact;
+import Entity.Niveau;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
@@ -19,18 +20,24 @@ import javax.ejb.Local;
 @Local
 public interface VendeurSessionLocal {
 
-    void AffecterExpert(String l, String mdp, int id_piste_opportunite, Profil m, Piste_opportunite p, Profil expert_technique, Date date_modif_popp);
+    void AffecterExpert(long id, long idexpert);
 
-    void AccepterPiste(String l, String mdp, Piste_opportunite p, Profil vendeur);
+    void AccepterPiste(Piste_opportunite p, long idvendeur);
     
-    void RefuserPiste(String l, String mdp, Piste_opportunite p, Profil vendeur);
+    void RefuserPiste(Piste_opportunite p);
 
-    void AfficherListePO(String l, String mdp, Profil v);
+    //void AfficherListePO(String l, String mdp, Profil v);
 
-    void MajPoParVendeur(String l, String mdp, Piste_opportunite p, Date date_modif_popp, Client c, String nom_client, String siret, boolean inactif, Date date_inactiv_client, Date date_modif_client, Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Date date_modif_contact);
-
-    void PisteGagne(String l, String mdp, Piste_opportunite p, Date date_modif_popp, Statut statut);
     
-    void PistePerdu(String l, String mdp, Piste_opportunite p, Date date_modif_popp, Statut statut);
+
+    void PisteGagne(long id);
+    
+    void PistePerdu(long id);
+    
+    void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient);
+    
+    void ModifierClient(long id_client, String nom, String siret);
+    
+    void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel);
     
 }

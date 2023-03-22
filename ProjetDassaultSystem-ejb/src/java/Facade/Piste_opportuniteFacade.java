@@ -162,9 +162,9 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Affecter un expert technique à une piste
     @Override
-    public void AffecterExpert(Piste_opportunite p, Profil expert_technique, Date date_modif_popp) {
+    public void AffecterExpert(Piste_opportunite p, Profil expert_technique) {
         p.setExpert_technique(expert_technique);
-        date_modif_popp=new Date();
+        p.setDate_modif_popp(new Date());
         getEntityManager().merge(p);
     }
     

@@ -32,7 +32,7 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     public ClientFacade() {
         super(Client.class);
     }
-    
+
     //Créer client
     @Override
     public void creerClient(String nom_client, String siret) 

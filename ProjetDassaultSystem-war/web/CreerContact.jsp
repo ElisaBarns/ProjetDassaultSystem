@@ -1,6 +1,6 @@
 <%-- 
-    Document   : CréerClient
-    Created on : 19 mars 2023, 18:29:01
+    Document   : CreerClient
+    Created on : 22 mars 2023, 20:59:46
     Author     : marie
 --%>
 
@@ -9,24 +9,16 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Création d'un Client</title>
+        <title>Création d'un Contact</title>
+        <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
-        <h1>Nouveau Client</h1>
+        <h1>Nouveau Contact</h1>
         
         <div>
             <form method="post" action="GererLead">
                 <fieldset>
-                    <legend>Informations du client</legend>
-                    <br/><!-- comment -->          
-                    <label for="nom_client">Nom <span class="requis"></span></label>
-                    <input type="text" id="nom_client" name="nom_client" value="" size"20" maxlength="20"/>
-                    <br/>
-                    <label for="siret">SIRET <span class="requis"></span></label>
-                    <input type="text" id="siret" name="siret" value="" size"20" maxlength="20"/>
-                    <br/>
-                    <br/>
-                    <legend>Informations du contact attaché</legend>
+                    <legend>Informations du contact</legend>
                     <br/><!-- comment -->          
                     <label for="nom_contact">Nom <span class="requis"></span></label>
                     <input type="text" id="nom_contact" name="nom_contact" value="" size"20" maxlength="20"/>
@@ -41,8 +33,7 @@
                     <input type="text" id="tel" name="tel" value="" size"20" maxlength="20"/>
                     <br/>
                     
-                    
-                    <input type="hidden" name="action" value="CreerClient">
+                    <input type="hidden" name="action" value="CreerContact">
                     
                 </fieldset>
                 <input type="submit" value="Valider" /> 

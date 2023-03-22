@@ -4,6 +4,7 @@
  */
 package Session;
 
+import Entity.Client;
 import Entity.Contact;
 import Entity.Niveau;
 import Entity.PisteOpp;
@@ -21,7 +22,7 @@ import javax.ejb.Local;
 @Local
 public interface MarketeurSessionLocal {
 
-    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Statut statut, long id_marketeur, long id_client);
+    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, long id_client);
 
     void AffecterVendeur(long id, long id_profil);
 
@@ -42,6 +43,8 @@ public interface MarketeurSessionLocal {
     List<Contact> RechercherContactsClient(long id);
 
     void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient);
+
+    List<Client> AfficherListeClients();
 
     
 }

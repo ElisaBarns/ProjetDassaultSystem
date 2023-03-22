@@ -51,10 +51,10 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Créer une piste ou opportunité
     @Override
-    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Statut statut, long id_marketeur, long id_client) {
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, long id_client) {
        Client client = clientFacade.rechercherClientparId(id_client);
        Profil marketeur = profilFacade.RechercherProfilparID(id_marketeur);
-            Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, statut, marketeur, client);
+            Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, marketeur, client);
         piste_opportuniteFacade.CreerEnregistrementapresCreationPiste(p);
     }
     
@@ -155,6 +155,12 @@ public class MarketeurSession implements MarketeurSessionLocal {
         Client c = clientFacade.rechercherClientparId(id);
         List<Contact> listecontacts = contactFacade.RechercherContactsClient(c);
         return listecontacts;
+    }
+
+    @Override
+    public List<Client> AfficherListeClients() {
+        List<Client> lc = clientFacade.findAll();
+        return lc;
     }
     
     

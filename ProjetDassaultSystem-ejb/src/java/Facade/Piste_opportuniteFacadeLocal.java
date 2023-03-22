@@ -38,9 +38,9 @@ public interface Piste_opportuniteFacadeLocal {
 
     int count();
 
-    void creerPisteOpportunite(int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique);
+    Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Statut statut, Profil marketeur, Client leClient);
 
-    void ModifierPisteOpportunite(Piste_opportunite p, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique, Enregistrement enregistrement, Client leClient);
+    Piste_opportunite ModifierPisteOpportunite(Piste_opportunite p, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Client leClient);
 
     void AffecterVendeur(Piste_opportunite p, Profil vendeur);
     
@@ -62,17 +62,21 @@ public interface Piste_opportuniteFacadeLocal {
     
     Piste_opportunite RechercherPisteOpportuniteParId(long id_piste_opportunite);
 
-    Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type);
+    List<Piste_opportunite> RechercherPisteOpportuniteParType(PisteOpp type);
     
-    Piste_opportunite RechercherPisteOpportuniteParStatut(Statut statut);
+    List<Piste_opportunite> RechercherPisteOpportuniteParStatut(Statut statut);
     
-    Piste_opportunite RechercherPisteOpportuniteParMarketeur(Profil marketeur);
+    List<Piste_opportunite> RechercherPisteOpportuniteParMarketeur(Profil marketeur);
     
-    Piste_opportunite RechercherPisteOpportuniteParVendeur(Profil vendeur);
+    List<Piste_opportunite> RechercherPisteOpportuniteParVendeur(Profil vendeur);
     
-    Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique);
+    List<Piste_opportunite> RechercherPisteOpportuniteParExpert(Profil expert_technique);
     
-    Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient);
+    List<Piste_opportunite> RechercherPisteOpportuniteParClient(Client leClient);
+
+    void CreerEnregistrementapresCreationPiste(Piste_opportunite p);
+
+    void AjouterEnregistrementApresModifPiste(Piste_opportunite p);
 
     
 

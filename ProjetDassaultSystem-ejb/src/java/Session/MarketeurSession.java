@@ -6,6 +6,7 @@ package Session;
 
 import Entity.Client;
 import Entity.Contact;
+import Entity.Fonction;
 import Entity.Niveau;
 import Entity.PisteOpp;
 import Entity.Piste_opportunite;
@@ -50,17 +51,20 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Créer une piste ou opportunité
     @Override
-    public void CreerPiste(String l, String mdp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique) {
-        Utilisateur u = null;
-        u = utilisateurFacade.Authentification(l,mdp);
-        if(u!=null)
-        {
-            piste_opportuniteFacade.creerPisteOpportunite(0, date_creation_popp, date_modif_popp, Niveau.HAUT, 0, Niveau.MEDIUM, 0, PisteOpp.PISTE, Statut.GAGNE, marketeur, vendeur, expert_technique);
-        }
-        else
-        {
-            System.out.println("Vous n'avez pas les droits d'accès nécessaires pour pouvoir créer une piste. Veuillez vous rapprocher de votre administrateur.");
-        }
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Statut statut, long id_marketeur, long id_client) {
+       Client client = clientFacade.rechercherClientparId(id_client);
+       Profil marketeur = profilFacade.RechercherProfilparID(id_marketeur);
+            Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, statut, marketeur, client);
+        piste_opportuniteFacade.CreerEnregistrementapresCreationPiste(p);
+    }
+    
+    
+    @Override
+    public void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient){
+        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id_piste);
+        Client client = clientFacade.rechercherClientparId(idclient);
+        p = piste_opportuniteFacade.ModifierPisteOpportunite(p, niveau_risque, tx_reussite, niveau_risque, budget_estime, client);
+        piste_opportuniteFacade.AjouterEnregistrementApresModifPiste(p);
     }
     
     @Override
@@ -90,7 +94,7 @@ public class MarketeurSession implements MarketeurSessionLocal {
             //if(listeProfils.contains(m))
             //{
             Profil vendeur = profilFacade.RechercherProfilparID(id);
-            if(vendeur.getFonction().equals("Vendeur"))
+            if(vendeur.getFonction().equals(Fonction.VENDEUR))
             {
                 piste_opportuniteFacade.AffecterVendeur(po, vendeur);
             }

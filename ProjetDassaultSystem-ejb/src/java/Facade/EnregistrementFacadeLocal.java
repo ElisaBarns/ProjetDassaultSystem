@@ -5,6 +5,7 @@
 package Facade;
 
 import Entity.Enregistrement;
+import Entity.Piste_opportunite;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,6 +30,9 @@ public interface EnregistrementFacadeLocal {
 
     int count();
 
-    //void CreerEnregistrement();
+    Enregistrement CreerEnregistrement(Piste_opportunite p);
     
+    void ModifierEnregistrement(long id, Piste_opportunite p);
+    
+    Enregistrement RechercherEnregistrement(long id);
 }

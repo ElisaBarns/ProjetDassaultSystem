@@ -5,6 +5,7 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -62,14 +63,14 @@ public class Enregistrement implements Serializable {
     }
     
     
-    private List<Piste_opportunite> liste_modifications;
+    private ArrayList<Piste_opportunite> liste_modifications;
 
     /**
      * Get the value of liste_modifications
      *
      * @return the value of liste_modifications
      */
-    public List<Piste_opportunite> getListe_modifications() {
+    public ArrayList<Piste_opportunite> getListe_modifications() {
         return liste_modifications;
     }
 
@@ -78,7 +79,7 @@ public class Enregistrement implements Serializable {
      *
      * @param liste_modifications new value of liste_modifications
      */
-    public void setListe_modifications(List<Piste_opportunite> liste_modifications) {
+    public void setListe_modifications(ArrayList<Piste_opportunite> liste_modifications) {
         this.liste_modifications = liste_modifications;
     }
 

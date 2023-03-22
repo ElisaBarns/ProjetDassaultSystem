@@ -15,6 +15,7 @@ import Entity.Profil;
 import Entity.Statut;
 import java.util.Date;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -26,6 +27,9 @@ import javax.persistence.Query;
  */
 @Stateless
 public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> implements Piste_opportuniteFacadeLocal {
+    
+    @EJB
+    private EnregistrementFacadeLocal enregistrementFacade;
 
     @PersistenceContext(unitName = "ProjetDassaultSystem-ejbPU")
     private EntityManager em;
@@ -41,42 +45,52 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Créer piste
     @Override
-    public void creerPisteOpportunite(int id_piste_opp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique) 
+    public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Statut statut, Profil marketeur, Client leClient) 
     {
         Piste_opportunite po = new Piste_opportunite();
 
-        date_creation_popp=new Date();
+        po.setDate_creation_popp(new Date());
         po.setDate_modif_popp(null);
         po.setNiveau_risque(niveau_risque);
         po.setTx_reussite(tx_reussite);
         po.setNiveau_interet(niveau_interet);
         po.setBudget_estime(budget_estime);
-        po.setType(type);
+        po.setType(PisteOpp.PISTE);
         po.setStatut(statut.OUVERTE);
         po.setMarketeur(marketeur);
         po.setVendeur(null);
         po.setExpert_technique(null);
+        po.setLeClient(leClient);
         getEntityManager().persist(po);
+        return po;
     }
+    
+       @Override
+    public void CreerEnregistrementapresCreationPiste(Piste_opportunite p) {
+        Enregistrement e = enregistrementFacade.CreerEnregistrement(p);
+        p.setEnregistrement(e);
+    } 
     
     //Modifier piste
     @Override
-    public void ModifierPisteOpportunite(Piste_opportunite p, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique, Enregistrement enregistrement, Client leClient) {
-    date_modif_popp=new Date();
+    public Piste_opportunite ModifierPisteOpportunite(Piste_opportunite p, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Client leClient) {
+    p.setDate_modif_popp(new Date());
     p.setNiveau_interet(niveau_interet);
     p.setTx_reussite(tx_reussite);
     p.setNiveau_risque(niveau_risque);
     p.setBudget_estime(budget_estime);
-    p.setType(type);
-    p.setStatut(statut);
-    p.setMarketeur(marketeur);
-    p.setVendeur(vendeur);
-    p.setExpert_technique(expert_technique);
-    p.setEnregistrement(enregistrement);
+    
     p.setLeClient(leClient);
     getEntityManager().merge(p);
+    return p;
     }
 
+     @Override
+    public void AjouterEnregistrementApresModifPiste(Piste_opportunite p) {
+        long id = p.getEnregistrement().getId();
+        enregistrementFacade.ModifierEnregistrement(id, p);
+    }
+    
     //Affecter un vendeur à une piste
     @Override
     public void AffecterVendeur(Piste_opportunite p, Profil vendeur) {
@@ -179,93 +193,85 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
 
     //Recherche piste_opportunite par Type
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParType(PisteOpp type) {
+    public List<Piste_opportunite> RechercherPisteOpportuniteParType(PisteOpp type) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
     String txt="SELECT p FROM Piste_opportunite AS p WHERE p.type=:type";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("type", type);
     result=req.getResultList();
-    if(result.size()==1){
-        p=(Piste_opportunite)result.get(0);
-    }
-        return p;
+
+        return result;
     }
     
     //Recherche piste_opportunite par Statut
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParStatut(Statut statut) {
+    public List<Piste_opportunite> RechercherPisteOpportuniteParStatut(Statut statut) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
     String txt="SELECT p FROM Piste_opportunite AS p WHERE p.statut=:statut";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("statut", statut);
     result=req.getResultList();
-    if(result.size()==1){
-        p=(Piste_opportunite)result.get(0);
-    }
-    return p;        
+    
+    return result;        
     }
     
     //Recherche piste_opportunite par Marketeur
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParMarketeur(Profil marketeur) {
+    public List<Piste_opportunite> RechercherPisteOpportuniteParMarketeur(Profil marketeur) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
     String txt="SELECT p FROM Piste_opportunite AS p WHERE p.marketeur=:marketeur";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("marketeur", marketeur);
     result=req.getResultList();
-    if(result.size()==1){
-        p=(Piste_opportunite)result.get(0);
-    }
-    return p;        
+    
+    return result;        
     }
     
     //Recherche piste_opportunite par Vendeur
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParVendeur(Profil vendeur) {
+    public List<Piste_opportunite> RechercherPisteOpportuniteParVendeur(Profil vendeur) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
     String txt="SELECT p FROM Piste_opportunite AS p WHERE p.vendeur=:vendeur";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("vendeur", vendeur);
     result=req.getResultList();
-    if(result.size()==1){
-        p=(Piste_opportunite)result.get(0);
-    }
-    return p;        
+   
+    return result;        
     }
     
     //Recherche piste_opportunite par Expert technique
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParExpert(Profil expert_technique) {
+    public List<Piste_opportunite> RechercherPisteOpportuniteParExpert(Profil expert_technique) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
     String txt="SELECT p FROM Piste_opportunite AS p WHERE p.expert_technique=:expert_technique";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("expert_technique", expert_technique);
     result=req.getResultList();
-    if(result.size()==1){
-        p=(Piste_opportunite)result.get(0);
-    }
-    return p;        
+   
+    return result;        
     }
     
     //Recherche piste_opportunite par Client
     @Override
-    public Piste_opportunite RechercherPisteOpportuniteParClient(Client leClient) {
+    public List<Piste_opportunite> RechercherPisteOpportuniteParClient(Client leClient) {
     Piste_opportunite p=null;
     List<Piste_opportunite> result;
     String txt="SELECT p FROM Piste_opportunite AS p WHERE p.leClient=:leClient";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("leClient", leClient);
     result=req.getResultList();
-    if(result.size()==1){
-        p=(Piste_opportunite)result.get(0);
+    
+    return result;        
     }
-    return p;        
-    }
+
+   
+
+
 
 
     

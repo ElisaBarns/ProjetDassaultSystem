@@ -119,8 +119,7 @@ public class GererLead extends HttpServlet {
                 } 
                 else
                 {
-                    jspDassault="/MenuAdmin.jsp"; //LIGNE A RENDRE INACTIVE UNE FOIS AVOIR CREER DES UTILISATEURS
-                    //jspDassault="/MauvaisLoginMdp.jsp"; LIGNE A RENDRE ACTIF UNE FOIS AVOIR CREER DES UTILISATEURS
+                    jspDassault="/MauvaisLoginMdp.jsp";
                 }
             }
             else 

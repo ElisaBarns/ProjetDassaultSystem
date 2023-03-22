@@ -27,7 +27,7 @@
                     <label for="prenom_utilisateur">Prénom <span class="requis"></span></label>
                     <input type="text" id="prenom_utilisateur" name="prenom_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
-                    <label for="login_utilisateur">Login <span class=""requis"></span></label>
+                    <label for="login_utilisateur">Login <span class="requis"></span></label>
                     <input type="text" id="login_utilisateur" name="login_utilisateur" value="" size"20" maxlength="20"/>
                     <br/>
                     <label for="mdp_utilisateur">Mot de passe <span class="requis"></span></label>

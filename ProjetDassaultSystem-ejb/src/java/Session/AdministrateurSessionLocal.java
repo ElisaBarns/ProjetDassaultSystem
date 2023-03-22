@@ -21,9 +21,9 @@ public interface AdministrateurSessionLocal {
 
     void ModifierUtilisateur(String nom, String prenom, String login, String mail, String tel);
 
-    void InactiverUtilisateur(String l, String mdp, boolean inactif, Date date_inactivation);
+    void InactiverUtilisateur(String login_utilisateur, boolean inactif);
 
-    void ModifierMdpUtilisateur(String l, String mdp, Date date_modification_utilisateur);
+    void ModifierMdpUtilisateur(String login_utilisateur, String mdp_utilisateur);
 
     void AttribuerRolesUtilisateur(String l, String mdp, Profil p, Fonction f);
 

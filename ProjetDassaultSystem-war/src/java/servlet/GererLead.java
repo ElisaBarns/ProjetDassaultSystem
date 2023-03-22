@@ -177,6 +177,18 @@ public class GererLead extends HttpServlet {
             doActionModifierUtilisateur(request, response);
         }
         
+        else if(act.equals("ModifierMdpUtilisateur"))
+        {
+            jspDassault="/ModifierMdpUtilisateur.jsp";
+            doActionModifierMdpUtilisateur(request, response);
+        }
+        
+        else if(act.equals("InactiverUtilisateur"))
+        {
+            jspDassault="/InactiverUtilisateur.jsp";
+            doActionInactiverUtilisateur(request, response);
+        }
+        
         else if (act.equals("RechercherUtilisateur"))
          {
             HttpSession sess = request.getSession(true);
@@ -264,6 +276,48 @@ public class GererLead extends HttpServlet {
            
            administrateurSession.ModifierUtilisateur(nom_utilisateur, prenom_utilisateur,login_utilisateur, mail_utilisateur, tel_utilisateur);
            message = "Utilisateur modifié avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
+    
+    protected void doActionModifierMdpUtilisateur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String login_utilisateur = request.getParameter("login_utilisateur");
+        String mdp_utilisateur = request.getParameter("mdp_utilisateur");
+        String message;
+        
+        if (login_utilisateur.trim().isEmpty() || mdp_utilisateur.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"ModifierUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un utilisateur.";
+        }
+        else 
+        {
+           
+           administrateurSession.ModifierMdpUtilisateur(login_utilisateur, mdp_utilisateur);
+           message = "Le mot de passe de l'utilisateur a été modifié avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
+    
+    protected void doActionInactiverUtilisateur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String login_utilisateur = request.getParameter("login_utilisateur");
+        String inactifS=request.getParameter("inactif");
+        boolean inactif;
+        
+        String message;
+        
+        if (login_utilisateur.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"ModifierUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un utilisateur.";
+        }
+        else 
+        {
+           inactif= Boolean.valueOf(inactifS);
+           administrateurSession.InactiverUtilisateur(login_utilisateur, inactif);
+           message = "Le mot de passe de l'utilisateur a été modifié avec succès!";
         }
         
         request.setAttribute("message", message);

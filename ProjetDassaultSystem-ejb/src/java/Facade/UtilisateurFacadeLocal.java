@@ -36,9 +36,9 @@ public interface UtilisateurFacadeLocal {
 
     void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mail_utilisateur, String tel_utilisateur);
     
-    void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur, Date date_modification_utilisateur);
+    void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur);
 
-    void InactiverUtilisateur(Utilisateur u, boolean inactif, Date date_inactivation_utilisateur);
+    void InactiverUtilisateur(Utilisateur u, boolean inactif);
 
     Utilisateur RechercherUtilisateur(String login_utilisateur);
     

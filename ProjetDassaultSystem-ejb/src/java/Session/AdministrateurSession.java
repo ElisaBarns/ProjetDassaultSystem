@@ -90,25 +90,11 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
 
     //Supprimer/Inactiver un utilisateur
     @Override
-    public void InactiverUtilisateur(String l, String mdp, boolean inactif, Date date_inactivation) {
-        Utilisateur u = null;
-        u = utilisateurFacade.Authentification(l,mdp);
+    public void InactiverUtilisateur(String login_utilisateur, boolean inactif) {
+        Utilisateur u = utilisateurFacade.RechercherUtilisateur(login_utilisateur);
         if(u!=null)
         {
-            List <Profil> listeProfils =u.getLesProfils();
-            int i=0;
-            while(i<=listeProfils.size())
-            {
-                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
-                {
-                    utilisateurFacade.InactiverUtilisateur(u, inactif, date_inactivation);
-                }
-                else
-                {
-                System.out.println ("Vous n'êtes pas administrateur");
-                }
-                i++;
-            }
+            utilisateurFacade.InactiverUtilisateur(u, inactif);
         }
     }
     
@@ -139,25 +125,11 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     
     //Gérer les mots de passe des utilisateurs (définir ou réinitialiser)
     @Override
-    public void ModifierMdpUtilisateur(String l, String mdp, Date date_modification_utilisateur) {
-        Utilisateur u = null;
-        u = utilisateurFacade.Authentification(l,mdp);
+    public void ModifierMdpUtilisateur(String login_utilisateur, String mdp_utilisateur) {
+        Utilisateur u = utilisateurFacade.RechercherUtilisateur(login_utilisateur);
         if(u!=null)
         {
-            List <Profil> listeProfils =u.getLesProfils();
-            int i=0;
-            while(i<=listeProfils.size())
-            {
-                if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
-                {
-                    utilisateurFacade.ModifierMdpUtilisateur(u, mdp, date_modification_utilisateur);
-                }
-                else
-                {
-                System.out.println ("Vous n'êtes pas administrateur");
-                }
-                i++;
-            }
+            utilisateurFacade.ModifierMdpUtilisateur(u, mdp_utilisateur);
         }
     }
     

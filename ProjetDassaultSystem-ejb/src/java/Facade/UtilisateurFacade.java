@@ -93,17 +93,17 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     
     //Modifier mot de passe
     @Override
-    public void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur, Date date_modification_utilisateur) {
+    public void ModifierMdpUtilisateur(Utilisateur u, String mdp_utilisateur) {
     u.setMdp_utilisateur(mdp_utilisateur);
-    date_modification_utilisateur=new Date();
+    u.setDate_modification_utilisateur(new Date());
     getEntityManager().merge(u);
     }
     
     //Inactiver l'utilisateur
     @Override
-    public void InactiverUtilisateur(Utilisateur u, boolean inactif, Date date_inactivation_utilisateur) {
+    public void InactiverUtilisateur(Utilisateur u, boolean inactif) {
     u.setInactif(true);
-    date_inactivation_utilisateur=new Date();
+    u.setDate_inactivation_utilisateur(new Date());
     getEntityManager().merge(u);
     }
     

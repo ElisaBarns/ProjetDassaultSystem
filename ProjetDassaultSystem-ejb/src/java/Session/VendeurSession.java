@@ -75,7 +75,7 @@ public class VendeurSession implements VendeurSessionLocal {
         if(u!=null)
         {
             
-            piste_opportuniteFacade.RefuserParVendeur(p, vendeur);
+            //piste_opportuniteFacade.RefuserParVendeur(p, vendeur); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
         else
         {
@@ -161,7 +161,7 @@ public class VendeurSession implements VendeurSessionLocal {
         if(u!=null)
         {
             
-            piste_opportuniteFacade.PisteGagne(p, date_modif_popp, statut);
+            //piste_opportuniteFacade.PisteGagne(p, date_modif_popp, statut); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
         else
         {
@@ -176,7 +176,7 @@ public class VendeurSession implements VendeurSessionLocal {
         if(u!=null)
         {
             
-            piste_opportuniteFacade.PistePerdu(p, date_modif_popp, statut);
+            //piste_opportuniteFacade.PistePerdu(p, date_modif_popp, statut); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!S
         }
         else
         {

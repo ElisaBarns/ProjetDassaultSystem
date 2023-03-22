@@ -68,13 +68,12 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     
     //Modifier utilisateur
     @Override
-    public void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String mail_utilisateur, String tel_utilisateur) {
+    public void ModifierUtilisateur(Utilisateur u, String nom_utilisateur, String prenom_utilisateur, String login_utilisateur, String mail_utilisateur, String tel_utilisateur) {
     u.setNom_utilisateur(nom_utilisateur);
     u.setPrenom_utilisateur(prenom_utilisateur);
-    /*
-    Pas besoin car le login ne peut être modifier par qui que ce soit
-    Et concernant le mdp, il existe une méthode spécifique pour modifier le mdp
     u.setLogin_utilisateur(login_utilisateur);
+    /*
+    Pas besoin car il existe une méthode spécifique pour modifier le mdp
     u.setMdp_utilisateur(mdp_utilisateur);
     */
     u.setMail_utilisateur(mail_utilisateur);

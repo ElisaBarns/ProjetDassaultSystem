@@ -65,9 +65,17 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
 
     //Modifier un utilisateur
     @Override
-    public void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel) {
-        Utilisateur u = null;
-        u = utilisateurFacade.Authentification(l,mdp);
+    public void ModifierUtilisateur(String nom, String prenom, String login, String mail, String tel) {
+        Utilisateur u = utilisateurFacade.RechercherUtilisateur(login);
+        if(u!=null)
+        {
+            utilisateurFacade.ModifierUtilisateur(u, nom, prenom, login, mail, tel);
+        }
+        else
+        {
+            System.out.println ("L'utilisateur ne peut être modifié.");
+        }
+        /*u = utilisateurFacade.Authentification(login,mdp);
         if(u!=null)
         {
             List <Profil> listeProfils =u.getLesProfils();
@@ -75,16 +83,13 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             while(i<=listeProfils.size())
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
-                {
-                    utilisateurFacade.ModifierUtilisateur(u, nom, prenom, mail, tel);
-                }
-                else
-                {
-                System.out.println ("Vous n'êtes pas administrateur");
-                }
+                {*/
+                    
+                /*}
+                
                 i++;
             }
-        }
+        }*/
     }
 
     //Supprimer/Inactiver un utilisateur

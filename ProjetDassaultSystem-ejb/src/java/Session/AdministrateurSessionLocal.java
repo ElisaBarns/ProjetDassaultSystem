@@ -19,7 +19,7 @@ public interface AdministrateurSessionLocal {
 
     void CreerUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel);
 
-    void ModifierUtilisateur(String l, String mdp, String nom, String prenom, String mail, String tel);
+    void ModifierUtilisateur(String nom, String prenom, String login, String mail, String tel);
 
     void InactiverUtilisateur(String l, String mdp, boolean inactif, Date date_inactivation);
 

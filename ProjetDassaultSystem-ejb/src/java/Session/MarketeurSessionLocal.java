@@ -21,7 +21,8 @@ import javax.ejb.Local;
 @Local
 public interface MarketeurSessionLocal {
 
-    void CreerPiste(String l, String mdp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut);
+    void CreerPiste(String l, String mdp, Date date_creation_popp, Date date_modif_popp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut, Profil marketeur, Profil vendeur, Profil expert_technique);
+    //void CreerPiste(String l, String mdp, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, PisteOpp type, Statut statut);
 
     void AffecterVendeur(long id, long id_profil);
 

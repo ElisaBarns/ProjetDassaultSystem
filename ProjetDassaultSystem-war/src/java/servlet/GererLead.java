@@ -193,15 +193,15 @@ public class GererLead extends HttpServlet {
     }
 
     protected void doActionModifierUtilisateur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-        String login = request.getParameter("login_utilisateur");
-        String mdp = request.getParameter("mdp_utilisateur");
-        String nom = request.getParameter("nom_utilisateur");
-        String prenom = request.getParameter("prenom_utilisateur");
-        String mail = request.getParameter("mail_utilisateur");
-        String tel = request.getParameter("tel_utilisateur");
+        String nom_utilisateur = request.getParameter("nom_utilisateur");
+        String prenom_utilisateur = request.getParameter("prenom_utilisateur");
+        String login_utilisateur = request.getParameter("login_utilisateur");
+        //String mdp_utilisateur = request.getParameter("mdp_utilisateur");
+        String mail_utilisateur = request.getParameter("mail_utilisateur");
+        String tel_utilisateur = request.getParameter("tel_utilisateur");
         String message;
         
-        if (nom.trim().isEmpty()|| prenom.trim().isEmpty()|| mail.trim().isEmpty())
+        if (nom_utilisateur.trim().isEmpty()|| prenom_utilisateur.trim().isEmpty()|| login_utilisateur.trim().isEmpty() || mail_utilisateur.trim().isEmpty() || tel_utilisateur.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"ModifierUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un utilisateur.";
@@ -209,7 +209,7 @@ public class GererLead extends HttpServlet {
         else 
         {
            
-           administrateurSession.ModifierUtilisateur(login, mdp, nom, prenom, mail, tel);
+           administrateurSession.ModifierUtilisateur(nom_utilisateur, prenom_utilisateur,login_utilisateur, mail_utilisateur, tel_utilisateur);
            message = "Utilisateur modifié avec succès!";
         }
         
@@ -250,7 +250,7 @@ public class GererLead extends HttpServlet {
         else 
         {
            
-           marketeurSession.CreerClient(nom, siret);
+           //marketeurSession.CreerClient(nom, siret); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
            message = "Client créé avec succès!";
         }
         

@@ -71,10 +71,6 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
         {
             utilisateurFacade.ModifierUtilisateur(u, nom, prenom, login, mail, tel);
         }
-        else
-        {
-            System.out.println ("L'utilisateur ne peut être modifié.");
-        }
         /*u = utilisateurFacade.Authentification(login,mdp);
         if(u!=null)
         {

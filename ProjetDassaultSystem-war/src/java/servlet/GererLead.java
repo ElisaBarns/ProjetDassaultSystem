@@ -131,12 +131,48 @@ public class GererLead extends HttpServlet {
         
         else if(act.equals("CreerUtilisateur"))
         {
+            /*String nom_utilisateur = request.getParameter( "nom_utilisateur" ); 
+            String prenom_utilisateur = request.getParameter( "prenom_utilisateur" );
+            String login_utilisateur = request.getParameter( "login_utilisateur" ); 
+            String mdp_utilisateur = request.getParameter( "mdp_utilisateur" );
+            String mail_utilisateur = request.getParameter( "mail_utilisateur" ); 
+            String tel_utilisateur = request.getParameter( "tel_utilisateur" );
+            //Integer id; 
+            Utilisateur u; 
+            if (!(nom_utilisateur.trim().isEmpty()) && !(prenom_utilisateur.trim().isEmpty()) && !(login_utilisateur.trim().isEmpty()) && !(mdp_utilisateur.trim().isEmpty()) && !(mail_utilisateur.trim().isEmpty()) && !(tel_utilisateur.trim().isEmpty())) 
+            { 
+            administrateurSession.CreerUtilisateur(login_utilisateur, mdp_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, tel_utilisateur); 
+            jspDassault="/SuccesCreation.jsp";     
+            } 
+            else
+            {
+                jspDassault="/RenseignerTousChamps.jsp";
+            }
+            
+            /* CE QUI Y AVAIT DE BASE*/
             jspDassault="/CreerUtilisateur.jsp";
-            doActionCreerUtilisateur(request, response);
+            doActionCreerUtilisateur(request, response); 
         }
         
         else if(act.equals("ModifierUtilisateur"))
         {
+            /* String nom_utilisateur = request.getParameter( "nom_utilisateur" ); 
+            String prenom_utilisateur = request.getParameter( "prenom_utilisateur" );
+            String login_utilisateur = request.getParameter( "login_utilisateur" ); 
+            String mail_utilisateur = request.getParameter( "mail_utilisateur" ); 
+            String tel_utilisateur = request.getParameter( "tel_utilisateur" );
+            Utilisateur u; 
+            if (!(nom_utilisateur.trim().isEmpty()) && !(prenom_utilisateur.trim().isEmpty()) && !(login_utilisateur.trim().isEmpty()) && !(mail_utilisateur.trim().isEmpty()) && !(tel_utilisateur.trim().isEmpty())) 
+            { 
+            administrateurSession.ModifierUtilisateur(login_utilisateur, nom_utilisateur, prenom_utilisateur, mail_utilisateur, tel_utilisateur); 
+            jspDassault="/SuccesCreation.jsp";     
+            } 
+            else
+            {
+                jspDassault="/RenseignerTousChamps.jsp";
+            }
+            
+            CE QU'IL Y AVAIT DE BASE*/
             jspDassault="/ModifierUtilisateur.jsp";
             doActionModifierUtilisateur(request, response);
         }
@@ -193,15 +229,15 @@ public class GererLead extends HttpServlet {
     }
 
     protected void doActionModifierUtilisateur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+       
         String nom_utilisateur = request.getParameter("nom_utilisateur");
         String prenom_utilisateur = request.getParameter("prenom_utilisateur");
         String login_utilisateur = request.getParameter("login_utilisateur");
-        //String mdp_utilisateur = request.getParameter("mdp_utilisateur");
         String mail_utilisateur = request.getParameter("mail_utilisateur");
         String tel_utilisateur = request.getParameter("tel_utilisateur");
         String message;
         
-        if (nom_utilisateur.trim().isEmpty()|| prenom_utilisateur.trim().isEmpty()|| login_utilisateur.trim().isEmpty() || mail_utilisateur.trim().isEmpty() || tel_utilisateur.trim().isEmpty())
+        if (login_utilisateur.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"ModifierUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un utilisateur.";

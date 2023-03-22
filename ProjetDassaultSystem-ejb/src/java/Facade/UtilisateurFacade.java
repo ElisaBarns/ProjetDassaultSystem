@@ -112,7 +112,7 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     public Utilisateur RechercherUtilisateur(String login_utilisateur) {
     Utilisateur u=null;
     List<Utilisateur> result;
-    String txt="SELECT u FROM Couturier AS u WHERE u.login_utilisateur=:login_utilisateur";
+    String txt="SELECT u FROM Utilisateur AS u WHERE u.login_utilisateur=:login_utilisateur";
     Query req=getEntityManager().createQuery(txt);
     req=req.setParameter("login_utilisateur", login_utilisateur);
     result=req.getResultList();

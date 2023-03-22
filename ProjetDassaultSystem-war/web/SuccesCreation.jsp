@@ -14,7 +14,7 @@
     </head>
     <body>
         <h1>Succès</h1><br>
-        Création effectuée avec succès ! <br>
+        Votre action a été réalisée avec succès ! <br>
         
         <a href="MenuGeneral.jsp"> Retour au Menu général <br>
             <br>

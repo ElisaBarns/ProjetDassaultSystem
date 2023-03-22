@@ -22,9 +22,9 @@ public interface VendeurSessionLocal {
 
     void AffecterExpert(long id, long idexpert);
 
-    void AccepterPiste(Piste_opportunite p, long idvendeur);
+    void AccepterPiste(long id, long idvendeur);
     
-    void RefuserPiste(Piste_opportunite p);
+    void RefuserPiste(long id);
 
     //void AfficherListePO(String l, String mdp, Profil v);
 

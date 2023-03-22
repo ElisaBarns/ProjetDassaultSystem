@@ -177,6 +177,23 @@ public class GererLead extends HttpServlet {
             doActionModifierUtilisateur(request, response);
         }
         
+        else if (act.equals("RechercherUtilisateur"))
+         {
+            HttpSession sess = request.getSession(true);
+             String login_utilisateur = request.getParameter("login_utilisateur");
+             Utilisateur u;
+             if(!(login_utilisateur.trim().isEmpty())) 
+             {
+                 u= administrateurSession.RechercherUtilisateur(login_utilisateur);
+                 jspDassault="/AfficherUtilisateur.jsp";
+                 sess.setAttribute("Utilisateur", u);
+             }
+            else 
+            {
+                jspDassault="/MenuGeneral.jsp";    
+            }
+         }
+        
         else if(act.equals("CréerClient"))
         {
             jspDassault="/CreerClient.jsp";

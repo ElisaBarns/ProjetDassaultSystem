@@ -26,5 +26,7 @@ public interface AdministrateurSessionLocal {
     void ModifierMdpUtilisateur(String l, String mdp, Date date_modification_utilisateur);
 
     void AttribuerRolesUtilisateur(String l, String mdp, Profil p, Fonction f);
+
+    Utilisateur RechercherUtilisateur(String login);
     
 }

@@ -161,9 +161,18 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
         }
     }
     
+    @Override
+    public Utilisateur RechercherUtilisateur(String login) {
+        Utilisateur u = utilisateurFacade.RechercherUtilisateur(login);
+        return u;
+    }
+    
+    
     //MAJ la configuration du système à partir des fichiers de propriétés
     //Accéder aux journaux du système pour enquêter sur les rpoblèmes
     //Consulter les journaux d'accès pour savoir qui accèse au système
+
+
 
 
     

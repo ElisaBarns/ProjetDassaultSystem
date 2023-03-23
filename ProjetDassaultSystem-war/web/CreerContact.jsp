@@ -4,6 +4,9 @@
     Author     : marie
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Entity.Client"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +21,14 @@
         <div>
             <form method="post" action="GererLead">
                 <fieldset>
+                    <legend>Sélection du client concerné </legend>
+        <label for="id_client">Identifiant client <span class="requis">*</span></label>
+        <select name="id_client">
+        <% for (Client cl :lesClients) {%>
+        <option value ="<%=cl.getId()%>"><%=cl.getNom_client()%></option>
+        <% }%>
+        </select>
+        <br />
                     <legend>Informations du contact</legend>
                     <br/><!-- comment -->          
                     <label for="nom_contact">Nom <span class="requis"></span></label>
@@ -40,7 +51,7 @@
                 <input type="reset" value="Vider les champs" /> <br />
                         
                 <hr>
-                <td Width=25%><A HREF="GererLead?action=vide">Retour Menu</A></td>
+                <td Width=25%><A HREF="GererLead?action=vide">Retour</A></td>
                 <hr>
             </form>
         </div>

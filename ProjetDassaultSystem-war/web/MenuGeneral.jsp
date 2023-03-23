@@ -4,13 +4,18 @@
     Author     : Mel
 --%>
 
-
+<%@page import="Entity.Profil"%>
+<%@page import="java.util.List"%>
+<%@page import="Entity.Utilisateur"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Menu général</title>
+        <title>Liste de mes profils</title>
+        <link rel="stylesheet" href="CSS.css">
+        <jsp:useBean id="listeprofils" scope="request" class="java.util.List"></jsp:useBean>
+        <jsp:useBean id="utilisateur" scope="request" class="Entity.Utilisateur"></jsp:useBean>
     </head>
     <body>
         <p>
@@ -20,16 +25,16 @@
     %>
 
         </p>
-        <h1>Choisissez le profil sur lequel vous voulez travailler</h1>
+        <h1>Liste de mes profils disponibles</h1>
        
         <table>
-            <tr>
-           <td Width =15%><A HREF ="MenuAdmin.jsp">Administrateur</A></td>
-           <td Width =15%><A HREF ="MenuMarketeur.jsp">Marketeur</A></td>
-           <td Width =15%><A HREF ="MenuVendeur.jsp">Vendeur</A></td>
-           <td Width =15%><A HREF ="MenuExpert.jsp">Expert technique</A></td> 
-           <td Width =15%><A HREF ="MenuOperateurVentes.jsp">Responsable des opérations de ventes</A></td>
-            </tr>
+            <% List<Profil> mesProfils=listeProfils; 
+    for(Profil p : mesProfils){%> 
+    <tr> 
+    <td Width=15%><%=p.getFonction()%></td> 
+    <td Width=15%><input type="submit"value="Connexion"/>
+    <td Width=55%><%out.println(); %></td> 
+    </tr><%}%> 
         </table>
     </body>
 </html>

@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Menu Marketeur</title>
+        <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
         <p>
@@ -25,6 +26,8 @@
                 
            <tr>
            <td Width =15%><A HREF ="CreerPiste.jsp">Créer une piste</A></td>
+           <td Width =15%><A HREF ="CreerClient.jsp">Créer un client</A></td>
+           <td Width =15%><A HREF ="CreerContact.jsp">Créer un contact</A></td>
            <!--
            <td Width =15%><A HREF ="creerOrganisateur.jsp">Creer organisateur</A></td>
            <td Width =15%><A HREF ="CreerLieu.jsp">Creer lieu</A></td>  
@@ -38,8 +41,11 @@
           
            
           <tr> 
+           <td Width =15%><A HREF ="AfficherListeMarketeur.jsp">Afficher ma liste de pistes</A></td> 
+           <!--
            <td Width =15%><A HREF ="AffecterVendeur.jsp">Affecter un vendeur</A></td> 
            <td Width =15%><A HREF ="RouvrirPiste.jsp">Réouvrir une piste</A></td> 
+           -->
            <!--
            <td Width =15%><A HREF ="ModifierVetement.jsp">Modifier Vetement</A></td>
            <td Width =15%><A HREF ="ModifierAccessoire.jsp">Modifier Accessoire</A></td>

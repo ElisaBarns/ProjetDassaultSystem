@@ -49,7 +49,7 @@
                 <input type="reset" value="Vider les champs" /> <br />
                         
                 <hr>
-                <td Width=25%><A HREF="GererLead?action=vide">Retour Menu</A></td>
+                <td Width=25%><A HREF="GererLead?action=vide">Retour</A></td>
                 <hr>
             </form>
         </div>

@@ -78,7 +78,7 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
         int i = 1;
         while(i<lp.size()){
             p = lp.get(i);
-            if(p.getFonction().equals(Fonction.VENDEUR) && !p.isInactif()) {
+            if(p.getFonction().equals(Fonction.VENDEUR) && p.isInactif() == false) {
                 
                 lpva.add(p);
                 i++;
@@ -97,7 +97,7 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
         int i = 1;
         while(i<lp.size()){
             p = lp.get(i);
-            if(p.getFonction().equals(Fonction.EXPERT_TECHNIQUE) && !p.isInactif()) {
+            if(p.getFonction().equals(Fonction.EXPERT_TECHNIQUE) && p.isInactif() == false) {
                 
                 lpea.add(p);
                 i++;

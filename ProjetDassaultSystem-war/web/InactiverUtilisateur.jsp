@@ -21,16 +21,17 @@
         <label for="login_utilisateur">Login de l'utilisateur à modifier</label>
         <input type="text" id="login_utilisateur" name="login_utilisateur">
         <br/>
-        
+        <!--
         <label for="inactif">Inactiver <span class=""></span></label>
-        <input type="checkbox" id="inactif" name="inactif">
-        <!--value="<%=request.getParameter("inactif")%>" readonly-->
+        <input type="checkbox" id="inactif" name="inactif" value="<%=request.getParameter("inactif")%>" readonly>
+        -->
         <br/>
+        
 
         <input type="hidden" name="action" value="InactiverUtilisateur">
        
         <input type="submit" value="Désactiver">
-        <input type="button" value="Annuler">
+        <input type="button" value="Annuler" onclick="location.href='MenuGeneral.jsp'">
         
             <hr>
             <td Width=25%><A HREF="GererLead?action=vide"> Retour Menu</A></td>

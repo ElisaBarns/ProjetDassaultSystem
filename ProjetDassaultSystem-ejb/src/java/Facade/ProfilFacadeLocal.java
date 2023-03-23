@@ -38,5 +38,9 @@ public interface ProfilFacadeLocal {
     void InactiverProfil(Profil p);
 
     Profil RechercherProfilparID(long id);
+
+    List<Profil> ListeVendeursActifs();
+
+    List<Profil> ListeExpertActif();
     
 }

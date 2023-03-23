@@ -7,6 +7,7 @@ package Facade;
 import Entity.Contact;
 import Entity.Fonction;
 import Entity.Profil;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -68,6 +69,47 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
         p=(Profil)req.getSingleResult();
         return p;
     }
+
+    @Override
+    public List<Profil> ListeVendeursActifs() {
+        List<Profil> lp = findAll();
+        ArrayList<Profil> lpva = new ArrayList();
+        Profil p;
+        int i = 1;
+        while(i<lp.size()){
+            p = lp.get(i);
+            if(p.getFonction().equals(Fonction.VENDEUR) && !p.isInactif()) {
+                
+                lpva.add(p);
+                i++;
+            }
+            else { i++;}
+        }
+        
+        return lpva;
+    }
+
+    @Override
+    public List<Profil> ListeExpertActif() {
+        List<Profil> lp = findAll();
+        ArrayList<Profil> lpea = new ArrayList();
+        Profil p;
+        int i = 1;
+        while(i<lp.size()){
+            p = lp.get(i);
+            if(p.getFonction().equals(Fonction.EXPERT_TECHNIQUE) && !p.isInactif()) {
+                
+                lpea.add(p);
+                i++;
+            }
+            else { i++;}
+        }
+        
+        return lpea;
+    }
+    
+    
+    
 
     
     

@@ -47,9 +47,12 @@ public class ExpertSession implements ExpertSessionLocal {
     
     
     //Consulter l'historique des actions effectuées sur un prospect ou une opportunité spécifique
-    
+
     
     //Afficher tous les leads et opportunités qui me sont attribués
+    @Override
+    public void AfficherPistesExpert() {
+    }
     
     
     //MAJ une piste sur laquelle je suis assignée pour ajouter ou modifier l'offre

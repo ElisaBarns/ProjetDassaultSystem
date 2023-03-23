@@ -8,11 +8,11 @@
 <%@page import="java.util.List"%> 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
-<jsp:useBean id="listePistes" scope="request" class="java.util.List"></jsp:useBean> 
 <!DOCTYPE html> 
     <html> 
         <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <jsp:useBean id="listePistes" scope="request" class="java.util.List"></jsp:useBean> 
         <title>Mes pistes et opportunités</title> 
         </head> 
     <body> 

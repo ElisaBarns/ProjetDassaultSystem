@@ -27,4 +27,6 @@ public interface ExpertSessionLocal {
     void ModifierDetail_offre(long id_detail, long id_produit, long id_offre, int quantite);
 
     void SupprimerDetailOffre(long id_detail);
+
+    void AfficherPistesExpert();
 }

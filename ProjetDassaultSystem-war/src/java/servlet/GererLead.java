@@ -214,13 +214,14 @@ public class GererLead extends HttpServlet {
             doActionCreerProfil(request,response);
         }
         
-        else if(act.equals("AfficherPistesExpert"))
+        else if(act.equals("AfficherPistesExpert"))//A TERMINER !!!
         {
             jspDassault="/AfficherPistesExpert.jsp";
+            //List<Profil> LesPistes_opportunites= 
             doActionCreerProfil(request,response);
         }
         
-        else if(act.equals("CréerClient"))
+        else if(act.equals("CréerClient")) //A TESTER !!!!
         {
             jspDassault="/CreerClient.jsp";
             doActionCreerClient(request, response);

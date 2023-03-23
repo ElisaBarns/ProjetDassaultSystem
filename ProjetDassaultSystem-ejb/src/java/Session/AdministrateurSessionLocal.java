@@ -24,8 +24,10 @@ public interface AdministrateurSessionLocal {
     void InactiverUtilisateur(String login_utilisateur, boolean inactif);
 
     void ModifierMdpUtilisateur(String login_utilisateur, String mdp_utilisateur);
+    
+    void CreerProfil(String login_utilisateur, Fonction fonction);
 
-    void AttribuerRolesUtilisateur(String l, String mdp, Profil p, Fonction f);
+    void AttribuerRolesUtilisateur(String login_utilisateur, Profil p, Fonction f);
 
     Utilisateur RechercherUtilisateur(String login);
     

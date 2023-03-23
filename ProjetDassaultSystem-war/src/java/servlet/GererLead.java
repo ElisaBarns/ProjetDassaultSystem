@@ -5,6 +5,7 @@
 package servlet;
 
 
+import Entity.Fonction;
 import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
 import Facade.ContactFacadeLocal;
@@ -98,6 +99,7 @@ public class GererLead extends HttpServlet {
         String act=request.getParameter("action");
         if((act==null)||(act.equals("vide")))
         {
+            //jspDassault="/MenuGeneral.jsp";            
             jspDassault="/Authentification.jsp";
             request.setAttribute("message", "pas d'information");
         }
@@ -205,6 +207,18 @@ public class GererLead extends HttpServlet {
                 jspDassault="/MenuGeneral.jsp";    
             }
          }
+        
+        else if(act.equals("CreerProfil"))
+        {
+            jspDassault="/CreerProfil.jsp";
+            doActionCreerProfil(request,response);
+        }
+        
+        else if(act.equals("AfficherPistesExpert"))
+        {
+            jspDassault="/AfficherPistesExpert.jsp";
+            doActionCreerProfil(request,response);
+        }
         
         else if(act.equals("CréerClient"))
         {
@@ -342,6 +356,45 @@ public class GererLead extends HttpServlet {
         }
         
         request.setAttribute("message", message);
+    }
+        
+        protected void doActionCreerProfil (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String login_utilisateur = request.getParameter("login_utilisateur");
+        String fonction = request.getParameter("fonction");
+        System.out.println("fonction = "+fonction);
+        String message;
+        
+        if (login_utilisateur.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"ModifierUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un profil.";
+        }
+        else
+        {
+            message = "Le profil a été créé avec succès!";
+            if (fonction.equals("vendeur")) 
+            { 
+                administrateurSession.CreerProfil(login_utilisateur, Fonction.VENDEUR); 
+            } 
+            else if(fonction.equals("marketeur"))
+            {
+                administrateurSession.CreerProfil(login_utilisateur, Fonction.MARKETEUR);
+            }
+            else if(fonction.equals("operateur_ventes"))
+            {
+                administrateurSession.CreerProfil(login_utilisateur, Fonction.OPERATEUR_VENTES);
+            }
+            else if(fonction.equals("expert_technique"))
+            {
+                administrateurSession.CreerProfil(login_utilisateur, Fonction.EXPERT_TECHNIQUE);
+            }
+            else if(fonction.equals("administrateur"))
+            {
+                administrateurSession.CreerProfil(login_utilisateur, Fonction.ADMINISTRATEUR);
+            }
+        } 
+        //request.setAttribute( "fournisseur", client ); 
+        request.setAttribute( "message", message ); 
     }
         
             protected void doActionCreerClient (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {

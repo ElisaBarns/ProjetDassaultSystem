@@ -46,9 +46,10 @@
            
           <tr> 
               <td Width =15%><A HREF ="ModifierUtilisateur.jsp">Modifier un utilisateur</A></td> </br>
-           <td Width =15%><A HREF ="InactiverUtilisateur.jsp">Désactiver un utilisateur</A></td> 
-           <td Width =15%><A HREF ="AttribuerRolesUtilisateur.jsp">Attribuer un ou plusieurs rôles à un utilisateur</A></td>
-           <td Width =15%><A HREF ="ModifierMdpUtilisateur.jsp">Modifier le mot de passe d'un utilisateur</A></td>
+              <td Width =15%><A HREF ="InactiverUtilisateur.jsp">Désactiver un utilisateur</A></td> </br>
+              <td Width =15%><A HREF ="ModifierMdpUtilisateur.jsp">Modifier le mot de passe d'un utilisateur</A></td> </br>
+           
+              <td Width =15%><A HREF ="CreerProfil.jsp">Créer un profil</A></td> </br>
            </tr>
            
            

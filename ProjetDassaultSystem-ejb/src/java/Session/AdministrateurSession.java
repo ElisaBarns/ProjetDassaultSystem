@@ -98,10 +98,20 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
         }
     }
     
+    //Créer un nouveau profil
+    @Override
+    public void CreerProfil(String login_utilisateur, Fonction fonction) {
+        Utilisateur u=utilisateurFacade.RechercherUtilisateur(login_utilisateur);
+        if(u!=null)
+        {
+            profilFacade.CreerProfil(fonction);
+        }
+    }
+    
     //Attribuer des rôles aux utilisateurs
     @Override
-    public void AttribuerRolesUtilisateur(String l, String mdp, Profil p, Fonction f) {
-        Utilisateur u = null;
+    public void AttribuerRolesUtilisateur(String login_utilisateur, Profil p, Fonction f) {
+        /*Utilisateur u = null;
         u = utilisateurFacade.Authentification(l,mdp);
         if(u!=null)
         {
@@ -110,17 +120,20 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
             while(i<=listeProfils.size())
             {
                 if(listeProfils.get(i).getFonction().equals("administrateur")&&!listeProfils.get(i).isInactif())
-                {
-                    utilisateurFacade.RechercherUtilisateur(l);
-                    profilFacade.ModifierProfil(p,f);
-                }
+                {*/
+        Utilisateur u = utilisateurFacade.RechercherUtilisateur(login_utilisateur);
+        if(u!=null)
+        {
+          profilFacade.ModifierProfil(p,f);  
+        }
+                /*}
                 else
                 {
                 System.out.println ("Vous n'êtes pas administrateur");
                 }
                 i++;
             }
-        }
+        }*/
     }
     
     //Gérer les mots de passe des utilisateurs (définir ou réinitialiser)
@@ -142,7 +155,9 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     
     //MAJ la configuration du système à partir des fichiers de propriétés
     //Accéder aux journaux du système pour enquêter sur les rpoblèmes
-    //Consulter les journaux d'accès pour savoir qui accèse au système
+    //Consulter les journaux d'accès pour savoir qui accède au système
+
+
 
 
 

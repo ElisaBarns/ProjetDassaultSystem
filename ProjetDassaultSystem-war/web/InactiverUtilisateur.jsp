@@ -15,10 +15,10 @@
     </head>
     <body>
         <fieldset>
-    <h1>Informations de l'utilisateur</h1>
+    <h1>Informations de l'utilisateur à modifier</h1>
     <form action="GererLead" method="post">
                     
-        <label for="login_utilisateur">Login de l'utilisateur à modifier</label>
+        <label for="login_utilisateur">Login</label>
         <input type="text" id="login_utilisateur" name="login_utilisateur">
         <br/>
         <!--

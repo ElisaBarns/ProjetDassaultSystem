@@ -145,7 +145,7 @@ public class Profil implements Serializable {
         this.date_creation_profil = date_creation_profil;
     }
 
-    @Column(nullable=false)
+    @Column(nullable=true)
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date date_inactif_profil;
 

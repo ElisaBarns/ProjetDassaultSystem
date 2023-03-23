@@ -6,6 +6,7 @@ package Facade;
 
 import Entity.Fonction;
 import Entity.Profil;
+import Entity.Utilisateur;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;

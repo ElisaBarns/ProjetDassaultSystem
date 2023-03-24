@@ -219,8 +219,8 @@ public class GererLead extends HttpServlet {
         else if(act.equals("AfficherProfil"))
         {
             jspDassault="/AfficherProfils.jsp";
-            List<Profil>lesProfils=administrateurSession.AfficherLesProfils();
-            request.setAttribute("lesProfils",lesProfils);
+            List<Profil>lesProf=administrateurSession.AfficherLesProfils();
+            request.setAttribute("lesProfils",lesProf);
             request.setAttribute("message", "Liste des Profils existants");
         }
         

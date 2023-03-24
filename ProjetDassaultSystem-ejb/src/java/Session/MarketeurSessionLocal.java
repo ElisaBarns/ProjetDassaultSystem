@@ -24,7 +24,7 @@ public interface MarketeurSessionLocal {
 
     void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, long id_client);
 
-    void AffecterVendeur(long id, long id_profil);
+    void AffecterVendeur(long id);
 
     void RouvrirPiste(long id);
 

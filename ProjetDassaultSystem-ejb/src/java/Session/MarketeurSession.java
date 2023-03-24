@@ -83,7 +83,7 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Affecter un vendeur (+ vérifier si je suis assigné à cette piste, sinon jpp affecter un vendeur)
     @Override
-    public void AffecterVendeur(long id, long id_profil) {
+    public void AffecterVendeur(long id) {
         //Utilisateur u = null;
         //u = utilisateurFacade.Authentification(l,mdp);
         //if(u!=null)

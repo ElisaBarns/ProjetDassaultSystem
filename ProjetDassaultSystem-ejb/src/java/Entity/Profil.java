@@ -62,26 +62,6 @@ public class Profil implements Serializable {
         return "Entity.Profil[ id=" + id + " ]";
     }
     
-    @Column(nullable=false, unique=true)
-    private int id_profil;
-
-    /**
-     * Get the value of id_profil
-     *
-     * @return the value of id_profil
-     */
-    public int getId_profil() {
-        return id_profil;
-    }
-
-    /**
-     * Set the value of id_profil
-     *
-     * @param id_profil new value of id_profil
-     */
-    public void setId_profil(int id_profil) {
-        this.id_profil = id_profil;
-    }
 
     private Fonction fonction;
 

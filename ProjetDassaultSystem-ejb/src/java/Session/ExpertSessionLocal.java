@@ -6,7 +6,9 @@ package Session;
 
 import Entity.Offre;
 import Entity.Piste_opportunite;
+import Entity.Profil;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -28,5 +30,5 @@ public interface ExpertSessionLocal {
 
     void SupprimerDetailOffre(long id_detail);
 
-    void AfficherPistesExpert();
+    List<Profil> AfficherPistesExpert();
 }

@@ -26,8 +26,8 @@
  
     <p class="info">${ message }</p> 
     <p class="info">${ message }</p> 
-    <% List<Piste_opportunite> listePistes=listePistes; 
-    for(Piste_opportunite po : listePistes){%> 
+    <% List<Piste_opportunite> listePistes=listePistes;
+    for(Piste_opportunite po : listePistes){%>
     <tr> 
     <td Width=15%><%=po.getId()%></td> 
     <td Width=30%><%=po.getDate_creation_popp()%></td> 

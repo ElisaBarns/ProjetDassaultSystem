@@ -17,6 +17,7 @@ import Facade.Piste_opportuniteFacadeLocal;
 import Facade.ProduitFacadeLocal;
 import Facade.UtilisateurFacadeLocal;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateful;
 
@@ -51,7 +52,8 @@ public class ExpertSession implements ExpertSessionLocal {
     
     //Afficher tous les leads et opportunités qui me sont attribués
     @Override
-    public void AfficherPistesExpert() {
+    public List<Profil> AfficherPistesExpert() {
+        return piste_opportuniteFacade.AfficherPistes();
     }
     
     

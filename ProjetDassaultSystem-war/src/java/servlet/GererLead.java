@@ -227,8 +227,9 @@ public class GererLead extends HttpServlet {
         else if(act.equals("AfficherPistesExpert"))//A TERMINER !!!
         {
             jspDassault="/AfficherPistesExpert.jsp";
-            //List<Profil> LesPistes_opportunites= 
-            doActionCreerProfil(request,response);
+            List<Profil> lesPistes_opportunites= expertSession.AfficherPistesExpert();
+            request.setAttribute("lesPistes",lesPistes_opportunites);
+            request.setAttribute("message", "Liste des Profils existants");
         }
         
         else if(act.equals("CreerClient"))

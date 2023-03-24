@@ -104,7 +104,7 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
         Utilisateur u=utilisateurFacade.RechercherUtilisateur(login_utilisateur);
         if(u!=null)
         {
-            profilFacade.CreerProfil(fonction);
+            profilFacade.CreerProfil(fonction, u);
         }
     }
     

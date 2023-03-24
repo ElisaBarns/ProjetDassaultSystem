@@ -409,8 +409,8 @@ public class GererLead extends HttpServlet {
                 String siret = request.getParameter("siret");
                 String nom_contact = request.getParameter("nom_contact");
                 String prenom_contact = request.getParameter("prenom_contact");
-                String mail_contact = request.getParameter("mail_contact");
-                String tel_contact = request.getParameter("tel_contact");
+                String mail_contact = request.getParameter("mail");
+                String tel_contact = request.getParameter("tel");
                 String message;
 
                 if (nom.trim().isEmpty()|| siret.trim().isEmpty() || nom_contact.trim().isEmpty() || prenom_contact.trim().isEmpty() || mail_contact.trim().isEmpty()|| tel_contact.trim().isEmpty())

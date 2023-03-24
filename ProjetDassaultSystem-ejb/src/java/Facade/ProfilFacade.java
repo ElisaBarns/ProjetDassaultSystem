@@ -7,6 +7,7 @@ package Facade;
 import Entity.Contact;
 import Entity.Fonction;
 import Entity.Profil;
+import Entity.Utilisateur;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -37,9 +38,10 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     
     //Créer profil
     @Override
-    public void CreerProfil(Fonction f) {
+    public void CreerProfil(Fonction f, Utilisateur u) {
     Profil p=new Profil();
     p.setFonction(f);
+    p.setUnUtilisateur(u);
     p.setInactif(false);
     p.setDate_creation_profil(new Date());
     getEntityManager().persist(p);

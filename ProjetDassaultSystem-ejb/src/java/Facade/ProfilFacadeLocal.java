@@ -32,7 +32,7 @@ public interface ProfilFacadeLocal {
 
     int count();
 
-    void CreerProfil(Fonction f);
+    void CreerProfil(Fonction f, Utilisateur u);
 
     void ModifierProfil(Profil p, Fonction f);
 

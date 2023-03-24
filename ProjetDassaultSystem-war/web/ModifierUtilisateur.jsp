@@ -39,13 +39,17 @@
                     <input type="hidden" name="action" value="ModifierUtilisateur">
        
         <input type="submit" value="Modifier">
-        <input type="button" value="Annuler" onclick="location.href='MenuGeneral.jsp'">
-        
-            
-        <!--<hr>
-            <td Width=25%><A HREF="GererLead?action=vide"> Retour Menu</A></td>
-            <hr>
-        -->
+        <input type="reset" value="Annuler">
+
     </form>
+         
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
+        </span> 
+    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+    
     </body>
 </html>

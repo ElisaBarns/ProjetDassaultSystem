@@ -30,8 +30,8 @@
                     <input type="hidden" name="action" value="authentification">
                 </fieldset>
                 
-                <input type="submit" value="Entrer"/>
-                <input type="reset" value="Remettre à zéro" <!--onclick="location.href='MenuGeneral.jsp'"--> <br />
+                <input type="submit" value="Se connecter"/>
+                <input type="reset" value="Annuler"> <br />
                        
             </form>
         </div>

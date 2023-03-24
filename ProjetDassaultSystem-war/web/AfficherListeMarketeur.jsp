@@ -46,9 +46,18 @@
     <td Width=15%><input type="submit"value="Rouvrir"/>
     <td Width=55%><%out.println(); %></td> 
     </tr><%}%> 
- <hr> 
- <br> 
-    <td Width=25%><A HREF="GererLead?action=vide">Retour</A></td> 
- <hr> 
+ 
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        </span>
+    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+    
     </body> 
 </html> 

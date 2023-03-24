@@ -44,9 +44,14 @@
     <td Width=15%><%=po.getLeClient()%></td> 
     <td Width=55%><%out.println(); %></td> 
     </tr><%}%> 
- <hr> 
- <br> 
-    <td Width=25%><A HREF="GererLead?action=vide"> Retour Menu</A></td> 
- <hr> 
+ 
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'"><br />
+        </span> 
+    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+ 
     </body> 
 </html> 

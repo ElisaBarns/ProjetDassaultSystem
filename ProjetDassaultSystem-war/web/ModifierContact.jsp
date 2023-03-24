@@ -37,7 +37,7 @@
         <input type="text" id="prenom_contact" name="prenom_contact" value="" size"20" maxlength="20"/>
                     <br/>
         <label for="mail">e-mail <span class="requis"></span></label>
-        <input type="text" id="mail" name="mail" value="" size"20" maxlength="20"/>
+        <input type="text" id="mail" name="mail" value="" size"50" maxlength="50"/>
                     <br/>
         <label for="tel">Téléphone <span class="requis"></span></label>
         <input type="text" id="tel" name="tel" value="" size"20" maxlength="20"/>
@@ -46,10 +46,17 @@
         <input type="hidden" name="action" value="ModifierContact">
         </fieldset>
         <input type="submit" value="Valider" />
-        <input type="reset" value="Remettre à zéro" /> <br />
+        <input type="reset" value="Annuler" /> <br />
         </form>
         </div>
+                   
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        </span> 
         
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         
     </body>
 </html>

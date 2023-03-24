@@ -47,13 +47,18 @@
                     
                 </fieldset>
                 <input type="submit" value="Valider" /> 
-                <input type="reset" value="Vider les champs" /> <br />
+                <input type="reset" value="Annuler" /> <br />
                         
-                <hr>
-                <td Width=25%><A HREF="GererLead?action=vide">Retour Menu</A></td>
-                <hr>
             </form>
         </div>
+                      
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        </span> 
+                        
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         
     </body>
 </html>

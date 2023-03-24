@@ -32,5 +32,14 @@
             <table><tr>
         
     </table>
+    
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
+        </span>
+    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+    
     </body>
 </html>

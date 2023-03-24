@@ -30,5 +30,10 @@
            <td Width =15%><A HREF ="MenuOperateurVentes.jsp">Responsable des opérations de ventes</A></td>
             </tr>
         </table>
+        
+        <span class="SeDeconnecter">
+            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+
     </body>
 </html>

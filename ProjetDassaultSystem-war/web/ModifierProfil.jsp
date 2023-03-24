@@ -29,8 +29,17 @@
                     <input type="hidden" name="action" value="ModifierProfil">
        
         <input type="submit" value="Modifier">
-        <input type="button" value="Annuler" onclick="location.href='MenuGeneral.jsp'">
+        <input type="reset" value="Annuler">
 
     </form>
+                        
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
+        </span> 
+    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span> 
+   
     </body>
 </html>

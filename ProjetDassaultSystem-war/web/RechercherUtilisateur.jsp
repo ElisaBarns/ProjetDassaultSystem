@@ -18,13 +18,22 @@
          <form method="get" action="GererLead">
             <fieldset>
                 <legend>Rechercher un utilisateur</legend>
-                <label for ="login_utilisateur">Login <span class="requis">*</span></label>
+                <label for ="login_utilisateur">Login <span class="requis"></span></label>
                 <input type="text"id="login_utilisateur" name="login_utilisateur"value=""size="20"maxlength="20"/>
                 <br/>                
                  <input type="hidden"name="action"value="RechercherUtilisateur">
             </fieldset>
             <input type="submit"value="Valider"/>
-            <input type="reset"value="Remettre à zéro"/><br/>
+            <input type="reset"value="Annuler"/><br/>
             </form>
+                 
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
+        </span> 
+        
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
     </body>
 </html>

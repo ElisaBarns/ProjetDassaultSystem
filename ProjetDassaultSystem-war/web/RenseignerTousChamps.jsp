@@ -16,7 +16,10 @@
         <h1>Erreur</h1><br>
         Veuillez renseigner tous les champs obligatoires <br>
         
-        <a href="Authentification.jsp"> Retour à la page d'authentification <br>
+                        
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
             <br>
             <br>
     </body>

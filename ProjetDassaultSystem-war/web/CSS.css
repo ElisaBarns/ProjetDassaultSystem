@@ -23,6 +23,23 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 /*===========================
     01.COMMON css 
 ===========================*/
+
+/*Bouton "Se déconnecter"*/
+span.SeDeconnecter{
+  border-radius: 10px;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 28px;
+}
+
+/*Bouton "Retour" pour aller au Menu*/
+span.RetourMenu{
+  border-radius: 10px;
+  color: #eeeeee;
+  text-align: center;
+  font-size: 28px;
+}
+
 html {
   scroll-behavior: smooth;
 }

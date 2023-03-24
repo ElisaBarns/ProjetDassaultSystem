@@ -35,10 +35,17 @@
         <input type="hidden" name="action" value="ModifierClient">
         </fieldset>
         <input type="submit" value="Valider" />
-        <input type="reset" value="Remettre à zéro" /> <br />
+        <input type="reset" value="Annuler" /> <br />
         </form>
         </div>
+              
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        </span> 
         
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         
     </body>
 </html>

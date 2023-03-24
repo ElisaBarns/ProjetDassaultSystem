@@ -102,9 +102,11 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     @Override
     public void CreerProfil(String login_utilisateur, Fonction fonction) {
         Utilisateur u=utilisateurFacade.RechercherUtilisateur(login_utilisateur);
+
         if(u!=null)
         {
             profilFacade.CreerProfil(fonction, u);
+
         }
     }
     
@@ -136,6 +138,11 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
         }*/
     }
     
+    @Override
+    public List<Profil> AfficherLesProfils() {
+        return profilFacade.AfficherTousLesProfils();
+    }
+    
     //Gérer les mots de passe des utilisateurs (définir ou réinitialiser)
     @Override
     public void ModifierMdpUtilisateur(String login_utilisateur, String mdp_utilisateur) {
@@ -156,6 +163,8 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
     //MAJ la configuration du système à partir des fichiers de propriétés
     //Accéder aux journaux du système pour enquêter sur les rpoblèmes
     //Consulter les journaux d'accès pour savoir qui accède au système
+
+
 
 
 

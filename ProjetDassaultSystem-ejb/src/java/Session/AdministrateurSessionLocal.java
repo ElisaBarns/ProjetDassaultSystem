@@ -8,6 +8,7 @@ import Entity.Fonction;
 import Entity.Profil;
 import Entity.Utilisateur;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -28,6 +29,8 @@ public interface AdministrateurSessionLocal {
     void CreerProfil(String login_utilisateur, Fonction fonction);
 
     void AttribuerRolesUtilisateur(String login_utilisateur, Profil p, Fonction f);
+    
+    List<Profil> AfficherLesProfils();
 
     Utilisateur RechercherUtilisateur(String login);
     

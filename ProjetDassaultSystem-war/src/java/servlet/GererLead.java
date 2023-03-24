@@ -6,6 +6,7 @@ package servlet;
 
 
 import Entity.Fonction;
+import Entity.Profil;
 import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
 import Facade.ContactFacadeLocal;
@@ -26,6 +27,7 @@ import Session.VendeurSessionLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
@@ -212,6 +214,14 @@ public class GererLead extends HttpServlet {
         {
             jspDassault="/CreerProfil.jsp";
             doActionCreerProfil(request,response);
+        }
+        
+        else if(act.equals("AfficherProfil"))
+        {
+            jspDassault="/AfficherProfils.jsp";
+            List<Profil>lesProfils=administrateurSession.AfficherLesProfils();
+            request.setAttribute("lesProfils",lesProfils);
+            request.setAttribute("message", "Liste des Profils existants");
         }
         
         else if(act.equals("AfficherPistesExpert"))//A TERMINER !!!

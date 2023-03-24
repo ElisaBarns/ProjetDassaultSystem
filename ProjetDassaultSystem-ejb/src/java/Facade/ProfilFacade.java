@@ -73,6 +73,15 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     }
 
     @Override
+    public List<Profil> AfficherTousLesProfils() {
+        List <Profil> p;
+        String tx = "SELECT p FROM Profil AS p";
+        Query req = getEntityManager().createQuery(tx);
+        p=req.getResultList();
+        return p;
+    }
+    
+    @Override
     public List<Profil> ListeVendeursActifs() {
         List<Profil> lp = findAll();
         ArrayList<Profil> lpva = new ArrayList();
@@ -109,10 +118,5 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
         
         return lpea;
     }
-    
-    
-    
-
-    
     
 }

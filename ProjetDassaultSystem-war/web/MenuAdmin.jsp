@@ -39,6 +39,7 @@
               <td Width =15%><A HREF ="ModifierMdpUtilisateur.jsp">Modifier le mot de passe d'un utilisateur</A></td> </br>
            
               <td Width =15%><A HREF ="CreerProfil.jsp">Créer un profil</A></td> </br>
+              <td Width =15%><A HREF ="AfficherProfils.jsp">Afficher la liste des profils</A></td> </br>
            </tr>
 
            <!--

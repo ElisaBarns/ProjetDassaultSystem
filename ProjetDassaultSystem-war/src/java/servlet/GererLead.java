@@ -418,21 +418,16 @@ public class GererLead extends HttpServlet {
         protected void doActionCreerClient (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
                 String nom = request.getParameter("nom_client");
                 String siret = request.getParameter("siret");
-                String nom_contact = request.getParameter("nom_contact");
-                String prenom_contact = request.getParameter("prenom_contact");
-                String mail_contact = request.getParameter("mail");
-                String tel_contact = request.getParameter("tel");
                 String message;
 
-                if (nom.trim().isEmpty()|| siret.trim().isEmpty() || nom_contact.trim().isEmpty() || prenom_contact.trim().isEmpty() || mail_contact.trim().isEmpty()|| tel_contact.trim().isEmpty())
+                if (nom.trim().isEmpty()|| siret.trim().isEmpty())
                 {
                     message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                             + "<br /> <a href =\"CreerClient.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un organisateur.";
                 }
                 else 
                 {
-                   marketeurSession.CreerClient(nom, siret, nom_contact, prenom_contact, mail_contact, tel_contact);
-                   //marketeurSession.CreerClient(nom, siret); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                   marketeurSession.CreerClient(nom, siret);
                    message = "Client créé avec succès!";
                 }
 
@@ -444,17 +439,18 @@ public class GererLead extends HttpServlet {
         String prenom_contact = request.getParameter("prenom_contact");
         String mail_contact = request.getParameter("mail_contact");
         String tel_contact = request.getParameter("tel_contact");
+        String nom_client=request.getParameter("nom_client");
         String message;
         
-        if (nom_contact.trim().isEmpty()|| prenom_contact.trim().isEmpty()|| mail_contact.trim().isEmpty()|| tel_contact.trim().isEmpty())
+        if (nom_contact.trim().isEmpty()|| prenom_contact.trim().isEmpty()|| mail_contact.trim().isEmpty()|| tel_contact.trim().isEmpty()||nom_client.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un utilisateur.";
         }
         else 
         {
-           marketeurSession.CreerContact(nom_contact, prenom_contact, mail_contact, tel_contact);
-           message = "Utilisateur créé avec succès!";
+           marketeurSession.CreerContact(nom_contact, prenom_contact, mail_contact, tel_contact, nom_client);
+           message = "Contact créé avec succès!";
         }
         
         request.setAttribute("message", message);

@@ -31,7 +31,7 @@ public interface ContactFacadeLocal {
 
     int count();
 
-    void creerContact(String nom_contact, String prenom_contact, String mail_contact, String tel_contact);
+    void creerContact(String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Client leClient);
 
     void modifierContact(Contact co, String nom_contact, String prenom_contact, String mail_contact, String tel_contact);
 

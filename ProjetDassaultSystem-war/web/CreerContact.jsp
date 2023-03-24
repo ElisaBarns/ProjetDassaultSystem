@@ -17,10 +17,10 @@
         <h1>Création contact</h1>
         
         <div>
-            <form method="get" action="GererLead">
+            <form method="post" action="GererLead">
                 <fieldset>
                     <legend>Informations du contact</legend>
-                    <br/><!-- comment -->          
+                    <br/>         
                     <label for="nom_contact">Nom <span class="requis"></span></label>
                     <input type="text" id="nom_contact" name="nom_contact" value="" size"20" maxlength="20"/>
                     <br/>
@@ -29,8 +29,12 @@
                     <br/>
                     <label for="mail_contact">Email <span class="requis"></span></label>
                     <input type="text" id="mail_contact" name="mail_contact" value="" size"50" maxlength="50"/>
-                  <label for="tel_contact">Téléphone <span class="requis"></span></label>
+                    <br/>
+                    <label for="tel_contact">Téléphone <span class="requis"></span></label>
                     <input type="text" id="tel_contact" name="tel_contact" value="" size"20" maxlength="20"/>
+                    <br/>
+                    <label for="nom_client">Nom du client <span class="requis"></span></label>
+                    <input type="text" id="nom_client" name="nom_client" value="" size"50" maxlength="50"/>
                     <br/>
                     
                                        

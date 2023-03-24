@@ -68,17 +68,22 @@ public class MarketeurSession implements MarketeurSessionLocal {
     }
     
     @Override
-    public void CreerClient(String nom, String siret, String nom_contact, String prenom, String mail, String tel) {
+    public void CreerClient(String nom, String siret) {
             clientFacade.creerClient(nom, siret);
-            contactFacade.creerContact(nom_contact, prenom, mail, tel);
+            //contactFacade.creerContact(nom_contact, prenom, mail, tel, leClient);
     }
     
     
     
     @Override
-    public void CreerContact(String nom, String prenom, String mail, String tel)
-    {
-        contactFacade.creerContact(nom, prenom, mail, tel);
+    public void CreerContact(String nom_client, String nom, String prenom, String mail, String tel){
+        Client c =clientFacade.rechercherClient(nom_client);
+        // POUR TEST //System.out.println("Coucou");
+        if(c!=null)
+        {
+           contactFacade.creerContact(nom, prenom, mail, tel, c); 
+           //POUR TEST //System.out.println("C'est good");
+        }
     }
     
     //Affecter un vendeur (+ vérifier si je suis assigné à cette piste, sinon jpp affecter un vendeur)

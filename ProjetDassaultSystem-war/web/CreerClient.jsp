@@ -20,14 +20,15 @@
                     <legend>Informations du client</legend>
                     <br/><!-- comment -->          
                     <label for="nom_client">Nom <span class="requis"></span></label>
-                    <input type="text" id="nom_client" name="nom_client" value="" size"20" maxlength="50"/>
+                    <input type="text" id="nom_client" name="nom_client" value="" size"50" maxlength="50"/>
                     <br/>
                     <label for="siret">SIRET <span class="requis"></span></label>
                     <input type="text" id="siret" name="siret" value="" size"20" maxlength="20"/>
                     <br/>
                     <br/>
+                    <!--
                     <legend>Informations du contact attaché</legend>
-                    <br/><!-- comment -->          
+                    <br/>         
                     <label for="nom_contact">Nom <span class="requis"></span></label>
                     <input type="text" id="nom_contact" name="nom_contact" value="" size"20" maxlength="20"/>
                     <br/>
@@ -40,7 +41,7 @@
                     <label for="tel">Téléphone <span class="requis"></span></label>
                     <input type="text" id="tel" name="tel" value="" size"20" maxlength="20"/>
                     <br/>
-                    
+                    -->
                     
                     <input type="hidden" name="action" value="CreerClient">
                     

@@ -35,13 +35,14 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
     //Créer contact
     
     @Override
-    public void creerContact(String nom_contact, String prenom_contact, String mail_contact, String tel_contact) {
+    public void creerContact(String nom_contact, String prenom_contact, String mail_contact, String tel_contact, Client leClient) {
     Contact co= new Contact();
   
     co.setNom_contact(nom_contact);
     co.setPrenom_contact(prenom_contact);
     co.setMail_contact(mail_contact);
     co.setTel_contact(tel_contact);
+    co.setLeClient(leClient);
     co.setInactif(false);
     co.setDate_creation_contact(new Date());
     co.setDate_modif_contact(null);

@@ -28,9 +28,9 @@ public interface MarketeurSessionLocal {
 
     void RouvrirPiste(long id);
 
-    void CreerClient(String nom, String siret, String nom_contact, String prenom, String mail, String tel);
+    void CreerClient(String nom, String siret);
     
-    void CreerContact(String nom, String prenom, String mail, String tel);
+    void CreerContact(String nom_client, String nom, String prenom, String mail, String tel);
 
     void ModifierClient(long id_client, String nom, String siret);
 

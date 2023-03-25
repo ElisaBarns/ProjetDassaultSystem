@@ -24,7 +24,7 @@
      <tr> <TD>Identifiant</TD>
           <TD>Utilisateur</TD>
           <TD>Fonction</TD>
-          <TD>Inactif (si 1)</TD>
+          <TD>Inactif</TD>
           <TD>Date de création</TD>
           <TD>Date d'inactivation</TD> </tr>
    <% List<Profil> lesProf=lesProfils;
@@ -32,14 +32,14 @@
    <tr> <td Width=15%><%=p.getId()%></td>
         <td Width=15%><%=p.getUnUtilisateur()%></td>
         <td Width=15%><%=p.getFonction()%></td>
-        <td Width=30%><%=p.isInactif()%></td>
-        <td Width=30%><%=p.getDate_creation_profil()%></td>
-        <td Width=30%><%=p.getDate_inactif_profil()%></td>
+        <td Width=15%><%=p.isInactif()%></td>
+        <td Width=15%><%=p.getDate_creation_profil()%></td>
+        <td Width=15%><%=p.getDate_inactif_profil()%></td>
    </tr><%}%>
      </TABLE> 
               
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span>
         
         <span class="SeDeconnecter">

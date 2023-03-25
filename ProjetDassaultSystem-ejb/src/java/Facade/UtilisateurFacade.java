@@ -35,17 +35,19 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     //Authentification
     @Override
     public Utilisateur Authentification(String login_utilisateur, String mdp_utilisateur) {
-    Utilisateur u=null;
-    String txt="SELECT u FROM Utilisateur AS u WHERE u.login_utilisateur=:login and u.mdp_utilisateur=:mdp";
-    Query req=getEntityManager().createQuery(txt);
-    req=req.setParameter("login",login_utilisateur);
-    req=req.setParameter("mdp",mdp_utilisateur);
-    List<Utilisateur>result=req.getResultList();
-    if (result.size()==1){
-        u=(Utilisateur)result.get(0);
+    Utilisateur u = null;
+    String txt = "SELECT u FROM Utilisateur AS u WHERE u.login_utilisateur=:login and u.mdp_utilisateur=:mdp";
+    Query req = getEntityManager().createQuery(txt);
+    req = req.setParameter("login", login_utilisateur);
+    req = req.setParameter("mdp", mdp_utilisateur);
+    List<Utilisateur> result = req.getResultList();
+    if (result.size() == 1) {
+        u = (Utilisateur) result.get(0);
     }
     return u;
     }
+
+
     
     //Créer utilisateur
     @Override

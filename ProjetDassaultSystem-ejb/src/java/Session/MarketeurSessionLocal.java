@@ -22,7 +22,7 @@ import javax.ejb.Local;
 @Local
 public interface MarketeurSessionLocal {
 
-    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, long id_client);
+    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, String nom_client);
 
     void AffecterVendeur(long id);
 
@@ -46,5 +46,6 @@ public interface MarketeurSessionLocal {
 
     List<Client> AfficherListeClients();
 
+    List<Piste_opportunite> AfficherPistes();
     
 }

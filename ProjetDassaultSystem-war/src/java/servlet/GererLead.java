@@ -6,6 +6,8 @@ package servlet;
 
 
 import Entity.Fonction;
+import Entity.Niveau;
+import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
@@ -221,13 +223,22 @@ public class GererLead extends HttpServlet {
             jspDassault="/AfficherProfils.jsp";
             List<Profil>lesProf=administrateurSession.AfficherLesProfils();
             request.setAttribute("lesProfils",lesProf);
-            request.setAttribute("message", "Liste des Profils existants");
+            request.setAttribute("message", "");
+        }
+        
+        else if(act.equals("AfficherListeMarketeur"))
+        {
+            //TROUVER UN MOYEN DE GERER LE NIVEAU_RISQUE QUI EST UNE CLASSE DE TYPE ENUM
+            jspDassault="/AfficherListeMarketeur.jsp";
+            List<Piste_opportunite>lesPO=marketeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", "");
         }
         
         else if(act.equals("AfficherPistesExpert"))//A TERMINER !!!
         {
             jspDassault="/AfficherPistesExpert.jsp";
-            List<Profil> lesPistes_opportunites= expertSession.AfficherPistesExpert();
+            List<Piste_opportunite> lesPistes_opportunites= expertSession.AfficherPistesExpert();
             request.setAttribute("lesPistes",lesPistes_opportunites);
             request.setAttribute("message", "Liste des Profils existants");
         }
@@ -242,6 +253,12 @@ public class GererLead extends HttpServlet {
         {
             jspDassault="/CreerContact.jsp";
             doActionCreerContact(request, response);
+        }
+        
+        else if(act.equals("CreerPiste"))
+        {
+            jspDassault="/CreerPiste.jsp";
+            doActionCreerClient(request, response);
         }
     /*mettre les else if ici*/
 
@@ -453,6 +470,79 @@ public class GererLead extends HttpServlet {
            message = "Contact créé avec succès!";
         }
         
+        request.setAttribute("message", message);
+    }
+        
+        protected void doActionCreerPiste (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        HttpSession sess=request.getSession(true);
+        String id_client = request.getParameter("id_client");
+        String id_marketeur = request.getParameter("id_marketeur");
+        String niveau_interet = request.getParameter("niveau_interet");
+        String tx_reussite = request.getParameter("tx_reussite");
+        String niveau_risque = request.getParameter("niveau_risque");
+        String budget_estime = request.getParameter("budget_estime");
+        int tx_reussiteI=Integer.parseInt(tx_reussite);
+        double budget_estimeD=Double.parseDouble(budget_estime);
+        long id_marketeurL=Long.parseLong(id_marketeur);
+        String message;
+
+        if (id_client.trim().isEmpty()|| id_marketeur.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"CreerClient.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un organisateur.";
+        }
+        else 
+        {
+            //Pour avoir l'ordre des différents niveaux dans la méthode-->1er niveau=interet; 2e niveau=risque
+            //marketeurSession.CreerPiste(niveau_interet, tx_reussite, niveau_risque, budget_estime, id_marketeur, id_client);
+            if(niveau_interet.equals("bas"))
+            {
+                if(niveau_risque.equals("bas"))
+                {
+                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.BAS, budget_estimeD, id_marketeur, id_client);
+                }
+                else if(niveau_risque.equals("medium"))
+                {
+                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, id_marketeur, id_client);
+                }
+                else if(niveau_risque.equals("haut"))
+                {
+                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.HAUT, budget_estimeD, id_marketeur, id_client);
+                }
+            }
+            else if (niveau_interet.equals("medium"))
+            {
+                if(niveau_risque.equals("bas"))
+                {
+                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.BAS, budget_estimeD, id_marketeur, id_client);
+                }
+                else if(niveau_risque.equals("medium"))
+                {
+                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, id_marketeur, id_client);
+                }
+                else if(niveau_risque.equals("haut"))
+                {
+                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.HAUT, budget_estimeD, id_marketeur, id_client);
+                }
+            }
+            else if(niveau_interet.equals("haut"))
+            {
+                if(niveau_risque.equals("bas"))
+                {
+                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.BAS, budget_estimeD, id_marketeur, id_client);
+                }
+                else if(niveau_risque.equals("medium"))
+                {
+                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, id_marketeur, id_client);
+                }
+                else if(niveau_risque.equals("haut"))
+                {
+                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.HAUT, budget_estimeD, id_marketeur, id_client);
+                }
+            }
+           message = "Piste créé avec succès!";
+        }
+
         request.setAttribute("message", message);
     }
 

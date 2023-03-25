@@ -38,7 +38,7 @@ public interface ProfilFacadeLocal {
 
     void InactiverProfil(Profil p);
 
-    Profil RechercherProfilparID(long id);
+    Profil RechercherProfilparId(long id_marketeur);
     
     List<Profil> AfficherTousLesProfils();
 

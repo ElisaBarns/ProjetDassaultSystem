@@ -270,9 +270,9 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     }
 
     @Override
-    public List<Profil> AfficherPistes() {
-        List <Profil> lesPistes_opportunites;
-        String tx = "SELECT p FROM Profil AS p";
+    public List<Piste_opportunite> AfficherPistes() {
+        List <Piste_opportunite> lesPistes_opportunites;
+        String tx = "SELECT p FROM Piste_opportunite AS p";
         Query req = getEntityManager().createQuery(tx);
         lesPistes_opportunites=req.getResultList();
         return lesPistes_opportunites;

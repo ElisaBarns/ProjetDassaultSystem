@@ -365,8 +365,4 @@ public class Piste_opportunite implements Serializable {
         this.leClient = leClient;
     }
 
-    //TEST POUR SUPPRIMER LE VENDEUR AFFECTE A LA PISTE (LORSQU'IL REFUSE)
-    /*public void ViderVendeur(Piste_opportunite p){
-        p.delete();
-    }*/
 }

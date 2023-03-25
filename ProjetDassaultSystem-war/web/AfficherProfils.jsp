@@ -15,12 +15,12 @@
         <title>Les profils</title>
     </head>
     <body>
-        <h1>Les profils</h1>
+        <h1>Liste des profils existants</h1>
         <p> <%
       String attribut = (String) request.getAttribute("message");
       out.println( attribut );
       %> </p>
-    <TABLE border width=50%>
+    <TABLE border width=30%>
      <tr> <TD>Identifiant</TD>
           <TD>Utilisateur</TD>
           <TD>Fonction</TD>
@@ -32,9 +32,9 @@
    <tr> <td Width=15%><%=p.getId()%></td>
         <td Width=15%><%=p.getUnUtilisateur()%></td>
         <td Width=15%><%=p.getFonction()%></td>
-        <td Width=15%><%=p.isInactif()%></td>
-        <td Width=15%><%=p.getDate_creation_profil()%></td>
-        <td Width=15%><%=p.getDate_inactif_profil()%></td>
+        <td Width=30%><%=p.isInactif()%></td>
+        <td Width=30%><%=p.getDate_creation_profil()%></td>
+        <td Width=30%><%=p.getDate_inactif_profil()%></td>
    </tr><%}%>
      </TABLE> 
               

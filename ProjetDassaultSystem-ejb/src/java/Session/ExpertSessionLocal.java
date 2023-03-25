@@ -30,5 +30,5 @@ public interface ExpertSessionLocal {
 
     void SupprimerDetailOffre(long id_detail);
 
-    List<Profil> AfficherPistesExpert();
+    List<Piste_opportunite> AfficherPistesExpert();
 }

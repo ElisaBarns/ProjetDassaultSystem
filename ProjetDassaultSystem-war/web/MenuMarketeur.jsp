@@ -31,7 +31,7 @@
 
            
           <tr> 
-           <td Width =15%><A HREF ="AfficherListeMarketeur.jsp">Afficher ma liste de pistes</A></td> 
+           <td Width =15%><A HREF ="GererLead?action=AfficherListeMarketeur">Afficher ma liste de pistes</A></td> 
 
            <!--
             <tr> 

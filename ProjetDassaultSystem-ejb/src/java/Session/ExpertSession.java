@@ -52,7 +52,7 @@ public class ExpertSession implements ExpertSessionLocal {
     
     //Afficher tous les leads et opportunités qui me sont attribués
     @Override
-    public List<Profil> AfficherPistesExpert() {
+    public List<Piste_opportunite> AfficherPistesExpert() {
         return piste_opportuniteFacade.AfficherPistes();
     }
     

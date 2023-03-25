@@ -63,11 +63,11 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     }
 
     @Override
-    public Profil RechercherProfilparID(long id) {
+    public Profil RechercherProfilparId(long id_marketeur) {
         Profil p=null;
-        String txt=" SELECT p FROM Profil AS p WHERE p.id=:id";
+        String txt=" SELECT p FROM Profil AS p WHERE p.u=:u";
         Query req=getEntityManager().createQuery(txt);
-        req=req.setParameter("id", id);
+        req=req.setParameter("id_marketeur", id_marketeur);
         p=(Profil)req.getSingleResult();
         return p;
     }

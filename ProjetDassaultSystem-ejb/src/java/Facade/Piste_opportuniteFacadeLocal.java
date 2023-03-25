@@ -78,7 +78,7 @@ public interface Piste_opportuniteFacadeLocal {
 
     void AjouterEnregistrementApresModifPiste(Piste_opportunite p);
 
-    List<Profil> AfficherPistes();
+    List<Piste_opportunite> AfficherPistes();
 
     
 

@@ -15,17 +15,18 @@ import javax.ejb.Stateful;
  */
 @Stateful
 public class UtilisateurSession implements UtilisateurSessionLocal {
-    
     @EJB
     private UtilisateurFacadeLocal utilisateurFacade;
+    private Utilisateur connectedUser;
 
     @Override
     public Utilisateur authentification(String login, String mdp) {
-        //long id;
-        Utilisateur u;
-        u=utilisateurFacade.Authentification(login, mdp);
-        //id=u.getId();
-        return u;
+        connectedUser = utilisateurFacade.Authentification(login, mdp);
+        return connectedUser;
+    }
+
+    public Utilisateur getConnectedUser() {
+        return connectedUser;
     }
 
     // Add business logic below. (Right-click in editor and choose

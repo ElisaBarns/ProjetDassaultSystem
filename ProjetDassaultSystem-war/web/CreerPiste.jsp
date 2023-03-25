@@ -1,47 +1,48 @@
 <%-- 
-    Document   : CreerPiste
-    Created on : 22 mars 2023, 21:19:58
-    Author     : marie
+    Document   : CreerUtilisateur
+    Created on : 16 mars 2023, 15:01:22
+    Author     : Mel
 --%>
-
-<%@page import="Entity.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Création d'une Piste</title>
         <link rel="stylesheet" href="CSS.css">
-        <jsp:useBean id="listeclients" scope="request" class="java.util.List"></jsp:useBean>
         
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Création d'une piste</title>
     </head>
     <body>
-        <h1>Nouvelle Piste</h1>
-        
-        
+        <h1>Création d'une piste</h1>
         
         <div>
-            <form method="post" action="GererLead">
+            <form method="get" action="GererLead">
                 <fieldset>
                     <legend>Informations de la piste</legend>
-                    <br/><!-- comment -->          
-                    <label for="niveau_interet">Niveau d'intérêt de la piste <span class="requis"></span></label>
-                    <input type="text" id="niveau_interet" name="niveau_interet" value="" size"20" maxlength="20"/>
-                    <br/>
-                    <label for="tx_reussite">Taux de réussite estimé <span class="requis"></span></label>
+                    <br/>       
+                    <tr><td>Niveau de risque</td><td><SELECT size="1" name="niveau_risque"> 
+                    <OPTION value ="bas">Bas</OPTION> 
+                    <OPTION value ="medium">Medium</OPTION> 
+                    <OPTION value ="haut">Haut</OPTION> 
+                    </SELECT></td></tr>
+                    <label for="tx_reussite">Taux de réussite <span class="requis"></span></label>
                     <input type="text" id="tx_reussite" name="tx_reussite" value="" size"20" maxlength="20"/>
                     <br/>
-                    <label for="budget_estime">Budget estimé du client <span class="requis"></span></label>
+                    <tr><td>Niveau d'intérêt</td><td><SELECT size="1" name="niveau_interet"> 
+                    <OPTION value ="bas">Bas</OPTION> 
+                    <OPTION value ="medium">Medium</OPTION> 
+                    <OPTION value ="haut">Haut</OPTION> 
+                    </SELECT></td></tr>
+                    <label for="budget_estime">Budget estimé <span class="requis"></span></label>
                     <input type="text" id="budget_estime" name="budget_estime" value="" size"20" maxlength="20"/>
                     <br/>
-                    <legend>Choisir le client concerné </legend>
-                        <label for="id_client">Identifiant du client <span class="requis">*</span></label>
-                        <select name="id_client">
-                        <% for (Client c :lesClients) {%>
-                        <option value ="<%=c.getId()%>"><%=c.getId()%></option>
-                        <% }%>
-                        </select>
-                    //si client à créer ??
+                    <label for="id_marketeur">Votre identifiant <span class="requis"></span></label>
+                    <input type="text" id="id_marketeur" name="id_marketeur" value="" size"20" maxlength="20"/>
+                    <br/>
+                    <label for="id_client">Identifiant du client <span class="requis"></span></label>
+                    <input type="text" id="id_client" name="id_client" value="" size"50" maxlength="50"/>
+                    <br/>
+
                     
                     <input type="hidden" name="action" value="CreerPiste">
                     
@@ -51,11 +52,11 @@
                         
             </form>
         </div>
-                      
+        
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
-        </span> 
-                        
+        </span>
+        
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>

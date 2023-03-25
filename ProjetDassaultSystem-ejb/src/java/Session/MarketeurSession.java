@@ -49,13 +49,23 @@ public class MarketeurSession implements MarketeurSessionLocal {
     // "Insert Code > Add Business Method")
     
     
-    //Créer une piste ou opportunité
+    //Créer une piste
     @Override
-    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, long id_client) {
-       Client client = clientFacade.rechercherClientparId(id_client);
-       Profil marketeur = profilFacade.RechercherProfilparID(id_marketeur);
-            Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, marketeur, client);
-        piste_opportuniteFacade.CreerEnregistrementapresCreationPiste(p);
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, String nom_client) {
+       Client c = clientFacade.rechercherClient(nom_client);
+       if(c!=null)
+       {
+          Profil m = profilFacade.RechercherProfilparId(id_marketeur);
+          if(m!=null)
+          {
+              Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, m, c);
+          }
+       }
+       else
+       {
+           System.out.println("Le nom saisi pour le client n'existe pas dans la base de données. Veuillez réessayer.");
+       }
+       //piste_opportuniteFacade.CreerEnregistrementapresCreationPiste(p);
     }
     
     
@@ -98,7 +108,7 @@ public class MarketeurSession implements MarketeurSessionLocal {
             //m=po.getMarketeur();
             //if(listeProfils.contains(m))
             //{
-            Profil vendeur = profilFacade.RechercherProfilparID(id);
+            Profil vendeur = profilFacade.RechercherProfilparId(id);
             if(vendeur.getFonction().equals(Fonction.VENDEUR))
             {
                 piste_opportuniteFacade.AffecterVendeur(po, vendeur);
@@ -168,7 +178,10 @@ public class MarketeurSession implements MarketeurSessionLocal {
         return lc;
     }
     
-    
+    @Override
+    public List<Piste_opportunite> AfficherPistes() {
+        return piste_opportuniteFacade.AfficherPistes();
+    }
     
     
     

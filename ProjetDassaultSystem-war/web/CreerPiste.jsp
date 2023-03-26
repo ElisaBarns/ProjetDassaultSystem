@@ -36,11 +36,8 @@
                     <label for="budget_estime">Budget estimé <span class="requis"></span></label>
                     <input type="text" id="budget_estime" name="budget_estime" value="" size"20" maxlength="20"/>
                     <br/>
-                    <label for="id_marketeur">Votre identifiant <span class="requis"></span></label>
-                    <input type="text" id="id_marketeur" name="id_marketeur" value="" size"20" maxlength="20"/>
-                    <br/>
-                    <label for="id_client">Identifiant du client <span class="requis"></span></label>
-                    <input type="text" id="id_client" name="id_client" value="" size"50" maxlength="50"/>
+                    <label for="nom_client">Nom du client <span class="requis"></span></label>
+                    <input type="text" id="nom_client" name="nom_client" value="" size"50" maxlength="50"/>
                     <br/>
 
                     

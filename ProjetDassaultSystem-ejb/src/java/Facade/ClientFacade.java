@@ -50,7 +50,8 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
        
     //Modifier client
     @Override
-    public void modifierClient(Client c, String nom_client, String siret) {
+    public void modifierClient(Client c, long idClient, String nom_client, String siret) {
+        c.setId(idClient);
         c.setNom_client(nom_client);
         c.setSiret(siret);
         c.setDate_modif_client(new Date());
@@ -96,6 +97,4 @@ public class ClientFacade extends AbstractFacade<Client> implements ClientFacade
     return c; 
                
     }
-    
-    
-}
+ }

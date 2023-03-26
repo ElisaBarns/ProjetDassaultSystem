@@ -111,6 +111,7 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
             if(p.getFonction().equals(Fonction.EXPERT_TECHNIQUE) && p.isInactif() == false) {
                 
                 lpea.add(p);
+               System.out.println(p.getId());
                 i++;
             }
             else { i++;}

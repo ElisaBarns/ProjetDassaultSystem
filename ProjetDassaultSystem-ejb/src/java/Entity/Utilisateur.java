@@ -292,6 +292,23 @@ public class Utilisateur implements Serializable {
         this.date_modification_utilisateur = date_modification_utilisateur;
     }
  
-
+    public boolean verify_Marketeur(){
+        for (int i=0;i<lesProfils.size();i++){
+            System.out.println(lesProfils.get(i).getFonction().name());
+            if (lesProfils.get(i).getFonction().name().equals("MARKETEUR")){
+                return true;
+            }
+        }
+        return false;
+    }
+ public boolean verify_Vendeur(){
+        for (int i=0;i<lesProfils.size();i++){
+            System.out.println(lesProfils.get(i).getFonction().name());
+            if (lesProfils.get(i).getFonction().name().equals("VENDEUR")){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

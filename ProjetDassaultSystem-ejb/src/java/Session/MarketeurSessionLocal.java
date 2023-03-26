@@ -22,7 +22,7 @@ import javax.ejb.Local;
 @Local
 public interface MarketeurSessionLocal {
 
-    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, String nom_client);
+    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, String nom_client);
 
     void AffecterVendeur(long id);
 
@@ -32,7 +32,7 @@ public interface MarketeurSessionLocal {
     
     void CreerContact(String nom_client, String nom, String prenom, String mail, String tel);
 
-    void ModifierClient(long id_client, String nom, String siret);
+   /* void ModifierClient(long id_client, String nom, String siret);*/
 
     void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel);
 

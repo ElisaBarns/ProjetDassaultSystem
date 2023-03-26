@@ -51,15 +51,13 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Créer une piste
     @Override
-    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long id_marketeur, String nom_client) {
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, String nom_client) {
        Client c = clientFacade.rechercherClient(nom_client);
        if(c!=null)
        {
-          Profil m = profilFacade.RechercherProfilparId(id_marketeur);
-          if(m!=null)
-          {
-              Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, m, c);
-          }
+                    
+              Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, c);
+          
        }
        else
        {
@@ -133,12 +131,12 @@ public class MarketeurSession implements MarketeurSessionLocal {
         
     }
 
-    @Override
+   /* @Override
     public void ModifierClient(long id_client, String nom, String siret) {
         Client c = clientFacade.rechercherClientparId(id_client);
         clientFacade.modifierClient(c, nom, siret);
         
-    }
+    }*/
 
     @Override
     public void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel) {

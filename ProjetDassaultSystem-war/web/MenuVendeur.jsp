@@ -31,6 +31,7 @@
            <td Width =15%><A HREF ="PisteGagne.jsp">Déclarer cette opportunité comme gagné</A></td> 
            <td Width =15%><A HREF ="PistePerdu.jsp">Déclarer cette opportunité comme perdu</A></td>
            <td Width =15%><A HREF ="AfficherListePO.jsp">Afficher la liste de mes pistes/opportunités</A></td>
+           <td Width =15%><A HREF ="ModifierClient.jsp">Modifier un client</A></td>
            </tr>
 
            <!--

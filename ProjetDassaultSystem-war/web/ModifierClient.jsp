@@ -4,7 +4,6 @@
     Author     : marie
 --%>
 
-<%@page import="java.util.List"%>
 <%@page import="Entity.Client"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,11 +22,13 @@
         <fieldset>
         <legend>Informations du Client </legend>
  
-                
-        <label for="nom_client">Nom <span class="requis"></span></label>
+        <label for="clientId">Identifiant client <span class="requis"></span></label>
+        <input type="text" id="clientId" name="clientId" value="" size"20" maxlength="20"/>
+                    <br/>        
+        <label for="nom_client">Nom <span class=""></span></label>
         <input type="text" id="nom_client" name="nom_client" value="" size"20" maxlength="20"/>
                     <br/>
-        <label for="siret">SIRET <span class="requis"></span></label>
+        <label for="siret">SIRET <span class=" "></span></label>
         <input type="text" id="siret" name="siret" value="" size"20" maxlength="20"/>
                     <br/>
         
@@ -40,7 +41,7 @@
         </div>
               
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'"><br />
         </span> 
         
         <span class="SeDeconnecter">

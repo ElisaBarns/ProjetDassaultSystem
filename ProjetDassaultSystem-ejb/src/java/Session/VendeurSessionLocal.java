@@ -20,9 +20,9 @@ import javax.ejb.Local;
 @Local
 public interface VendeurSessionLocal {
 
-    void AffecterExpert(long id, long idexpert);
+   // void AffecterExpert(long id, long idexpert);
 
-    void AccepterPiste(long id, long idvendeur);
+  //  void AccepterPiste(long id, long idvendeur);
     
     void RefuserPiste(long id);
 
@@ -36,7 +36,7 @@ public interface VendeurSessionLocal {
     
     void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient);
     
-    void ModifierClient(long id_client, String nom, String siret);
+    void ModifierClient(long id, String nom, String siret);
     
     void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel);
     

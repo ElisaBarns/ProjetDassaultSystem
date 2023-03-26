@@ -4,3 +4,6 @@
 /ProjetDassaultSystem-war/dist/
 /build/
 /dist/
+/ProjetDassaultSystem-ejb/nbproject/private/
+/ProjetDassaultSystem-war/nbproject/private/
+/nbproject/private/

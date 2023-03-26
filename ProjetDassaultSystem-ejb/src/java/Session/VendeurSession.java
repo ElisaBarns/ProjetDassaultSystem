@@ -46,8 +46,8 @@ public class VendeurSession implements VendeurSessionLocal {
     // "Insert Code > Add Business Method")
     
     //Accepter une piste qui m'a été attribuée
-    @Override
-    public void AccepterPiste(long id, long idvendeur) {
+    //@Override
+    /*public void AccepterPiste(long id, long idvendeur) {
         
             //IL NE FAUT PAS RECHERCHER LA PISTE PUISQU'IL EST CENSE EN AVOIR CHOISI UNE
             //LA SOLUTION SERAIT D'AFFICHER UNE LISTE DES PISTES SOUS LE STATUT QUALIFIE, autrement dit des pistes auxquelles des vendeurs ont été affectés mais que ce dernier n'a pas encore repondu
@@ -56,7 +56,8 @@ public class VendeurSession implements VendeurSessionLocal {
             v=po.getVendeur();
             if(listeProfils.contains(v))
             {*/
-            Profil vendeur = profilFacade.RechercherProfilparID(idvendeur);
+          /*  Profil vendeur = profilFacade.RechercherProfilparID(idvendeur); Erreur sur laquelle tu étais hier !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         
             Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
                 piste_opportuniteFacade.AccepterParVendeur(p, vendeur);
             /*}
@@ -65,25 +66,25 @@ public class VendeurSession implements VendeurSessionLocal {
                 System.out.println("Vous n'avez pas les droits d'accès nécessaires pour modifier le vendeur affecté à cette piste. Veuillez vous rapprocher de votre administrateur.");
             }*/
         
-    }
+   // }
     
     
     //Refuser une piste qui m'a été affectée
     @Override
     public void RefuserPiste(long id) {
-        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
+        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id); 
             piste_opportuniteFacade.RefuserParVendeur(p); 
         
     }
     
     
     //Assigner un expert technique
-    @Override
+  /*  @Override
     public void AffecterExpert(long id, long idexpert) {
         
             
             Piste_opportunite po=piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
-            Profil expert_technique = profilFacade.RechercherProfilparID(idexpert);
+            Profil expert_technique = profilFacade.RechercherProfilparID(idexpert); Erreur sur laquelle tu étais hier !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
          
             
             
@@ -91,7 +92,7 @@ public class VendeurSession implements VendeurSessionLocal {
             
         
         
-    }
+    }*/
     
     //Afficher toutes les pistes et opportunités qui me sont attribuées
     //PAS BESOIN CAR A GERER DANS JSP ?????
@@ -151,10 +152,14 @@ public class VendeurSession implements VendeurSessionLocal {
     }
     
     @Override
-    public void ModifierClient(long id_client, String nom, String siret) {
-        Client c = clientFacade.rechercherClientparId(id_client);
-        clientFacade.modifierClient(c, nom, siret);
-        
+    public void ModifierClient(long id, String nom, String siret) {
+        Client c = clientFacade.rechercherClientparId(id);
+        if (c!=null)
+        {
+         clientFacade.modifierClient(c, id, nom, siret);
+        }
+    
+            
     }
     
     @Override
@@ -162,5 +167,6 @@ public class VendeurSession implements VendeurSessionLocal {
         Contact c = contactFacade.rechercherContact(id_contact);
         contactFacade.modifierContact(c, nom, prenom, mail, tel);
     }
+
     
 }

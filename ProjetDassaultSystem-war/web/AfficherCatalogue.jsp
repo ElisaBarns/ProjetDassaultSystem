@@ -15,17 +15,32 @@
     </head>
     <body>
         <h1>Catalogues des logiciels</h1>
-        
-        <%
-                String s = "";
-                BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\rober\\Documents\\NetBeansProject\\ProjetDassaultSystem\\src\\Externe\\Catalogue.csv"));
-              String  line = br.readLine();
-                                if(line != null){
-                    s=line;
+<table>
+<%
+    BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\rober\\Documents\\NetBeansProject\\ProjetDassaultSystem\\src\\Externe\\Catalogue.csv"));
+    String line;
+    while ((line = br.readLine()) != null){
+        try{
+            String[] csv_value = line.split(";");
+%>
+            <tr>
+<%
+                for(int i = 0 ; i < csv_value.length ; i++){
+%>
+                    <td Width=20%><%=csv_value[i]%></td>
+<%
                 }
-        
-        %>
-        
-        <h1> <%=s%></h1>
+%>
+            </tr>
+<%
+        }
+        catch(Exception e){}
+    }
+%>
+</table>
+        <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='CreerOffre.jsp'"><br />
+        </span> 
+   
     </body>
 </html>

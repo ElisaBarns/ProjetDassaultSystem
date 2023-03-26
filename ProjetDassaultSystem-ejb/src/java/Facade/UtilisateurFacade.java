@@ -124,6 +124,17 @@ public class UtilisateurFacade extends AbstractFacade<Utilisateur> implements Ut
     return u;        
     }
     
+     @Override
+    public Utilisateur RechercherUtilisateurParId(long id) {
+    Utilisateur u=null;
+    String txt="SELECT u FROM Utilisateur AS u WHERE u.id=:id";
+    Query req=getEntityManager().createQuery(txt);
+    req=req.setParameter("id", id);
+    u=(Utilisateur)req.getSingleResult();
+          return u; 
+    }
     
+            
+   }
     
-}
+

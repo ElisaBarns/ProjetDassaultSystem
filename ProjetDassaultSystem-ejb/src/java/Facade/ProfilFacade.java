@@ -63,14 +63,15 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
     }
 
     @Override
-    public Profil RechercherProfilparId(long id_marketeur) {
+    public Profil RechercherProfilparId(long id) {
         Profil p=null;
-        String txt=" SELECT p FROM Profil AS p WHERE p.u=:u";
+        String txt="SELECT p FROM Profil AS p WHERE p.id=:id";
         Query req=getEntityManager().createQuery(txt);
-        req=req.setParameter("id_marketeur", id_marketeur);
+        req=req.setParameter("id", id);
         p=(Profil)req.getSingleResult();
         return p;
     }
+    
 
     @Override
     public List<Profil> AfficherTousLesProfils() {
@@ -119,5 +120,24 @@ public class ProfilFacade extends AbstractFacade<Profil> implements ProfilFacade
         
         return lpea;
     }
-    
+    @Override
+     public Profil RechercherUnMarketeurParId(Utilisateur unUtilisateur)
+    {
+        Profil p=null;
+          List <Profil> listeProfil;
+        String txt="SELECT p FROM Profil AS p WHERE p.unUtilisateur=:unUtilisateur";
+        Query req=getEntityManager().createQuery(txt);
+        req=req.setParameter("unUtilisateur", unUtilisateur);
+       listeProfil=req.getResultList();
+       
+       for (int i=0;i<listeProfil.size();i++){
+            System.out.println(listeProfil.get(i).getFonction().name());
+            if (listeProfil.get(i).getFonction().name().equals("MARKETEUR")){
+                p=listeProfil.get(i);
+            }
+            
+            }
+            
+        return p;
+          }
 }

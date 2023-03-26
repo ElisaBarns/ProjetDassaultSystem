@@ -301,6 +301,7 @@ public class Utilisateur implements Serializable {
         }
         return false;
     }
+    
  public boolean verify_Vendeur(){
         for (int i=0;i<lesProfils.size();i++){
             System.out.println(lesProfils.get(i).getFonction().name());

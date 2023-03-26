@@ -1,0 +1,4 @@
+ID_Produit;Nom_Produit;Description_commerciale;PU_produit;Inactif
+1;logiciel1;desc1;563,1;0
+2;logiciel2;desc2;965,1;0
+3;logiciel3;desc3;1445,1;1

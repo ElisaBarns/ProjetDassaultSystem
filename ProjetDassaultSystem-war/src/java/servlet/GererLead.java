@@ -494,7 +494,7 @@ public class GererLead extends HttpServlet {
         String nom_client = request.getParameter("nom_client");
         System.out.println("1");
         Long id_marketeur = u.getId();
-         System.out.println("2");
+         System.out.println("2" + id_marketeur);
         String niveau_interet = request.getParameter("niveau_interet");
          System.out.println("3");
         String tx_reussite = request.getParameter("tx_reussite");
@@ -506,7 +506,7 @@ public class GererLead extends HttpServlet {
         int tx_reussiteI=Integer.parseInt(tx_reussite);
          System.out.println(budget_estime);
         double budget_estimeD=Double.parseDouble(budget_estime);
-       
+       Utilisateur marketeur = marketeurSession.RechercherUnMarketeurParId(id_marketeur);
         String message;
          System.out.println("A");
           System.out.println("A");
@@ -525,45 +525,45 @@ public class GererLead extends HttpServlet {
             {
                 if(niveau_risque.equals("bas"))
                 {
-                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.BAS, budget_estimeD, nom_client);
+                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.BAS, budget_estimeD, marketeur, nom_client);
                 }
                 else if(niveau_risque.equals("medium"))
                 {
-                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.MEDIUM, budget_estimeD,nom_client);
+                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.MEDIUM, budget_estimeD,marketeur,nom_client);
                 }
                 else if(niveau_risque.equals("haut"))
                 {
-                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.HAUT, budget_estimeD, nom_client);
+                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.HAUT, budget_estimeD, marketeur, nom_client);
                 }
             }
             else if (niveau_interet.equals("medium"))
             {
                 if(niveau_risque.equals("bas"))
                 {
-                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.BAS, budget_estimeD, nom_client);
+                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.BAS, budget_estimeD,marketeur, nom_client);
                 }
                 else if(niveau_risque.equals("medium"))
                 {
-                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, nom_client);
+                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.MEDIUM, budget_estimeD,marketeur, nom_client);
                 }
                 else if(niveau_risque.equals("haut"))
                 {
-                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.HAUT, budget_estimeD,  nom_client);
+                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.HAUT, budget_estimeD, marketeur,  nom_client);
                 }
             }
             else if(niveau_interet.equals("haut"))
             {
                 if(niveau_risque.equals("bas"))
                 {
-                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.BAS, budget_estimeD, nom_client);
+                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.BAS, budget_estimeD,marketeur, nom_client);
                 }
                 else if(niveau_risque.equals("medium"))
                 {
-                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.MEDIUM, budget_estimeD,  nom_client);
+                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, marketeur, nom_client);
                 }
                 else if(niveau_risque.equals("haut"))
                 {
-                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.HAUT, budget_estimeD, nom_client);
+                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.HAUT, budget_estimeD,marketeur, nom_client);
                 }
             }
            message = "Piste créé avec succès!";

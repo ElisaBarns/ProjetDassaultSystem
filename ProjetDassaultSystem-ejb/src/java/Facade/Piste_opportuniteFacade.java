@@ -13,6 +13,7 @@ import Entity.PisteOpp;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
+import Entity.Utilisateur;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
@@ -45,10 +46,9 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Créer piste
     @Override
-    public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Client leClient) 
+    public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient) 
     {
         Piste_opportunite po = new Piste_opportunite();
-
         po.setDate_creation_popp(new Date());
         po.setDate_modif_popp(null);
         po.setNiveau_risque(niveau_risque);
@@ -57,6 +57,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         po.setBudget_estime(budget_estime);
         po.setType(PisteOpp.PISTE);
         po.setStatut(Statut.OUVERTE);
+        po.setMarketeur(marketeur);
         po.setVendeur(null);
         po.setExpert_technique(null);
         po.setLeClient(leClient);

@@ -13,6 +13,7 @@ import Entity.PisteOpp;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
+import Entity.Utilisateur;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
@@ -38,7 +39,7 @@ public interface Piste_opportuniteFacadeLocal {
 
     int count();
 
-    Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime,Client leClient);
+    Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient);
 
     Piste_opportunite ModifierPisteOpportunite(Piste_opportunite p, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Client leClient);
 
@@ -79,6 +80,8 @@ public interface Piste_opportuniteFacadeLocal {
     void AjouterEnregistrementApresModifPiste(Piste_opportunite p);
 
     List<Piste_opportunite> AfficherPistes();
+
+    //public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, Client leClient);
 
     
 

@@ -26,6 +26,7 @@
           <tr> 
           <td Width =15%><A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A></td><br>
           <td Width =15%><A HREF ="AfficherPistesExpert.jsp">Afficher mes pistes et opportunités</A></td><br>
+          <td Width =15%><A HREF ="CreerOffre.jsp">Créer l'offre</A></td><br>
            
            <!--
             <tr> 

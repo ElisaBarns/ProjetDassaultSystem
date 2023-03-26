@@ -41,5 +41,7 @@ public interface UtilisateurFacadeLocal {
     void InactiverUtilisateur(Utilisateur u, boolean inactif);
 
     Utilisateur RechercherUtilisateur(String login_utilisateur);
+
+    public Utilisateur RechercherUtilisateurParId(long id);
     
 }

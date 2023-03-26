@@ -11,6 +11,7 @@ import Entity.PisteOpp;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
+import Entity.Utilisateur;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
@@ -22,7 +23,7 @@ import javax.ejb.Local;
 @Local
 public interface MarketeurSessionLocal {
 
-    void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, String nom_client);
+ 
 
     void AffecterVendeur(long id);
 
@@ -30,7 +31,7 @@ public interface MarketeurSessionLocal {
 
     void CreerClient(String nom, String siret);
     
-    void CreerContact(String nom_client, String nom, String prenom, String mail, String tel);
+    void CreerContact(String nom, String prenom, String mail, String tel, String nom_client);
 
    /* void ModifierClient(long id_client, String nom, String siret);*/
 
@@ -47,5 +48,11 @@ public interface MarketeurSessionLocal {
     List<Client> AfficherListeClients();
 
     List<Piste_opportunite> AfficherPistes();
+
+    //public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, String nom_client);
+
+    Utilisateur RechercherUnMarketeurParId(long id);
+
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client);
     
 }

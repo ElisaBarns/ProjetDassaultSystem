@@ -16,6 +16,10 @@
         <title>Création d'un profil</title>
     </head>
     <body>
+               
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         <h1>Création d'un profil</h1>
         
         
@@ -66,10 +70,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span> 
-                            
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
                             
     </body>
 </html>

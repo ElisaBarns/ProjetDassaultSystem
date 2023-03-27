@@ -17,6 +17,11 @@
         <title>Afficher l'utilisateur recherché</title>
     </head>
     <body>
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <h1>Afficher l'utilisateur recherché</h1>
     <tr>
         <td Width=15%>Login : <%=Utilisateur.getLogin_utilisateur()%></td><br>
@@ -36,10 +41,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span>
-    
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
     
     </body>
 </html>

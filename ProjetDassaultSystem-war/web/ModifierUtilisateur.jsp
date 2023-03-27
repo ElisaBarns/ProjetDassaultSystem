@@ -14,6 +14,11 @@
         <title>Modification d'un utilisateur</title>
     </head>
     <body>
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <fieldset>
     <h1>Informations de l'utilisateur à désactiver</h1>
     <form action="GererLead" method="post">
@@ -46,10 +51,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span> 
-    
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
     
     </body>
 </html>

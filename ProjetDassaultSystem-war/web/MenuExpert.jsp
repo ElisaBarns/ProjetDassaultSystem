@@ -10,8 +10,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu Expert technique</title>
+        <link rel="stylesheet" href="CSS.css">
+        
     </head>
     <body>
+                    
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <p>
             <%
         String attribut = (String)request.getAttribute("message");
@@ -24,11 +31,11 @@
         <table><tr>
            
           <tr> 
-          <td Width =15%><A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A></td><br>
-          <td Width =15%><A HREF ="AfficherPistesExpert.jsp">Afficher mes pistes et opportunités</A></td><br>
-          <td Width =15%><A HREF ="CreerOffre.jsp">Créer l'offre</A></td><br>
-          <td Width =15%><A HREF ="RechercherProduit.jsp">Rechercher un produit</A></td><br>
-          <td Width =15%><A HREF ="CreerDetailOffre.jsp">Créer le détail d'une offre</A></td><br>
+          <A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A></td><br/>
+          <A HREF ="AfficherPistesExpert.jsp">Afficher mes pistes et opportunités</A></td><br/>
+          <A HREF ="CreerOffre.jsp">Créer l'offre</A></td><br/>
+          <A HREF ="RechercherProduit.jsp">Rechercher un produit</A></td><br/>
+          <A HREF ="CreerDetailOffre.jsp">Créer le détail d'une offre</A></td><br/>
            
            <!--
             <tr> 
@@ -50,9 +57,6 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuGeneral.jsp'"><br />
         </span>
-            
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
     </body>
 </html>

@@ -14,6 +14,11 @@
         <title>Modification d'une piste/opportunité</title>
     </head>
     <body>
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <fieldset>
     <h1>Informations de la piste/opportunité</h1>
     <form action="GererLead" method="post">
@@ -55,10 +60,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
         </span> 
-    
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
     
     </body>
 </html>

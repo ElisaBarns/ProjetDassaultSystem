@@ -14,6 +14,10 @@
         <title>Rechercher un utilisateur</title>
     </head>
     <body>
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         
          <form method="get" action="GererLead">
             <fieldset>
@@ -30,10 +34,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span> 
-        
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
         
     </body>
 </html>

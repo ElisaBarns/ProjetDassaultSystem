@@ -18,6 +18,11 @@
         <jsp:useBean id="piste" scope="request" class="Entity.Piste_opportunite"></jsp:useBean>
     </head>
     <body>
+                
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <h1>Affectation d'un Vendeur</h1>
     <% List<Profil> lesvendeurs=listevendeur;%>
         <div>
@@ -39,13 +44,10 @@
         <input type="reset" value="Annuler" /> <br />
         </form>
         </div>
-        
+
+                
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
-        </span>
-        
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
         
     </body>

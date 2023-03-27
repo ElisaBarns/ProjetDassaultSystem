@@ -9,11 +9,15 @@
 <html>
     <head>
         <link rel="stylesheet" href="CSS.css">
-        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Création d'un contact</title>
     </head>
     <body>
+                
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <h1>Création contact</h1>
         
         <div>
@@ -50,9 +54,6 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
         </span>
-        
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
     </body>
 </html>

@@ -14,6 +14,10 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
+                
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         
         <h1>Modifier un Client</h1>
         
@@ -43,10 +47,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'"><br />
         </span> 
-        
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
         
     </body>
 </html>

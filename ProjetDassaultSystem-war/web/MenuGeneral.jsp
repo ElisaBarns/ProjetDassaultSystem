@@ -11,8 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu général</title>
+        <link rel="stylesheet" href="CSS.css">
+        
     </head>
     <body>
+                <span class="SeDeconnecter">
+            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+                </span>
+        
         <p>
             <%
         String attribut = (String)request.getAttribute("message");
@@ -34,9 +40,6 @@
             </tr>
         </table>
         
-        <span class="SeDeconnecter">
-            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
 
     </body>
 </html>

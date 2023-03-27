@@ -17,6 +17,11 @@
         <title>Création d'une piste</title>
     </head>
     <body>
+                
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <h1>Création d'une piste</h1>
           <div>
             <form method="get" action="GererLead">
@@ -74,10 +79,7 @@ for(int i = 0; i<lesVendeursActifs.size(); i++) {
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
         </span>
-        
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
         
     </body>
 </html>

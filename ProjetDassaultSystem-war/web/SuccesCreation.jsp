@@ -13,13 +13,14 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
-        <h1>Succès</h1><br>
-        Votre action a été réalisée avec succès ! <br>
-        
-                        
+            
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
+        
+        <h1>Succès</h1><br>
+        Votre action a été réalisée avec succès ! <br>
+
         
         
     </body>

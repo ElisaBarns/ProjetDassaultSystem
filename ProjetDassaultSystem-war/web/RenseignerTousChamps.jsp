@@ -13,14 +13,14 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
-        <h1>Erreur</h1><br>
-        Veuillez renseigner tous les champs obligatoires <br>
-        
-                        
+            
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-            <br>
-            <br>
+        
+        <h1>Erreur</h1><br>
+        Veuillez renseigner tous les champs obligatoires <br>
+        
+
     </body>
 </html>

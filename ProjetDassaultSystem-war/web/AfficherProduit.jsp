@@ -17,6 +17,11 @@
         <title>Afficher le produit recherché</title>
     </head>
     <body>
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <h1>Afficher le produit recherché</h1>
     <tr>
         <td Width=15%>Identifiant : <%=Produit.getId()%></td><br>
@@ -37,10 +42,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'"><br />
         </span>
-    
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
     
     </body>
 </html>

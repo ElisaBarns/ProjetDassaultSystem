@@ -10,8 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu Administrateur</title>
+        <link rel="stylesheet" href="CSS.css">
+        
     </head>
     <body>
+                <span class="SeDeconnecter">
+            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+                </span>
+        
         <p>
             <%
         String attribut = (String)request.getAttribute("message");
@@ -28,19 +34,16 @@
              
                
            <tr>
-           <td Width =15%><A HREF ="RechercherUtilisateur.jsp">Rechercher un utilisateur</A></td>
-               
-           <td Width =15%><A HREF ="CreerUtilisateur.jsp">Créer un utilisateur</A></td>
+           <A HREF ="RechercherUtilisateur.jsp">Rechercher un utilisateur</A></td><br/>  
+           <A HREF ="CreerUtilisateur.jsp">Créer un utilisateur</A></td><br/>
+           <A HREF ="ModifierUtilisateur.jsp">Modifier un utilisateur</A></td> <br/>
+           <A HREF ="InactiverUtilisateur.jsp">Désactiver un utilisateur</A></td> <br/>
+           <A HREF ="ModifierMdpUtilisateur.jsp">Modifier le mot de passe d'un utilisateur</A></td> <br/>
+           <A HREF ="CreerProfil.jsp">Créer un profil</A></td> <br/>
+           <A HREF ="GererLead?action=AfficherProfils">Afficher la liste des profils</A></td> <br/>
            </tr>
 
-          <tr> 
-              <td Width =15%><A HREF ="ModifierUtilisateur.jsp">Modifier un utilisateur</A></td> </br>
-              <td Width =15%><A HREF ="InactiverUtilisateur.jsp">Désactiver un utilisateur</A></td> </br>
-              <td Width =15%><A HREF ="ModifierMdpUtilisateur.jsp">Modifier le mot de passe d'un utilisateur</A></td> </br>
-           
-              <td Width =15%><A HREF ="CreerProfil.jsp">Créer un profil</A></td> </br>
-              <td Width =15%><A HREF ="GererLead?action=AfficherProfils">Afficher la liste des profils</A></td> </br>
-           </tr>
+
 
            <!--
             <tr> 
@@ -54,7 +57,6 @@
             <td Width =15%><A HREF ="RechercherDefileDunOrganisateur.jsp">Rechercher les défilés d'un organisateur</A></td>
             </tr>
            -->
-       </tr>
         
       
         </table>
@@ -63,8 +65,5 @@
         <input type="button" value="Retour" onclick="location.href='MenuGeneral.jsp'"><br />
         </span>
             
-        <span class="SeDeconnecter">
-            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
     </body>
 </html>

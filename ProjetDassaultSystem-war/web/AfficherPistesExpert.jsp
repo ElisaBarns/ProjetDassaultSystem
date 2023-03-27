@@ -12,10 +12,16 @@
     <html> 
         <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+        <link rel="stylesheet" href="CSS.css">
         <jsp:useBean id="listePistes" scope="request" class="java.util.List"></jsp:useBean> 
         <title>Mes pistes et opportunités</title> 
         </head> 
     <body> 
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
     <h1>Mes pistes et opportunités</h1> 
     <p> 
     <% 
@@ -48,10 +54,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'"><br />
         </span> 
-    
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
  
     </body> 
 </html> 

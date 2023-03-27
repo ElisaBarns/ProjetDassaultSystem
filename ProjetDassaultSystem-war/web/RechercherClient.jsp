@@ -13,6 +13,10 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
+            
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
         
          <form method="get" action="GererLead">
             <fieldset>
@@ -29,10 +33,7 @@
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
         </span> 
-        
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
-        </span>
+
         
     </body>
 </html>

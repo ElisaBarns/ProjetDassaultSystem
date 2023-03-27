@@ -9,6 +9,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
 /* Fichier CSS.css */
 
 /* Styles généraux */
+.RetourMenu{
+    position: relative;
+    margin-bottom: 500px; 
+    margin-left: 1060px;
+}
+
+.SeDeconnecter{
+    position: relative;
+    margin-top: 500px; 
+    margin-left: 1060px;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;

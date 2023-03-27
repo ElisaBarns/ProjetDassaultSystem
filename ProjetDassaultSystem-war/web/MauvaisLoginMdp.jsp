@@ -13,12 +13,14 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
+                
+        <span class="SeDeconnecter">
+        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        </span>
+        
         <h1>Erreur</h1><br>
         Vous avez saisi un mauvais login et/ou mot de passe. Veuillez réessayer. <br>
                       
-        <span class="SeDeconnecter">
-        <input type="button" value="S'authentifier" onclick="location.href='Authentification.jsp'"><br />
-        </span>
-            <br>
+
     </body>
 </html>

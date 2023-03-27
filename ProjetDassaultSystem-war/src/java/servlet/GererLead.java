@@ -266,6 +266,12 @@ public class GererLead extends HttpServlet {
             jspDassault="/CreerPiste.jsp";
             doActionCreerPiste(request, response);
         }
+        
+        else if(act.equals("ModifierPiste"))
+        {
+            jspDassault="/ModifierPiste.jsp";
+            doActionModifierUtilisateur(request, response);
+        }
        
          else if (act.equals("ModifierClient"))
          {
@@ -571,7 +577,77 @@ public class GererLead extends HttpServlet {
     System.out.println("after else");
         request.setAttribute("message", message);
     }
+     
+        protected void doActionModifierPiste (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String id = request.getParameter("id");
+        long idL=Long.parseLong(id);
+        String niveau_interet = request.getParameter("niveau_interet");
+        String tx_reussite = request.getParameter("tx_reussite");
+        String niveau_risque = request.getParameter("niveau_risque");
+        String budget_estime = request.getParameter("budget_estime");
+        int tx_reussiteI=Integer.parseInt(tx_reussite);
+        double budget_estimeD=Double.parseDouble(budget_estime);
+        String nom_client = request.getParameter("nom_client");
+        String message;
         
+        if (id.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"ModifierPiste.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'une piste.";
+        }
+        else 
+        {
+           if(niveau_interet.equals("bas"))
+            {
+                if(niveau_risque.equals("bas"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.BAS, tx_reussiteI, Niveau.BAS, budget_estimeD, nom_client);
+                }
+                else if(niveau_risque.equals("medium"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.BAS, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, nom_client);
+                }
+                else if(niveau_risque.equals("haut"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.BAS, tx_reussiteI, Niveau.HAUT, budget_estimeD, nom_client);
+                }
+            }
+            else if (niveau_interet.equals("medium"))
+            {
+                if(niveau_risque.equals("bas"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.MEDIUM, tx_reussiteI, Niveau.BAS, budget_estimeD, nom_client);
+                }
+                else if(niveau_risque.equals("medium"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.MEDIUM, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, nom_client);
+                }
+                else if(niveau_risque.equals("haut"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.MEDIUM, tx_reussiteI, Niveau.HAUT, budget_estimeD, nom_client);
+                }
+            }
+            else if(niveau_interet.equals("haut"))
+            {
+                if(niveau_risque.equals("bas"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.HAUT, tx_reussiteI, Niveau.BAS, budget_estimeD, nom_client);
+                }
+                else if(niveau_risque.equals("medium"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.HAUT, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, nom_client);
+                }
+                else if(niveau_risque.equals("haut"))
+                {
+                    marketeurSession.ModifierPiste(idL, Niveau.HAUT, tx_reussiteI, Niveau.HAUT, budget_estimeD, nom_client);
+                }
+            }
+           message = "Piste modifiée avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
+            
     protected void doActionModifierClient(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     String nom = request.getParameter("nom_client");

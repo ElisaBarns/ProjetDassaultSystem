@@ -43,7 +43,7 @@ public interface MarketeurSessionLocal {
 
     List<Contact> RechercherContactsClient(long id);
 
-    void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient);
+    void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, String nom_client);
 
     List<Client> AfficherListeClients();
 

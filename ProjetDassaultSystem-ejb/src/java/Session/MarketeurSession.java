@@ -69,11 +69,17 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     
     @Override
-    public void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient){
+    public void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, String nom_client){
         Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id_piste);
-        Client client = clientFacade.rechercherClientparId(idclient);
-        p = piste_opportuniteFacade.ModifierPisteOpportunite(p, niveau_risque, tx_reussite, niveau_risque, budget_estime, client);
-        piste_opportuniteFacade.AjouterEnregistrementApresModifPiste(p);
+        if(p!=null)
+        {
+            Client client = clientFacade.rechercherClient(nom_client);
+            if(client!=null)
+            {
+                piste_opportuniteFacade.ModifierPisteOpportunite(p, niveau_risque, tx_reussite, niveau_risque, budget_estime, client);
+            }
+        }
+        //piste_opportuniteFacade.AjouterEnregistrementApresModifPiste(p);
     }
     
     @Override

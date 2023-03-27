@@ -25,13 +25,14 @@
         <table><tr>
                 
            <tr>
-           <td Width =15%><A HREF ="CreerPiste.jsp">Créer une piste</A></td>
-           <td Width =15%><A HREF ="CreerClient.jsp">Créer un client</A></td>
-           <td Width =15%><A HREF ="CreerContact.jsp">Créer un contact</A></td>
-
+           <A HREF ="CreerPiste.jsp">Créer une piste</A></td><br/>
+           <A HREF ="ModifierPiste.jsp">Modifier une piste</A></td><br/>
+           <A HREF ="CreerClient.jsp">Créer un client</A></td></br>
+           <A HREF ="CreerContact.jsp">Créer un contact</A></td><br/>
+           <A HREF ="AffecterVendeur.jsp">Affecter un vendeur à une piste</A></td><br/>
            
           <tr> 
-           <td Width =15%><A HREF ="GererLead?action=AfficherListeMarketeur">Afficher ma liste de pistes</A></td> 
+           <A HREF ="GererLead?action=AfficherListeMarketeur">Afficher la liste des pistes</A></td><br/> 
 
            <!--
             <tr> 

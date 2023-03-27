@@ -41,7 +41,7 @@
     <td Width="15%><%=po.getTx_reussite()%></td>
     <td Width=15%><%=po.getNiveau_risque()%></td> 
     <td Width=15%><%=po.getBudget_estime()%></td>  
-    <!--Pas besoin de l'enregistrement-->
+    
     <td Width=15%><%=po.getLeClient()%></td>%></td>
     <td Width=15%><%=po.getVendeur()%></td>
     <td Width=30%><%=po.getDate_creation_popp()%></td> 
@@ -49,7 +49,8 @@
     <td Width=55%><%out.println(); %></td> 
    </tr><%}%> 
     </TABLE>
-        
+    
+    
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
         </span>
@@ -58,5 +59,6 @@
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
     
+        
     </body> 
 </html> 

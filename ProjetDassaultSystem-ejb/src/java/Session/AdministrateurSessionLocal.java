@@ -33,5 +33,7 @@ public interface AdministrateurSessionLocal {
     List<Profil> AfficherLesProfils();
 
     Utilisateur RechercherUtilisateur(String login);
+
+    public List<Profil> ListeVendeursActifs();
     
 }

@@ -39,8 +39,6 @@ public interface Piste_opportuniteFacadeLocal {
 
     int count();
 
-    Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient);
-
     Piste_opportunite ModifierPisteOpportunite(Piste_opportunite p, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Client leClient);
 
     void AffecterVendeur(Piste_opportunite p, Profil vendeur);
@@ -82,6 +80,10 @@ public interface Piste_opportuniteFacadeLocal {
     List<Piste_opportunite> AfficherPistes();
 
     //public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, Client leClient);
+
+   // public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient, long id_utilisateurL);
+
+    public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient, Profil vendeur);
 
     
 

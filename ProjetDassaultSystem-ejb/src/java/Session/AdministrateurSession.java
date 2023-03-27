@@ -143,6 +143,11 @@ public class AdministrateurSession implements AdministrateurSessionLocal {
         return profilFacade.AfficherTousLesProfils();
     }
     
+     @Override
+    public List<Profil> ListeVendeursActifs() {
+        return profilFacade.ListeVendeursActifs();
+    }
+    
     //Gérer les mots de passe des utilisateurs (définir ou réinitialiser)
     @Override
     public void ModifierMdpUtilisateur(String login_utilisateur, String mdp_utilisateur) {

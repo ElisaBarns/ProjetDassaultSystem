@@ -47,5 +47,7 @@ public interface ProfilFacadeLocal {
     List<Profil> ListeExpertActif();
 
     public Profil RechercherUnMarketeurParId(Utilisateur unUtilisateur);
+
+    public Profil RechercherUnVendeurParId(Utilisateur unUtilisateur);
     
 }

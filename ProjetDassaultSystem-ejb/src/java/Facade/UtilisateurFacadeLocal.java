@@ -43,5 +43,7 @@ public interface UtilisateurFacadeLocal {
     Utilisateur RechercherUtilisateur(String login_utilisateur);
 
     public Utilisateur RechercherUtilisateurParId(long id);
+
+ 
     
 }

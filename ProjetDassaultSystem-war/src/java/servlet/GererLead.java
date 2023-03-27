@@ -264,8 +264,25 @@ public class GererLead extends HttpServlet {
         
         else if(act.equals("CreerPiste"))
         {
+           
             jspDassault="/CreerPiste.jsp";
+           List<Profil> vendeursActifs=administrateurSession.ListeVendeursActifs();
+            
+           request.setAttribute("lesVendeursActifs",vendeursActifs);
+            
             doActionCreerPiste(request, response);
+            
+        }
+        
+         else if(act.equals("AfficherCreerPiste"))
+        {
+        
+            jspDassault="/CreerPiste.jsp";
+           
+            List<Profil> vendeursActifs=administrateurSession.ListeVendeursActifs();
+      
+           request.setAttribute("lesVendeursActifs",vendeursActifs);
+        
         }
         
         else if(act.equals("ModifierPiste"))
@@ -525,26 +542,41 @@ public class GererLead extends HttpServlet {
         protected void doActionCreerPiste (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         HttpSession sess=request.getSession(true);
         Utilisateur u = (Utilisateur)sess.getAttribute("session");
-        System.out.println(u);
+       
         String nom_client = request.getParameter("nom_client");
-        System.out.println("1");
+       
         Long id_marketeur = u.getId();
-         System.out.println("2" + id_marketeur);
-        String niveau_interet = request.getParameter("niveau_interet");
-         System.out.println("3");
+                String niveau_interet = request.getParameter("niveau_interet");
+         
         String tx_reussite = request.getParameter("tx_reussite");
-         System.out.println("4");
+        
         String niveau_risque = request.getParameter("niveau_risque");
-         System.out.println("5");
+         
         String budget_estime = request.getParameter("budget_estime");
-         System.out.println("6");
+         
+        String id_vendeur = request.getParameter("id_vendeur");
+        long id_vendeurL;
+                
+        String message;
+        
+        if (id_vendeur !=null && id_vendeur.trim().isEmpty())
+           
+        {
+         message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+               + "<br /> <a href =\"CreerPiste.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'une piste.";
+        }
+        else {
+        System.out.println("AAAAAAA");
+        System.out.println(id_vendeur);
         int tx_reussiteI=Integer.parseInt(tx_reussite);
          System.out.println(budget_estime);
         double budget_estimeD=Double.parseDouble(budget_estime);
+        id_vendeurL=Long.parseLong(id_vendeur);
+         System.out.println("C1");
        Utilisateur marketeur = marketeurSession.RechercherUnMarketeurParId(id_marketeur);
-        String message;
-         System.out.println("A");
-          System.out.println("A");
+       System.out.println(id_vendeurL);
+        Utilisateur vendeur = marketeurSession.RechercherUnVendeurParId(id_vendeurL);
+        System.out.println("C3");
 
         if (nom_client !=null && nom_client.trim().isEmpty())
         {
@@ -556,52 +588,22 @@ public class GererLead extends HttpServlet {
             //Pour avoir l'ordre des différents niveaux dans la méthode-->1er niveau=interet; 2e niveau=risque
             //marketeurSession.CreerPiste(niveau_interet, tx_reussite, niveau_risque, budget_estime, id_marketeur, id_client);
             System.out.println("TestErreur1");
-            if(niveau_interet.equals("bas"))
-            {
-                if(niveau_risque.equals("bas"))
-                {
-                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.BAS, budget_estimeD, marketeur, nom_client);
-                }
-                else if(niveau_risque.equals("medium"))
-                {
-                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.MEDIUM, budget_estimeD,marketeur,nom_client);
-                }
-                else if(niveau_risque.equals("haut"))
-                {
-                    marketeurSession.CreerPiste(Niveau.BAS, tx_reussiteI, Niveau.HAUT, budget_estimeD, marketeur, nom_client);
-                }
-            }
-            else if (niveau_interet.equals("medium"))
-            {
-                if(niveau_risque.equals("bas"))
-                {
-                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.BAS, budget_estimeD,marketeur, nom_client);
-                }
-                else if(niveau_risque.equals("medium"))
-                {
-                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.MEDIUM, budget_estimeD,marketeur, nom_client);
-                }
-                else if(niveau_risque.equals("haut"))
-                {
-                    marketeurSession.CreerPiste(Niveau.MEDIUM, tx_reussiteI, Niveau.HAUT, budget_estimeD, marketeur,  nom_client);
-                }
-            }
-            else if(niveau_interet.equals("haut"))
-            {
-                if(niveau_risque.equals("bas"))
-                {
-                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.BAS, budget_estimeD,marketeur, nom_client);
-                }
-                else if(niveau_risque.equals("medium"))
-                {
-                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.MEDIUM, budget_estimeD, marketeur, nom_client);
-                }
-                else if(niveau_risque.equals("haut"))
-                {
-                    marketeurSession.CreerPiste(Niveau.HAUT, tx_reussiteI, Niveau.HAUT, budget_estimeD,marketeur, nom_client);
-                }
-            }
+            Niveau N1=Niveau.HAUT;
+            if(niveau_interet.equals("bas")) N1=Niveau.BAS;
+            else if (niveau_interet.equals("medium")) N1=Niveau.MEDIUM;
+            else if (niveau_interet.equals("haut")) N1=Niveau.HAUT;
+            
+            Niveau N2=Niveau.HAUT;
+            if(niveau_risque.equals("bas")) N2=Niveau.BAS;
+            else if (niveau_risque.equals("medium")) N2=Niveau.MEDIUM;
+            else if (niveau_risque.equals("haut")) N2=Niveau.HAUT;
+           
+            marketeurSession.CreerPiste(N1, tx_reussiteI, N2, budget_estimeD, marketeur, nom_client, vendeur);
+            
+            
+           
            message = "Piste créé avec succès!";
+        }
         }
     System.out.println("after else");
         request.setAttribute("message", message);

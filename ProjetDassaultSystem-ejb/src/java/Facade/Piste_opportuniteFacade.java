@@ -46,8 +46,9 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Créer piste
     @Override
-    public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient) 
+    public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient, Profil vendeur) 
     {
+        
         Piste_opportunite po = new Piste_opportunite();
         po.setDate_creation_popp(new Date());
         po.setDate_modif_popp(null);
@@ -58,7 +59,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         po.setType(PisteOpp.PISTE);
         po.setStatut(Statut.OUVERTE);
         po.setMarketeur(marketeur);
-        po.setVendeur(null);
+        po.setVendeur(vendeur);
         po.setExpert_technique(null);
         po.setLeClient(leClient);
         getEntityManager().persist(po);

@@ -53,6 +53,12 @@ public interface MarketeurSessionLocal {
 
     Utilisateur RechercherUnMarketeurParId(long id);
 
-    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client);
+   // public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client);
+
+    //public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client, long id_utilisateurL);
+
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client, Utilisateur vendeur);
+
+    public Utilisateur RechercherUnVendeurParId(long id);
     
 }

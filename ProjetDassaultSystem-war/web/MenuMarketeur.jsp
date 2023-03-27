@@ -25,7 +25,7 @@
         <table><tr>
                 
            <tr>
-           <A HREF ="CreerPiste.jsp">Créer une piste</A></td><br/>
+           <A HREF ="GererLead?action=AfficherCreerPiste">Créer une piste</A></td><br/>
            <A HREF ="ModifierPiste.jsp">Modifier une piste</A></td><br/>
            <A HREF ="CreerClient.jsp">Créer un client</A></td></br>
            <A HREF ="CreerContact.jsp">Créer un contact</A></td><br/>

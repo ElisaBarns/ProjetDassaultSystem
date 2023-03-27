@@ -3,6 +3,8 @@
     Created on : 16 mars 2023, 15:01:22
     Author     : Mel
 --%>
+<%@page import="java.util.List"%>
+<%@page import="Entity.Profil"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,12 +12,13 @@
         <link rel="stylesheet" href="CSS.css">
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <jsp:useBean id="lesVendeursActifs" scope="request" class="java.util.List"></jsp:useBean>
+         
         <title>Création d'une piste</title>
     </head>
     <body>
         <h1>Création d'une piste</h1>
-        
-        <div>
+          <div>
             <form method="get" action="GererLead">
                 <fieldset>
                     <legend>Informations de la piste</legend>
@@ -36,6 +39,18 @@
                     <OPTION value ="medium">Medium</OPTION> 
                     <OPTION value ="haut">Haut</OPTION> 
                     </SELECT></td></tr>
+                    <br/>
+                    <br/>
+                    <tr><td>Nom d'utilisateur </td><td><SELECT size="1" name="id_vendeur"> 
+<%
+for(int i = 0; i<lesVendeursActifs.size(); i++) {
+    Profil p = (Profil)lesVendeursActifs.get(i);
+%>
+    <OPTION value ="<%=p.getUnUtilisateur().getId()%>"><%=p.getUnUtilisateur().getNom_utilisateur()%> <%=p.getUnUtilisateur().getPrenom_utilisateur()%></OPTION>
+<%
+}
+%>
+</SELECT></td></tr>
                     <br/>
                     <br/>
                     <label for="budget_estime">Budget estimé <span class="requis"></span></label>

@@ -51,13 +51,19 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     //Créer une piste
     @Override
-    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client) {
-       Client c = clientFacade.rechercherClient(nom_client);
-       Profil profil = profilFacade.RechercherUnMarketeurParId(marketeur);
+    public void CreerPiste(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Utilisateur marketeur, String nom_client, Utilisateur vendeur) {
+       
+        System.out.println("B0");
+        Client c = clientFacade.rechercherClient(nom_client);
+          System.out.println("B1");
+       Profil profilMarketeur = profilFacade.RechercherUnMarketeurParId(marketeur);
+       System.out.println("B2");
+       Profil profilVendeur = profilFacade.RechercherUnVendeurParId(vendeur);      
+       System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
        if(c!=null)
        {
                     
-              Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, profil, c);
+              Piste_opportunite p = piste_opportuniteFacade.creerPisteOpportunite(niveau_interet, tx_reussite, niveau_risque, budget_estime, profilMarketeur, c, profilVendeur);
           
        }
        else
@@ -197,7 +203,11 @@ public class MarketeurSession implements MarketeurSessionLocal {
         
         return utilisateurFacade.RechercherUtilisateurParId(id);
     }
-    
+     @Override
+    public Utilisateur RechercherUnVendeurParId(long id) {
+        
+        return utilisateurFacade.RechercherUtilisateurParId(id);
+    }
     
     
     

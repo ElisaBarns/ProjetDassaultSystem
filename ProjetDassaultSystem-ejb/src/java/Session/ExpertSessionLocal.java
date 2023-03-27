@@ -6,6 +6,7 @@ package Session;
 
 import Entity.Offre;
 import Entity.Piste_opportunite;
+import Entity.Produit;
 import Entity.Profil;
 import java.util.Date;
 import java.util.List;
@@ -24,11 +25,13 @@ public interface ExpertSessionLocal {
     
     void ModifierOffre(int id_offre, int remise, String conditions);
 
-    void CreerDetail_offre(long id_produit, long id_offre, int quantite);
+    void CreerDetail_offre(String nom_produit, long id_offre, int quantite);
 
-    void ModifierDetail_offre(long id_detail, long id_produit, long id_offre, int quantite);
+    void ModifierDetail_offre(long id_detail, String nom_produit, long id_offre, int quantite);
 
     void SupprimerDetailOffre(long id_detail);
 
     List<Piste_opportunite> AfficherPistesExpert();
+
+    Produit RechercherProduitParNom(String nom_produit);
 }

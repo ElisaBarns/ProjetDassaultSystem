@@ -64,12 +64,12 @@ public class ProduitFacade extends AbstractFacade<Produit> implements ProduitFac
     }
     
     @Override
-    public Produit RechercherProduitParId(long id) {
+    public Produit RechercherProduitParNom(String nom_produit) {
     Produit p=null;
     List<Produit> result;
-    String txt="SELECT p FROM Produit AS p WHERE p.id=:id";
+    String txt="SELECT p FROM Produit AS p WHERE p.nom_produit=:nom_produit";
     Query req=getEntityManager().createQuery(txt);
-    req=req.setParameter("id", id);
+    req=req.setParameter("nom_produit", nom_produit);
     result=req.getResultList();
     if(result.size()==1){
         p=(Produit)result.get(0);

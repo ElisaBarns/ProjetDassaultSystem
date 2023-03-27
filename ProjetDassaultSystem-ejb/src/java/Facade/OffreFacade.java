@@ -39,7 +39,7 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     @Override
     public void CreerOffre(int remise, String conditions) {
     Offre o=new Offre();
-    o.setRemise(0);
+    o.setRemise(remise);
     o.setConditions(conditions);
     ArrayList<Detail_offre> contenu = new ArrayList();
     o.setContenu(contenu);
@@ -52,7 +52,6 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     }
     
     //Modifier offre
-
     @Override
     public void ModifierOffre(Offre o, int remise, String conditions) {
     o.setRemise(remise);

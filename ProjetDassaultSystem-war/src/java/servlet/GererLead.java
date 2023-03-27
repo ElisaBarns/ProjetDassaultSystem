@@ -9,6 +9,7 @@ import Entity.Client;
 import Entity.Fonction;
 import Entity.Niveau;
 import Entity.Piste_opportunite;
+import Entity.Produit;
 import Entity.Profil;
 import Entity.Utilisateur;
 import Facade.ClientFacadeLocal;
@@ -270,7 +271,7 @@ public class GererLead extends HttpServlet {
         else if(act.equals("ModifierPiste"))
         {
             jspDassault="/ModifierPiste.jsp";
-            doActionModifierUtilisateur(request, response);
+            doActionModifierPiste(request, response);
         }
        
          else if (act.equals("ModifierClient"))
@@ -279,6 +280,34 @@ public class GererLead extends HttpServlet {
              doActionModifierClient(request, response);
          }
         
+        else if (act.equals("RechercherProduit"))
+         {
+            HttpSession sess = request.getSession(true);
+             String nom_produit = request.getParameter("nom_produit");
+             Produit p;
+             if(!(nom_produit.trim().isEmpty())) 
+             {
+                 p= expertSession.RechercherProduitParNom(nom_produit);
+                 jspDassault="/AfficherProduit.jsp";
+                 sess.setAttribute("Produit", p);
+             }
+            else 
+            {
+                jspDassault="/MenuGeneral.jsp";    
+            }
+         }
+        
+        else if(act.equals("CreerDetailOffre"))
+        {
+            jspDassault="/CreerDetailOffre.jsp";
+            doActionCreerDetailOffre(request, response);
+        }
+        
+        else if(act.equals("CreerOffre"))
+        {
+            jspDassault="/CreerOffre.jsp";
+            doActionCreerOffre(request, response);
+        }
         
     /*mettre les else if ici*/
 
@@ -669,7 +698,47 @@ public class GererLead extends HttpServlet {
      request.setAttribute( "message", message );
      }
 
+    protected void doActionCreerDetailOffre (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String id_offre = request.getParameter("id_offre");
+        String nom_produit = request.getParameter("nom_produit");
+        long nom_produitL = Long.parseLong(nom_produit);
+        String quantite = request.getParameter("quantite");
+        int quantiteI = Integer.parseInt(quantite);
+        String message;
+
+        if (id_offre.trim().isEmpty()|| nom_produit.trim().isEmpty()|| quantite.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"CreerDetailOffre.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un détail offre.";
+        }
+        else 
+        {
+           expertSession.CreerDetail_offre(id_offre, nom_produitL, quantiteI);
+           message = "Détail offre créé avec succès!";
+        }
+
+        request.setAttribute("message", message);
+    }
     
+        protected void doActionCreerOffre (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String remise = request.getParameter("remise");
+        int remiseI = Integer.parseInt(remise);
+        String conditions = request.getParameter("conditions");
+        String message;
+
+        if (remise.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"CreerOffre.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'une offre.";
+        }
+        else 
+        {
+           expertSession.CréerOffre(remiseI, conditions);
+           message = "Offre créé avec succès!";
+        }
+
+        request.setAttribute("message", message);
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

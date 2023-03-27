@@ -24,7 +24,7 @@
         <form method="get" action="GererLead">
         <fieldset>
         <legend>Information de la piste</legend>
-        <label for="id_piste">Identifiant <span class="requis">*</span></label>
+        <label for="id_piste">Identifiant de la piste <span class="requis">*</span></label>
         <select name="id_piste">
       
         <option value ="<%=piste.getId()%>">  %></option>
@@ -32,10 +32,7 @@
         </select>
         <br />
         
-        <label for="prixDej">Prix petit déjeuner <span class="requis">*</span></label>
-       <input type="text" name="prixDej" value="" size=“80" maxlength="20" />
-        
-        <input type="hidden" name="action" value="changerprixdej">
+        <input type="hidden" name="action" value="AffecterVendeur">
         </fieldset>
         
         <input type="submit" value="Valider" />

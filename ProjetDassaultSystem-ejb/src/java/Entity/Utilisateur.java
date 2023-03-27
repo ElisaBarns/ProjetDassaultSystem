@@ -311,5 +311,35 @@ public class Utilisateur implements Serializable {
         }
         return false;
     }
+ 
+  public boolean verify_Admin(){
+        for (int i=0;i<lesProfils.size();i++){
+            System.out.println(lesProfils.get(i).getFonction().name());
+            if (lesProfils.get(i).getFonction().name().equals("ADMINISTRATEUR")){
+                return true;
+            }
+        }
+        return false;
+    }
+  
+   public boolean verify_Expert(){
+        for (int i=0;i<lesProfils.size();i++){
+            System.out.println(lesProfils.get(i).getFonction().name());
+            if (lesProfils.get(i).getFonction().name().equals("EXPERT_TECHNIQUE")){
+                return true;
+            }
+        }
+        return false;
+    }
+   
+    public boolean verify_OperateurVentes(){
+        for (int i=0;i<lesProfils.size();i++){
+            System.out.println(lesProfils.get(i).getFonction().name());
+            if (lesProfils.get(i).getFonction().name().equals("OPERATEUR_VENTES")){
+                return true;
+            }
+        }
+        return false;
+    }
     
 }

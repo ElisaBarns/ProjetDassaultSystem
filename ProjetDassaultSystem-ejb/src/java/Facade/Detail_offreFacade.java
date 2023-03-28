@@ -40,8 +40,10 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);
     d.setUneOffre(uneOffre);
-        float prix = d.CalculerP_detail(leProduit);
-    d.setP_detail(prix);
+    System.out.println("H1");
+        //float prix = d.CalculerP_detail(leProduit);
+    System.out.println("H2");
+    //d.setP_detail(prix);
     getEntityManager().persist(d);
     }
     
@@ -57,7 +59,6 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     }
     
     //Supprimer détail offre
-
     @Override
     public void SupprimerDetailOffre(Detail_offre d) {
     getEntityManager().remove(d);

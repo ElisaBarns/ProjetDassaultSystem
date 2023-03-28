@@ -1,6 +1,6 @@
 <%-- 
-    Document   : AfficherPistesExpert
-    Created on : 20 mars 2023, 17:31:14
+    Document   : AfficherPistesSansOffre
+    Created on : 28 mars 2023, 18:18:29
     Author     : Mel
 --%>
 
@@ -12,11 +12,9 @@
 <html> 
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <%System.out.println("I4");%>
-        <jsp:useBean id="lesPistes_opportunites" scope="request" class="java.util.List"></jsp:useBean> 
-        <%System.out.println("I5");%>
+       <jsp:useBean id="lesPistes_opportunites" scope="request" class="java.util.List"></jsp:useBean> 
 
-       <title>Les pistes et opportunités</title> 
+       <title>Les pistes et opportunités sans offre</title> 
         <link rel="stylesheet" href="CSS.css">
     </head> 
     <body> 
@@ -30,7 +28,7 @@
       String attribut = (String) request.getAttribute("message"); 
            HttpSession sess=request.getSession(true);
            Utilisateur u = (Utilisateur)sess.getAttribute("session");
-        System.out.println("I6");
+
       out.println( attribut ); 
       %> </p>
     <TABLE border width=5%>
@@ -45,12 +43,9 @@
          <TD>Vendeur</TD>
          <TD>Date de création</TD>
          <TD>Date de modification</TD>
-                 <%System.out.println("I7");%>
-
     <% List<Piste_opportunite> lesPO=lesPistes_opportunites; 
     for(Piste_opportunite po : lesPO){
-    
-    if(po.getExpert_technique()!=null && po.getExpert_technique().getUnUtilisateur()!=null && po.getExpert_technique().getUnUtilisateur().getId()==u.getId()){
+    if(po.getUneOffre()==null){
     %>
   <tr>  <td Width=15%><%=po.getId()%></td> 
         <td Width=15%><%=po.getStatut()%></td>
@@ -69,7 +64,7 @@
     </TABLE>
                    
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'">
+        <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'">
         </span>
     </body> 
 </html> 

@@ -46,7 +46,7 @@
                     </SELECT></td></tr>
                     <br/>
                     <br/>
-                    <tr><td>Nom d'utilisateur </td><td><SELECT size="1" name="id_vendeur"> 
+                    <tr><td>Nom du vendeur </td><td><SELECT size="1" name="id_vendeur"> 
 <%
 for(int i = 0; i<lesVendeursActifs.size(); i++) {
     Profil p = (Profil)lesVendeursActifs.get(i);

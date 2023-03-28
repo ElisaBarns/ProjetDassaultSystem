@@ -46,6 +46,8 @@ public interface ExpertSessionLocal {
     
     Offre RechercherOffreParId(long id);
     
+    Produit RechercherProduitParId(long id);
+    
     List<Offre> AfficherLesOffres();
     
     List<Produit> AfficherLesProduits();

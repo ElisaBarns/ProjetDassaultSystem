@@ -38,6 +38,8 @@ public interface ProduitFacadeLocal {
     
     Produit RechercherProduitParNom(String nom_produit);
     
+    Produit RechercherProduitParId(long id_produit);
+    
     List<Produit> AfficherLesProduits();
     
 }

@@ -245,19 +245,27 @@ public class GererLead extends HttpServlet {
         
         else if(act.equals("AfficherListeMarketeur"))
         {
-            //TROUVER UN MOYEN DE GERER LE NIVEAU_RISQUE QUI EST UNE CLASSE DE TYPE ENUM
             jspDassault="/AfficherListeMarketeur.jsp";
             List<Piste_opportunite>lesPO=marketeurSession.AfficherPistes();
             request.setAttribute("lesPistes_opportunites",lesPO);
             request.setAttribute("message", "");
         }
         
-        else if(act.equals("AfficherPistesExpert"))//A TERMINER !!!
+        else if(act.equals("AfficherPistesExpert"))
         {
             jspDassault="/AfficherPistesExpert.jsp";
-            List<Piste_opportunite> lesPistes_opportunites= expertSession.AfficherPistesExpert();
-            request.setAttribute("lesPistes",lesPistes_opportunites);
+            List<Piste_opportunite> lesPO= expertSession.AfficherPistesExpert();
+            request.setAttribute("lesPistes_opportunites",lesPO);
             request.setAttribute("message", " ");
+            System.out.println("I4");
+        }
+        
+        else if(act.equals("AfficherPistesSansOffre"))
+        {
+            jspDassault="/AfficherPistesSansOffre.jsp";
+            List<Piste_opportunite>lesPO=expertSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", "");
         }
         
         else if(act.equals("CreerClient"))
@@ -338,6 +346,17 @@ public class GererLead extends HttpServlet {
             List<Produit> LesProduits=expertSession.AfficherLesProduits();
             request.setAttribute("LesProduits",LesProduits);
             doActionCreerDetailOffre(request, response);
+            request.setAttribute("message", " ");
+        }
+        
+        else if(act.equals("AfficherCreerDetailOffre"))
+        {
+            jspDassault="/CreerDetailOffre.jsp";
+            System.out.println("Test before liste LesOffres");
+            List<Offre> lesOffres=expertSession.AfficherLesOffres();
+            request.setAttribute("LesOffres",lesOffres);
+            List<Produit> LesProduits=expertSession.AfficherLesProduits();
+            request.setAttribute("LesProduits",LesProduits);
             request.setAttribute("message", " ");
         }
         
@@ -737,23 +756,32 @@ public class GererLead extends HttpServlet {
      }
 
     protected void doActionCreerDetailOffre (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        System.out.println("G0");
         String id_offre = request.getParameter("id_offre");
         long id_offreL = Long.parseLong(id_offre);
-        String nom_produit = request.getParameter("nom_produit");
+        String id_produit = request.getParameter("id_produit");
         String quantite = request.getParameter("quantite");
         int quantiteI = Integer.parseInt(quantite);
         String message;
-
-        if (id_offre==null || id_offre.trim().isEmpty()|| nom_produit==null || nom_produit.trim().isEmpty()|| quantite==null || quantite.trim().isEmpty())
+System.out.println("G1");
+        if (id_offre==null || id_offre.trim().isEmpty()|| id_produit==null || id_produit.trim().isEmpty()|| quantite==null || quantite.trim().isEmpty())
         {
+            System.out.println("G2");
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"CreerDetailOffre.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un détail offre.";
         }
         else 
         {
+            System.out.println("G3");
            Offre o = expertSession.RechercherOffreParId(id_offreL);
-           Produit p = expertSession.RechercherProduitParNom(nom_produit);
+           System.out.println(id_produit);
+           long id_produitL = Long.parseLong(id_produit);
+           Produit p = expertSession.RechercherProduitParId(id_produitL);
+           System.out.println(o);
+           System.out.println(p);
+           System.out.println(quantite);
            expertSession.CreerDetail_offre(o, p, quantiteI);
+           System.out.println("G6");
            message = "Détail offre créé avec succès!";
         }
 

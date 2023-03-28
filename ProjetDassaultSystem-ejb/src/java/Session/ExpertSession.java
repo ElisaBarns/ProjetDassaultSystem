@@ -146,6 +146,11 @@ public class ExpertSession implements ExpertSessionLocal {
     }
     
     @Override
+    public Produit RechercherProduitParId(long id) {
+        return produitFacade.RechercherProduitParId(id);
+    }
+    
+    @Override
     public List<Offre> AfficherLesOffres(){
         return offreFacade.AfficherLesOffres();
     }

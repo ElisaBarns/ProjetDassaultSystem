@@ -49,7 +49,7 @@ for(int i = 0; i<LesOffres.size(); i++) {
 </SELECT></td></tr>
                     <br/>
                     <br/>
-<tr><td>Nom du produit </td><td><SELECT size="1" name="nom_produit"> 
+<tr><td>Nom du produit </td><td><SELECT size="1" name="id_produit"> 
 <% System.out.println("O2");
 for(int i = 0; i<LesProduits.size(); i++) {
     Produit p = (Produit)LesProduits.get(i);

@@ -30,13 +30,13 @@
        
         <table>
             <tr>
-           <td Width =15%><A HREF ="MenuAdmin.jsp">Administrateur</A></td>
            <%HttpSession sess=request.getSession(true);%>
            <%Utilisateur u = (Utilisateur)sess.getAttribute("session");%>
+           <%if (u.verify_Admin()){%><td Width =15%><A HREF ="MenuAdmin.jsp">Administrateur</A></td><%}%> 
            <%if (u.verify_Marketeur()){%><td Width =15%><A HREF ="MenuMarketeur.jsp">Marketeur</A></td><%}%> 
            <%if (u.verify_Vendeur()){%><td Width =15%><A HREF ="MenuVendeur.jsp">Vendeur</A></td><%}%>
-           <td Width =15%><A HREF ="MenuExpert.jsp">Expert technique</A></td> 
-           <td Width =15%><A HREF ="MenuOperateurVentes.jsp">Responsable des opérations de ventes</A></td>
+           <%if (u.verify_Expert()){%><td Width =15%><A HREF ="MenuExpert.jsp">Expert technique</A></td><%}%>
+           <%if (u.verify_OperateurVentes()){%><td Width =15%><A HREF ="MenuOperateurVentes.jsp">Responsable des opérations de ventes</A></td><%}%>
             </tr>
         </table>
         

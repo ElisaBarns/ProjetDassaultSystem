@@ -107,7 +107,7 @@ public class GererLead extends HttpServlet {
         {
             //jspDassault="/MenuGeneral.jsp";            
             jspDassault="/Authentification.jsp";
-            request.setAttribute("message", "pas d'information");
+            request.setAttribute("message", " ");
         }
         else if(act.equals("authentification"))
         {
@@ -129,6 +129,7 @@ public class GererLead extends HttpServlet {
                 System.out.println(u1);
                 System.out.println("testMarketeur");
                 System.out.println(u1.verify_Marketeur());
+                request.setAttribute("message", " ");
                 } 
                 else
                 {
@@ -741,7 +742,7 @@ public class GererLead extends HttpServlet {
 
         request.setAttribute("message", message);
     }
-
+        
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

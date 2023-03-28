@@ -33,6 +33,8 @@
            <A HREF ="CreerClient.jsp">Créer un client</A></td></br>
            <A HREF ="CreerContact.jsp">Créer un contact</A></td><br/>
            <A HREF ="AffecterVendeur.jsp">Affecter un vendeur à une piste</A></td><br/>
+           <A HREF ="ModifierClientParMarketeur.jsp">Modifier un client</A></td><br/>
+           <A HREF ="ModifierContact.jsp">Modifier un contact</A></td><br/>
            
           <tr> 
            <A HREF ="GererLead?action=AfficherListeMarketeur">Afficher la liste des pistes</A></td><br/> 

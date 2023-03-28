@@ -38,21 +38,18 @@
          <TD>Date de création</TD>
          <TD>Date de modification</TD>
     <% List<Piste_opportunite> lesPO=lesPistes_opportunites; 
-    for(Piste_opportunite po : lesPO){%> 
-    <tr> 
-    <td Width=15%><%=po.getId()%></td> 
-    <td Width=15%><%=po.getStatut()%></td>
-    <td Width=15%><%=po.getType()%></td>  
-    <td Width=15%><%=po.getNiveau_interet()%></td>
-    <td Width=15%><%=po.getTx_reussite()%></td>
-    <td Width=15%><%=po.getNiveau_risque()%></td> 
-    <td Width=15%><%=po.getBudget_estime()%></td>  
-    
-    <td Width=15%><%=po.getLeClient()%></td>%></td>
-    <td Width=15%><%=po.getVendeur()%></td>
-    <td Width=15%><%=po.getDate_creation_popp()%></td> 
-    <td Width=15%><%=po.getDate_modif_popp()%></td> 
-    </td> 
+    for(Piste_opportunite po : lesPO){%>
+  <tr>  <td Width=15%><%=po.getId()%></td> 
+        <td Width=15%><%=po.getStatut()%></td>
+        <td Width=15%><%=po.getType()%></td>  
+        <td Width=15%><%=po.getNiveau_interet()%></td>
+        <td Width=15%><%=po.getTx_reussite()%></td>
+        <td Width=15%><%=po.getNiveau_risque()%></td> 
+        <td Width=15%><%=po.getBudget_estime()%></td>  
+        <td Width=15%><%=po.getLeClient()%></td>
+        <td Width=15%><%=po.getVendeur()%></td>
+        <td Width=15%><%=po.getDate_creation_popp()%></td> 
+        <td Width=15%><%=po.getDate_modif_popp()%></td> 
    </tr><%}%> 
     </TABLE>
                    

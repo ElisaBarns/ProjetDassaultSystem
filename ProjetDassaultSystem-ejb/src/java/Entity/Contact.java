@@ -255,4 +255,5 @@ public class Contact implements Serializable {
         this.leClient = leClient;
     }
 
+    
 }

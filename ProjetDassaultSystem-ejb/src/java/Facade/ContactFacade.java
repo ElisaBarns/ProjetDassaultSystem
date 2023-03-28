@@ -97,7 +97,14 @@ public class ContactFacade extends AbstractFacade<Contact> implements ContactFac
         return result;
     }
 
-    
+    @Override
+    public List<Contact> AfficherTousLesContact() {
+        List <Contact> c;
+        String tx = "SELECT c FROM Profil AS c";
+        Query req = getEntityManager().createQuery(tx);
+        c=req.getResultList();
+        return c;
+    }
 
     
 }

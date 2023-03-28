@@ -40,5 +40,7 @@ public interface ContactFacadeLocal {
     Contact rechercherContact(long id);
 
     List<Contact> RechercherContactsClient(Client leClient);
+
+    public List<Contact> AfficherTousLesContact();
     
 }

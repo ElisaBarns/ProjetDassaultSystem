@@ -57,7 +57,7 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         po.setNiveau_interet(niveau_interet);
         po.setBudget_estime(budget_estime);
         po.setType(PisteOpp.PISTE);
-        po.setStatut(Statut.OUVERTE);
+        po.setStatut(Statut.QUALIFIE);
         po.setMarketeur(marketeur);
         po.setVendeur(vendeur);
         po.setExpert_technique(null);
@@ -103,10 +103,9 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
     
     //Accepter la piste par le vendeur
     @Override
-    public void AccepterParVendeur(Piste_opportunite p, Profil vendeur) {
+    public void AccepterParVendeur(Piste_opportunite p) {
         p.setType(PisteOpp.OPPORTUNITE);
         p.setStatut(Statut.ACCEPTEE);
-        p.setVendeur(vendeur);
         getEntityManager().merge(p);
     }
     

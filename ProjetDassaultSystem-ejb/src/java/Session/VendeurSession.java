@@ -47,35 +47,24 @@ public class VendeurSession implements VendeurSessionLocal {
     
     //Accepter une piste qui m'a été attribuée
     @Override
-    public void AccepterPiste(long id, long idvendeur) {
-        piste_opportuniteFacade.AccepterParVendeur(p, vendeur);
+    public void AccepterPiste(Piste_opportunite p) {
+        piste_opportuniteFacade.AccepterParVendeur(p);
     }
     
     
     //Refuser une piste qui m'a été affectée
     @Override
-    public void RefuserPiste(long id) {
-        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id); 
-            piste_opportuniteFacade.RefuserParVendeur(p); 
-        
+    public void RefuserPiste(Piste_opportunite p) {
+        piste_opportuniteFacade.RefuserParVendeur(p); 
     }
     
     
     //Assigner un expert technique
-  /*  @Override
-    public void AffecterExpert(long id, long idexpert) {
-        
-            
-            Piste_opportunite po=piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
-            Profil expert_technique = profilFacade.RechercherProfilparID(idexpert); Erreur sur laquelle tu étais hier !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         
-            
-            
-                piste_opportuniteFacade.AffecterExpert(po,expert_technique);
-            
-        
-        
-    }*/
+    @Override
+    public void AffecterExpert(Piste_opportunite piste, Profil expert) 
+    {
+        piste_opportuniteFacade.AffecterExpert(piste, expert);
+    }
     
     //Afficher toutes les pistes et opportunités qui me sont attribuées
     //PAS BESOIN CAR A GERER DANS JSP ?????
@@ -156,4 +145,24 @@ public class VendeurSession implements VendeurSessionLocal {
         return piste_opportuniteFacade.AfficherPistes();
     }
     
+    @Override
+    public Piste_opportunite RechercherPisteParId(long id_piste){
+        return piste_opportuniteFacade.RechercherPisteOpportuniteParId(id_piste);
+    }
+    
+    @Override
+    public Profil RechercherUnProfilExpertParId(Utilisateur utilisateur) {
+        
+        return profilFacade.RechercherUnExpertParId(utilisateur);
+    }
+    
+    @Override
+    public List<Profil> ListeExpertActif() {
+        return profilFacade.ListeExpertActif();
+    }
+    
+    @Override
+    public List<Piste_opportunite> ListePistes() {
+        return piste_opportuniteFacade.AfficherPistes();
+    }
 }

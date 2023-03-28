@@ -50,4 +50,6 @@ public interface ProfilFacadeLocal {
 
     public Profil RechercherUnVendeurParId(Utilisateur unUtilisateur);
     
+    Profil RechercherUnExpertParId(Utilisateur unUtilisateur);
+    
 }

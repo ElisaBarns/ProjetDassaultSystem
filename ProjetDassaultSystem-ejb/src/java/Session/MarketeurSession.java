@@ -209,6 +209,33 @@ public class MarketeurSession implements MarketeurSessionLocal {
         return utilisateurFacade.RechercherUtilisateurParId(id);
     }
     
-
+    @Override
+    public Profil RechercherUnProfilExpertParId(Utilisateur utilisateur) {
+        
+        return profilFacade.RechercherUnExpertParId(utilisateur);
+    }
     
+    @Override
+    public void AffecterVendeur(Piste_opportunite piste, Profil expert) 
+    {
+        piste_opportuniteFacade.AffecterVendeur(piste, expert);
+              
+         
+    }
+    
+    @Override
+    public List<Profil> ListeVendeursActifs() {
+        return profilFacade.ListeVendeursActifs();
+    }
+    
+    @Override
+    public List<Piste_opportunite> ListePistes() {
+        return piste_opportuniteFacade.AfficherPistes();
+    }
+    
+    @Override
+    public Profil RechercherUnProfilVendeurParId(Utilisateur utilisateur) {
+        
+        return profilFacade.RechercherUnVendeurParId(utilisateur);
+    }
 }

@@ -43,7 +43,7 @@ public interface Piste_opportuniteFacadeLocal {
 
     void AffecterVendeur(Piste_opportunite p, Profil vendeur);
     
-    void AccepterParVendeur(Piste_opportunite p, Profil vendeur);
+    void AccepterParVendeur(Piste_opportunite p);
     
     void RefuserParVendeur(Piste_opportunite p);
     

@@ -31,14 +31,12 @@
 
           <tr> 
            <A HREF ="GererLead?action=AfficherPistesVendeur">Afficher mes pistes et opportunités</A></td><br/>
-           <A HREF ="GererLead?action=AfficherPistesVendeurEnAttente">Afficher mes pistes et opportunités en attente d'acceptation</A></td><br/>
-           <A HREF ="AccepterPiste.jsp">Accepter la piste</A></td><br/>
-           <A HREF ="RefuserPiste.jsp">Refuser la piste</A></td><br/>
-           <A HREF ="AffecterExpert.jsp">Affecter un expert</A></td><br/>
+           <A HREF ="GererLead?action=AfficherAffecterPistesVendeurEnAttente">Mes pistes et opportunités en attente d'acceptation</A></td><br/>
+           <A HREF ="GererLead?action=AfficherAffecterExpert">Affecter un expert</A></td><br/>
            <A HREF ="MajPoParVendeur.jsp">Mettre à jour la piste/opportunité</A></td><br/>
-           <A HREF ="PisteGagne.jsp">Déclarer cette opportunité comme gagné</A></td><br/>
-           <A HREF ="PistePerdu.jsp">Déclarer cette opportunité comme perdu</A></td><br/>
+           <A HREF ="PisteGagne.jsp">Décision finale d'une piste</A></td><br/>
            <A HREF ="ModifierClient.jsp">Modifier un client</A></td><br/>
+           <A HREF ="ModifierContactParVendeur.jsp">Modifier un contact</A></td><br/>
            </tr>
 
            <!--

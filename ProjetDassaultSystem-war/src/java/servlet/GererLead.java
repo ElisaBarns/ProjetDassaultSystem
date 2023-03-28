@@ -251,6 +251,26 @@ public class GererLead extends HttpServlet {
             request.setAttribute("message", "");
         }
         
+        else if(act.equals("AffecterVendeur"))
+        { 
+           jspDassault="/AffecterVendeur.jsp";
+           List<Profil> ListeVendeurActifs=marketeurSession.ListeVendeursActifs();
+           List<Piste_opportunite> lesPistes=marketeurSession.ListePistes();
+           request.setAttribute("lesPistes",lesPistes);
+           request.setAttribute("ListeVendeurActifs",ListeVendeurActifs);
+           doActionAffecterVendeur(request, response);
+        }
+         
+         else if(act.equals("AfficherAffecterVendeur"))  
+        {
+           jspDassault="/AffecterVendeur.jsp";
+          List<Profil> ListeVendeurActifs=marketeurSession.ListeVendeursActifs();
+           List<Piste_opportunite> lesPistes=marketeurSession.ListePistes();
+           request.setAttribute("lesPistes",lesPistes);
+           request.setAttribute("ListeVendeurActifs",ListeVendeurActifs);
+           request.setAttribute("message", " ");     
+        }
+        
         else if(act.equals("AfficherPistesExpert"))
         {
             jspDassault="/AfficherPistesExpert.jsp";
@@ -276,9 +296,18 @@ public class GererLead extends HttpServlet {
             request.setAttribute("message", " ");
         }
         
-        else if(act.equals("AfficherPistesVendeurEnAttente"))
+        else if(act.equals("AfficherAffecterPistesVendeurEnAttente"))
         {
             jspDassault="/AfficherPistesVendeurEnAttente.jsp";
+            List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", " ");
+        }
+        
+        else if(act.equals("AffecterPistesVendeurEnAttente"))//AVEC DO ACTION
+        {
+            jspDassault="/AfficherPistesVendeurEnAttente.jsp";
+            doActionAffecterPistesVendeurEnAttente(request, response);
             List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
             request.setAttribute("lesPistes_opportunites",lesPO);
             request.setAttribute("message", " ");
@@ -334,6 +363,45 @@ public class GererLead extends HttpServlet {
              doActionModifierClient(request, response);
              request.setAttribute("message", " ");
          }
+         
+         else if (act.equals("ModifierContact"))
+         {
+             jspDassault="/ModifierContact.jsp";
+            doActionModifierContact(request, response);
+            
+         }
+         
+        else if (act.equals("ModifierContactParVendeur"))
+         {
+             jspDassault="/ModifierContactParVendeur.jsp";
+            doActionModifierContact(request, response);
+            
+         }
+         
+         else if(act.equals("AffecterExpert"))
+        { 
+           jspDassault="/AffecterExpert.jsp";
+           
+           List<Profil> ListeExpertActif=VendeurSession.ListeExpertActif();
+           
+           List<Piste_opportunite> lesPistes=VendeurSession.ListePistes();
+           request.setAttribute("Pistes",lesPistes);
+           request.setAttribute("lesExpertsActifs",ListeExpertActif);
+           
+           doActionAffecterExpert(request, response); 
+        }
+         
+         else if(act.equals("AfficherAffecterExpert"))   
+        {
+           jspDassault="/AffecterExpert.jsp";
+           
+           List<Profil> ListeExpertActif=VendeurSession.ListeExpertActif();
+           
+           List<Piste_opportunite> lesPistes=VendeurSession.ListePistes();
+           request.setAttribute("Pistes",lesPistes);
+           request.setAttribute("lesExpertsActifs",ListeExpertActif);
+           request.setAttribute("message", " ");
+        }
         
         else if (act.equals("RechercherProduit"))
          {
@@ -770,7 +838,89 @@ public class GererLead extends HttpServlet {
      }
      request.setAttribute( "message", message );
      }
+    
+    protected void  doActionModifierContact (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        String id_contact =request.getParameter("id_contact");
+        String nom_contact = request.getParameter("nom_contact");
+        String prenom_contact = request.getParameter("prenom_contact");
+        String mail_contact = request.getParameter("mail_contact");
+        String tel_contact = request.getParameter("tel_contact");
+             
+        String message;
+                if (id_contact.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"ModiferContact.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un contact.";
+        }
+        else 
+        {
+           Long id = Long.parseLong(id_contact);
+                  marketeurSession.ModifierContact(id, nom_contact, prenom_contact, mail_contact, tel_contact);
+           message = "Contact créé avec succès!";
+        }
+        request.setAttribute("message", "Contact créé avec succès!");
+    }
+    
+    protected void doActionAffecterVendeur(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+            String login_utilisateur=request.getParameter("login_utilisateur");
+            String id_piste=request.getParameter("id_piste");        
+            String message="";
+            
+            if (login_utilisateur ==null || login_utilisateur.trim().isEmpty())
+            {
+                       message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+               + "<br /> <a href =\"AffecterVendeur.jsp\" > Cliquez ici </a> pour accéder au formulaire d'affectation d'un vendeur.";
+            }
+            else       
+            {         
+                Utilisateur utilisateur=administrateurSession.RechercherUtilisateur(login_utilisateur);
+                Profil vendeur = marketeurSession.RechercherUnProfilVendeurParId(utilisateur);                                           
+            if (id_piste == null || id_piste.trim().isEmpty())
+                    {
+                                message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"AffecterVendeur.jsp\" > Cliquez ici </a> pour accéder au formulaire d'affectation d'un vendeur.";
+                    }
+            else 
+            {
+                long id_pisteL=Long.parseLong(id_piste);
+                Piste_opportunite po=VendeurSession.RechercherPisteParId(id_pisteL);
+                marketeurSession.AffecterVendeur(po, vendeur); 
+            }
+        }
+        request.setAttribute("message", message); 
+    }
 
+    protected void doActionAffecterExpert(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+            String login_utilisateur=request.getParameter("login_utilisateur");
+            String id_piste=request.getParameter("id_piste");        
+            String message="";
+            
+            if (login_utilisateur ==null || login_utilisateur.trim().isEmpty())
+            {
+                       message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+               + "<br /> <a href =\"AffecterExpert.jsp\" > Cliquez ici </a> pour accéder au formulaire d'affectation d'un expert.";
+            }
+            else       
+            {         
+                Utilisateur utilisateur=administrateurSession.RechercherUtilisateur(login_utilisateur);
+                Profil expert = VendeurSession.RechercherUnProfilExpertParId(utilisateur);
+                
+            if (id_piste == null || id_piste.trim().isEmpty())
+                    {
+                                message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"AffecterExpert.jsp\" > Cliquez ici </a> pour accéder au formulaire d'affectation d'un expert.";
+
+            }
+            else 
+            {
+                long id_pisteL=Long.parseLong(id_piste);
+                Piste_opportunite po=  VendeurSession.RechercherPisteParId(id_pisteL);
+                VendeurSession.AffecterExpert(po, expert);      
+            }
+        }  
+        request.setAttribute("message", message); 
+    }
+    
     protected void doActionCreerDetailOffre (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         System.out.println("G0");
         String id_offre = request.getParameter("id_offre");
@@ -830,6 +980,32 @@ System.out.println("G1");
             System.out.println("F3");
         }
 
+        request.setAttribute("message", message);
+    }
+        
+        protected void doActionAffecterPistesVendeurEnAttente (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String id_piste = request.getParameter("piste");
+        String decision = request.getParameter("decision");
+        String message;
+        
+        if (id_piste==null || id_piste.trim().isEmpty() || decision==null || decision.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un utilisateur.";
+        }
+        else 
+        {
+           long id_pisteL=Long.parseLong(id_piste);
+           Piste_opportunite p = VendeurSession.RechercherPisteParId(id_pisteL);
+           if(decision.equals("acceptee")){
+               VendeurSession.AccepterPiste(p);
+           }
+           else if (decision.equals("refusee")){
+               VendeurSession.RefuserPiste(p);
+           }  
+            message = "Contact créé avec succès!";
+        }
+        
         request.setAttribute("message", message);
     }
         

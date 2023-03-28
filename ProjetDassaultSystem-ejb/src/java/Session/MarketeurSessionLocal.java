@@ -61,4 +61,13 @@ public interface MarketeurSessionLocal {
 
     public Utilisateur RechercherUnVendeurParId(long id);
     
+    Profil RechercherUnProfilExpertParId(Utilisateur utilisateur);
+    
+    void AffecterVendeur(Piste_opportunite piste, Profil expert);
+    
+    List<Profil> ListeVendeursActifs();
+    
+    List<Piste_opportunite> ListePistes();
+    
+    Profil RechercherUnProfilVendeurParId(Utilisateur utilisateur);
 }

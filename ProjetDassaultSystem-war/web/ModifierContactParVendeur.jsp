@@ -1,7 +1,7 @@
 <%-- 
-    Document   : ModifierContact
-    Created on : 23 mars 2023, 00:06:12
-    Author     : marie
+    Document   : ModifierContactParVendeur
+    Created on : 29 mars 2023, 01:16:05
+    Author     : Mel
 --%>
 
 <%@page import="java.util.List"%>
@@ -30,7 +30,7 @@
         <input type="text" id="id_contact" name="id_contact" value="" size"20" maxlength="20"/>
                     <br/> 
         <label for="nom_contact">Nom <span class="requis"></span></label>
-        <input type="text" id="nom_contact" name="nom_contact" value=" " size"20" maxlength="20"/>
+        <input type="text" id="nom_contact" name="nom_contact" value="" size"20" maxlength="20"/>
                     <br/>
         <label for="prenom_contact">Prénom <span class="requis"></span></label>
         <input type="text" id="prenom_contact" name="prenom_contact" value="" size"20" maxlength="20"/>
@@ -42,7 +42,7 @@
         <input type="text" id="tel_contact" name="tel_contact" value="" size"20" maxlength="20"/>
                     <br/>
         
-        <input type="hidden" name="action" value="ModifierContact">
+        <input type="hidden" name="action" value="ModifierContactParVendeur">
         </fieldset>
         <input type="submit" value="Valider" />
         <input type="reset" value="Annuler" /> <br />
@@ -50,7 +50,7 @@
         </div>
                    
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'"><br />
         </span> 
 
         

@@ -10,6 +10,7 @@ import Entity.Niveau;
 import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
+import Entity.Utilisateur;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.Local;
@@ -21,11 +22,11 @@ import javax.ejb.Local;
 @Local
 public interface VendeurSessionLocal {
 
-   // void AffecterExpert(long id, long idexpert);
+    void AffecterExpert(Piste_opportunite piste, Profil expert);
 
-  //  void AccepterPiste(long id, long idvendeur);
+    void AccepterPiste(Piste_opportunite p);
     
-    void RefuserPiste(long id);
+    void RefuserPiste(Piste_opportunite p);
 
     //void AfficherListePO(String l, String mdp, Profil v);
 
@@ -43,4 +44,11 @@ public interface VendeurSessionLocal {
     
     List<Piste_opportunite> AfficherPistes();
     
+    Piste_opportunite RechercherPisteParId(long id_piste);
+    
+    Profil RechercherUnProfilExpertParId(Utilisateur utilisateur);
+    
+    List<Profil> ListeExpertActif();
+    
+    public List<Piste_opportunite> ListePistes();
 }

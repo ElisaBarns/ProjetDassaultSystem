@@ -6,15 +6,15 @@
 
 <%@page import="Entity.Utilisateur"%>
 <%@page import="Entity.Piste_opportunite"%>
+<%@page import="Entity.Statut"%>
 <%@page import="java.util.List"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
 <!DOCTYPE html> 
 <html> 
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
-        <%System.out.println("I4");%>
+        <%System.out.println("J0");%>
         <jsp:useBean id="lesPistes_opportunites" scope="request" class="java.util.List"></jsp:useBean> 
-        <%System.out.println("I5");%>
 
        <title>Les pistes et opportunités</title> 
         <link rel="stylesheet" href="CSS.css">
@@ -49,8 +49,7 @@
 
     <% List<Piste_opportunite> lesPO=lesPistes_opportunites; 
     for(Piste_opportunite po : lesPO){
-    
-    if(po.getStatut().QUALIFIE !=null && po.getVendeur()!=null && po.getVendeur().getUnUtilisateur()!=null && po.getVendeur().getUnUtilisateur().getId()==u.getId()){
+    if(po.getStatut()==Statut.QUALIFIE && po.getVendeur()!=null && po.getVendeur().getUnUtilisateur()!=null && po.getVendeur().getUnUtilisateur().getId()==u.getId()){
     %>
   <tr>  <td Width=15%><%=po.getId()%></td> 
         <td Width=15%><%=po.getStatut()%></td>
@@ -69,7 +68,33 @@
 
     }%> 
     </TABLE>
-                   
+      
+        <form method="get" action="GererLead">
+<tr><td>Identifiant de la piste </td><td><SELECT size="1" name="piste"> 
+<% System.out.println("E1");
+for(int i = 0; i<lesPO.size(); i++) {
+Piste_opportunite po = (Piste_opportunite)lesPO.get(i);
+if(po.getStatut()==Statut.QUALIFIE && po.getVendeur()!=null && po.getVendeur().getUnUtilisateur()!=null && po.getVendeur().getUnUtilisateur().getId()==u.getId()){
+%>
+    <OPTION value ="<%=po.getId()%>"><%=po.getId() %> </OPTION>
+<%
+}}
+%>
+</SELECT></td></tr>
+                    <br/>
+                    <br/>
+                    
+                    <tr><td>Décision </td><td><SELECT size="1" name="decision"> 
+                    <OPTION value ="acceptee">Acceptée</OPTION> 
+                    <OPTION value ="refusee">Refusée</OPTION> 
+                    </SELECT></td></tr>
+                    <br/>
+                    <br/>
+              
+                    <input type="hidden" name="action" value="AffecterPistesVendeurEnAttente">
+                    <input type="submit" value="Confirmer" /> 
+        </form>
+                    
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'">
         </span>

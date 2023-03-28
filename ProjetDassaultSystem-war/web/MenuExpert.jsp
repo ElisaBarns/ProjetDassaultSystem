@@ -33,7 +33,7 @@
           <tr> 
           <A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A></td><br/>
           <A HREF ="AfficherPistesExpert.jsp">Afficher mes pistes et opportunités</A></td><br/>
-          <A HREF ="CreerOffre.jsp">Créer l'offre</A></td><br/>
+          <A HREF ="GererLead?action=AfficherCreerOffre">Créer l'offre</A></td><br/>
           <A HREF ="RechercherProduit.jsp">Rechercher un produit</A></td><br/>
           <A HREF ="CreerDetailOffre.jsp">Créer le détail d'une offre</A></td><br/>
            

@@ -37,17 +37,22 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
     
     //Créer offre
     @Override
-    public void CreerOffre(int remise, String conditions) {
+    public void CreerOffre(int remise, String conditions, Piste_opportunite piste) {
+    System.out.println(remise);
+    System.out.println(conditions);
+    System.out.println(piste);
+
     Offre o=new Offre();
     o.setRemise(remise);
     o.setConditions(conditions);
-    ArrayList<Detail_offre> contenu = new ArrayList();
-    o.setContenu(contenu);
+    o.setLaPisteOpportunite(piste);
+    //ArrayList<Detail_offre> contenu = new ArrayList();
+    //o.setContenu(contenu);
     o.setDate_creation_offre(new Date());
-        o.calculerMontant();
-        o.calculerTotal();
-    o.setP_somme(0);
-    o.setP_total(0);
+        //o.calculerMontant();
+        //o.calculerTotal();
+    //o.setP_somme(0);
+    //o.setP_total(0);
     getEntityManager().persist(o);
     }
     

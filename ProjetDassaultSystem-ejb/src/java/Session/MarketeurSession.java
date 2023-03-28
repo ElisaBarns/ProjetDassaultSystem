@@ -209,6 +209,6 @@ public class MarketeurSession implements MarketeurSessionLocal {
         return utilisateurFacade.RechercherUtilisateurParId(id);
     }
     
-    
+
     
 }

@@ -6,6 +6,7 @@ package servlet;
 
 
 import Entity.Client;
+import Entity.Detail_offre;
 import Entity.Fonction;
 import Entity.Niveau;
 import Entity.Piste_opportunite;
@@ -324,7 +325,20 @@ public class GererLead extends HttpServlet {
         else if(act.equals("CreerOffre"))
         {
             jspDassault="/CreerOffre.jsp";
+            List<Piste_opportunite> lesPistes=expertSession.AfficherPistes();
+            List<Detail_offre> lesDetail_offres=expertSession.AfficherTousLesDetails_offres();
+            request.setAttribute("LesDetail_offres",lesDetail_offres);
+            request.setAttribute("LesPistes",lesPistes);
             doActionCreerOffre(request, response);
+        }
+        
+        else if(act.equals("AfficherCreerOffre"))
+        {
+            jspDassault="/CreerOffre.jsp";
+            List<Piste_opportunite> lesPistes=expertSession.AfficherPistes();
+            List<Detail_offre> lesDetail_offres=expertSession.AfficherTousLesDetails_offres();
+            request.setAttribute("LesDetail_offres",lesDetail_offres);
+            request.setAttribute("LesPistes",lesPistes);
         }
         
     /*mettre les else if ici*/
@@ -727,17 +741,27 @@ public class GererLead extends HttpServlet {
         String remise = request.getParameter("remise");
         int remiseI = Integer.parseInt(remise);
         String conditions = request.getParameter("conditions");
+        String piste = request.getParameter("piste");
+        
         String message;
+            System.out.println(remise);
+            System.out.println(piste);
 
-        if (remise.trim().isEmpty())
+        if (remise==null || remise.trim().isEmpty() || piste==null ||piste.trim().isEmpty())
         {
+            System.out.println("Valeur vide");
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"CreerOffre.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'une offre.";
         }
         else 
         {
-           expertSession.CréerOffre(remiseI, conditions);
+            long pisteL = Long.parseLong(piste);
+            Piste_opportunite po = expertSession.RechercherPisteParId(pisteL);
+            System.out.println(po);
+           expertSession.CreerOffre(remiseI, conditions, po);
+            System.out.println("F2");
            message = "Offre créé avec succès!";
+            System.out.println("F3");
         }
 
         request.setAttribute("message", message);

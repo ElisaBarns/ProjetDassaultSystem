@@ -4,6 +4,7 @@
     Author     : marie
 --%>
 
+<%@page import="Entity.Utilisateur"%>
 <%@page import="Entity.Piste_opportunite"%>
 <%@page import="java.util.List"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%> 
@@ -12,7 +13,8 @@
     <head> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
        <jsp:useBean id="lesPistes_opportunites" scope="request" class="java.util.List"></jsp:useBean> 
-        <title>Les pistes et opportunités</title> 
+
+       <title>Les pistes et opportunités</title> 
         <link rel="stylesheet" href="CSS.css">
     </head> 
     <body> 
@@ -24,6 +26,9 @@
         <h1>Mes pistes et opportunités</h1> 
         <p> <% 
       String attribut = (String) request.getAttribute("message"); 
+           HttpSession sess=request.getSession(true);
+           Utilisateur u = (Utilisateur)sess.getAttribute("session");
+
       out.println( attribut ); 
       %> </p>
     <TABLE border width=5%>
@@ -31,6 +36,7 @@
          <TD>Statut</TD>
          <TD>Type</TD>
          <TD>Niveau d'intéret</TD>
+         <TD>Taux de réussite</TD>
          <TD>Niveau de risque</TD>
          <TD>Budget estimé</TD>
          <TD>Client</TD>
@@ -38,7 +44,9 @@
          <TD>Date de création</TD>
          <TD>Date de modification</TD>
     <% List<Piste_opportunite> lesPO=lesPistes_opportunites; 
-    for(Piste_opportunite po : lesPO){%>
+    for(Piste_opportunite po : lesPO){
+    if(po.getMarketeur().getUnUtilisateur()!=null && po.getMarketeur().getUnUtilisateur().getId()==u.getId()){
+    %>
   <tr>  <td Width=15%><%=po.getId()%></td> 
         <td Width=15%><%=po.getStatut()%></td>
         <td Width=15%><%=po.getType()%></td>  
@@ -50,7 +58,9 @@
         <td Width=15%><%=po.getVendeur()%></td>
         <td Width=15%><%=po.getDate_creation_popp()%></td> 
         <td Width=15%><%=po.getDate_modif_popp()%></td> 
-   </tr><%}%> 
+   </tr><%}
+
+    }%> 
     </TABLE>
                    
         <span class="RetourMenu">

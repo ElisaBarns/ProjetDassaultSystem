@@ -6,6 +6,7 @@ package Facade;
 
 import Entity.Detail_offre;
 import Entity.Offre;
+import Entity.Piste_opportunite;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +33,7 @@ public interface OffreFacadeLocal {
 
     int count();
 
-    void CreerOffre(int remise, String conditions);
+    void CreerOffre(int remise, String conditions, Piste_opportunite piste);
 
     void ModifierOffre(Offre o, int remise, String conditions);
     

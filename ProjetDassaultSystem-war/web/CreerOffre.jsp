@@ -3,24 +3,29 @@
     Created on : 26 mars 2023, 16:50:01
     Author     : rober
 --%>
-<%@page import="Entity.Detail_offre"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="Entity.Offre" %>
+<%@ page import="Entity.Detail_offre" %>
+<%@ page import="Entity.Piste_opportunite" %>
+<%@page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html>
     <head>
+        <% System.out.println("E");
+%>
         <link rel="stylesheet" href="CSS.css">
-        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>CrÃ©ation d'une offre</title>
-        <jsp:useBean id="LesDetail_offres" scope ="request" class ="java.util.List"></jsp:useBean>
+        <jsp:useBean id="LesPistes" scope="request" class="java.util.List"></jsp:useBean>
+<% System.out.println("E0");
+%>
+        <title>Création d'une offre</title>
     </head>
     <body>
-                
         <span class="SeDeconnecter">
-        <input type="button" value="Se dÃ©connecter" onclick="location.href='Authentification.jsp'"><br />
+            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
         
-        <h1>CrÃ©ation d'une offre</h1>
+        <h1>Création d'une offre</h1>
         
         <div>
             <form method="get" action="GererLead">
@@ -33,13 +38,27 @@
                     <label for="conditions">Conditions <span class="requis"></span></label>
                     <input type="text" id="conditions" name="conditions" value="" size"20" maxlength="20"/>
                     <br/>
-                    <!--
-                    <select name="contenu">
-                        <c:forEach items="${detail_offre}" var="do">
-                        <option value="${do.id}">${do.id}</option>
+<tr><td>Identifiant de la piste </td><td><SELECT size="1" name="piste"> 
+<% System.out.println("E1");
+for(int i = 0; i<LesPistes.size(); i++) {
+    Piste_opportunite po = (Piste_opportunite)LesPistes.get(i);
+%>
+    <OPTION value ="<%=po.getId()%>"><%=po.getId() %> </OPTION>
+<%
+}
+%>
+</SELECT></td></tr>
+                    <br/>
+                    <br/>
+                    <!--On laisse tombé la liste déroulante pour l'instant
+                    <label for="detailOffre">Détail de l'offre</label>
+                    <select name="detailOffre">
+                        <c:forEach var="do" items="${detail_offre}">
+                            <option value="${do.id}">${do.id}</option>
                         </c:forEach>
                     </select>
                     -->
+                    
                     <br />
 
                     <input type="hidden" name="action" value="CreerOffre">
@@ -52,10 +71,8 @@
         </div>
         
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'"><br />
+            <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'"><br />
         </span>
-
-        
     </body>
 </html>
 

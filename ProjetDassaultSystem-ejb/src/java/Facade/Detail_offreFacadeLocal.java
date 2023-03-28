@@ -38,4 +38,6 @@ public interface Detail_offreFacadeLocal {
     void SupprimerDetailOffre(Detail_offre d);
     
     Detail_offre RechercherDetail_offreParId(long id);
+    
+    List<Detail_offre> AfficherTousLesDetails_offres();
 }

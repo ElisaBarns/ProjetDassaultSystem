@@ -76,4 +76,12 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     }
     return d;        
     }
+    
+    public List<Detail_offre> AfficherTousLesDetails_offres() {
+        List <Detail_offre> d;
+        String tx = "SELECT d FROM Detail_offre AS d";
+        Query req = getEntityManager().createQuery(tx);
+        d=req.getResultList();
+        return d;
+    }
 }

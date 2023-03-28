@@ -75,9 +75,9 @@ public class ExpertSession implements ExpertSessionLocal {
     }
     
     @Override
-    public void CréerOffre(int remise, String conditions)
+    public void CreerOffre(int remise, String conditions, Piste_opportunite piste)
     {
-        offreFacade.CreerOffre(remise, conditions);
+        offreFacade.CreerOffre(remise, conditions, piste);
     }
     
     @Override
@@ -128,6 +128,24 @@ public class ExpertSession implements ExpertSessionLocal {
         return p;
     }
     
+    @Override
+    public List<Detail_offre> AfficherTousLesDetails_offres() {
+        return detail_offreFacade.AfficherTousLesDetails_offres();
+    }
     
+    @Override
+    public Detail_offre RechercherDetail_offreParId(long id_detail_offre){
+        return detail_offreFacade.RechercherDetail_offreParId(id_detail_offre);
+    }
     
+    @Override
+    public Piste_opportunite RechercherPisteParId(long id) {
+        
+        return piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
+    }
+    
+    @Override
+    public List<Piste_opportunite> AfficherPistes() {
+        return piste_opportuniteFacade.AfficherPistes();
+    }
 }

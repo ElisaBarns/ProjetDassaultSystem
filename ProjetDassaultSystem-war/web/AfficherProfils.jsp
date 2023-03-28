@@ -36,7 +36,7 @@
    <% List<Profil> lesProf=lesProfils;
    for(Profil p : lesProf){%>
    <tr> <td Width=15%><%=p.getId()%></td>
-        <td Width=15%><%=p.getUnUtilisateur()%></td>
+        <td Width=15%><%=p.getUnUtilisateur().getNom_utilisateur()%> <%=p.getUnUtilisateur().getPrenom_utilisateur()%></td>
         <td Width=15%><%=p.getFonction()%></td>
         <td Width=30%><%=p.isInactif()%></td>
         <td Width=30%><%=p.getDate_creation_profil()%></td>

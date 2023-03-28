@@ -31,7 +31,7 @@ public interface Detail_offreFacadeLocal {
 
     int count();
 
-    void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre);
+    void CreerDetailOffre(Offre uneOffre, Produit leProduit, int quantite);
 
     void ModifierDetailOffre(Detail_offre d, int quantite, Produit leProduit, Offre uneOffre);
 

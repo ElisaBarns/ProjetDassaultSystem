@@ -26,7 +26,7 @@ public interface ExpertSessionLocal {
     
     void ModifierOffre(int id_offre, int remise, String conditions);
 
-    void CreerDetail_offre(String nom_produit, long id_offre, int quantite);
+    void CreerDetail_offre(Offre o, Produit p, int quantite);
 
     void ModifierDetail_offre(long id_detail, String nom_produit, long id_offre, int quantite);
 
@@ -43,4 +43,10 @@ public interface ExpertSessionLocal {
     Piste_opportunite RechercherPisteParId(long id);
     
     List<Piste_opportunite> AfficherPistes();
+    
+    Offre RechercherOffreParId(long id);
+    
+    List<Offre> AfficherLesOffres();
+    
+    List<Produit> AfficherLesProduits();
 }

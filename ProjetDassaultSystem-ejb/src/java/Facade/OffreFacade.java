@@ -107,6 +107,13 @@ public class OffreFacade extends AbstractFacade<Offre> implements OffreFacadeLoc
         return contenu;
     }
     
-    
+    @Override
+    public List<Offre> AfficherLesOffres() {
+    List <Offre> o;
+    String tx = "SELECT o FROM Offre AS o";
+    Query req = getEntityManager().createQuery(tx);
+    o=req.getResultList();
+    return o;
+    }
     
 }

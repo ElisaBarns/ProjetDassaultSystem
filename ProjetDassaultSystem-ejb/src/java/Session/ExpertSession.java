@@ -96,16 +96,8 @@ public class ExpertSession implements ExpertSessionLocal {
     
     
     @Override
-    public void CreerDetail_offre(String nom_produit, long id_offre, int quantite) {
-        Offre uneOffre = offreFacade.RechercherOffreParId(id_offre);
-        if(uneOffre!=null)
-        {
-            Produit leProduit = produitFacade.RechercherProduitParNom(nom_produit);
-            if(leProduit!=null)
-            {
-                detail_offreFacade.CreerDetailOffre(quantite, leProduit, uneOffre);
-            }
-        }
+    public void CreerDetail_offre(Offre o, Produit p, int quantite) {
+        detail_offreFacade.CreerDetailOffre(o, p, quantite);
     }
 
     @Override
@@ -124,8 +116,7 @@ public class ExpertSession implements ExpertSessionLocal {
 
     @Override
     public Produit RechercherProduitParNom(String nom_produit) {
-        Produit p = produitFacade.RechercherProduitParNom(nom_produit);
-        return p;
+        return produitFacade.RechercherProduitParNom(nom_produit);
     }
     
     @Override
@@ -147,5 +138,20 @@ public class ExpertSession implements ExpertSessionLocal {
     @Override
     public List<Piste_opportunite> AfficherPistes() {
         return piste_opportuniteFacade.AfficherPistes();
+    }
+    
+    @Override
+    public Offre RechercherOffreParId(long id) {
+        return offreFacade.RechercherOffreParId(id);
+    }
+    
+    @Override
+    public List<Offre> AfficherLesOffres(){
+        return offreFacade.AfficherLesOffres();
+    }
+    
+    @Override
+    public List<Produit> AfficherLesProduits(){
+        return produitFacade.AfficherLesProduits();
     }
 }

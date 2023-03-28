@@ -41,4 +41,6 @@ public interface OffreFacadeLocal {
 
     ArrayList<Detail_offre> ModifierContenu(Offre offre);
     
+    List<Offre> AfficherLesOffres();
+    
 }

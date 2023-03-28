@@ -35,7 +35,7 @@ public class Detail_offreFacade extends AbstractFacade<Detail_offre> implements 
     
     //Créer détail offre
     @Override
-    public void CreerDetailOffre(int quantite, Produit leProduit, Offre uneOffre) {
+    public void CreerDetailOffre(Offre uneOffre, Produit leProduit, int quantite) {
     Detail_offre d = new Detail_offre();
     d.setQuantite(quantite);
     d.setLeProduit(leProduit);

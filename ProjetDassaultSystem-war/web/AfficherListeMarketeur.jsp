@@ -51,11 +51,11 @@
         <td Width=15%><%=po.getStatut()%></td>
         <td Width=15%><%=po.getType()%></td>  
         <td Width=15%><%=po.getNiveau_interet()%></td>
-        <td Width=15%><%=po.getTx_reussite()%></td>
+        <td Width=15%><%=po.getTx_reussite()%> %</td>
         <td Width=15%><%=po.getNiveau_risque()%></td> 
-        <td Width=15%><%=po.getBudget_estime()%></td>  
-        <td Width=15%><%=po.getLeClient()%></td>
-        <td Width=15%><%=po.getVendeur()%></td>
+        <td Width=15%><%=po.getBudget_estime()%> €</td>  
+        <td Width=15%><%=po.getLeClient().getNom_client() %></td>
+        <td Width=15%><%=po.getVendeur().getUnUtilisateur().getNom_utilisateur()%> <%=po.getVendeur().getUnUtilisateur().getPrenom_utilisateur() %></td>
         <td Width=15%><%=po.getDate_creation_popp()%></td> 
         <td Width=15%><%=po.getDate_modif_popp()%></td> 
    </tr><%}

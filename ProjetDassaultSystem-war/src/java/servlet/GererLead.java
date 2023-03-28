@@ -9,6 +9,7 @@ import Entity.Client;
 import Entity.Detail_offre;
 import Entity.Fonction;
 import Entity.Niveau;
+import Entity.Offre;
 import Entity.Piste_opportunite;
 import Entity.Produit;
 import Entity.Profil;
@@ -141,6 +142,7 @@ public class GererLead extends HttpServlet {
             { 
             jspDassault="/RenseignerTousChamps.jsp"; 
             } 
+            request.setAttribute("message", " ");
         }    
 
         
@@ -167,6 +169,7 @@ public class GererLead extends HttpServlet {
             /* CE QUI Y AVAIT DE BASE*/
             jspDassault="/CreerUtilisateur.jsp";
             doActionCreerUtilisateur(request, response); 
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("ModifierUtilisateur"))
@@ -190,18 +193,21 @@ public class GererLead extends HttpServlet {
             CE QU'IL Y AVAIT DE BASE*/
             jspDassault="/ModifierUtilisateur.jsp";
             doActionModifierUtilisateur(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("ModifierMdpUtilisateur"))
         {
             jspDassault="/ModifierMdpUtilisateur.jsp";
             doActionModifierMdpUtilisateur(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("InactiverUtilisateur"))
         {
             jspDassault="/InactiverUtilisateur.jsp";
             doActionInactiverUtilisateur(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if (act.equals("RechercherUtilisateur"))
@@ -219,12 +225,14 @@ public class GererLead extends HttpServlet {
             {
                 jspDassault="/MenuGeneral.jsp";    
             }
+             request.setAttribute("message", " ");
          }
         
         else if(act.equals("CreerProfil"))
         {
             jspDassault="/CreerProfil.jsp";
             doActionCreerProfil(request,response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("AfficherProfils"))
@@ -249,19 +257,21 @@ public class GererLead extends HttpServlet {
             jspDassault="/AfficherPistesExpert.jsp";
             List<Piste_opportunite> lesPistes_opportunites= expertSession.AfficherPistesExpert();
             request.setAttribute("lesPistes",lesPistes_opportunites);
-            request.setAttribute("message", "Liste des Profils existants");
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("CreerClient"))
         {
             jspDassault="/CreerClient.jsp";
             doActionCreerClient(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("CreerContact"))
         {
             jspDassault="/CreerContact.jsp";
             doActionCreerContact(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("CreerPiste"))
@@ -273,7 +283,7 @@ public class GererLead extends HttpServlet {
            request.setAttribute("lesVendeursActifs",vendeursActifs);
             
             doActionCreerPiste(request, response);
-            
+            request.setAttribute("message", " ");
         }
         
          else if(act.equals("AfficherCreerPiste"))
@@ -284,19 +294,21 @@ public class GererLead extends HttpServlet {
             List<Profil> vendeursActifs=administrateurSession.ListeVendeursActifs();
       
            request.setAttribute("lesVendeursActifs",vendeursActifs);
-        
+        request.setAttribute("message", " ");
         }
         
         else if(act.equals("ModifierPiste"))
         {
             jspDassault="/ModifierPiste.jsp";
             doActionModifierPiste(request, response);
+            request.setAttribute("message", " ");
         }
        
          else if (act.equals("ModifierClient"))
          {
              jspDassault="/ModifierClient.jsp";
              doActionModifierClient(request, response);
+             request.setAttribute("message", " ");
          }
         
         else if (act.equals("RechercherProduit"))
@@ -314,12 +326,19 @@ public class GererLead extends HttpServlet {
             {
                 jspDassault="/MenuGeneral.jsp";    
             }
+             request.setAttribute("message", " ");
          }
         
         else if(act.equals("CreerDetailOffre"))
         {
             jspDassault="/CreerDetailOffre.jsp";
+            System.out.println("Test before liste LesOffres");
+            List<Offre> lesOffres=expertSession.AfficherLesOffres();
+            request.setAttribute("LesOffres",lesOffres);
+            List<Produit> LesProduits=expertSession.AfficherLesProduits();
+            request.setAttribute("LesProduits",LesProduits);
             doActionCreerDetailOffre(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("CreerOffre"))
@@ -330,6 +349,7 @@ public class GererLead extends HttpServlet {
             request.setAttribute("LesDetail_offres",lesDetail_offres);
             request.setAttribute("LesPistes",lesPistes);
             doActionCreerOffre(request, response);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("AfficherCreerOffre"))
@@ -339,6 +359,7 @@ public class GererLead extends HttpServlet {
             List<Detail_offre> lesDetail_offres=expertSession.AfficherTousLesDetails_offres();
             request.setAttribute("LesDetail_offres",lesDetail_offres);
             request.setAttribute("LesPistes",lesPistes);
+            request.setAttribute("message", " ");
         }
         
     /*mettre les else if ici*/
@@ -717,20 +738,22 @@ public class GererLead extends HttpServlet {
 
     protected void doActionCreerDetailOffre (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         String id_offre = request.getParameter("id_offre");
+        long id_offreL = Long.parseLong(id_offre);
         String nom_produit = request.getParameter("nom_produit");
-        long nom_produitL = Long.parseLong(nom_produit);
         String quantite = request.getParameter("quantite");
         int quantiteI = Integer.parseInt(quantite);
         String message;
 
-        if (id_offre.trim().isEmpty()|| nom_produit.trim().isEmpty()|| quantite.trim().isEmpty())
+        if (id_offre==null || id_offre.trim().isEmpty()|| nom_produit==null || nom_produit.trim().isEmpty()|| quantite==null || quantite.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"CreerDetailOffre.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un détail offre.";
         }
         else 
         {
-           expertSession.CreerDetail_offre(id_offre, nom_produitL, quantiteI);
+           Offre o = expertSession.RechercherOffreParId(id_offreL);
+           Produit p = expertSession.RechercherProduitParNom(nom_produit);
+           expertSession.CreerDetail_offre(o, p, quantiteI);
            message = "Détail offre créé avec succès!";
         }
 
@@ -742,7 +765,6 @@ public class GererLead extends HttpServlet {
         int remiseI = Integer.parseInt(remise);
         String conditions = request.getParameter("conditions");
         String piste = request.getParameter("piste");
-        
         String message;
             System.out.println(remise);
             System.out.println(piste);

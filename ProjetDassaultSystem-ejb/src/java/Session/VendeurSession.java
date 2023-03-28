@@ -46,27 +46,10 @@ public class VendeurSession implements VendeurSessionLocal {
     // "Insert Code > Add Business Method")
     
     //Accepter une piste qui m'a été attribuée
-    //@Override
-    /*public void AccepterPiste(long id, long idvendeur) {
-        
-            //IL NE FAUT PAS RECHERCHER LA PISTE PUISQU'IL EST CENSE EN AVOIR CHOISI UNE
-            //LA SOLUTION SERAIT D'AFFICHER UNE LISTE DES PISTES SOUS LE STATUT QUALIFIE, autrement dit des pistes auxquelles des vendeurs ont été affectés mais que ce dernier n'a pas encore repondu
-            
-            /*Piste_opportunite po=piste_opportuniteFacade.RechercherPisteOpportuniteParId(id_piste_opportunite);
-            v=po.getVendeur();
-            if(listeProfils.contains(v))
-            {*/
-          /*  Profil vendeur = profilFacade.RechercherProfilparID(idvendeur); Erreur sur laquelle tu étais hier !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-         
-            Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
-                piste_opportuniteFacade.AccepterParVendeur(p, vendeur);
-            /*}
-            else
-            {
-                System.out.println("Vous n'avez pas les droits d'accès nécessaires pour modifier le vendeur affecté à cette piste. Veuillez vous rapprocher de votre administrateur.");
-            }*/
-        
-   // }
+    @Override
+    public void AccepterPiste(long id, long idvendeur) {
+        piste_opportuniteFacade.AccepterParVendeur(p, vendeur);
+    }
     
     
     //Refuser une piste qui m'a été affectée

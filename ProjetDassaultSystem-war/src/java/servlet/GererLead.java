@@ -274,7 +274,14 @@ public class GererLead extends HttpServlet {
             List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
             request.setAttribute("lesPistes_opportunites",lesPO);
             request.setAttribute("message", " ");
-            System.out.println("I4");
+        }
+        
+        else if(act.equals("AfficherPistesVendeurEnAttente"))
+        {
+            jspDassault="/AfficherPistesVendeurEnAttente.jsp";
+            List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("CreerClient"))

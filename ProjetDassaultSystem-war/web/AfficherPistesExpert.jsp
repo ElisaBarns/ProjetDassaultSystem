@@ -69,7 +69,7 @@
     </TABLE>
                    
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'">
+        <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'">
         </span>
     </body> 
 </html> 

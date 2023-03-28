@@ -36,7 +36,7 @@
           <A HREF ="GererLead?action=AfficherCreerOffre">Créer l'offre</A></td><br/>
           <A HREF ="RechercherProduit.jsp">Rechercher un produit</A></td><br/>
           <A HREF ="GererLead?action=AfficherCreerDetailOffre">Créer le détail d'une offre</A></td><br/>
-          <A HREF ="GererLead?action=AfficherPistesSansOffre">Afficher les pistes sans offre</A></td><br/>
+          <A HREF ="GererLead?action=AfficherPistesSansOffre">Afficher mes pistes et opportunités sans offre</A></td><br/>
            
            <!--
             <tr> 

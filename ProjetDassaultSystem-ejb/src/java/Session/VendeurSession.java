@@ -168,5 +168,9 @@ public class VendeurSession implements VendeurSessionLocal {
         contactFacade.modifierContact(c, nom, prenom, mail, tel);
     }
 
+    @Override
+    public List<Piste_opportunite> AfficherPistes() {
+        return piste_opportuniteFacade.AfficherPistes();
+    }
     
 }

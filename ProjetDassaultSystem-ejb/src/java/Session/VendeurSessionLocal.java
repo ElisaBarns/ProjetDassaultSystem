@@ -11,6 +11,7 @@ import Entity.Piste_opportunite;
 import Entity.Profil;
 import Entity.Statut;
 import java.util.Date;
+import java.util.List;
 import javax.ejb.Local;
 
 /**
@@ -39,5 +40,7 @@ public interface VendeurSessionLocal {
     void ModifierClient(long id, String nom, String siret);
     
     void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel);
+    
+    List<Piste_opportunite> AfficherPistes();
     
 }

@@ -30,6 +30,7 @@
         <table><tr>
 
           <tr> 
+           <A HREF ="GererLead?action=AfficherPistesVendeur">Afficher mes pistes et opportunités</A></td><br/>
            <td Width =15%><A HREF ="AccepterPiste.jsp">Accepter la piste</A></td> 
            <td Width =15%><A HREF ="RefuserPiste.jsp">Refuser la piste</A></td> 
            <td Width =15%><A HREF ="AffecterExpert.jsp">Affecter un expert</A></td>

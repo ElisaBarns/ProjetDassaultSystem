@@ -31,7 +31,7 @@
            <A HREF ="GererLead?action=AfficherCreerPiste">Créer une piste</A></td><br/>
            <A HREF ="ModifierPiste.jsp">Modifier une piste</A></td><br/>
            <A HREF ="CreerClient.jsp">Créer un client</A></td></br>
-           <A HREF ="CreerContact.jsp">Créer un contact</A></td><br/>
+           <A HREF ="GererLead?action=AfficherCreerContact">Créer un contact</A></td><br/>
            <A HREF ="GererLead?action=AfficherAffecterVendeur">Affecter un vendeur à une piste</A></td><br/>
            <A HREF ="ModifierClientParMarketeur.jsp">Modifier un client</A></td><br/>
            <A HREF ="ModifierContact.jsp">Modifier un contact</A></td><br/>

@@ -29,10 +29,10 @@
         <form method="get" action="GererLead">
         <fieldset>
         <legend>Information de la piste</legend>
-        <label for="id_piste">Identifiant de la piste <span class="requis">*</span></label>
+       
         
         
-         <label for="id_piste">Identifiant de la piste <span class="requis">*</span></label>
+        <label for="id_piste">Identifiant de la piste <span class="requis"></span></label>
         <select name="id_piste">
       
        <%
@@ -45,7 +45,7 @@ for(int i = 0; i<lesPistes.size(); i++) {
 %>
  </SELECT></td></tr>
         <br />
-        
+        <label for="login_utilisateur">Nom du vendeur <span class="requis"></span></label>
         <select name="login_utilisateur">
       
        <%

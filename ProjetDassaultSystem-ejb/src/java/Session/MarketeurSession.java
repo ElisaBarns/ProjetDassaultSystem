@@ -96,9 +96,9 @@ public class MarketeurSession implements MarketeurSessionLocal {
     
     
     
-    @Override
+    /*@Override
     public void CreerContact(String nom, String prenom, String mail, String tel, String nom_client){
-        System.out.println("before rechercher");
+       System.out.println("before rechercher");
         System.out.println(nom_client);
         Client c =clientFacade.rechercherClient(nom_client);
         // POUR TEST //System.out.println("Coucou");
@@ -107,6 +107,14 @@ public class MarketeurSession implements MarketeurSessionLocal {
         if(c!=null)
         {
            contactFacade.creerContact(nom, prenom, mail, tel, c); 
+           //POUR TEST //System.out.println("C'est good");
+        }
+    }*/
+    
+    @Override
+    public void CreerContact(String nom, String prenom, String mail, String tel, Client c){
+        {
+           contactFacade.creerContact(nom, prenom, mail, tel, c);
            //POUR TEST //System.out.println("C'est good");
         }
     }
@@ -159,8 +167,8 @@ public class MarketeurSession implements MarketeurSessionLocal {
     public void ModifierContact(long id_contact, String nom, String prenom, String mail, String tel) {
         Contact c = contactFacade.rechercherContact(id_contact);
         contactFacade.modifierContact(c, nom, prenom, mail, tel);
-    }
-
+        }
+        
     @Override
     public void InactiverContact(long id) {
         Contact c = contactFacade.rechercherContact(id);
@@ -248,4 +256,9 @@ public class MarketeurSession implements MarketeurSessionLocal {
     public void PistePerdu(Piste_opportunite p) {
         piste_opportuniteFacade.PistePerdu(p);
     }
+    
+    @Override
+     public Client RechercherClientparId(long id){
+         return clientFacade.rechercherClientparId(id);
+     }
 }

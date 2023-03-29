@@ -354,13 +354,29 @@ public class GererLead extends HttpServlet {
             request.setAttribute("message", " ");
         }
         
-        else if(act.equals("CreerContact"))
+        /*else if(act.equals("CreerContact"))
         {
             jspDassault="/CreerContact.jsp";
             doActionCreerContact(request, response);
             request.setAttribute("message", " ");
-        }
+        }*/
         
+          else if(act.equals("CreerContact"))
+        {
+            jspDassault="/CreerContact.jsp";                
+            List<Client>LesClients=marketeurSession.AfficherListeClients();
+            request.setAttribute("LesClients",LesClients);
+            doActionCreerContact(request, response);
+            request.setAttribute("message", " ");
+        }
+          
+         else if(act.equals("AfficherCreerContact"))  
+        {
+           jspDassault="/CreerContact.jsp";                
+           List<Client>LesClients=marketeurSession.AfficherListeClients();
+            request.setAttribute("LesClients",LesClients);
+           request.setAttribute("message", " ");     
+        }
         else if(act.equals("CreerPiste"))
         {
            
@@ -401,17 +417,17 @@ public class GererLead extends HttpServlet {
          else if (act.equals("ModifierContact"))
          {
              jspDassault="/ModifierContact.jsp";
-            doActionModifierContact(request, response);
+             doActionModifierContact(request, response);
             
          }
-         
+            
         else if (act.equals("ModifierContactParVendeur"))
          {
              jspDassault="/ModifierContactParVendeur.jsp";
             doActionModifierContact(request, response);
             
          }
-         
+      
          else if(act.equals("AffecterExpert"))
         { 
            jspDassault="/AffecterExpert.jsp";
@@ -695,17 +711,20 @@ public class GererLead extends HttpServlet {
         String prenom_contact = request.getParameter("prenom_contact");
         String mail_contact = request.getParameter("mail_contact");
         String tel_contact = request.getParameter("tel_contact");
-        String nom_client=request.getParameter("nom_client");
+        String id_Client=request.getParameter("id_Client");
+         
         String message;
         
-        if (nom_contact.trim().isEmpty()|| prenom_contact.trim().isEmpty()|| mail_contact.trim().isEmpty()|| tel_contact.trim().isEmpty()||nom_client.trim().isEmpty())
+        if (nom_contact.trim().isEmpty()|| prenom_contact.trim().isEmpty()|| mail_contact.trim().isEmpty()|| tel_contact.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
                     + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un utilisateur.";
         }
         else 
         {
-           marketeurSession.CreerContact(nom_contact, prenom_contact, mail_contact, tel_contact, nom_client);
+           long id_ClientL = Long.parseLong(id_Client);
+           Client c =marketeurSession.RechercherClientparId(id_ClientL);
+           marketeurSession.CreerContact(nom_contact, prenom_contact, mail_contact, tel_contact, c);
            message = "Contact créé avec succès!";
         }
         
@@ -888,7 +907,7 @@ public class GererLead extends HttpServlet {
         }
         else 
         {
-           Long id = Long.parseLong(id_contact);
+                 Long id = Long.parseLong(id_contact);
                   marketeurSession.ModifierContact(id, nom_contact, prenom_contact, mail_contact, tel_contact);
            message = "Contact créé avec succès!";
         }

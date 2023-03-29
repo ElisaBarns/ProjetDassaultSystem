@@ -31,7 +31,7 @@ public interface MarketeurSessionLocal {
 
     void CreerClient(String nom, String siret);
     
-    void CreerContact(String nom, String prenom, String mail, String tel, String nom_client);
+   // void CreerContact(String nom, String prenom, String mail, String tel, String nom_client);
 
    /* void ModifierClient(long id_client, String nom, String siret);*/
 
@@ -74,4 +74,8 @@ public interface MarketeurSessionLocal {
     public void PisteGagne(Piste_opportunite p);
     
     public void PistePerdu(Piste_opportunite p);
+
+    public void CreerContact(String nom, String prenom, String mail, String tel, Client c);
+
+   public Client RechercherClientparId(long id);
 }

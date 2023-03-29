@@ -1,6 +1,20 @@
-ID_Produit;Nom_Produit;Description_commerciale;PU_produit;Inactif;Testcolonne;Testcolonne
-1;logiciel1;desc1;563,1;0;69;69
-2;logiciel2;desc2;965,1;0;69;69
-3;logiciel3;desc3;1445,1;1;69;69
-6;Nouveauproduit;des;69520;0;69;69
-7;TestProduit;test4;684,56;0;69;69
+ID_Produit;Nom_Produit;Description_commerciale;PU_produit
+1;SolidWorks;Logiciel de modélisation 3D;500
+2;Catia;Logiciel de CAO 2D et 3D;1 000
+3;Simulia;Logiciel de simulation;800
+4;Enovia;Logiciel de gestion du cycle de vie des produits;1 200
+5;Falcon;Système de drones tactiques;50 000
+6;Mamba;Système de missiles sol-air;80 000
+7;Kryptos;Système de guerre électronique;70 000
+8;Géosat;Système de communication par satellite;90 000
+9;Archicad;Système de CAO pour architecture;3 000
+10;Tosca;Système de simulation numérique;10 000
+11;SEE Electrical;Système de CAO pour le génie électrique;2 000
+12;Falco;Système de surveillance aérienne;150 000
+13;Baggage;Système de sécurité des aéroports;100 000
+14;Vortex;Système de formation virtuelle;20 000
+15;Samcef;Système de gestion de la maintenance;3 000
+16;Altium Designer;Système de conception de circuits électroniques;5 000
+17;Logiciel de Gestion de Configuration;Logiciel de Gestion de Configuration;499
+18;Logiciel de Conception Électronique;Logiciel de Conception Électronique;799
+19;3DEXPERIENCE;Plateforme collaborative pour la gestion de projets;30 000

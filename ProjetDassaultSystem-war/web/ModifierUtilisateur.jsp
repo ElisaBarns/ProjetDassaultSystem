@@ -20,7 +20,7 @@
         </span>
         
         <fieldset>
-    <h1>Informations de l'utilisateur à désactiver</h1>
+    <h1>Informations de l'utilisateur à modifier</h1>
     <form action="GererLead" method="post">
                     
                     <label for="login_utilisateur">Login</label>

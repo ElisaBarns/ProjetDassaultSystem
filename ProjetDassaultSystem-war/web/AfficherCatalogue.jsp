@@ -26,7 +26,7 @@
             <h1>Catalogue des logiciels</h1>
             <table>
             <%
-                BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\rober\\Documents\\NetBeansProject\\ProjetDassaultSystem\\src\\Externe\\Catalogue.csv"));
+                BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\Elisa\\Documents\\NetBeansProjects\\Projet\\ProjetDassaultSystem\\src\\Externe\\Catalogue.csv"));
                 String line;
                 while ((line = br.readLine()) != null){
                     try{

@@ -70,7 +70,7 @@ for(int i = 0; i<LesPistes.size(); i++) {
                         
             </form>
         </div>
-        <span class="RetourMenu">
+        <span class="ConsulterCatalogue">
             <input type="button" value="Consulter catalogue" onclick="location.href='AfficherCatalogue.jsp'"><br />   
         </span>
                         

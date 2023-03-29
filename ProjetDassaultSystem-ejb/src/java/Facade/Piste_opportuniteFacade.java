@@ -278,8 +278,11 @@ public class Piste_opportuniteFacade extends AbstractFacade<Piste_opportunite> i
         return lesPistes_opportunites;
     }
 
-   
-
+    @Override
+    public void SoumettrePiste(Piste_opportunite p) {
+        p.setStatut(Statut.SOUMISE);
+        getEntityManager().merge(p);
+    }
 
 
 

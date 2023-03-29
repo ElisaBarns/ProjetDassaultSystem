@@ -32,9 +32,9 @@ public interface VendeurSessionLocal {
 
     
 
-    void PisteGagne(long id);
+    void PisteGagne(Piste_opportunite p);
     
-    void PistePerdu(long id);
+    void PistePerdu(Piste_opportunite p);
     
     void ModifierPiste(long id_piste, Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, long idclient);
     
@@ -51,4 +51,6 @@ public interface VendeurSessionLocal {
     List<Profil> ListeExpertActif();
     
     public List<Piste_opportunite> ListePistes();
+    
+    void SoumettrePiste(Piste_opportunite p);
 }

@@ -102,17 +102,13 @@ public class VendeurSession implements VendeurSessionLocal {
     
     //Suivre la réponse du client sur un prospect ou une opportunité qui m'a été attribué (Gagné ou Perdu)
     @Override
-    public void PisteGagne(long id) {
-        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
+    public void PisteGagne(Piste_opportunite p) {
        piste_opportuniteFacade.PisteGagne(p); 
-        
     }
     
     @Override
-    public void PistePerdu(long id) {
-        Piste_opportunite p = piste_opportuniteFacade.RechercherPisteOpportuniteParId(id);
+    public void PistePerdu(Piste_opportunite p) {
             piste_opportuniteFacade.PistePerdu(p); 
-        
     }
     
     @Override
@@ -164,5 +160,10 @@ public class VendeurSession implements VendeurSessionLocal {
     @Override
     public List<Piste_opportunite> ListePistes() {
         return piste_opportuniteFacade.AfficherPistes();
+    }
+    
+    @Override
+    public void SoumettrePiste(Piste_opportunite p) {
+            piste_opportuniteFacade.SoumettrePiste(p); 
     }
 }

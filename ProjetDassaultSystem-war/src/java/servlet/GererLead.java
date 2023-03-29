@@ -270,6 +270,23 @@ public class GererLead extends HttpServlet {
            request.setAttribute("ListeVendeurActifs",ListeVendeurActifs);
            request.setAttribute("message", " ");     
         }
+         
+        else if(act.equals("AfficherPistesAvecStatutSoumis"))
+        {
+            jspDassault="/AfficherPistesAvecStatutSoumis.jsp";
+            List<Piste_opportunite> lesPO= marketeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", " ");
+        }
+        
+        else if(act.equals("ActionAfficherPistesAvecStatutSoumis"))
+        {
+            jspDassault="/AfficherPistesAvecStatutSoumis.jsp";
+            doActionActionAfficherPistesAvecStatutSoumis(request, response);
+            List<Piste_opportunite> lesPO= marketeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", " ");
+        }
         
         else if(act.equals("AfficherPistesExpert"))
         {
@@ -304,10 +321,27 @@ public class GererLead extends HttpServlet {
             request.setAttribute("message", " ");
         }
         
-        else if(act.equals("AffecterPistesVendeurEnAttente"))//AVEC DO ACTION
+        else if(act.equals("AffecterPistesVendeurEnAttente"))
         {
             jspDassault="/AfficherPistesVendeurEnAttente.jsp";
             doActionAffecterPistesVendeurEnAttente(request, response);
+            List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", " ");
+        }
+        
+                else if(act.equals("AfficherPistesASoumettre"))
+        {
+            jspDassault="/AfficherPistesASoumettre.jsp";
+            List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
+            request.setAttribute("lesPistes_opportunites",lesPO);
+            request.setAttribute("message", " ");
+        }
+        
+        else if(act.equals("ActionAfficherPistesASoumettre"))
+        {
+            jspDassault="/AfficherPistesASoumettre.jsp";
+            doActionActionAfficherPistesASoumettre(request, response);
             List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
             request.setAttribute("lesPistes_opportunites",lesPO);
             request.setAttribute("message", " ");
@@ -889,6 +923,32 @@ public class GererLead extends HttpServlet {
         }
         request.setAttribute("message", message); 
     }
+    
+    protected void doActionActionAfficherPistesAvecStatutSoumis (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String id_piste = request.getParameter("piste");
+        String decision = request.getParameter("decision");
+        String message;
+        
+        if (id_piste==null || id_piste.trim().isEmpty() || decision==null || decision.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "";
+        }
+        else 
+        {
+           long id_pisteL=Long.parseLong(id_piste);
+           Piste_opportunite p = VendeurSession.RechercherPisteParId(id_pisteL);
+           if(decision.equals("gagnee")){
+               marketeurSession.PisteGagne(p);
+           }
+           else if (decision.equals("perdue")){
+               marketeurSession.PistePerdu(p);
+           }  
+            message = "Modification effectuée avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
 
     protected void doActionAffecterExpert(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
             String login_utilisateur=request.getParameter("login_utilisateur");
@@ -991,7 +1051,7 @@ System.out.println("G1");
         if (id_piste==null || id_piste.trim().isEmpty() || decision==null || decision.trim().isEmpty())
         {
             message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
-                    + "<br /> <a href =\"CreerUtilisateur.jsp\" > Cliquez ici </a> pour accéder au formulaire de création d'un utilisateur.";
+                    + "";
         }
         else 
         {
@@ -1003,7 +1063,27 @@ System.out.println("G1");
            else if (decision.equals("refusee")){
                VendeurSession.RefuserPiste(p);
            }  
-            message = "Contact créé avec succès!";
+            message = "Modification effectuée avec succès!";
+        }
+        
+        request.setAttribute("message", message);
+    }
+        
+        protected void doActionActionAfficherPistesASoumettre (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
+        String id_piste = request.getParameter("piste");
+        String message;
+
+        if (id_piste==null || id_piste.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "";
+        }
+        else 
+        {
+           long id_pisteL=Long.parseLong(id_piste);
+           Piste_opportunite p = VendeurSession.RechercherPisteParId(id_pisteL); 
+           VendeurSession.SoumettrePiste(p);
+            message = "Soumission effectuée avec succès!";
         }
         
         request.setAttribute("message", message);

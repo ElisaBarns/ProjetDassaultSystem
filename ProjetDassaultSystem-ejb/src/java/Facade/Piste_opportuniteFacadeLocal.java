@@ -85,7 +85,7 @@ public interface Piste_opportuniteFacadeLocal {
 
     public Piste_opportunite creerPisteOpportunite(Niveau niveau_interet, int tx_reussite, Niveau niveau_risque, double budget_estime, Profil marketeur, Client leClient, Profil vendeur);
 
-    
+    void SoumettrePiste(Piste_opportunite p);
 
     
 }

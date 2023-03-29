@@ -238,4 +238,14 @@ public class MarketeurSession implements MarketeurSessionLocal {
         
         return profilFacade.RechercherUnVendeurParId(utilisateur);
     }
+    
+    @Override
+    public void PisteGagne(Piste_opportunite p) {
+        piste_opportuniteFacade.PisteGagne(p);
+    }
+    
+    @Override
+    public void PistePerdu(Piste_opportunite p) {
+        piste_opportuniteFacade.PistePerdu(p);
+    }
 }

@@ -37,6 +37,8 @@
            <A HREF ="PisteGagne.jsp">Décision finale d'une piste</A></td><br/>
            <A HREF ="ModifierClient.jsp">Modifier un client</A></td><br/>
            <A HREF ="ModifierContactParVendeur.jsp">Modifier un contact</A></td><br/>
+             <A HREF ="GererLead?action=AfficherPistesAvecStatutSoumis">Mes pistes et opportunités au statut soumis</A></td><br/>
+             <A HREF ="GererLead?action=AfficherPistesASoumettre">Mes pistes et opportunités à soumettre</A></td><br/>
            </tr>
 
            <!--

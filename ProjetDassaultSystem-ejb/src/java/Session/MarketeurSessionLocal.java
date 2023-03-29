@@ -70,4 +70,8 @@ public interface MarketeurSessionLocal {
     List<Piste_opportunite> ListePistes();
     
     Profil RechercherUnProfilVendeurParId(Utilisateur utilisateur);
+    
+    public void PisteGagne(Piste_opportunite p);
+    
+    public void PistePerdu(Piste_opportunite p);
 }

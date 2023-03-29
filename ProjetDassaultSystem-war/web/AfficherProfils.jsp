@@ -17,10 +17,11 @@
         <title>Les profils</title>
     </head>
     <body>
+        <img class="logo-Dassault" src="logo-Dassault.png" alt="Logo Dassault Systèmes">
         <span class="SeDeconnecter">
             <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-        <img class="logo-Dassault" src="logo-Dassault.png" alt="Logo Dassault Systèmes">
+        
         <div class="main-content">
             <h1>Liste des profils existants</h1>
             <p>

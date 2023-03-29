@@ -21,11 +21,11 @@
 
     </head> 
     <body> 
-
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-        
+        <div class="main-content">
         <h1>Mes pistes et opportunités</h1> 
         <p> <% 
       String attribut = (String) request.getAttribute("message"); 
@@ -53,24 +53,24 @@
     
     if(po.getVendeur()!=null && po.getVendeur().getUnUtilisateur()!=null && po.getVendeur().getUnUtilisateur().getId()==u.getId()){
     %>
-  <tr>  <td Width=15%><%=po.getId()%></td> 
-        <td Width=15%><%=po.getStatut()%></td>
-        <td Width=15%><%=po.getType()%></td>  
-        <td Width=15%><%=po.getNiveau_interet()%></td>
-        <td Width=15%><%=po.getTx_reussite()%> %</td>
-        <td Width=15%><%=po.getNiveau_risque()%></td> 
-        <td Width=15%><%=po.getBudget_estime()%> €</td>  
-        <td Width=15%><%=po.getLeClient().getNom_client() %></td>
+  <tr>  <td><%=po.getId()%></td> 
+        <td><%=po.getStatut()%></td>
+        <td><%=po.getType()%></td>  
+        <td><%=po.getNiveau_interet()%></td>
+        <td><%=po.getTx_reussite()%> %</td>
+        <td><%=po.getNiveau_risque()%></td> 
+        <td><%=po.getBudget_estime()%> €</td>  
+        <td><%=po.getLeClient().getNom_client() %></td>
         <!--
         <td Width=15%><%=po.getVendeur().getUnUtilisateur().getNom_utilisateur()%> <%=po.getVendeur().getUnUtilisateur().getPrenom_utilisateur() %></td>
         -->
-        <td Width=15%><%=po.getDate_creation_popp()%></td> 
-        <td Width=15%><%=po.getDate_modif_popp()%></td> 
+        <td><%=po.getDate_creation_popp()%></td> 
+        <td><%=po.getDate_modif_popp()%></td> 
    </tr><%}
 
     }%> 
     </TABLE>
-                   
+        </div>           
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'">
         </span>

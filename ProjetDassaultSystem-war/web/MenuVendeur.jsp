@@ -9,11 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Menu.css">
         <title>Menu Vendeur</title>
     </head>
     <body>
-                
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">        
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
@@ -27,36 +27,24 @@
         </p>
         <h1>Que voulez-vous faire?</h1>
        
-        <table><tr>
+        <table>
+    <tr>
+        <td>
+            <div class="menu-items">
+                <A HREF ="GererLead?action=AfficherPistesVendeur">Afficher mes pistes et opportunités</A><br/>
+                <A HREF ="GererLead?action=AfficherAffecterPistesVendeurEnAttente">Mes pistes et opportunités en attente d'acceptation</A><br/>
+                <A HREF ="GererLead?action=AfficherAffecterExpert">Affecter un expert</A><br/>
+                <A HREF ="MajPoParVendeur.jsp">Mettre à jour la piste/opportunité</A><br/>
+                <A HREF ="PisteGagne.jsp">Décision finale d'une piste</A><br/>
+                <A HREF ="ModifierClient.jsp">Modifier un client</A><br/>
+                <A HREF ="ModifierContactParVendeur.jsp">Modifier un contact</A><br/>
+                <A HREF ="GererLead?action=AfficherPistesAvecStatutSoumis">Mes pistes et opportunités au statut soumis</A><br/>
+                <A HREF ="GererLead?action=AfficherPistesASoumettre">Mes pistes et opportunités à soumettre</A><br/>
+            </div>
+        </td>
+    </tr>
+</table>
 
-          <tr> 
-           <A HREF ="GererLead?action=AfficherPistesVendeur">Afficher mes pistes et opportunités</A></td><br/>
-           <A HREF ="GererLead?action=AfficherAffecterPistesVendeurEnAttente">Mes pistes et opportunités en attente d'acceptation</A></td><br/>
-           <A HREF ="GererLead?action=AfficherAffecterExpert">Affecter un expert</A></td><br/>
-           <A HREF ="MajPoParVendeur.jsp">Mettre à jour la piste/opportunité</A></td><br/>
-           <A HREF ="PisteGagne.jsp">Décision finale d'une piste</A></td><br/>
-           <A HREF ="ModifierClient.jsp">Modifier un client</A></td><br/>
-           <A HREF ="ModifierContactParVendeur.jsp">Modifier un contact</A></td><br/>
-             <A HREF ="GererLead?action=AfficherPistesAvecStatutSoumis">Mes pistes et opportunités au statut soumis</A></td><br/>
-             <A HREF ="GererLead?action=AfficherPistesASoumettre">Mes pistes et opportunités à soumettre</A></td><br/>
-           </tr>
-
-           <!--
-            <tr> 
-             <%--<td Width =15%><A HREF ="AfficherUnVetement.jsp">Afficher un vetement</A></td>--%>
-            <td Width =15%><A HREF ="RechercherVetement.jsp">Rechercher vetement</A></td>
-            <%-- <td Width =15%><A HREF ="AfficherUnAccessoire.jsp">Afficher un accessoire</A></td>--%>
-            <td Width =15%><A HREF ="RechercherAccessoire.jsp">Rechercher accessoire</A></td>
-            <%--<td Width =15%><A HREF ="AfficherMannequin.jsp">Afficher un mannequin</A></td>--%>
-            <td Width =15%><A HREF ="RechercherMannequin.jsp">Rechercher mannequin</A></td>
-            <td Width =15%><A HREF ="RechercherOrganisateur.jsp">Rechercher organisateur</A></td>
-            <td Width =15%><A HREF ="RechercherDefileDunOrganisateur.jsp">Rechercher les défilés d'un organisateur</A></td>
-            </tr>
-           -->
-       </tr>
-        
-      
-        </table>
         
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuGeneral.jsp'"><br />

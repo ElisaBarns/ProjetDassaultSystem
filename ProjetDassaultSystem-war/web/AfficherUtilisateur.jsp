@@ -17,11 +17,11 @@
         <title>Afficher l'utilisateur recherché</title>
     </head>
     <body>
-            
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">    
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-        
+        <div class="main-content">
         <h1>Afficher l'utilisateur recherché</h1>
     <tr>
         <td Width=15%>Login : <%=Utilisateur.getLogin_utilisateur()%></td><br>
@@ -37,7 +37,7 @@
             <table><tr>
         
     </table>
-    
+    </div>
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span>

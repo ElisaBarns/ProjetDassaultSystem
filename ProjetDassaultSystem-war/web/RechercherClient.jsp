@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
-            
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">    
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>

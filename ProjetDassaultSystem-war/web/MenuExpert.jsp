@@ -10,11 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu Expert technique</title>
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Menu.css">
         
     </head>
     <body>
-                    
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">            
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
@@ -28,32 +28,21 @@
         </p>
         <h1>Que voulez-vous faire?</h1>
        
-        <table><tr>
-           
-          <tr> 
-          <A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A></td><br/>
-          <A HREF ="GererLead?action=AfficherPistesExpert">Afficher mes pistes et opportunités</A></td><br/>
-          <A HREF ="GererLead?action=AfficherCreerOffre">Créer l'offre</A></td><br/>
-          <A HREF ="RechercherProduit.jsp">Rechercher un produit</A></td><br/>
-          <A HREF ="GererLead?action=AfficherCreerDetailOffre">Créer le détail d'une offre</A></td><br/>
-          <A HREF ="GererLead?action=AfficherPistesSansOffre">Afficher mes pistes et opportunités sans offre</A></td><br/>
-           
-           <!--
-            <tr> 
-             <%--<td Width =15%><A HREF ="AfficherUnVetement.jsp">Afficher un vetement</A></td>--%>
-            <td Width =15%><A HREF ="RechercherVetement.jsp">Rechercher vetement</A></td>
-            <%-- <td Width =15%><A HREF ="AfficherUnAccessoire.jsp">Afficher un accessoire</A></td>--%>
-            <td Width =15%><A HREF ="RechercherAccessoire.jsp">Rechercher accessoire</A></td>
-            <%--<td Width =15%><A HREF ="AfficherMannequin.jsp">Afficher un mannequin</A></td>--%>
-            <td Width =15%><A HREF ="RechercherMannequin.jsp">Rechercher mannequin</A></td>
-            <td Width =15%><A HREF ="RechercherOrganisateur.jsp">Rechercher organisateur</A></td>
-            <td Width =15%><A HREF ="RechercherDefileDunOrganisateur.jsp">Rechercher les défilés d'un organisateur</A></td>
-            </tr>
-           -->
-       </tr>
-        
-      
-        </table>
+        <table>
+    <tr>
+        <td>
+            <div class="menu-items">
+                <A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A><br/>
+                <A HREF ="GererLead?action=AfficherPistesExpert">Afficher mes pistes et opportunités</A><br/>
+                <A HREF ="GererLead?action=AfficherCreerOffre">Créer l'offre</A><br/>
+                <A HREF ="RechercherProduit.jsp">Rechercher un produit</A><br/>
+                <A HREF ="GererLead?action=AfficherCreerDetailOffre">Créer le détail d'une offre</A><br/>
+                <A HREF ="GererLead?action=AfficherPistesSansOffre">Afficher mes pistes et opportunités sans offre</A><br/>
+            </div>
+        </td>
+    </tr>
+</table>
+
             
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuGeneral.jsp'"><br />

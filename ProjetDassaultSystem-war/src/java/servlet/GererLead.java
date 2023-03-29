@@ -148,7 +148,7 @@ public class GererLead extends HttpServlet {
         
         else if(act.equals("CreerUtilisateur"))
         {
-            /*String nom_utilisateur = request.getParameter( "nom_utilisateur" ); 
+            String nom_utilisateur = request.getParameter( "nom_utilisateur" ); 
             String prenom_utilisateur = request.getParameter( "prenom_utilisateur" );
             String login_utilisateur = request.getParameter( "login_utilisateur" ); 
             String mdp_utilisateur = request.getParameter( "mdp_utilisateur" );
@@ -166,10 +166,10 @@ public class GererLead extends HttpServlet {
                 jspDassault="/RenseignerTousChamps.jsp";
             }
             
-            /* CE QUI Y AVAIT DE BASE*/
+            /* CE QUI Y AVAIT DE BASE
             jspDassault="/CreerUtilisateur.jsp";
             doActionCreerUtilisateur(request, response); 
-            request.setAttribute("message", " ");
+            request.setAttribute("message", " ");*/
         }
         
         else if(act.equals("ModifierUtilisateur"))

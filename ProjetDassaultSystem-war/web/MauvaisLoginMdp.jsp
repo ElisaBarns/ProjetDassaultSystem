@@ -13,14 +13,15 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
-                
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">        
         <span class="RetourMenu">
-        <input type="button" value="RetourMenu" onclick="location.href='Authentification.jsp'"><br />
+        <input type="button" value="Retour" onclick="location.href='Authentification.jsp'"><br />
         </span>
         
+        <center>
         <h1>Erreur</h1><br>
         Vous avez saisi un mauvais login et/ou mot de passe. Veuillez réessayer. <br>
-                      
+         </center>             
 
     </body>
 </html>

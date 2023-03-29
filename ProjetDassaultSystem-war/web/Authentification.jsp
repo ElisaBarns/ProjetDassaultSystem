@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="CSS.css">
 </head>
 <body>
+<img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">
 <h1>Authentification</h1>
 
 <div>

@@ -13,14 +13,15 @@
         <link rel="stylesheet" href="CSS.css">
     </head>
     <body>
-            
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">    
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
         
+        <center>
         <h1>Succès</h1><br>
         Votre action a été réalisée avec succès ! <br>
-        
+        </center>
          <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
         </span>

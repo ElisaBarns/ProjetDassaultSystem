@@ -18,11 +18,11 @@
         <title>Afficher le produit recherché</title>
     </head>
     <body>
-            
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">    
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-        
+        <div class="main-content">
         <h1>Afficher le produit recherché</h1>
     <tr>
         <td Width=15%>Identifiant : <%=Produit.getId()%></td><br>
@@ -39,7 +39,7 @@
             <table><tr>
         
     </table>
-    
+    </div>
         <span class="RetourMenu">
         <input type="button" value="Retour" onclick="location.href='MenuExpert.jsp'"><br />
         </span>

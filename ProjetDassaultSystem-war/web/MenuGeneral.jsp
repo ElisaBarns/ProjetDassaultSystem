@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Menu général</title>
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Menu.css">
         
     </head>
     <body>
@@ -26,17 +26,17 @@
     %>
 
         </p>
-        <h1>Choisissez le profil sur lequel vous voulez travailler</h1>
+         <h1>Choisissez le profil sur lequel vous voulez travailler</h1>
        
         <table>
             <tr>
-           <%HttpSession sess=request.getSession(true);%>
-           <%Utilisateur u = (Utilisateur)sess.getAttribute("session");%>
-           <%if (u.verify_Admin()){%><td Width =15%><A HREF ="MenuAdmin.jsp">Administrateur</A></td><%}%> 
-           <%if (u.verify_Marketeur()){%><td Width =15%><A HREF ="MenuMarketeur.jsp">Marketeur</A></td><%}%> 
-           <%if (u.verify_Vendeur()){%><td Width =15%><A HREF ="MenuVendeur.jsp">Vendeur</A></td><%}%>
-           <%if (u.verify_Expert()){%><td Width =15%><A HREF ="MenuExpert.jsp">Expert technique</A></td><%}%>
-           <%if (u.verify_OperateurVentes()){%><td Width =15%><A HREF ="MenuOperateurVentes.jsp">Responsable des opérations de ventes</A></td><%}%>
+                <%HttpSession sess=request.getSession(true);%>
+                <%Utilisateur u = (Utilisateur)sess.getAttribute("session");%>
+                <%if (u.verify_Admin()){%><td><A HREF ="MenuAdmin.jsp">Administrateur</A></td><%}%> 
+                <%if (u.verify_Marketeur()){%><td><A HREF ="MenuMarketeur.jsp">Marketeur</A></td><%}%> 
+                <%if (u.verify_Vendeur()){%><td><A HREF ="MenuVendeur.jsp">Vendeur</A></td><%}%>
+                <%if (u.verify_Expert()){%><td><A HREF ="MenuExpert.jsp">Expert technique</A></td><%}%>
+                <%if (u.verify_OperateurVentes()){%><td><A HREF ="MenuOperateurVentes.jsp">Responsable des opérations de ventes</A></td><%}%>
             </tr>
         </table>
         

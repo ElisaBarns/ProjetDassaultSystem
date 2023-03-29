@@ -21,7 +21,33 @@
     <form method="get" action="GererLead">
         <fieldset>
             <legend>Veuillez vous authentifier</legend>
-
+            
+            
+            <div class="input">
+                <input type="text" name="login" placeholder="Login"/>
+            </div>
+            <div class="input">
+                <input type="password" id="pass" name="pass" placeholder="Mot de passe"/>
+                <img src="images/red_eye.png" id="eye" onClick="changer()"/>
+                </div>
+                <input type="submit" value="Se connecter"/>
+    </form>
+    <script>
+        e=true;
+        function changer(){
+            if(e){
+                document.getElementById("pass").setAttribute("type", "text");
+                document.getElementById("eye").src="imaes/eye.png";
+                e=false;
+            }
+            else{
+                document.getElementById("pass").setAttribute("type", "password");
+                document.getElementById("eye").src="images/no_eye.png";
+                e=false;
+            }
+        }
+                
+                <!--
             <label for="login_utilisateur">Login <span class="requis"></span></label>
             <input type="text" id="login_utilisateur" name="login_utilisateur" value="" size "20" maxlength="20"/>
             <br/>
@@ -34,8 +60,8 @@
 
         <input type="submit" value="Se connecter"/>
         <input type="reset" value="Annuler"> <br />
-
-    </form>
+                    </form>
+                -->
 </div>
 </body>
 </html>

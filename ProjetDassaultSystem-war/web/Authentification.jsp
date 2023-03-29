@@ -28,7 +28,7 @@
             </div>
             <div class="input">
                 <input type="password" id="mdp_utilisateur" name="mdp_utilisateur" placeholder="Mot de passe"/>
-                <img src="eye.png" width="15" height="15" id="eye" onClick="changer()"/>
+                <!--<img src="eye.png" width="15" height="15" id="eye" onClick="changer()"/>-->
             </div>
             <input type="hidden" name="action" value="authentification">
             <input type="submit" value="Se connecter"/>
@@ -38,12 +38,12 @@
         function changer(){
             if(e){
                 document.getElementById("mdp_utilisateur").setAttribute("type", "text");
-                document.getElementById("eye").src="no_eye.png";
+                //document.getElementById("eye").src="no_eye.png";
                 e=false;
             }
             else{
                 document.getElementById("mdp_utilisateur").setAttribute("type", "password");
-                document.getElementById("eye").src="eye.png";
+                //document.getElementById("eye").src="eye.png";
                 e=true;
             }
         }

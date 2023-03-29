@@ -17,7 +17,8 @@
         <jsp:useBean id="lesPistes_opportunites" scope="request" class="java.util.List"></jsp:useBean> 
 
        <title>Les pistes et opportunités</title> 
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Afficher.css">
+
     </head> 
     <body> 
 

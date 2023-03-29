@@ -14,8 +14,8 @@
     </head>
     <body>
                 
-        <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+        <span class="RetourMenu">
+        <input type="button" value="RetourMenu" onclick="location.href='Authentification.jsp'"><br />
         </span>
         
         <h1>Erreur</h1><br>

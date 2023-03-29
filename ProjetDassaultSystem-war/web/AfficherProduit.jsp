@@ -9,7 +9,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Afficher.css">
+
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <jsp:useBean id="Produit" scope="session" class="Produit"></jsp:useBean>

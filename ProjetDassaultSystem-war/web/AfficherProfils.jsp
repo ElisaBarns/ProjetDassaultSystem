@@ -11,22 +11,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Afficher.css">
+
         <jsp:useBean id="lesProfils" scope="request" class="java.util.List"></jsp:useBean>
         <title>Les profils</title>
     </head>
     <body>
-                
         <span class="SeDeconnecter">
-        <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
+            <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-        
-        <h1>Liste des profils existants</h1>
-        <p> <%
-      String attribut = (String) request.getAttribute("message");
-      out.println( attribut );
-      %> </p>
-    <TABLE border width=30%>
+        <img class="logo-Dassault" src="logo-Dassault.png" alt="Logo Dassault Systèmes">
+        <div class="main-content">
+            <h1>Liste des profils existants</h1>
+            <p>
+                <%
+                    String attribut = (String) request.getAttribute("message");
+                    out.println( attribut );
+                %>
+            </p>
+            <TABLE border width=100%>
      <tr> <TD>Identifiant</TD>
           <TD>Utilisateur</TD>
           <TD>Fonction</TD>
@@ -42,11 +45,10 @@
         <td Width=30%><%=p.getDate_creation_profil()%></td>
         <td Width=30%><%=p.getDate_inactif_profil()%></td>
    </tr><%}%>
-     </TABLE> 
-              
-        <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
-        </span>
-
-        
-</body></html>
+     </TABLE>
+            <span class="RetourMenu">
+                <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
+            </span>
+        </div>
+    </body>
+</html>

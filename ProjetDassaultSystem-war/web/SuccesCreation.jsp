@@ -20,8 +20,9 @@
         
         <h1>Succès</h1><br>
         Votre action a été réalisée avec succès ! <br>
-
         
-        
+         <span class="RetourMenu">
+        <input type="button" value="Retour" onclick="location.href='MenuAdmin.jsp'"><br />
+        </span>
     </body>
 </html>

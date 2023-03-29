@@ -17,22 +17,24 @@
         <jsp:useBean id="lesPistes_opportunites" scope="request" class="java.util.List"></jsp:useBean> 
 
        <title>Les pistes et opportunités à soumettre</title> 
-        <link rel="stylesheet" href="CSS.css">
+        <link rel="stylesheet" href="CSS_Afficher.css">
+
     </head> 
     <body> 
-
+        <img src="logo-Dassault.png" alt="Logo Dassault" class="logo-Dassault">
         <span class="SeDeconnecter">
         <input type="button" value="Se déconnecter" onclick="location.href='Authentification.jsp'"><br />
         </span>
-        
+      <div class="main-content">
         <h1>Mes pistes et opportunités à soumettre</h1> 
-        <p> <% 
-      String attribut = (String) request.getAttribute("message"); 
+        <p> 
+            <% 
+           String attribut = (String) request.getAttribute("message"); 
            HttpSession sess=request.getSession(true);
            Utilisateur u = (Utilisateur)sess.getAttribute("session");
-      out.println( attribut ); 
+      //out.println( attribut ); 
       %> </p>
-    <TABLE border width=5%>
+    <TABLE>
      <tr><TD>Identifiant</TD>
          <TD>Statut</TD>
          <TD>Type</TD>
@@ -49,25 +51,25 @@
     for(Piste_opportunite po : lesPO){
     if(po.getStatut()==Statut.ACCEPTEE && po.getVendeur()!=null && po.getVendeur().getUnUtilisateur()!=null && po.getVendeur().getUnUtilisateur().getId()==u.getId()){
     %>
-  <tr>  <td Width=15%><%=po.getId()%></td> 
-        <td Width=15%><%=po.getStatut()%></td>
-        <td Width=15%><%=po.getType()%></td>  
-        <td Width=15%><%=po.getNiveau_interet()%></td>
-        <td Width=15%><%=po.getTx_reussite()%> %</td>
-        <td Width=15%><%=po.getNiveau_risque()%></td> 
-        <td Width=15%><%=po.getBudget_estime()%> €</td>  
-        <td Width=15%><%=po.getLeClient().getNom_client() %></td>
+  <tr>  <td><%=po.getId()%></td> 
+        <td><%=po.getStatut()%></td>
+        <td><%=po.getType()%></td>  
+        <td><%=po.getNiveau_interet()%></td>
+        <td><%=po.getTx_reussite()%> %</td>
+        <td><%=po.getNiveau_risque()%></td> 
+        <td><%=po.getBudget_estime()%> €</td>  
+        <td><%=po.getLeClient().getNom_client() %></td>
         <!--
         <td Width=15%><%=po.getVendeur().getUnUtilisateur().getNom_utilisateur()%> <%=po.getVendeur().getUnUtilisateur().getPrenom_utilisateur() %></td>
         -->
-        <td Width=15%><%=po.getDate_creation_popp()%></td> 
-        <td Width=15%><%=po.getDate_modif_popp()%></td> 
+        <td><%=po.getDate_creation_popp()%></td> 
+        <td><%=po.getDate_modif_popp()%></td> 
    </tr><%}
 
     }%> 
 
     </TABLE>
-      
+  </div>    
         <form method="get" action="GererLead">
 <tr><td>Identifiant de la piste </td><td><SELECT size="1" name="piste"> 
 <%
@@ -86,6 +88,7 @@ if(po.getStatut()==Statut.ACCEPTEE && po.getVendeur()!=null && po.getVendeur().g
 
                     <input type="hidden" name="action" value="ActionAfficherPistesASoumettre">
                     <input type="submit" value="Soumettre" /> 
+                    
         </form>
                     
         <span class="RetourMenu">

@@ -1,0 +1,124 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 29 mars 2023, 13:25:36
+    Author     : Elisa
+*/
+
+/* Fichier CSS_Afficher.css */
+
+/* Styles généraux */
+
+.main-content {
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.RetourMenu {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.Soumettre {
+    position: fixed;
+    }
+.SeDeconnecter{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+
+.logo-Dassault {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    height: 40px;
+    width: auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #5c5c5c;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 16px;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+table, th, td {
+    border: 1px solid #cccccc;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #007dc5;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e6e6e6;
+}
+
+input[type="button"] {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007dc5;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+input[type="button"]:hover {
+    background-color: #005a8b;
+}
+
+input[type="submit"] {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #007dc5;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+input[type="submit"]:hover {
+    background-color: #005a8b;
+}

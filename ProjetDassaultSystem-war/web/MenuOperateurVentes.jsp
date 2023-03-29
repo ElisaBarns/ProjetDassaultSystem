@@ -22,7 +22,7 @@
         <p>
             <%
         String attribut = (String)request.getAttribute("message");
-        out.println(attribut);
+        //out.println(attribut);
     %>
 
         </p>

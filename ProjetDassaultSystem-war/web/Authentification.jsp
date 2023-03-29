@@ -24,28 +24,30 @@
             
             
             <div class="input">
-                <input type="text" name="login" placeholder="Login"/>
+                <input type="text" id="login_utilisateur" name="login_utilisateur" placeholder="Login"/>
             </div>
             <div class="input">
-                <input type="password" id="pass" name="pass" placeholder="Mot de passe"/>
-                <img src="images/red_eye.png" id="eye" onClick="changer()"/>
-                </div>
-                <input type="submit" value="Se connecter"/>
+                <input type="password" id="mdp_utilisateur" name="mdp_utilisateur" placeholder="Mot de passe"/>
+                <img src="eye.png" width="15" height="15" id="eye" onClick="changer()"/>
+            </div>
+            <input type="hidden" name="action" value="authentification">
+            <input type="submit" value="Se connecter"/>
     </form>
     <script>
         e=true;
         function changer(){
             if(e){
-                document.getElementById("pass").setAttribute("type", "text");
-                document.getElementById("eye").src="imaes/eye.png";
+                document.getElementById("mdp_utilisateur").setAttribute("type", "text");
+                document.getElementById("eye").src="no_eye.png";
                 e=false;
             }
             else{
-                document.getElementById("pass").setAttribute("type", "password");
-                document.getElementById("eye").src="images/no_eye.png";
-                e=false;
+                document.getElementById("mdp_utilisateur").setAttribute("type", "password");
+                document.getElementById("eye").src="eye.png";
+                e=true;
             }
         }
+    </script>
                 
                 <!--
             <label for="login_utilisateur">Login <span class="requis"></span></label>

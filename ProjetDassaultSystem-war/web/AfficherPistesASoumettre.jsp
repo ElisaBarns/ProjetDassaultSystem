@@ -84,7 +84,7 @@ if(po.getStatut()==Statut.ACCEPTEE && po.getVendeur()!=null && po.getVendeur().g
                     <br/>
                     <br/>
 
-                    <input type="hidden" name="action" value="AfficherPistesASoumettre">
+                    <input type="hidden" name="action" value="ActionAfficherPistesASoumettre">
                     <input type="submit" value="Soumettre" /> 
         </form>
                     

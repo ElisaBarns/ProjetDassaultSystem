@@ -85,7 +85,7 @@ if(po.getStatut()==Statut.SOUMISE && po.getVendeur()!=null && po.getVendeur().ge
                     <br/>
                     <br/>
               
-                    <input type="hidden" name="action" value="AfficherPistesAvecStatutSoumis">
+                    <input type="hidden" name="action" value="ActionAfficherPistesAvecStatutSoumis">
                     <input type="submit" value="Confirmer" /> 
         </form>
                     

@@ -34,9 +34,8 @@
                 <A HREF ="GererLead?action=AfficherPistesVendeur">Afficher mes pistes et opportunités</A><br/>
                 <A HREF ="GererLead?action=AfficherAffecterPistesVendeurEnAttente">Mes pistes et opportunités en attente d'acceptation</A><br/>
                 <A HREF ="GererLead?action=AfficherAffecterExpert">Affecter un expert</A><br/>
-                <A HREF ="MajPoParVendeur.jsp">Mettre à jour la piste/opportunité</A><br/>
                 <A HREF ="PisteGagne.jsp">Décision finale d'une piste</A><br/>
-                <A HREF ="ModifierClient.jsp">Modifier un client</A><br/>
+                <A HREF ="ModifierClientParVendeur.jsp">Modifier un client</A><br/>
                 <A HREF ="ModifierContactParVendeur.jsp">Modifier un contact</A><br/>
                 <A HREF ="GererLead?action=AfficherPistesAvecStatutSoumis">Mes pistes et opportunités au statut soumis</A><br/>
                 <A HREF ="GererLead?action=AfficherPistesASoumettre">Mes pistes et opportunités à soumettre</A><br/>

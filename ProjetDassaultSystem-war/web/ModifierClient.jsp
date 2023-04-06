@@ -45,7 +45,7 @@
         </div>
               
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'"><br />
+        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
         </span> 
 
         

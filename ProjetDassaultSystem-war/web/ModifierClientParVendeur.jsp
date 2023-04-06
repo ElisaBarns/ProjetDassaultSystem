@@ -1,5 +1,5 @@
 <%-- 
-    Document   : ModifierClientParMarketeur
+    Document   : ModifierClientParVendeur
     Created on : 28 mars 2023, 08:55:58
     Author     : rober
 --%>
@@ -38,7 +38,7 @@
                     <br/>
         
         
-        <input type="hidden" name="action" value="ModifierClient">
+        <input type="hidden" name="action" value="ModifierClientParVendeur">
         </fieldset>
         <input type="submit" value="Valider" />
         <input type="reset" value="Annuler" /> <br />
@@ -46,7 +46,7 @@
         </div>
               
         <span class="RetourMenu">
-        <input type="button" value="Retour" onclick="location.href='MenuMarketeur.jsp'"><br />
+        <input type="button" value="Retour" onclick="location.href='MenuVendeur.jsp'"><br />
         </span> 
 
         

@@ -32,11 +32,11 @@
     <tr>
         <td>
             <div class="menu-items">
-                <A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A><br/>
-                <A HREF ="GererLead?action=AfficherPistesExpert">Afficher mes pistes et opportunités</A><br/>
                 <A HREF ="GererLead?action=AfficherCreerOffre">Créer l'offre</A><br/>
-                <A HREF ="RechercherProduit.jsp">Rechercher un produit</A><br/>
                 <A HREF ="GererLead?action=AfficherCreerDetailOffre">Créer le détail d'une offre</A><br/>
+                <A HREF ="MajOffreParExpert.jsp">Mettre à jour l'offre</A><br/>
+                <A HREF ="GererLead?action=AfficherPistesExpert">Afficher mes pistes et opportunités</A><br/> 
+                <A HREF ="RechercherProduit.jsp">Rechercher un produit</A><br/>
                 <A HREF ="GererLead?action=AfficherPistesSansOffre">Afficher mes pistes et opportunités sans offre</A><br/>
             </div>
         </td>

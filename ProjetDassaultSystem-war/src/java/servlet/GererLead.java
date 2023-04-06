@@ -127,10 +127,7 @@ public class GererLead extends HttpServlet {
                 jspDassault="/MenuGeneral.jsp"; 
                 sess.setAttribute("session", u); 
                 Utilisateur u1 = (Utilisateur)sess.getAttribute("session");
-                System.out.println("testuserget");
-                System.out.println(u1);
-                System.out.println("testMarketeur");
-                System.out.println(u1.verify_Marketeur());
+                jspDassault="/MenuGeneral.jsp"; 
                 request.setAttribute("message", " ");
                 } 
                 else
@@ -194,6 +191,8 @@ public class GererLead extends HttpServlet {
             jspDassault="/ModifierUtilisateur.jsp";
             doActionModifierUtilisateur(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesCreation.jsp";                    
+                    
         }
         
         else if(act.equals("ModifierMdpUtilisateur"))
@@ -201,6 +200,7 @@ public class GererLead extends HttpServlet {
             jspDassault="/ModifierMdpUtilisateur.jsp";
             doActionModifierMdpUtilisateur(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesCreation.jsp";
         }
         
         else if(act.equals("InactiverUtilisateur"))
@@ -208,6 +208,7 @@ public class GererLead extends HttpServlet {
             jspDassault="/InactiverUtilisateur.jsp";
             doActionInactiverUtilisateur(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesCreation.jsp";
         }
         
         else if (act.equals("RechercherUtilisateur"))
@@ -233,6 +234,7 @@ public class GererLead extends HttpServlet {
             jspDassault="/CreerProfil.jsp";
             doActionCreerProfil(request,response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesCreation.jsp";
         }
         
         else if(act.equals("AfficherProfils"))
@@ -259,6 +261,7 @@ public class GererLead extends HttpServlet {
            request.setAttribute("lesPistes",lesPistes);
            request.setAttribute("ListeVendeurActifs",ListeVendeurActifs);
            doActionAffecterVendeur(request, response);
+           jspDassault="/SuccesActionMarketeur.jsp";
         }
          
          else if(act.equals("AfficherAffecterVendeur"))  
@@ -328,6 +331,7 @@ public class GererLead extends HttpServlet {
             List<Piste_opportunite> lesPO= VendeurSession.AfficherPistes();
             request.setAttribute("lesPistes_opportunites",lesPO);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionVendeur.jsp";
         }
         
                 else if(act.equals("AfficherPistesASoumettre"))
@@ -352,6 +356,7 @@ public class GererLead extends HttpServlet {
             jspDassault="/CreerClient.jsp";
             doActionCreerClient(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionMarketeur.jsp";
         }
         
         /*else if(act.equals("CreerContact"))
@@ -368,6 +373,7 @@ public class GererLead extends HttpServlet {
             request.setAttribute("LesClients",LesClients);
             doActionCreerContact(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionMarketeur.jsp";
         }
           
          else if(act.equals("AfficherCreerContact"))  
@@ -377,27 +383,25 @@ public class GererLead extends HttpServlet {
             request.setAttribute("LesClients",LesClients);
            request.setAttribute("message", " ");     
         }
+         
         else if(act.equals("CreerPiste"))
         {
            
             jspDassault="/CreerPiste.jsp";
-           List<Profil> vendeursActifs=administrateurSession.ListeVendeursActifs();
-            
-           request.setAttribute("lesVendeursActifs",vendeursActifs);
-            
+            List<Profil> vendeursActifs=administrateurSession.ListeVendeursActifs();
+            request.setAttribute("lesVendeursActifs",vendeursActifs);
             doActionCreerPiste(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionMarketeur.jsp";
         }
         
          else if(act.equals("AfficherCreerPiste"))
         {
         
             jspDassault="/CreerPiste.jsp";
-           
             List<Profil> vendeursActifs=administrateurSession.ListeVendeursActifs();
-      
-           request.setAttribute("lesVendeursActifs",vendeursActifs);
-        request.setAttribute("message", " ");
+            request.setAttribute("lesVendeursActifs",vendeursActifs);
+            request.setAttribute("message", " ");
         }
         
         else if(act.equals("ModifierPiste"))
@@ -405,6 +409,7 @@ public class GererLead extends HttpServlet {
             jspDassault="/ModifierPiste.jsp";
             doActionModifierPiste(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionMarketeur.jsp";
         }
        
          else if (act.equals("ModifierClient"))
@@ -412,41 +417,49 @@ public class GererLead extends HttpServlet {
              jspDassault="/ModifierClient.jsp";
              doActionModifierClient(request, response);
              request.setAttribute("message", " ");
+             jspDassault="/SuccesActionMarketeur.jsp";
          }
+         
+         else if (act.equals("ModifierClientParVendeur"))
+         {
+             jspDassault="/ModifierClientParVendeur.jsp";
+             doActionModifierClientParVendeur(request, response);
+             request.setAttribute("message", " ");
+             jspDassault="/SuccesActionVendeur.jsp";
+         }
+         
          
          else if (act.equals("ModifierContact"))
          {
              jspDassault="/ModifierContact.jsp";
              doActionModifierContact(request, response);
+             jspDassault="/SuccesActionMarketeur.jsp";
             
          }
             
         else if (act.equals("ModifierContactParVendeur"))
          {
-             jspDassault="/ModifierContactParVendeur.jsp";
-            doActionModifierContact(request, response);
-            
+            jspDassault="/ModifierContactParVendeur.jsp";
+            doActionModifierContactParVendeur(request, response);
+            jspDassault="/SuccesActionVendeur.jsp";
          }
       
          else if(act.equals("AffecterExpert"))
         { 
            jspDassault="/AffecterExpert.jsp";
-           
            List<Profil> ListeExpertActif=VendeurSession.ListeExpertActif();
-           
            List<Piste_opportunite> lesPistes=VendeurSession.ListePistes();
            request.setAttribute("Pistes",lesPistes);
            request.setAttribute("lesExpertsActifs",ListeExpertActif);
+           doActionAffecterExpert(request, response);
+           jspDassault="/SuccesActionVendeur.jsp";
            
-           doActionAffecterExpert(request, response); 
         }
          
          else if(act.equals("AfficherAffecterExpert"))   
         {
            jspDassault="/AffecterExpert.jsp";
-           
            List<Profil> ListeExpertActif=VendeurSession.ListeExpertActif();
-           
            List<Piste_opportunite> lesPistes=VendeurSession.ListePistes();
            request.setAttribute("Pistes",lesPistes);
            request.setAttribute("lesExpertsActifs",ListeExpertActif);
@@ -463,6 +476,7 @@ public class GererLead extends HttpServlet {
                  p= expertSession.RechercherProduitParNom(nom_produit);
                  jspDassault="/AfficherProduit.jsp";
                  sess.setAttribute("Produit", p);
+                 
              }
             else 
             {
@@ -481,6 +495,7 @@ public class GererLead extends HttpServlet {
             request.setAttribute("LesProduits",LesProduits);
             doActionCreerDetailOffre(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionExpert.jsp";
         }
         
         else if(act.equals("AfficherCreerDetailOffre"))
@@ -503,6 +518,7 @@ public class GererLead extends HttpServlet {
             request.setAttribute("LesPistes",lesPistes);
             doActionCreerOffre(request, response);
             request.setAttribute("message", " ");
+            jspDassault="/SuccesActionExpert.jsp";
         }
         
         else if(act.equals("AfficherCreerOffre"))
@@ -892,7 +908,50 @@ public class GererLead extends HttpServlet {
      request.setAttribute( "message", message );
      }
     
+        protected void doActionModifierClientParVendeur(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    String nom = request.getParameter("nom_client");
+    String siret = request.getParameter("siret");
+    String idC = request.getParameter("clientId");
+    String message;
+
+     if ( nom.trim().isEmpty() )
+     {
+     message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires.";
+     } else 
+     { 
+         Long id = Long.parseLong(idC);
+         VendeurSession.ModifierClient(id, nom, siret);
+          
+       message = "Le client a été modifié avec succès !";
+    
+     }
+     request.setAttribute( "message", message );
+     }
+    
     protected void  doActionModifierContact (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
+        String id_contact =request.getParameter("id_contact");
+        String nom_contact = request.getParameter("nom_contact");
+        String prenom_contact = request.getParameter("prenom_contact");
+        String mail_contact = request.getParameter("mail_contact");
+        String tel_contact = request.getParameter("tel_contact");
+             
+        String message;
+                if (id_contact.trim().isEmpty())
+        {
+            message = "Erreur - Vous n'avez pas rempli tous les champs obligatoires."
+                    + "<br /> <a href =\"ModiferContact.jsp\" > Cliquez ici </a> pour accéder au formulaire de modification d'un contact.";
+        }
+        else 
+        {
+                 Long id = Long.parseLong(id_contact);
+                  marketeurSession.ModifierContact(id, nom_contact, prenom_contact, mail_contact, tel_contact);
+           message = "Contact créé avec succès!";
+        }
+        request.setAttribute("message", "Contact créé avec succès!");
+    }
+    
+      protected void  doActionModifierContactParVendeur (HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException{
         String id_contact =request.getParameter("id_contact");
         String nom_contact = request.getParameter("nom_contact");
         String prenom_contact = request.getParameter("prenom_contact");
